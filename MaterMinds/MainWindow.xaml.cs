@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static MaterMinds.Repository;
 
 namespace MaterMinds
 {
@@ -27,7 +28,7 @@ namespace MaterMinds
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string name = "Ludvig";
+            GetUsers();   
         }
     }
 }
