@@ -23,11 +23,9 @@ namespace MaterMinds
         public MainWindow()
         {
             InitializeComponent();
+            GameEngine game = new GameEngine();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            string name = "Ludvig";
-        }
+        
     }
 }
