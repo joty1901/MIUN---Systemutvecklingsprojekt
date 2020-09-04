@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterMinds.Input;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,7 +30,11 @@ namespace MaterMinds
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            GetUsers();
+            User user = new User();
+            user.Nickname = "Espen";
+            ScoreBoard scoreboard = new ScoreBoard(user, 1336);
+
+            AddUserWithScore(scoreboard, user);
 
         }
     }
