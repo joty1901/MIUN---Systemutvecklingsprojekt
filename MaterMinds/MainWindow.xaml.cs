@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static MaterMinds.Repository;
 
 namespace MaterMinds
 {
@@ -25,8 +26,11 @@ namespace MaterMinds
             InitializeComponent();
             GameEngine game = new GameEngine();
         }
-        
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            GetUsers();
 
+        }
     }
 }
