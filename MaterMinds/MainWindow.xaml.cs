@@ -38,10 +38,13 @@ namespace MaterMinds
             //AddUserWithScore(score, user);
 
 
-            //Testing GetUserHighscore
-            //List<User> t; 
+            //Test to see if you can get top 10 highscores of a specific user
+            //List<User> t;
             //t = GetPlayers().ToList();
             //GetUserHighscore(t[1]);
+
+            //Testing to see if you can get top 10 scores of all time
+            //GetTopTen();
         }
     }
 }

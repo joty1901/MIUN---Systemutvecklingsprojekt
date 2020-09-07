@@ -90,8 +90,7 @@ namespace MaterMinds
 
         public static IEnumerable<Score> GetUserHighscore(User u)
         {
-            int id = u.Id;
-            string stmt = "select value from score where player_id ="+u.Id;
+            string stmt = "select value from score where player_id ="+u.Id+ "order by value desc limit 10";
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
@@ -116,6 +115,38 @@ namespace MaterMinds
                             
                     }
                 }
+                return scoreboard;
+            }
+        }
+
+        public static IEnumerable<Score> GetTopTen()
+        {
+
+            string stmt = "select value,player_id from score order by value desc limit 10";
+
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                Score score = null;
+                List<Score> scoreboard = new List<Score>();
+                conn.Open();
+
+                using (var command = new NpgsqlCommand(stmt, conn))
+                {
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            score = new Score
+                            {
+                                Value = (int)reader["value"],
+                                UserId = (int)reader["player_id"]
+                        };
+                            scoreboard.Add(score);
+
+                        }
+                    }
+                }
+                
                 return scoreboard;
             }
         }
