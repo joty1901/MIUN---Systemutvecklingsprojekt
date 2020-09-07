@@ -11,10 +11,10 @@ namespace MaterMinds
     {
         private static string connectionString = ConfigurationManager.ConnectionStrings["universitetet"].ConnectionString;
 
-        #region User
-        public static IEnumerable<User> GetUsers()
+       
+        public static IEnumerable<User> GetPlayers()
         {
-            string stmt = "select user_id, nickname from users";
+            string stmt = "select id, nickname from player";
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
@@ -30,7 +30,7 @@ namespace MaterMinds
                         {
                             user = new User
                             {
-                                Id = (int)reader["user_id"],
+                                Id = (int)reader["id"],
                                 Nickname = (string)reader["nickname"],
                             };
                             users.Add(user);
@@ -42,12 +42,11 @@ namespace MaterMinds
         }
 
 
-        #endregion
 
-        public static void AddUserWithScore(ScoreBoard score, User user)
+        public static void AddUserWithScore(Score score, User user)
         {
-            string stmt = "INSERT INTO users(nickname) values(@nickname) returning user_id";
-            string stmt2 = "INSERT INTO scoreboard(user_id, score) values(@user_id, @score)";
+            string stmt = "INSERT INTO player(nickname) values(@nickname) returning id";
+            string stmt2 = "INSERT INTO score(player_id, score) values(@player_id, @score)";
 
             int userId;
 
@@ -67,8 +66,8 @@ namespace MaterMinds
 
                         using (var command = new NpgsqlCommand(stmt2, conn))
                         {
-                            command.Parameters.AddWithValue("user_id", userId);
-                            command.Parameters.AddWithValue("score", score.Score);
+                            command.Parameters.AddWithValue("id", userId);
+                            command.Parameters.AddWithValue("score", score.Value);
                             command.ExecuteScalar();
                         }
                         trans.Commit();
@@ -85,6 +84,35 @@ namespace MaterMinds
                 }
             }
 
+        }
+
+        public static IEnumerable<Score> GetHighscore()
+        {
+            string stmt = "select id, nickname from player";
+
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                Score score = null;
+                List<Score> scoreboard = new List<Score>();
+                conn.Open();
+
+                using (var command = new NpgsqlCommand(stmt, conn))
+                {
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            score = new Score
+                            {
+                                Value = (int)reader["score"],
+                                UserId = (int)reader["id"],
+                            };
+                            scoreboard.Add(score);
+                        }
+                    }
+                }
+                return scoreboard;
+            }
         }
 
         //public static int AddUser(User user)

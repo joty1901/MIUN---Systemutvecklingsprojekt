@@ -4,17 +4,21 @@ using System.Text;
 
 namespace MaterMinds.Input
 {
-    public class ScoreBoard
+    public class Score
     {
-        public int Score { get; set; }
+        public int Value { get; set; }
         public int ScoreId { get; set; }
         public int UserId { get; set; }
         public DateTime Date { get; set; }
 
-        public ScoreBoard(User user, int score)
+        public Score(User user, int value)
         {
-            Score = score;
+            Value = value;
             UserId = user.Id;
+        }
+        public Score()
+        {
+
         }
     }
 }
