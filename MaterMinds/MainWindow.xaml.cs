@@ -1,6 +1,7 @@
 ﻿using MaterMinds.Input;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,8 +36,12 @@ namespace MaterMinds
             //Score score = new Score(user, 1336);
 
             //AddUserWithScore(score, user);
-            GetPlayers();
 
+
+            //Testing GetUserHighscore
+            //List<User> t; 
+            //t = GetPlayers().ToList();
+            //GetUserHighscore(t[1]);
         }
     }
 }

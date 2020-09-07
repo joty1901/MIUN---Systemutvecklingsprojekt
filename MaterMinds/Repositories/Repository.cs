@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Linq;
 using System.Text;
+using System.Windows.Media;
 using MaterMinds.Input;
 using Npgsql;
 
@@ -86,9 +88,10 @@ namespace MaterMinds
 
         }
 
-        public static IEnumerable<Score> GetHighscore()
+        public static IEnumerable<Score> GetUserHighscore(User u)
         {
-            string stmt = "select id, nickname from player";
+            int id = u.Id;
+            string stmt = "select value from score where player_id ="+u.Id;
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
@@ -100,15 +103,17 @@ namespace MaterMinds
                 {
                     using (var reader = command.ExecuteReader())
                     {
-                        while (reader.Read())
+                        while(reader.Read())
                         {
                             score = new Score
                             {
-                                Value = (int)reader["score"],
-                                UserId = (int)reader["id"],
+                                Value = (int)reader["value"]
                             };
                             scoreboard.Add(score);
+                        
                         }
+                        
+                            
                     }
                 }
                 return scoreboard;
