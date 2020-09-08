@@ -23,23 +23,34 @@ namespace MaterMinds
                 User user = null;
                 List<User> users = new List<User>();
                 conn.Open();
-
-                using (var command = new NpgsqlCommand(stmt, conn))
-                {
-                    using (var reader = command.ExecuteReader())
+                using (var trans = conn.BeginTransaction())
+                    try
                     {
-                        while (reader.Read())
+                        using (var command = new NpgsqlCommand(stmt, conn))
                         {
-                            user = new User
+                            using (var reader = command.ExecuteReader())
                             {
-                                Id = (int)reader["id"],
-                                Nickname = (string)reader["nickname"],
-                            };
-                            users.Add(user);
+                                while (reader.Read())
+                                {
+                                    user = new User
+                                    {
+                                        Id = (int)reader["id"],
+                                        Nickname = (string)reader["nickname"],
+                                    };
+                                    users.Add(user);
+                                }
+                            }
                         }
+                        trans.Commit();
+                        return users;
+
                     }
-                }
-                return users;
+                    catch (PostgresException)
+                    {
+                        trans.Rollback();
+                        throw;
+                    }
+
             }
         }
 
@@ -76,7 +87,7 @@ namespace MaterMinds
                     }
 
                     
-                    catch (Exception)
+                    catch (PostgresException)
                     {
                         trans.Rollback();
                         throw;
@@ -90,32 +101,41 @@ namespace MaterMinds
 
         public static IEnumerable<Score> GetUserHighscore(User u)
         {
-            string stmt = "select value from score where player_id ="+u.Id+ "order by value desc limit 10";
+            string stmt = "select value from score where player_id =@id order by value desc limit 10";
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
                 Score score = null;
                 List<Score> scoreboard = new List<Score>();
                 conn.Open();
-
-                using (var command = new NpgsqlCommand(stmt, conn))
-                {
-                    using (var reader = command.ExecuteReader())
+                using (var trans = conn.BeginTransaction())
+                    try
                     {
-                        while(reader.Read())
+                        using (var command = new NpgsqlCommand(stmt, conn))
                         {
-                            score = new Score
+                            command.Parameters.AddWithValue("id", u.Id);
+
+                            using (var reader = command.ExecuteReader())
                             {
-                                Value = (int)reader["value"]
-                            };
-                            scoreboard.Add(score);
-                        
+                                while (reader.Read())
+                                {
+                                    score = new Score
+                                    {
+                                        Value = (int)reader["value"]
+                                    };
+                                    scoreboard.Add(score);
+                                }
+                            }
                         }
-                        
-                            
+                        trans.Commit();
+                        return scoreboard;
                     }
-                }
-                return scoreboard;
+                    catch (PostgresException)
+                    {
+                        trans.Rollback();
+                        throw;
+                    }
+
             }
         }
 
@@ -129,25 +149,34 @@ namespace MaterMinds
                 Score score = null;
                 List<Score> scoreboard = new List<Score>();
                 conn.Open();
-
-                using (var command = new NpgsqlCommand(stmt, conn))
-                {
-                    using (var reader = command.ExecuteReader())
+                using (var trans = conn.BeginTransaction())
+                    try
                     {
-                        while (reader.Read())
+                        using (var command = new NpgsqlCommand(stmt, conn))
                         {
-                            score = new Score
+                            using (var reader = command.ExecuteReader())
                             {
-                                Value = (int)reader["value"],
-                                UserId = (int)reader["player_id"]
-                        };
-                            scoreboard.Add(score);
+                                while (reader.Read())
+                                {
+                                    score = new Score
+                                    {
+                                        Value = (int)reader["value"],
+                                        UserId = (int)reader["player_id"]
+                                    };
+                                    scoreboard.Add(score);
 
+                                }
+                            }
                         }
+                        trans.Commit();
+                        return scoreboard;
+
                     }
-                }
-                
-                return scoreboard;
+                    catch (PostgresException)
+                    {
+                        trans.Rollback();
+                        throw;
+                    }
             }
         }
 
