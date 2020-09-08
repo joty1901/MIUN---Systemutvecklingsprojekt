@@ -180,23 +180,24 @@ namespace MaterMinds
             }
         }
 
-        //public static int AddUser(User user)
-        //{
-        //    string stmt = "INSERT INTO users(nickname) values(@nickname) returning id";
+        public static int AddPlayer(Player player)
+        {
+            string stmt = "INSERT INTO player(nickname) values(@nickname) returning id";
 
-        //    using (var conn = new NpgsqlConnection(connectionString))
-        //    {
-        //        using (var command = new NpgsqlCommand(stmt, conn))
-        //        {
-        //            conn.Open();
-        //            command.Parameters.AddWithValue("user_id", user.Id);
-        //            command.Parameters.AddWithValue("nickname", user.Nickname);
-        //            int id = (int)command.ExecuteScalar();
-        //            user.Id = id;
-        //            return id;
-        //        }
-        //    }
-        //}
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+
+                using (var command = new NpgsqlCommand(stmt, conn))
+                {
+                    conn.Open();
+                    command.Parameters.AddWithValue("player_id", player.Id);
+                    command.Parameters.AddWithValue("nickname", player.Nickname);
+                    int id = (int)command.ExecuteScalar();
+                    player.Id = id;
+                    return id;
+                }
+            }
+        }
 
     }
 }

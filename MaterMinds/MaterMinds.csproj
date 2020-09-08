@@ -10,9 +10,4 @@
     <PackageReference Include="Npgsql" Version="4.1.4" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ViewModel\" />
-    <Folder Include="View\" />
-  </ItemGroup>
-
 </Project>

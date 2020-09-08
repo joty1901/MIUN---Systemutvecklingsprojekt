@@ -26,7 +26,6 @@ namespace MaterMinds
         public MainWindow()
         {
             InitializeComponent();
-            
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -39,12 +38,16 @@ namespace MaterMinds
 
 
             //Test to see if you can get top 10 highscores of a specific user
-            List<User> t;
-            t = GetPlayers().ToList();
-            GetUserHighscore(t[1]);
+            //List<User> t;
+            //t = GetPlayers().ToList();
+            //GetUserHighscore(t[1]);
+            ChoosePlayerPage page = new ChoosePlayerPage();
+            Main.Content = page;
 
             //Testing to see if you can get top 10 scores of all time
             //GetTopTen();
         }
+
+        
     }
 }
