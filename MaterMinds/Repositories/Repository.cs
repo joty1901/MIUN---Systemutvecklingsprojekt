@@ -9,7 +9,7 @@ using Npgsql;
 
 namespace MaterMinds
 {
-    public class Repository
+    public static class Repository
     {
         private static string connectionString = ConfigurationManager.ConnectionStrings["universitetet"].ConnectionString;
 
