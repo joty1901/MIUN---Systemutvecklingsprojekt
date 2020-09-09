@@ -28,7 +28,7 @@ namespace MaterMinds
             InitializeComponent();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void BtnOne_Click(object sender, RoutedEventArgs e)
         {
             //User user = new User();
             //user.Nickname = "Espen";
@@ -41,13 +41,21 @@ namespace MaterMinds
             //List<User> t;
             //t = GetPlayers().ToList();
             //GetUserHighscore(t[1]);
-            ChoosePlayerPage page = new ChoosePlayerPage();
-            Main.Content = page;
+            
 
             //Testing to see if you can get top 10 scores of all time
             //GetTopTen();
         }
 
-        
+        private void BtnTwo_Click(object sender, RoutedEventArgs e)
+        {
+            ChoosePlayerPage page = new ChoosePlayerPage();
+            Main.Content = page;
+        }
+
+        private void BtnThree_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
