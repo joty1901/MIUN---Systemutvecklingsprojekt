@@ -1,5 +1,4 @@
-﻿using MaterMinds.Input;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -55,7 +54,8 @@ namespace MaterMinds
 
         private void BtnThree_Click(object sender, RoutedEventArgs e)
         {
-
+            HighscorePage page = new HighscorePage();
+            Main.Content = page;
         }
     }
 }

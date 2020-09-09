@@ -4,7 +4,6 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Windows.Media;
-using MaterMinds.Input;
 using Npgsql;
 
 namespace MaterMinds
@@ -54,12 +53,11 @@ namespace MaterMinds
             }
         }
 
-        public static void AddPlayerWithScore(Score score, Player player)
+        public static void AddPlayerWithScore(int playerId, int score)
         {
-            string stmt = "INSERT INTO player(nickname) values(@nickname) returning id";
-            string stmt2 = "INSERT INTO score(player_id, score) values(@player_id, @score)";
+            string stmt = "INSERT INTO score(player_id, score) values(@playerId, @score)";
 
-            int playerId;
+            
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
@@ -67,17 +65,11 @@ namespace MaterMinds
                 using (var trans = conn.BeginTransaction())
                 {
                     try
-                    {
+                    {                     
                         using (var command = new NpgsqlCommand(stmt, conn))
                         {
-                            command.Parameters.AddWithValue("nickname", player.Nickname);
-                            playerId = (int)command.ExecuteScalar();
-                        }
-
-                        using (var command = new NpgsqlCommand(stmt2, conn))
-                        {
-                            command.Parameters.AddWithValue("id", playerId);
-                            command.Parameters.AddWithValue("score", score.Value);
+                            command.Parameters.AddWithValue("player_id", playerId);
+                            command.Parameters.AddWithValue("score", score);
                             command.ExecuteScalar();
                         }
                         trans.Commit();
@@ -96,7 +88,7 @@ namespace MaterMinds
 
         }
 
-        public static IEnumerable<Score> GetUserHighscore(User u)
+        public static IEnumerable<Score> GetUserHighscore(Player player)
         {
             string stmt = "select value from score where player_id =@id order by value desc limit 10";
 
@@ -110,7 +102,7 @@ namespace MaterMinds
                     {
                         using (var command = new NpgsqlCommand(stmt, conn))
                         {
-                            command.Parameters.AddWithValue("id", u.Id);
+                            command.Parameters.AddWithValue("id", player.Id);
 
                             using (var reader = command.ExecuteReader())
                             {
@@ -136,15 +128,14 @@ namespace MaterMinds
             }
         }
 
-        public static IEnumerable<Score> GetTopTen()
+        public static IEnumerable<string> GetTopTenHigscore()
         {
-
-            string stmt = "select value,player_id from score order by value desc limit 10";
+            string stmt = "SELECT player.nickname, score.value from player INNER JOIN score ON score.player_id = player.id ORDER BY score.value DESC LIMIT 10";
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
-                Score score = null;
-                List<Score> scoreboard = new List<Score>();
+               
+                List<string> highscores = new List<string>();
                 conn.Open();
                 using (var trans = conn.BeginTransaction())
                     try
@@ -155,18 +146,19 @@ namespace MaterMinds
                             {
                                 while (reader.Read())
                                 {
-                                    score = new Score
+                                    string s;
                                     {
-                                        Value = (int)reader["value"],
-                                        UserId = (int)reader["player_id"]
+                                        s = reader["nickname"].ToString();
+                                        s += "...............";
+                                        s += reader["value"].ToString();
                                     };
-                                    scoreboard.Add(score);
+                                    highscores.Add(s);
 
                                 }
                             }
                         }
                         trans.Commit();
-                        return scoreboard;
+                        return highscores;
 
                     }
                     catch (PostgresException)
