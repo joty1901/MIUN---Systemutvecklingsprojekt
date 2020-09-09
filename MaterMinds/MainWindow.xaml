@@ -11,7 +11,7 @@
         <StackPanel>
             <Button x:Name="BtnOne" Content="New Game" HorizontalAlignment="Left" Margin="350,150,0,0" VerticalAlignment="Top" Click="BtnOne_Click" Width="71"/>
             <Button x:Name="BtnTwo" Content="Select Player" HorizontalAlignment="Left" Margin="350,10,0,0" VerticalAlignment="Top" Click="BtnTwo_Click"/>
-            <Button x:Name="BtnThree" Content="Settings" HorizontalAlignment="Left" Margin="350,10,0,0" VerticalAlignment="Top" Click="BtnThree_Click" Width="71"/>
+            <Button x:Name="BtnThree" Content="Highscore" HorizontalAlignment="Left" Margin="350,10,0,0" VerticalAlignment="Top" Click="BtnThree_Click" Width="71"/>
         </StackPanel>
             <Frame x:Name="Main" NavigationUIVisibility="Hidden">
             </Frame>
