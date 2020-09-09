@@ -9,19 +9,19 @@ using Npgsql;
 
 namespace MaterMinds
 {
-    public static class Repository
+    interface IRepository
     {
         private static string connectionString = ConfigurationManager.ConnectionStrings["universitetet"].ConnectionString;
 
        
-        public static IEnumerable<User> GetPlayers()
+        public static IEnumerable<Player> GetDbPlayers()
         {
             string stmt = "select id, nickname from player";
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
-                User user = null;
-                List<User> users = new List<User>();
+                Player player = null;
+                List<Player> players = new List<Player>();
                 conn.Open();
                 using (var trans = conn.BeginTransaction())
                     try
@@ -32,17 +32,17 @@ namespace MaterMinds
                             {
                                 while (reader.Read())
                                 {
-                                    user = new User
+                                    player = new Player
                                     {
                                         Id = (int)reader["id"],
                                         Nickname = (string)reader["nickname"],
                                     };
-                                    users.Add(user);
+                                    players.Add(player);
                                 }
                             }
                         }
                         trans.Commit();
-                        return users;
+                        return players;
 
                     }
                     catch (PostgresException)
@@ -54,14 +54,12 @@ namespace MaterMinds
             }
         }
 
-
-
-        public static void AddUserWithScore(Score score, User user)
+        public static void AddPlayerWithScore(Score score, Player player)
         {
             string stmt = "INSERT INTO player(nickname) values(@nickname) returning id";
             string stmt2 = "INSERT INTO score(player_id, score) values(@player_id, @score)";
 
-            int userId;
+            int playerId;
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
@@ -72,14 +70,13 @@ namespace MaterMinds
                     {
                         using (var command = new NpgsqlCommand(stmt, conn))
                         {
-                            //command.Parameters.AddWithValue("user_id", user.Id);
-                            command.Parameters.AddWithValue("nickname", user.Nickname);
-                            userId = (int)command.ExecuteScalar();
+                            command.Parameters.AddWithValue("nickname", player.Nickname);
+                            playerId = (int)command.ExecuteScalar();
                         }
 
                         using (var command = new NpgsqlCommand(stmt2, conn))
                         {
-                            command.Parameters.AddWithValue("id", userId);
+                            command.Parameters.AddWithValue("id", playerId);
                             command.Parameters.AddWithValue("score", score.Value);
                             command.ExecuteScalar();
                         }
@@ -180,7 +177,7 @@ namespace MaterMinds
             }
         }
 
-        public static int AddPlayer(Player player)
+        public static void AddPlayer(string  nickname)
         {
             string stmt = "INSERT INTO player(nickname) values(@nickname) returning id";
 
@@ -190,11 +187,9 @@ namespace MaterMinds
                 using (var command = new NpgsqlCommand(stmt, conn))
                 {
                     conn.Open();
-                    command.Parameters.AddWithValue("player_id", player.Id);
-                    command.Parameters.AddWithValue("nickname", player.Nickname);
+                    //command.Parameters.AddWithValue("player_id", Id);
+                    command.Parameters.AddWithValue("nickname", nickname);
                     int id = (int)command.ExecuteScalar();
-                    player.Id = id;
-                    return id;
                 }
             }
         }
