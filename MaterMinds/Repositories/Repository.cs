@@ -8,8 +8,9 @@ using Npgsql;
 
 namespace MaterMinds
 {
-    interface IRepository
+    class Repository
     {
+        
         private static string connectionString = ConfigurationManager.ConnectionStrings["universitetet"].ConnectionString;
 
        
