@@ -22,7 +22,7 @@ namespace MaterMinds
                 Stroke = Brushes.Black,
                 StrokeThickness = 1
             };
-            ColorIndex = 2;
+            ColorIndex = 3;
             master.Children.Add(ellipse);
         }
     }
