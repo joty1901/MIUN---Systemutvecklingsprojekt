@@ -28,9 +28,13 @@ namespace MaterMinds
         {
             if (Counter <= 6)
             {
-                IsActive = new ObservableCollection<bool> { false, false, false, false, false, false, false};
+                IsActive = new ObservableCollection<bool> { false, false, false, false, false, false, false };
                 IsActive[Counter] = true;
                 Counter++;
+            }
+            else
+            {
+                IsActive = new ObservableCollection<bool> { false, false, false, false, false, false, false };
             }
 
 
