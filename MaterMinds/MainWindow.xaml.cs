@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static MaterMinds.IRepository;
+using static MaterMinds.Repository;
 
 namespace MaterMinds
 {
@@ -29,6 +29,8 @@ namespace MaterMinds
 
         private void BtnOne_Click(object sender, RoutedEventArgs e)
         {
+            var page = new GamePage();
+            Main.Content = page;
             //User user = new User();
             //user.Nickname = "Espen";
             //Score score = new Score(user, 1336);

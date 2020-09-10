@@ -1,15 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace MaterMinds
 {
@@ -18,9 +8,18 @@ namespace MaterMinds
     /// </summary>
     public partial class GamePage : Page
     {
+        private GameViewModel model;
         public GamePage()
         {
-            
+            InitializeComponent();
+            model = new GameViewModel();
+            DataContext = model;
+        }
+
+        private void ButtonYellow_Click(object sender, RoutedEventArgs e)
+        {
+            //var page = new MainMenuePage();
+            //Main.Content = page;
         }
     }
 }

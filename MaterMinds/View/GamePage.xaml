@@ -7,9 +7,24 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="GamePage"
-      Background="White">
+      AllowDrop="True">
 
-    <Grid>
-        
-    </Grid>
+    <Grid Background="Orange">
+        <Grid>
+            <Grid.ColumnDefinitions>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <Button Content="Button" Command="{Binding Någonting}"/>
+                <local:AnswerControl x:Name="Guess5" Margin="0,5,0,5" AllowDrop="{Binding IsCool[6]}"/>
+                <local:AnswerControl x:Name="Guess4" Margin="0,5,0,5" AllowDrop="{Binding IsCool[5]}"/>
+                <local:AnswerControl x:Name="Guess3" Margin="0,5,0,5" AllowDrop="{Binding IsCool[4]}"/>
+                <local:AnswerControl x:Name="Guess6" Margin="0,5,0,5" AllowDrop="{Binding IsCool[3]}"/>
+                <local:AnswerControl x:Name="Guess2" Margin="0,5,0,5" AllowDrop="{Binding IsCool[2]}"/>
+                <local:AnswerControl x:Name="Guess1" Margin="0,5,0,5" AllowDrop="{Binding IsCool[1]}"/>
+                <local:AnswerControl x:Name="Guess0" Margin="0,5,0,5" AllowDrop="{Binding IsCool[0]}"/>
+                <local:GuessControl x:Name="CurrentGuess" Margin="0,5,0,5" AllowDrop="True"/>
+                <Button x:Name="Button_Yellow" Grid.Column="0" Grid.Row="0" Height="20" Width="20"  Background="Yellow" Click="ButtonYellow_Click"/>
+            </StackPanel>
+        </Grid>
+     </Grid>
 </Page>
