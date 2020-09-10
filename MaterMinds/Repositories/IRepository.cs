@@ -4,24 +4,23 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Windows.Media;
-using MaterMinds.Input;
 using Npgsql;
 
 namespace MaterMinds
 {
-    public static class Repository
+    interface IRepository
     {
         private static string connectionString = ConfigurationManager.ConnectionStrings["universitetet"].ConnectionString;
 
        
-        public static IEnumerable<User> GetPlayers()
+        public static IEnumerable<Player> GetDbPlayers()
         {
             string stmt = "select id, nickname from player";
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
-                User user = null;
-                List<User> users = new List<User>();
+                Player player = null;
+                List<Player> players = new List<Player>();
                 conn.Open();
                 using (var trans = conn.BeginTransaction())
                     try
@@ -32,17 +31,17 @@ namespace MaterMinds
                             {
                                 while (reader.Read())
                                 {
-                                    user = new User
+                                    player = new Player
                                     {
                                         Id = (int)reader["id"],
                                         Nickname = (string)reader["nickname"],
                                     };
-                                    users.Add(user);
+                                    players.Add(player);
                                 }
                             }
                         }
                         trans.Commit();
-                        return users;
+                        return players;
 
                     }
                     catch (PostgresException)
@@ -54,14 +53,11 @@ namespace MaterMinds
             }
         }
 
-
-
-        public static void AddUserWithScore(Score score, User user)
+        public static void AddPlayerWithScore(int playerId, int score)
         {
-            string stmt = "INSERT INTO player(nickname) values(@nickname) returning id";
-            string stmt2 = "INSERT INTO score(player_id, score) values(@player_id, @score)";
+            string stmt = "INSERT INTO score(player_id, score) values(@playerId, @score)";
 
-            int userId;
+            
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
@@ -69,18 +65,11 @@ namespace MaterMinds
                 using (var trans = conn.BeginTransaction())
                 {
                     try
-                    {
+                    {                     
                         using (var command = new NpgsqlCommand(stmt, conn))
                         {
-                            //command.Parameters.AddWithValue("user_id", user.Id);
-                            command.Parameters.AddWithValue("nickname", user.Nickname);
-                            userId = (int)command.ExecuteScalar();
-                        }
-
-                        using (var command = new NpgsqlCommand(stmt2, conn))
-                        {
-                            command.Parameters.AddWithValue("id", userId);
-                            command.Parameters.AddWithValue("score", score.Value);
+                            command.Parameters.AddWithValue("player_id", playerId);
+                            command.Parameters.AddWithValue("score", score);
                             command.ExecuteScalar();
                         }
                         trans.Commit();
@@ -99,7 +88,7 @@ namespace MaterMinds
 
         }
 
-        public static IEnumerable<Score> GetUserHighscore(User u)
+        public static IEnumerable<Score> GetUserHighscore(Player player)
         {
             string stmt = "select value from score where player_id =@id order by value desc limit 10";
 
@@ -113,7 +102,7 @@ namespace MaterMinds
                     {
                         using (var command = new NpgsqlCommand(stmt, conn))
                         {
-                            command.Parameters.AddWithValue("id", u.Id);
+                            command.Parameters.AddWithValue("id", player.Id);
 
                             using (var reader = command.ExecuteReader())
                             {
@@ -139,15 +128,14 @@ namespace MaterMinds
             }
         }
 
-        public static IEnumerable<Score> GetTopTen()
+        public static IEnumerable<string> GetTopTenHigscore()
         {
-
-            string stmt = "select value,player_id from score order by value desc limit 10";
+            string stmt = "SELECT player.nickname, score.value from player INNER JOIN score ON score.player_id = player.id ORDER BY score.value DESC LIMIT 10";
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
-                Score score = null;
-                List<Score> scoreboard = new List<Score>();
+               
+                List<string> highscores = new List<string>();
                 conn.Open();
                 using (var trans = conn.BeginTransaction())
                     try
@@ -158,18 +146,19 @@ namespace MaterMinds
                             {
                                 while (reader.Read())
                                 {
-                                    score = new Score
+                                    string s;
                                     {
-                                        Value = (int)reader["value"],
-                                        UserId = (int)reader["player_id"]
+                                        s = reader["nickname"].ToString();
+                                        s += "...............";
+                                        s += reader["value"].ToString();
                                     };
-                                    scoreboard.Add(score);
+                                    highscores.Add(s);
 
                                 }
                             }
                         }
                         trans.Commit();
-                        return scoreboard;
+                        return highscores;
 
                     }
                     catch (PostgresException)
@@ -180,7 +169,7 @@ namespace MaterMinds
             }
         }
 
-        public static int AddPlayer(Player player)
+        public static void AddPlayer(string  nickname)
         {
             string stmt = "INSERT INTO player(nickname) values(@nickname) returning id";
 
@@ -190,11 +179,9 @@ namespace MaterMinds
                 using (var command = new NpgsqlCommand(stmt, conn))
                 {
                     conn.Open();
-                    command.Parameters.AddWithValue("player_id", player.Id);
-                    command.Parameters.AddWithValue("nickname", player.Nickname);
+                    //command.Parameters.AddWithValue("player_id", Id);
+                    command.Parameters.AddWithValue("nickname", nickname);
                     int id = (int)command.ExecuteScalar();
-                    player.Id = id;
-                    return id;
                 }
             }
         }

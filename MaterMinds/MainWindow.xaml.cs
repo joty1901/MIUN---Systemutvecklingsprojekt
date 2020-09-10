@@ -1,5 +1,4 @@
-﻿using MaterMinds.Input;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -14,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static MaterMinds.Repository;
+using static MaterMinds.IRepository;
 
 namespace MaterMinds
 {
@@ -55,7 +54,8 @@ namespace MaterMinds
 
         private void BtnThree_Click(object sender, RoutedEventArgs e)
         {
-
+            HighscorePage page = new HighscorePage();
+            Main.Content = page;
         }
     }
 }
