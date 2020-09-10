@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Remove="Resources\giphy.gif" />
+    <None Remove="Resources\MaterMindBackground.jpg" />
     <None Remove="Sound\Rumble.mp3" />
   </ItemGroup>
 
@@ -25,6 +26,9 @@
 
   <ItemGroup>
     <Resource Include="Resources\giphy.gif" />
+    <Resource Include="Resources\MaterMindBackground.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>

@@ -54,11 +54,9 @@ namespace MaterMinds
             }
         }
 
-        public static void AddPlayerWithScore(int playerId, int score)
+        public static void AddPlayerScore(int playerId, int score)
         {
             string stmt = "INSERT INTO score(player_id, score) values(@playerId, @score)";
-
-            
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
@@ -75,15 +73,11 @@ namespace MaterMinds
                         }
                         trans.Commit();
                     }
-
-                    
                     catch (PostgresException)
                     {
                         trans.Rollback();
                         throw;
                     }
-
-
                 }
             }
 

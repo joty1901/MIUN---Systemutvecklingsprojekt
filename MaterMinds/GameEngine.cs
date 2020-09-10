@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
-
+using System.Windows.Threading;
 namespace MaterMinds
 {
     public class GameEngine
@@ -15,7 +16,7 @@ namespace MaterMinds
         List<int> answer = new List<int>() { 4, 2, 3, 2 };
         public GameEngine()
         {
-            correctColor = new List<int>() { 0, 0, 0, 0};
+            correctColor = new List<int>() { 0, 0, 0, 0 };
             hintArray = new List<int>() { 0, 0, 0, 0 };
             StartGame();
             CheckPegPosition(answer);
@@ -28,11 +29,11 @@ namespace MaterMinds
             {
                 correctColor[i] = random.Next(1, 5);
             }
-           
+
         }
         public void CheckPegPosition(List<int> answer)
         {
-            List<int> checkList = new List<int>() { 0, 0, 0, 0};
+            List<int> checkList = new List<int>() { 0, 0, 0, 0 };
             for (int i = 0; i < answer.Count; i++)
             {
                 if (correctColor.Contains(answer[i]) && !checkList.Contains(answer[i]))
@@ -50,12 +51,21 @@ namespace MaterMinds
             }
             hintArray.Sort();
             hintArray.Reverse();
-           
+
         }
 
-        public int CountGameTime()
+        public string CalcTime(DateTime date, DateTime date2 )
         {
-            return 0;
+            string result = date2.Subtract(date).ToString();
+
+            return result;
+        }
+
+        public DateTime GetDateTime()
+        {
+            DateTime date = DateTime.Now;
+            
+            return date;
         }
     }
 }

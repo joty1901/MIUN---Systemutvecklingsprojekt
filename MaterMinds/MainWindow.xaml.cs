@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterMinds.View;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -23,9 +24,14 @@ namespace MaterMinds
     public partial class MainWindow : Window
     {
         private MediaPlayer mediaPlayer = new MediaPlayer();
+        GameEngine gameEngine; 
+
         public MainWindow()
         {
             InitializeComponent();
+            var page = new MainMenyPage();
+            Main.Content = page;
+            gameEngine = new GameEngine();
         }
 
         private void BtnOne_Click(object sender, RoutedEventArgs e)

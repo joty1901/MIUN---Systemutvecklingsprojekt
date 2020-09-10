@@ -1,0 +1,20 @@
+﻿<Page x:Class="MaterMinds.View.MainMenyPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MaterMinds.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MainMenyPage">
+
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="173">
+            <Label Content="MaterMinds" Margin="0,0,0,0"  FontSize="25" FontWeight="Bold" Foreground="Azure" />
+            <Button Content="New Game" Margin="0,0,0,0" Click="Button_Click"  />
+            <Button Content="Select Player" Margin="0,10,0,0" Click="Button_Click_1" />
+            <Button Content="Highscore" Margin="0,10,0,0" Click="Button_Click_2" />
+        </StackPanel>
+        <Frame x:Name="MainMeny" NavigationUIVisibility="Automatic"/>
+    </Grid>
+</Page>

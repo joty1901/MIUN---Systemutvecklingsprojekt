@@ -5,23 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MaterMinds"
         mc:Ignorable="d"
-        Title="Matermind" Height="600" Width="800"
-        xmlns:gif ="https://github.com/XamlAnimatedGif/XamlAnimatedGif">
+        Title="Matermind" Height="466" Width="800"
+        
+        >
+        
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="171*"/>
-            <ColumnDefinition Width="229*"/>
-        </Grid.ColumnDefinitions>
-
-        <Image x:Name="image" gif:AnimationBehavior.SourceUri="Resources/giphy.gif" HorizontalAlignment="Left" Height="567" Margin="10,10,0,0" VerticalAlignment="Top" Width="772" Grid.ColumnSpan="2"/>
-        <StackPanel Grid.ColumnSpan="2">
-            <Label Content="MaterMinds" HorizontalAlignment="Left" Margin="298,81,0,0" VerticalAlignment="Top" Width="191" FontSize="30" Grid.ColumnSpan="2" FontWeight="Bold" />
-            <Button x:Name="BtnOne" Content="New Game" HorizontalAlignment="Left" Margin="350,150,0,0" VerticalAlignment="Top" Click="BtnOne_Click" Width="71"/>
-            <Button x:Name="BtnTwo" Content="Select Player" HorizontalAlignment="Left" Margin="350,10,0,0" VerticalAlignment="Top" Click="BtnTwo_Click"/>
-            <Button x:Name="BtnThree" Content="Highscore" HorizontalAlignment="Left" Margin="350,10,0,0" VerticalAlignment="Top" Click="BtnThree_Click" Width="71"/>
-        </StackPanel>
-        <Frame x:Name="Main" NavigationUIVisibility="Hidden" Grid.ColumnSpan="2">
-        </Frame>
+        <Grid.Background>
+            <ImageBrush ImageSource="Resources/MaterMindBackground.jpg" />
+        </Grid.Background>
+        
+        
+        
+            <Label Content="MaterMinds" Margin="298,81,0,0"  FontSize="30"  FontWeight="Bold" />
+            <Button x:Name="BtnOne" Content="New Game" HorizontalAlignment="Center" Margin="350,30,0,0" VerticalAlignment="Top" Click="BtnOne_Click" Width="71"/>
+            <Button x:Name="BtnTwo" Content="Select Player" HorizontalAlignment="Center" Margin="350,60,0,0" VerticalAlignment="Top" Click="BtnTwo_Click"/>
+            <Button x:Name="BtnThree" Content="Highscore" HorizontalAlignment="Center" Margin="350,90,0,0" VerticalAlignment="Top" Click="BtnThree_Click" Width="71"/>
+        
+        
+        <Frame x:Name="Main" NavigationUIVisibility="Visible" />
     </Grid>
 </Window>
+ 
