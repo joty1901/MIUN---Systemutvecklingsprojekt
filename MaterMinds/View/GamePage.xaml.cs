@@ -74,6 +74,18 @@ namespace MaterMinds
                                 greenCopy.IsMoveble = false;
                                 _panel.Children.Add(greenCopy);
                             }
+                            else if (_element is PurplePeg)
+                            {
+                                PurplePeg purpleCopy = new PurplePeg();
+                                purpleCopy.IsMoveble = false;
+                                _panel.Children.Add(purpleCopy);
+                            }
+                            else if (_element is OrangePeg)
+                            {
+                                OrangePeg OrangeCopy = new OrangePeg();
+                                OrangeCopy.IsMoveble = false;
+                                _panel.Children.Add(OrangeCopy);
+                            }
                             var colorId = ((MasterPeg)_element).ColorIndex;
                             int key = int.Parse(_panel.Uid);
                             model.PlacedPegs.AddOrUpdate(key, colorId);
