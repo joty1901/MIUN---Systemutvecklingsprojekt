@@ -16,13 +16,6 @@
         </Grid.Background>
         
         
-        
-            <Label Content="MaterMinds" Margin="298,81,0,0"  FontSize="30"  FontWeight="Bold" />
-            <Button x:Name="BtnOne" Content="New Game" HorizontalAlignment="Center" Margin="350,30,0,0" VerticalAlignment="Top" Click="BtnOne_Click" Width="71"/>
-            <Button x:Name="BtnTwo" Content="Select Player" HorizontalAlignment="Center" Margin="350,60,0,0" VerticalAlignment="Top" Click="BtnTwo_Click"/>
-            <Button x:Name="BtnThree" Content="Highscore" HorizontalAlignment="Center" Margin="350,90,0,0" VerticalAlignment="Top" Click="BtnThree_Click" Width="71"/>
-        
-        
         <Frame x:Name="Main" NavigationUIVisibility="Visible" />
     </Grid>
 </Window>
