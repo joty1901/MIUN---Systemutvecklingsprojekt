@@ -22,7 +22,7 @@ namespace MaterMinds
     /// </summary>
     public partial class MainWindow : Window
     {
-        private MediaPlayer mediaPlayer = new MediaPlayer();
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -32,8 +32,6 @@ namespace MaterMinds
         {
             var page = new GamePage();
             Main.Content = page;
-            mediaPlayer.Open(new Uri(@"Sound/Rumble.mp3", UriKind.Relative));
-            mediaPlayer.Play();
             //User user = new User();
             //user.Nickname = "Espen";
             //Score score = new Score(user, 1336);
