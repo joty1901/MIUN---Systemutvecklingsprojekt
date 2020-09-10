@@ -12,10 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="View\Pegs\YellowPeg - Copy.xaml.cs">
-      <SubType>Code</SubType>
-      <DependentUpon>YellowPeg.xaml.cs</DependentUpon>
-    </Compile>
+    <Folder Include="Input\" />
   </ItemGroup>
 
 </Project>

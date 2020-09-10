@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MaterMinds
 {
-    public class HighscoreViewModel : BaseViewModel, Repository
+    public class HighscoreViewModel : BaseViewModel
     {
         public List<string> HighscoreList { get; set; }
 

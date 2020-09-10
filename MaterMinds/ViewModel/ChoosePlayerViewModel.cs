@@ -6,7 +6,7 @@ using System.Windows.Input;
 
 namespace MaterMinds
 {
-    public class ChoosePlayerViewModel : BaseViewModel, IRepository
+    public class ChoosePlayerViewModel : BaseViewModel
     {
         public ICommand NewPlayer { get; set; }
         public ICommand ChoosePlayer { get; set; }
@@ -20,12 +20,12 @@ namespace MaterMinds
         }
         public void CreatePlayer()
         {
-            IRepository.AddPlayer(Nickname);
+            Repository.AddPlayer(Nickname);
         }
 
         public void GetPlayers()
         {
-            PlayerList = IRepository.GetDbPlayers().ToList();
+            PlayerList = Repository.GetDbPlayers().ToList();
         }
 
     }
