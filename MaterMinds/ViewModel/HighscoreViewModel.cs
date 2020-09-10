@@ -6,7 +6,7 @@ using System.Text;
 
 namespace MaterMinds
 {
-    public class HighscoreViewModel : BaseViewModel, IRepository
+    public class HighscoreViewModel : BaseViewModel, Repository
     {
         public List<string> HighscoreList { get; set; }
 
@@ -17,7 +17,7 @@ namespace MaterMinds
 
         public void GetHighscores()
         {
-            HighscoreList = new List<string>(IRepository.GetTopTenHigscore());
+            HighscoreList = new List<string>(Repository.GetTopTenHigscore());
         }
     }
 }

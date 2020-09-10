@@ -11,4 +11,11 @@
     <PackageReference Include="PropertyChanged.Fody" Version="3.2.9" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="View\Pegs\YellowPeg - Copy.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>YellowPeg.xaml.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
 </Project>

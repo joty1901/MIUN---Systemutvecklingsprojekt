@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MaterMinds
 { 
-    class Test : IRepository
+    class Test : Repository
     {
 
     }
