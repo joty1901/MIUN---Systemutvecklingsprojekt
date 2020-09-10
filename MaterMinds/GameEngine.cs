@@ -52,5 +52,10 @@ namespace MaterMinds
             hintArray.Reverse();
            
         }
+
+        public int CountGameTime()
+        {
+            return 0;
+        }
     }
 }

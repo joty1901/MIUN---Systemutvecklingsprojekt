@@ -16,12 +16,12 @@
 
         <Image x:Name="image" gif:AnimationBehavior.SourceUri="Resources/giphy.gif" HorizontalAlignment="Left" Height="567" Margin="10,10,0,0" VerticalAlignment="Top" Width="772" Grid.ColumnSpan="2"/>
         <StackPanel Grid.ColumnSpan="2">
+            <Label Content="MaterMinds" HorizontalAlignment="Left" Margin="298,81,0,0" VerticalAlignment="Top" Width="191" FontSize="30" Grid.ColumnSpan="2" FontWeight="Bold" />
             <Button x:Name="BtnOne" Content="New Game" HorizontalAlignment="Left" Margin="350,150,0,0" VerticalAlignment="Top" Click="BtnOne_Click" Width="71"/>
             <Button x:Name="BtnTwo" Content="Select Player" HorizontalAlignment="Left" Margin="350,10,0,0" VerticalAlignment="Top" Click="BtnTwo_Click"/>
             <Button x:Name="BtnThree" Content="Highscore" HorizontalAlignment="Left" Margin="350,10,0,0" VerticalAlignment="Top" Click="BtnThree_Click" Width="71"/>
         </StackPanel>
         <Frame x:Name="Main" NavigationUIVisibility="Hidden" Grid.ColumnSpan="2">
         </Frame>
-        <Label Content="MaterMinds" HorizontalAlignment="Left" Margin="298,81,0,0" VerticalAlignment="Top" Width="191" FontSize="30" Grid.ColumnSpan="2" FontWeight="Bold" />
     </Grid>
 </Window>

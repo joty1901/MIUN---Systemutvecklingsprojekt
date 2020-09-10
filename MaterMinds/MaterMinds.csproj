@@ -8,6 +8,13 @@
 
   <ItemGroup>
     <None Remove="Resources\giphy.gif" />
+    <None Remove="Sound\Rumble.mp3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Sound\Rumble.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
