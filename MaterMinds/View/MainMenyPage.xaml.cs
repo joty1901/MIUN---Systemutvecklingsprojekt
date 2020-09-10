@@ -29,7 +29,7 @@ namespace MaterMinds.View
         {
             var page = new GamePage();
             MainMeny.Content = page;
-            mediaPlayer.Open(new Uri(@"Sound/Rumble.mp3", UriKind.Relative));
+            mediaPlayer.Open(new Uri(@"Resources/Sound/Rumble.mp3", UriKind.Relative));
             mediaPlayer.Play();
         }
 

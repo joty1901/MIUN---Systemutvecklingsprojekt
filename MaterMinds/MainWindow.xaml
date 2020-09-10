@@ -12,7 +12,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="Resources/MaterMindBackground.jpg" />
+            <ImageBrush ImageSource="Resources/Picture/MaterMindBackground.jpg" />
         </Grid.Background>
         
         

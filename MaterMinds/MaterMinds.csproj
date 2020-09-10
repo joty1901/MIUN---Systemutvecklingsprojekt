@@ -7,13 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\giphy.gif" />
-    <None Remove="Resources\MaterMindBackground.jpg" />
-    <None Remove="Sound\Rumble.mp3" />
+    <Compile Remove="Input\**" />
+    <EmbeddedResource Remove="Input\**" />
+    <None Remove="Input\**" />
+    <Page Remove="Input\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Sound\Rumble.mp3">
+    <None Remove="Resources\giphy.gif" />
+    <None Remove="Resources\MaterMindBackground.jpg" />
+    <None Remove="Resources\Sound\Rumble.mp3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\Sound\Rumble.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -25,8 +32,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\giphy.gif" />
-    <Resource Include="Resources\MaterMindBackground.jpg">
+    <Resource Include="Resources\Picture\giphy.gif" />
+    <Resource Include="Resources\Picture\MaterMindBackground.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
@@ -44,10 +51,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Input\" />
   </ItemGroup>
 
 </Project>
