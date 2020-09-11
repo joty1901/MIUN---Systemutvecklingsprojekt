@@ -9,11 +9,33 @@
       Title="MainMenyPage">
 
     <Grid>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="173">
-            <Label Content="MaterMinds" Margin="0,0,0,0"  FontSize="25" FontWeight="Bold" Foreground="Azure" />
-            <Button Content="New Game" Margin="0,0,0,0" Click="Button_Click"  />
-            <Button Content="Select Player" Margin="0,10,0,0" Click="Button_Click_1" />
-            <Button Content="Highscore" Margin="0,10,0,0" Click="Button_Click_2" />
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
+            <Label Content="MaterMinds" Margin="0,0,0,0"  FontSize="50" FontWeight="Bold" Foreground="Azure" HorizontalAlignment="Center" VerticalAlignment="Stretch" />
+            <Button Content="New Game" Margin="0,0,0,0" Style="{StaticResource RoundButtonTemplate}" Click="Button_Click" FontWeight="Bold" FontSize="25"  >
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="DodgerBlue"/>
+                        <GradientStop Color="Black" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button Content="Select Player" Margin="0,10,0,0" Style="{StaticResource RoundButtonTemplate}" Click="Button_Click_1" FontWeight="Bold" FontSize="25" >
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="DodgerBlue"/>
+                        <GradientStop Color="Black" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+
+            <Button Content="Highscore" Margin="0,10,0,0" Style="{StaticResource RoundButtonTemplate}" Click="Button_Click_2" FontWeight="Bold" FontSize="25">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="DodgerBlue"/>
+                        <GradientStop Color="Black" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
         </StackPanel>
         <Frame x:Name="MainMeny" NavigationUIVisibility="Automatic"/>
     </Grid>

@@ -6,17 +6,16 @@
         xmlns:local="clr-namespace:MaterMinds"
         mc:Ignorable="d"
         Title="Matermind" Height="466" Width="800"
-        
         >
-        
 
+    
+        
     <Grid>
+        <Frame x:Name="Main" NavigationUIVisibility="Visible"/>
         <Grid.Background>
-            <ImageBrush ImageSource="Resources/Picture/MaterMindBackground.jpg" />
+            <ImageBrush ImageSource="Resources/Picture/Earth.jpg" />
         </Grid.Background>
-        
-        
-        <Frame x:Name="Main" NavigationUIVisibility="Visible" />
     </Grid>
+    
 </Window>
  
