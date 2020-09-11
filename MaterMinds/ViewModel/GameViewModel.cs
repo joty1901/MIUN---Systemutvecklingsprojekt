@@ -9,7 +9,10 @@ namespace MaterMinds
 {
     class GameViewModel : BaseViewModel
     {
+        GameEngine game;
         public Dictionary<int, int> PlacedPegs { get; set; } = new Dictionary<int, int>();
+
+        public int[] HintToAnswer { get; set; } = new int[4];
         public ObservableCollection<bool> IsActive { get; set; } = new ObservableCollection<bool> { true, false, false, false, false, false, false };
         public ICommand BoolChecker { get; set; }
         public int Counter { get; set; } = 1;
@@ -17,6 +20,7 @@ namespace MaterMinds
 
         public GameViewModel()
         {
+            game = new GameEngine();
             PlaySound();
             BoolChecker = new RelayCommand(CheckBool);
         }
@@ -29,6 +33,8 @@ namespace MaterMinds
                 IsActive = new ObservableCollection<bool> { false, false, false, false, false, false, false };
                 IsActive[Counter] = true;
                 Counter++;
+                game.CheckPegPosition(PlacedPegs);
+
             }
             else
             {

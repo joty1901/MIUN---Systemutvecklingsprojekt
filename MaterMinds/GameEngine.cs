@@ -1,57 +1,66 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Text;
-using System.Windows.Threading;
+using System.Collections.Immutable;
+using System.Linq;
+using System.Windows;
+using System.Windows.Input;
+
 namespace MaterMinds
 {
     public class GameEngine
     {
+        //GameViewModel gameViewModel;
         Random random = new Random();
-        public List<int> correctColor { get; set; }
+        private Dictionary<int, int> CorrectAnswer { get; set; } = new Dictionary<int, int>();
 
-        public List<int> hintArray { get; set; }
-
-        int arrayLenght = 4;
-        List<int> answer = new List<int>() { 4, 2, 3, 2 };
         public GameEngine()
         {
-            correctColor = new List<int>() { 0, 0, 0, 0 };
-            hintArray = new List<int>() { 0, 0, 0, 0 };
+            
             StartGame();
-            CheckPegPosition(answer);
+            //CheckPegPosition(answer);
         }
 
         public void StartGame()
         {
-
-            for (int i = 0; i < 4; i++)
+            for (int i = 1; i <= 4; i++)
             {
-                correctColor[i] = random.Next(1, 5);
+                CorrectAnswer.Add(i, random.Next(1, 7));
             }
+            
 
         }
-        public void CheckPegPosition(List<int> answer)
+        public int[] CheckPegPosition(Dictionary<int, int> playerGuess)
         {
-            List<int> checkList = new List<int>() { 0, 0, 0, 0 };
-            for (int i = 0; i < answer.Count; i++)
-            {
-                if (correctColor.Contains(answer[i]) && !checkList.Contains(answer[i]))
-                {
-                    hintArray[i] = 1;
-                    checkList.Add(answer[i]);
-                }
-            }
-            for (int i = 0; i < answer.Count; i++)
-            {
-                if (answer[i] == correctColor[i])
-                {
-                    hintArray[i] = 2;
-                }
-            }
-            hintArray.Sort();
-            hintArray.Reverse();
 
+            int[] hintToAnswer = new int[4];
+            List<int> checkList = new List<int>() { 0, 0, 0, 0};
+            int counter = 0;
+            foreach (int c in playerGuess.Values)
+            {
+                if (CorrectAnswer.ContainsValue(c) && !checkList.Contains(c))
+                {
+                    hintToAnswer[counter] = 1;
+                    checkList[counter] = c;
+                    counter++;
+                }
+                
+            }
+            counter = 0; 
+            foreach (var c in playerGuess)
+            {
+                foreach (var b in CorrectAnswer)
+                {
+                    if (c.Key == b.Key && c.Value == b.Value)
+                    {
+                        hintToAnswer[counter] = 2;
+                        counter++;
+                    }
+                }
+                
+            }
+            //Array.Sort(hintToAnswer);
+            //Array.Reverse(hintToAnswer);
+            return hintToAnswer;
         }
 
         public string CalcTime(DateTime date, DateTime date2 )
