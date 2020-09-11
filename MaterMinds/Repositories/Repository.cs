@@ -123,14 +123,14 @@ namespace MaterMinds
             }
         }
 
-        public static IEnumerable<string> GetTopTenHigscore()
+        public static Dictionary<string,int> GetTopTenHigscore()
         {
             string stmt = "SELECT player.nickname, score.value from player INNER JOIN score ON score.player_id = player.id ORDER BY score.value DESC LIMIT 10";
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
                
-                List<string> highscores = new List<string>();
+                Dictionary<string,int> highscores = new Dictionary<string, int>();
                 conn.Open();
                 using (var trans = conn.BeginTransaction())
                     try
@@ -141,13 +141,11 @@ namespace MaterMinds
                             {
                                 while (reader.Read())
                                 {
-                                    string s;
+                                    
                                     {
-                                        s = reader["nickname"].ToString();
-                                        s += "...............";
-                                        s += reader["value"].ToString();
+                                        highscores[reader["nickname"].ToString()] = (int)reader["value"];
                                     };
-                                    highscores.Add(s);
+                                    
 
                                 }
                             }
