@@ -30,14 +30,10 @@ namespace MaterMinds
             
 
         }
-        public ObservableCollection<int> CheckPegPosition(Dictionary<int, int> playerGuess)
+        public int[] CheckPegPosition(Dictionary<int, int> playerGuess)
         {
 
-            ObservableCollection<int> hintToAnswer = new ObservableCollection<int>();
-            for (int i = 0; i < 4; i++)
-            {
-                hintToAnswer.Add(0);
-            }
+            int[] hintToAnswer = new int[4];
             List<int> checkList = new List<int>() { 0, 0, 0, 0};
             int counter = 0;
             foreach (int c in playerGuess.Values)

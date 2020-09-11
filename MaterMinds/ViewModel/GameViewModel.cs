@@ -18,11 +18,19 @@ namespace MaterMinds
         public int Counter { get; set; } = 1;
         private readonly MediaPlayer mediaPlayer = new MediaPlayer();
 
+        /// <summary>
+        /// PLOJ
+        /// </summary>
+
+        public ObservableCollection<int[]> plojArray { get; set; } = new ObservableCollection<int[]>();
+        
+
         public GameViewModel()
         {
             game = new GameEngine();
             PlaySound();
             BoolChecker = new RelayCommand(CheckBool);
+            
         }
 
 
@@ -39,7 +47,7 @@ namespace MaterMinds
             {
                 IsActive = new ObservableCollection<bool> { false, false, false, false, false, false, false };
             }
-            HintToAnswer = game.CheckPegPosition(PlacedPegs);
+            plojArray.Add(game.CheckPegPosition(PlacedPegs));
             PlacedPegs.Clear();
 
 

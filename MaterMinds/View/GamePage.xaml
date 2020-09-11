@@ -169,10 +169,15 @@
                 <Button VerticalAlignment="Center" HorizontalAlignment="Center" Content="Button" Command="{Binding BoolChecker}"/>
             </StackPanel>
                 <local:GuessControl Margin="0,0,500,0"/>
-            <TextBox x:Name="Hint1" Width="30" Height="25" Margin="0,300,500,0" Text="{Binding HintToAnswer[0]}"/>
-            <TextBox x:Name="Hint2" Width="30" Height="25" Margin="0,300,430,0" Text="{Binding HintToAnswer[1]}"/>
-            <TextBox x:Name="Hint3" Width="30" Height="25" Margin="0,300,360,0" Text="{Binding HintToAnswer[2]}"/>
-            <TextBox x:Name="Hint4" Width="30" Height="25" Margin="0,300,290,0" Text="{Binding HintToAnswer[3]}"/>
+            <TextBox x:Name="Hint1" Width="30" Height="25" Margin="0,300,500,0" Text="{Binding plojArray[0][0]}"/>
+            <TextBox x:Name="Hint2" Width="30" Height="25" Margin="0,300,430,0" Text="{Binding plojArray[0][1]}"/>
+            <TextBox x:Name="Hint3" Width="30" Height="25" Margin="0,300,360,0" Text="{Binding plojArray[0][2]}"/>
+            <TextBox x:Name="Hint4" Width="30" Height="25" Margin="0,300,290,0" Text="{Binding plojArray[0][3]}"/>
+            
+            <TextBox x:Name="Hint12" Width="30" Height="25" Margin="0,200,500,0" Text="{Binding plojArray[1][0]}"/>
+            <TextBox x:Name="Hint22" Width="30" Height="25" Margin="0,200,430,0" Text="{Binding plojArray[1][1]}"/>
+            <TextBox x:Name="Hint32" Width="30" Height="25" Margin="0,200,360,0" Text="{Binding plojArray[1][2]}"/>
+            <TextBox x:Name="Hint42" Width="30" Height="25" Margin="0,200,290,0" Text="{Binding plojArray[1][3]}"/>
         </Grid>
      </Grid>
 </Page>
