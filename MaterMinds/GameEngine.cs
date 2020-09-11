@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
@@ -29,10 +30,14 @@ namespace MaterMinds
             
 
         }
-        public int[] CheckPegPosition(Dictionary<int, int> playerGuess)
+        public ObservableCollection<int> CheckPegPosition(Dictionary<int, int> playerGuess)
         {
 
-            int[] hintToAnswer = new int[4];
+            ObservableCollection<int> hintToAnswer = new ObservableCollection<int>();
+            for (int i = 0; i < 4; i++)
+            {
+                hintToAnswer.Add(0);
+            }
             List<int> checkList = new List<int>() { 0, 0, 0, 0};
             int counter = 0;
             foreach (int c in playerGuess.Values)
