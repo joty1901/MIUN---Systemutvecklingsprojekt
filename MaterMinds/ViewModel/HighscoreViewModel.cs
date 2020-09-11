@@ -8,7 +8,8 @@ namespace MaterMinds
 {
     public class HighscoreViewModel : BaseViewModel
     {
-        public List<string> HighscoreList { get; set; }
+        
+        public Dictionary<string,int> HighscoreList { get; set; }
 
         public HighscoreViewModel()
         {
@@ -17,7 +18,7 @@ namespace MaterMinds
 
         public void GetHighscores()
         {
-            HighscoreList = new List<string>(Repository.GetTopTenHigscore());
+            HighscoreList = Repository.GetTopTenHigscore();
         }
     }
 }
