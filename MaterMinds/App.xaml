@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:MaterMinds"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <ImageBrush x:Key="BackgroundIMG" ImageSource="Resources/Picture/Earth.jpg"/>
         <Style x:Key="RoundButtonTemplate" TargetType="Button">
             <Setter Property="Background" Value="DodgerBlue" />
             <Setter Property="Foreground" Value="WhiteSmoke"/>
