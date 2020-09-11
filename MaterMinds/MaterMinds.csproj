@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Input\**" />
+    <EmbeddedResource Remove="Input\**" />
+    <None Remove="Input\**" />
+    <Page Remove="Input\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Resources\giphy.gif" />
     <None Remove="Resources\MaterMindBackground.jpg" />
     <None Remove="Sound\Rumble.mp3" />
@@ -44,10 +51,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Input\" />
   </ItemGroup>
 
 </Project>
