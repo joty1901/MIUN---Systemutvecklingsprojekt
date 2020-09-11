@@ -166,7 +166,7 @@
 
                     </Grid>
                 </WrapPanel>
-                <Button VerticalAlignment="Center" HorizontalAlignment="Center" Content="Button" Command="{Binding BoolChecker}"/>
+                <Button Content="Check Answer" VerticalAlignment="Center"  HorizontalAlignment="Center" Command="{Binding BoolChecker}"/>
             <WrapPanel>
                 <TextBox x:Name="Hint11" Width="30" Height="25" Margin="0,0,0,0" Text="{Binding plojArray[0][0]}"/>
                 <TextBox x:Name="Hint12" Width="30" Height="25" Margin="0,0,0,0" Text="{Binding plojArray[0][1]}"/>
