@@ -41,9 +41,9 @@ namespace MaterMinds
 
         public void PlaySound()
         {
-            
-            mediaPlayer.Open(new Uri(@"Resources/Sound/Rumble.mp3", UriKind.Relative));
-            mediaPlayer.Play();
+            //Comented out for sanity purposes during testing
+            //mediaPlayer.Open(new Uri(@"Resources/Sound/Rumble.mp3", UriKind.Relative));
+            //mediaPlayer.Play();
         }
     }
 }
