@@ -10,8 +10,6 @@ namespace MaterMinds
     class GameViewModel : BaseViewModel
     {
         public Dictionary<int, int> PlacedPegs { get; set; } = new Dictionary<int, int>();
-        //public PegPosition Peg { get; set; } = PegPosition.NewValue;
-        public ObservableCollection<int> MyProperty { get; set; }
         public ObservableCollection<bool> IsActive { get; set; } = new ObservableCollection<bool> { true, false, false, false, false, false, false };
         public ICommand BoolChecker { get; set; }
         public int Counter { get; set; } = 1;
@@ -28,19 +26,24 @@ namespace MaterMinds
         {
             if (Counter <= 6)
             {
-                IsActive = new ObservableCollection<bool> { false, false, false, false, false, false, false};
+                IsActive = new ObservableCollection<bool> { false, false, false, false, false, false, false };
                 IsActive[Counter] = true;
                 Counter++;
             }
+            else
+            {
+                IsActive = new ObservableCollection<bool> { false, false, false, false, false, false, false };
+            }
+            PlacedPegs.Clear();
 
 
         }
 
         public void PlaySound()
         {
-            
-            mediaPlayer.Open(new Uri(@"Sound/Rumble.mp3", UriKind.Relative));
-            mediaPlayer.Play();
+            //Comented out for sanity purposes during testing
+            //mediaPlayer.Open(new Uri(@"Resources/Sound/Rumble.mp3", UriKind.Relative));
+            //mediaPlayer.Play();
         }
     }
 }
