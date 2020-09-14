@@ -30,17 +30,17 @@ namespace MaterMinds
             
 
         }
-        public int[] CheckPegPosition(Dictionary<int, int> playerGuess)
+        public string[] CheckPegPosition(Dictionary<int, int> playerGuess)
         {
 
-            int[] hintToAnswer = new int[4];
+            string[] hintToAnswer = new string[4];
             List<int> checkList = new List<int>() { 0, 0, 0, 0};
             int counter = 0;
             foreach (int c in playerGuess.Values)
             {
                 if (CorrectAnswer.ContainsValue(c) && !checkList.Contains(c))
                 {
-                    hintToAnswer[counter] = 1;
+                    hintToAnswer[counter] = "White";
                     checkList[counter] = c;
                     counter++;
                 }
@@ -53,7 +53,7 @@ namespace MaterMinds
                 {
                     if (c.Key == b.Key && c.Value == b.Value)
                     {
-                        hintToAnswer[counter] = 2;
+                        hintToAnswer[counter] = "Black";
                         counter++;
                     }
                 }
