@@ -10,7 +10,7 @@
       AllowDrop="True"
       Background="{DynamicResource BackgroundIMG}">
 
-    <Grid Background="DarkGray">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
