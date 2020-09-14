@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="MaterMinds.SelectPlayerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MaterMinds.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             >
+    <Grid Background="Black" Margin="180,66,180,66" >
+        <Button Content="Select Player" Command="{Binding ChoosePlayer}" Style="{StaticResource RoundButtonTemplate}" 
+                    HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="25" Margin="220,159,0,0">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="DodgerBlue"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Create Player" Command="{Binding NewPlayer}" Style="{StaticResource RoundButtonTemplate}" 
+                    HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="25" Margin="37,159,0,0">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="DodgerBlue"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+        <TextBox Text="{Binding Nickname}" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" Margin="37,109,0,0" RenderTransformOrigin="0.567,0.529" Height="33"/>
+        <ListBox Margin="231,0,69,144" MaxHeight="110" ItemsSource="{Binding PlayerList}" DisplayMemberPath="Nickname"/>
+    </Grid>
+</UserControl>
