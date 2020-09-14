@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace MaterMinds
 {
@@ -13,12 +15,11 @@ namespace MaterMinds
         //GameViewModel gameViewModel;
         Random random = new Random();
         private Dictionary<int, int> CorrectAnswer { get; set; } = new Dictionary<int, int>();
+        public bool WinCondition { get; private set; }
 
         public GameEngine()
         {
-            
             StartGame();
-            //CheckPegPosition(answer);
         }
 
         public void StartGame()
@@ -27,41 +28,57 @@ namespace MaterMinds
             {
                 CorrectAnswer.Add(i, random.Next(1, 7));
             }
-            
-
         }
         public string[] CheckPegPosition(Dictionary<int, int> playerGuess)
         {
-
             string[] hintToAnswer = new string[4];
-            List<int> checkList = new List<int>() { 0, 0, 0, 0};
-            int counter = 0;
-            foreach (int c in playerGuess.Values)
+            int[] checkForDoubles = new int[4];
+            for (int i = 0; i < 4; i++)
             {
-                if (CorrectAnswer.ContainsValue(c) && !checkList.Contains(c))
+                checkForDoubles[i] = CorrectAnswer.ElementAt(i).Value;
+            }
+            int counter = 0;
+            for (int i = 0; i < playerGuess.Count; i++)
+            {
+                for (int j = 0; j < playerGuess.Count; j++)
                 {
-                    hintToAnswer[counter] = "White";
-                    checkList[counter] = c;
+                    if (playerGuess.ElementAt(i).Value == checkForDoubles[j] && counter == 0)
+                    {
+                        hintToAnswer[i] = "White";
+                        checkForDoubles[j] = 0;
+                        counter++;
+                    }
+                }
+                counter = 0;
+            }
+            for (int i = 0; i < playerGuess.Count; i++)
+            {
+                if (playerGuess.ElementAt(i).Value == CorrectAnswer.ElementAt(i).Value 
+                    && playerGuess.ElementAt(i).Key == CorrectAnswer.ElementAt(i).Key)
+                {
+                    hintToAnswer[counter] = "Black";
                     counter++;
                 }
-                
             }
-            counter = 0; 
+            return hintToAnswer;
+        }
+        public void CheckWinCon(Dictionary<int, int> playerGuess)
+        {
+            int counter = 0; 
             foreach (var c in playerGuess)
             {
                 foreach (var b in CorrectAnswer)
                 {
                     if (c.Key == b.Key && c.Value == b.Value)
                     {
-                        hintToAnswer[counter] = "Black";
-                        counter++;
+                        counter++; 
                     }
                 }
-                
             }
-            //Array.Sort(hintToAnswer);
-            //Array.Reverse(hintToAnswer);
-            return hintToAnswer;
+            if (counter == CorrectAnswer.Count)
+            {
+                WinCondition = true; 
+            }
         }
 
         public string CalcTime(DateTime date, DateTime date2 )
@@ -76,6 +93,10 @@ namespace MaterMinds
             DateTime date = DateTime.Now;
             
             return date;
+        }
+        public Dictionary<int, int> GetCorrectAnswer()
+        {
+            return CorrectAnswer;
         }
     }
 }

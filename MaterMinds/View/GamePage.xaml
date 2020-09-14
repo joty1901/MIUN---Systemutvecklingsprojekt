@@ -12,13 +12,35 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="220"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         
-            <StackPanel Grid.Column="1">
-                <WrapPanel  Margin="0,5,0,5" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Gray" AllowDrop="{Binding IsActive[6]}">
+            <StackPanel Grid.Column="1" Margin="0,4,0,0">
+            <WrapPanel  Margin="0,5,0,5" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding IsHidden, FallbackValue=Hidden}" Background="Gray">
+                <Grid x:Uid="1" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" >
+
+                    <Ellipse Height="30" Stroke="Black" Fill="{Binding CorrectAnswerArray[0]}"/>
+
+                </Grid>
+                <Grid x:Uid="2" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" >
+
+                    <Ellipse Height="30" Stroke="Black" Fill="{Binding CorrectAnswerArray[1]}"/>
+
+                </Grid>
+                <Grid x:Uid="3" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36">
+
+                    <Ellipse Height="30" Stroke="Black" Fill="{Binding CorrectAnswerArray[2]}"/>
+
+                </Grid>
+                <Grid x:Uid="4" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36">
+
+                    <Ellipse Height="30" Stroke="Black" Fill="{Binding CorrectAnswerArray[3]}"/>
+
+                </Grid>
+            </WrapPanel>
+            <WrapPanel  Margin="0,5,0,5" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Gray" AllowDrop="{Binding IsActive[6]}">
                     <Grid x:Uid="1" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
 
                         <Ellipse Height="30" Stroke="Black"/>
@@ -174,51 +196,51 @@
                 </WrapPanel>
                 <Button Content="Check Answer" VerticalAlignment="Center"  HorizontalAlignment="Center" Command="{Binding BoolChecker}"/>
         </StackPanel>
-        <StackPanel Grid.Column="2">
-            <WrapPanel>
-                <Ellipse x:Name="Hint11" Width="30" Height="25" Margin="0,0,0,0" Fill="{Binding plojArray[0][0]}"/>
-                <Ellipse x:Name="Hint12" Width="30" Height="25" Margin="0,0,0,0" Fill="{Binding plojArray[0][1]}"/>
-                <Ellipse x:Name="Hint13" Width="30" Height="25" Margin="0,0,0,0" Fill="{Binding plojArray[0][2]}"/>
-                <Ellipse x:Name="Hint14" Width="30" Height="25" Margin="0,0,0,0" Fill="{Binding plojArray[0][3]}"/>
+        <StackPanel Grid.Column="2" HorizontalAlignment="Left" Margin="0,50,0,0">
+            <WrapPanel Background="Gray" Margin="0,5,0,5" Height="36" Width="36">
+                <Ellipse x:Name="Hint11" Width="15" Height="15" Margin="1,1,1,1" Fill="{Binding plojArray[6][0]}"/>
+                <Ellipse x:Name="Hint12" Width="15" Height="15" Margin="2,1,1,1" Fill="{Binding plojArray[6][1]}"/>
+                <Ellipse x:Name="Hint13" Width="15" Height="15" Margin="1,2,1,1" Fill="{Binding plojArray[6][2]}"/>
+                <Ellipse x:Name="Hint14" Width="15" Height="15" Margin="1,1,1,1" Fill="{Binding plojArray[6][3]}"/>
             </WrapPanel>
-            <WrapPanel>
-                <Ellipse x:Name="Hint21" Width="30" Height="25" Margin="0,0,0,0" Fill="{Binding plojArray[1][0]}"/>
-                <Ellipse x:Name="Hint22" Width="30" Height="25" Margin="0,0,0,0" Fill="{Binding plojArray[1][1]}"/>
-                <Ellipse x:Name="Hint23" Width="30" Height="25" Margin="0,0,0,0" Fill="{Binding plojArray[1][2]}"/>
-                <Ellipse x:Name="Hint24" Width="30" Height="25" Margin="0,0,0,0" Fill="{Binding plojArray[1][3]}"/>
+            <WrapPanel Background="Gray" Margin="0,5,0,5" Height="36" Width="36">
+                <Ellipse x:Name="Hint21" Width="15" Height="15" Margin="1,1,1,1" Fill="{Binding plojArray[5][0]}"/>
+                <Ellipse x:Name="Hint22" Width="15" Height="15" Margin="2,1,1,1" Fill="{Binding plojArray[5][1]}"/>
+                <Ellipse x:Name="Hint23" Width="15" Height="15" Margin="1,2,1,1" Fill="{Binding plojArray[5][2]}"/>
+                <Ellipse x:Name="Hint24" Width="15" Height="15" Margin="1,1,1,1" Fill="{Binding plojArray[5][3]}"/>
             </WrapPanel>
-            <WrapPanel>
-                <Ellipse x:Name="Hint31" Width="30" Height="25" Margin="0,0,0,0" Fill="{Binding plojArray[2][0]}"/>
-                <Ellipse x:Name="Hint32" Width="30" Height="25" Margin="0,0,0,0" Fill="{Binding plojArray[2][1]}"/>
-                <Ellipse x:Name="Hint33" Width="30" Height="25" Margin="0,0,0,0" Fill="{Binding plojArray[2][2]}"/>
-                <Ellipse x:Name="Hint34" Width="30" Height="25" Margin="0,0,0,0" Fill="{Binding plojArray[2][3]}"/>
+            <WrapPanel Background="Gray" Margin="0,5,0,5" Height="36" Width="36">
+                <Ellipse x:Name="Hint32" Width="15" Height="15" Margin="1,1,1,1" Fill="{Binding plojArray[4][0]}"/>
+                <Ellipse x:Name="Hint31" Width="15" Height="15" Margin="2,1,1,1" Fill="{Binding plojArray[4][1]}"/>
+                <Ellipse x:Name="Hint33" Width="15" Height="15" Margin="1,2,1,1" Fill="{Binding plojArray[4][2]}"/>
+                <Ellipse x:Name="Hint34" Width="15" Height="15" Margin="1,1,1,1" Fill="{Binding plojArray[4][3]}"/>
             </WrapPanel>
-            <WrapPanel>
-                <Ellipse x:Name="Hint41" Width="30" Height="25" Margin="0,0,0,0" Fill="{Binding plojArray[3][0]}"/>
-                <Ellipse x:Name="Hint42" Width="30" Height="25" Margin="0,0,0,0" Fill="{Binding plojArray[3][1]}"/>
-                <Ellipse x:Name="Hint43" Width="30" Height="25" Margin="0,0,0,0" Fill="{Binding plojArray[3][2]}"/>
-                <Ellipse x:Name="Hint44" Width="30" Height="25" Margin="0,0,0,0" Fill="{Binding plojArray[3][3]}"/>
+            <WrapPanel Background="Gray" Margin="0,5,0,5" Height="36" Width="36">
+                <Ellipse x:Name="Hint41" Width="15" Height="15" Margin="1,1,1,1" Fill="{Binding plojArray[3][0]}"/>
+                <Ellipse x:Name="Hint42" Width="15" Height="15" Margin="2,1,1,1" Fill="{Binding plojArray[3][1]}"/>
+                <Ellipse x:Name="Hint43" Width="15" Height="15" Margin="1,2,1,1" Fill="{Binding plojArray[3][2]}"/>
+                <Ellipse x:Name="Hint44" Width="15" Height="15" Margin="1,1,1,1" Fill="{Binding plojArray[3][3]}"/>
             </WrapPanel>
-            <WrapPanel>
-                <Ellipse x:Name="Hint51" Width="30" Height="25" Margin="0,0,0,0" Fill="{Binding plojArray[4][0]}"/>
-                <Ellipse x:Name="Hint52" Width="30" Height="25" Margin="0,0,0,0" Fill="{Binding plojArray[4][1]}"/>
-                <Ellipse x:Name="Hint53" Width="30" Height="25" Margin="0,0,0,0" Fill="{Binding plojArray[4][2]}"/>
-                <Ellipse x:Name="Hint54" Width="30" Height="25" Margin="0,0,0,0" Fill="{Binding plojArray[4][3]}"/>
+            <WrapPanel Background="Gray" Margin="0,5,0,5" Height="36" Width="36">
+                <Ellipse x:Name="Hint51" Width="15" Height="15" Margin="1,1,1,1" Fill="{Binding plojArray[2][0]}"/>
+                <Ellipse x:Name="Hint52" Width="15" Height="15" Margin="2,1,1,1" Fill="{Binding plojArray[2][1]}"/>
+                <Ellipse x:Name="Hint53" Width="15" Height="15" Margin="1,2,1,1" Fill="{Binding plojArray[2][2]}"/>
+                <Ellipse x:Name="Hint54" Width="15" Height="15" Margin="1,1,1,1" Fill="{Binding plojArray[2][3]}"/>
             </WrapPanel>
-            <WrapPanel>
-                <Ellipse x:Name="Hint61" Width="30" Height="25" Margin="0,0,0,0" Fill="{Binding plojArray[5][0]}"/>
-                <Ellipse x:Name="Hint62" Width="30" Height="25" Margin="0,0,0,0" Fill="{Binding plojArray[5][1]}"/>
-                <Ellipse x:Name="Hint63" Width="30" Height="25" Margin="0,0,0,0" Fill="{Binding plojArray[5][2]}"/>
-                <Ellipse x:Name="Hint64" Width="30" Height="25" Margin="0,0,0,0" Fill="{Binding plojArray[5][3]}"/>
+            <WrapPanel Background="Gray" Margin="0,5,0,5" Height="36" Width="36">
+                <Ellipse x:Name="Hint61" Width="15" Height="15" Margin="1,1,1,1" Fill="{Binding plojArray[1][0]}"/>
+                <Ellipse x:Name="Hint62" Width="15" Height="15" Margin="2,1,1,1" Fill="{Binding plojArray[1][1]}"/>
+                <Ellipse x:Name="Hint63" Width="15" Height="15" Margin="1,2,1,1" Fill="{Binding plojArray[1][2]}"/>
+                <Ellipse x:Name="Hint64" Width="15" Height="15" Margin="1,1,1,1" Fill="{Binding plojArray[1][3]}"/>
             </WrapPanel>
-            <WrapPanel>
-                <Ellipse x:Name="Hint71" Width="30" Height="25" Margin="0,0,0,0" Fill="{Binding plojArray[6][0]}"/>
-                <Ellipse x:Name="Hint72" Width="30" Height="25" Margin="0,0,0,0" Fill="{Binding plojArray[6][1]}"/>
-                <Ellipse x:Name="Hint73" Width="30" Height="25" Margin="0,0,0,0" Fill="{Binding plojArray[6][2]}"/>
-                <Ellipse x:Name="Hint74" Width="30" Height="25" Margin="0,0,0,0" Fill="{Binding plojArray[6][3]}"/>
+            <WrapPanel Background="Gray" Margin="0,5,0,5" Height="36" Width="36">
+                <Ellipse x:Name="Hint71" Width="15" Height="15" Margin="1,1,1,1" Fill="{Binding plojArray[0][0]}"/>
+                <Ellipse x:Name="Hint72" Width="15" Height="15" Margin="2,1,1,1" Fill="{Binding plojArray[0][1]}"/>
+                <Ellipse x:Name="Hint73" Width="15" Height="15" Margin="1,2,1,1" Fill="{Binding plojArray[0][2]}"/>
+                <Ellipse x:Name="Hint74" Width="15" Height="15" Margin="1,1,1,1" Fill="{Binding plojArray[0][3]}"/>
             </WrapPanel>
         </StackPanel>
-        <StackPanel Grid.Column="0">
+        <StackPanel Grid.Column="0" HorizontalAlignment="Right" Margin="0,150,0,0">
             <local:GuessControl/>
         </StackPanel>
     </Grid>
