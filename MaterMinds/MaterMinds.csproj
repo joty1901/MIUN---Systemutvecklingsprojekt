@@ -17,6 +17,7 @@
     <None Remove="Resources\giphy.gif" />
     <None Remove="Resources\MaterMindBackground.jpg" />
     <None Remove="Resources\Picture\Earth.jpg" />
+    <None Remove="Resources\Picture\HelloMyName.png" />
     <None Remove="Resources\Sound\Rumble.mp3" />
   </ItemGroup>
 
@@ -35,6 +36,7 @@
   <ItemGroup>
     <Resource Include="Resources\Picture\Earth.jpg" />
     <Resource Include="Resources\Picture\giphy.gif" />
+    <Resource Include="Resources\Picture\HelloMyName.png" />
     <Resource Include="Resources\Picture\MaterMindBackground.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>

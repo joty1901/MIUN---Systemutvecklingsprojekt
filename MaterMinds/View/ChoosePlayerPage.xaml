@@ -7,20 +7,23 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ChoosePlayerPage"
+      Background="{DynamicResource BackgroundIMG}"
       >
 
-    <Grid Background="Black" Margin="180,66,180,66" >
-            <Button Content="Select Player" Command="{Binding ChoosePlayer}" Style="{StaticResource RoundButtonTemplate}" 
-                    HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="25" Margin="220,159,0,0">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="DodgerBlue"/>
-                        <GradientStop Color="Black" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
-            <Button Content="Create Player" Command="{Binding NewPlayer}" Style="{StaticResource RoundButtonTemplate}" 
-                    HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="25" Margin="37,159,0,0">
+
+    <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Button Content="Create Player" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Command="{Binding NewPlayer}" Style="{StaticResource RoundButtonTemplate}" 
+                    FontWeight="Bold" FontSize="20" Margin="34,0,34,0" Height="44">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="DodgerBlue"/>
@@ -29,7 +32,21 @@
                 </Button.Background>
             </Button>
 
-            <TextBox Text="{Binding Nickname}" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" Margin="37,109,0,0" RenderTransformOrigin="0.567,0.529" Height="33"/>
-            <ListBox Margin="231,0,69,144" MaxHeight="110" ItemsSource="{Binding PlayerList}" DisplayMemberPath="Nickname"/>
+
+
+            <ListBox Margin="34,37,34,20"  ItemsSource="{Binding PlayerList}" Grid.Column="1" Grid.Row="0" DisplayMemberPath="Nickname" />
+            <Button Content="Select Player"  Command="{Binding ChoosePlayer}" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" Style="{StaticResource RoundButtonTemplate}" 
+                        FontWeight="Bold" FontSize="20" Margin="34,0,34,0" Height="44">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="DodgerBlue"/>
+                        <GradientStop Color="Black" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <TextBox Text="{Binding Nickname}"  BorderThickness="0" Grid.Row="0" Grid.Column="0"   FontSize="20"  Margin="34,141,34,32"/>
+            <Label x:Name="label" Content="Enter your name" Grid.Row="0" Grid.Column="0" Foreground="White" HorizontalAlignment="Left" Margin="34,110,0,0" VerticalAlignment="Top"/>
+        </Grid>
     </Grid>
+
 </Page>
