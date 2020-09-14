@@ -29,6 +29,8 @@ namespace MaterMinds
         public MainWindow()
         {
             InitializeComponent();
+            //var view = new MainMenuView();
+            //Main.Content = view;
             var page = new MainMenyPage();
             Main.Content = page;
             gameEngine = new GameEngine();
