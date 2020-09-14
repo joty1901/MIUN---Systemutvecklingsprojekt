@@ -10,7 +10,7 @@
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
             <Label Content="MaterMinds" Margin="0,0,0,0"  FontSize="50" FontWeight="Bold" Foreground="Azure" HorizontalAlignment="Center" VerticalAlignment="Stretch" />
-            <Button Content="New Game" Margin="0,0,0,0" Style="{StaticResource RoundButtonTemplate}" FontWeight="Bold" FontSize="25"  >
+            <Button Content="New Game" Margin="0,0,0,0" Command="{Binding NewGame}" Style="{StaticResource RoundButtonTemplate}" FontWeight="Bold" FontSize="25"  >
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="DodgerBlue"/>
@@ -18,7 +18,7 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-            <Button Content="Select Player" Margin="0,10,0,0" Style="{StaticResource RoundButtonTemplate}" FontWeight="Bold" FontSize="25" >
+            <Button Content="Select Player" Margin="0,10,0,0" Command="{Binding ChoosePlayer}" Style="{StaticResource RoundButtonTemplate}" FontWeight="Bold" FontSize="25" >
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="DodgerBlue"/>
@@ -27,7 +27,7 @@
                 </Button.Background>
             </Button>
 
-            <Button Content="Highscore" Margin="0,10,0,0" Style="{StaticResource RoundButtonTemplate}" FontWeight="Bold" FontSize="25">
+            <Button Content="Highscore" Margin="0,10,0,0" Command="{Binding ViewHighscore}" Style="{StaticResource RoundButtonTemplate}" FontWeight="Bold" FontSize="25">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="DodgerBlue"/>

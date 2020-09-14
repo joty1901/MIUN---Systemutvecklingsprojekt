@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterMinds.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -21,8 +22,8 @@ namespace MaterMinds.View
         public MainMenuView()
         {
             InitializeComponent();
-            DataContext = new ChoosePlayerViewModel();
-            DataContext = new HighscoreViewModel();
+          
+            DataContext = new MainMenuViewModel();
         }
     }
 }
