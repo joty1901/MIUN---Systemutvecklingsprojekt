@@ -5,15 +5,31 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MaterMinds"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="800"
-      Title="ChoosePlayerPage">
-    <Border Background="White">
-        <Grid>
-            <TextBox HorizontalAlignment="Left" Margin="237,333,0,0" Text="{Binding Nickname}" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="120"/>
-            <Button Content="Create Player" HorizontalAlignment="Left"  VerticalAlignment="Top" Width="120" Height="40" Command="{Binding NewPlayer}" Margin="237,368,0,0"/>
-            <Button Content="Select Player" HorizontalAlignment="Left" Margin="395,368,0,0" VerticalAlignment="Top" Height="40" Width="120" Command="{Binding ChoosePlayer}"/>
-            <ListBox Margin="380,25,273,250" ItemsSource="{Binding PlayerList}" DisplayMemberPath="Nickname"/>
-        </Grid>
-    </Border>
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ChoosePlayerPage"
+      >
 
+    <Grid Background="Black" Margin="180,66,180,66" >
+            <Button Content="Select Player" Command="{Binding ChoosePlayer}" Style="{StaticResource RoundButtonTemplate}" 
+                    HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="25" Margin="220,159,0,0">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="DodgerBlue"/>
+                        <GradientStop Color="Black" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+            <Button Content="Create Player" Command="{Binding NewPlayer}" Style="{StaticResource RoundButtonTemplate}" 
+                    HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" FontSize="25" Margin="37,159,0,0">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="DodgerBlue"/>
+                        <GradientStop Color="Black" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+
+            <TextBox Text="{Binding Nickname}" HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Width="143" Margin="37,109,0,0" RenderTransformOrigin="0.567,0.529" Height="33"/>
+            <ListBox Margin="231,0,69,144" MaxHeight="110" ItemsSource="{Binding PlayerList}" DisplayMemberPath="Nickname"/>
+    </Grid>
 </Page>
