@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace MaterMinds
 {
@@ -27,8 +28,6 @@ namespace MaterMinds
             {
                 CorrectAnswer.Add(i, random.Next(1, 7));
             }
-            
-
         }
         public string[] CheckPegPosition(Dictionary<int, int> playerGuess)
         {
@@ -76,6 +75,10 @@ namespace MaterMinds
             DateTime date = DateTime.Now;
             
             return date;
+        }
+        public Dictionary<int, int> GetCorrectAnswer()
+        {
+            return CorrectAnswer;
         }
     }
 }
