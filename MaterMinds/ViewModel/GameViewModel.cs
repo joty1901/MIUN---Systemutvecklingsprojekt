@@ -17,11 +17,6 @@ namespace MaterMinds
         public ICommand BoolChecker { get; set; }
         public int Counter { get; set; } = 1;
         private readonly MediaPlayer mediaPlayer = new MediaPlayer();
-
-        /// <summary>
-        /// PLOJ
-        /// </summary>
-
         public ObservableCollection<string[]> plojArray { get; set; } = new ObservableCollection<string[]>();
         public ObservableCollection<string> CorrectAnswerArray { get; set; } = new ObservableCollection<string>();
         public string IsHidden { get; set; }
@@ -39,23 +34,27 @@ namespace MaterMinds
 
         public void CheckBool()
         {
-            if (Counter <= 6)
+            game.CheckWinCon(PlacedPegs);
+            if (game.WinCondition)
             {
-                IsActive = new ObservableCollection<bool> { false, false, false, false, false, false, false };
-                IsActive[Counter] = true;
-                Counter++;
-
+                GetAnswer();
             }
             else
             {
-                IsActive = new ObservableCollection<bool> { false, false, false, false, false, false, false };
-                GetAnswer();
-                IsHidden = "Visible";
+                if (Counter <= 6)
+                {
+                    IsActive = new ObservableCollection<bool> { false, false, false, false, false, false, false };
+                    IsActive[Counter] = true;
+                    Counter++;
+                }
+                else
+                {
+                    IsActive = new ObservableCollection<bool> { false, false, false, false, false, false, false };
+                    GetAnswer();
+                }
             }
             plojArray.Add(game.CheckPegPosition(PlacedPegs));
             PlacedPegs.Clear();
-
-
         }
         public void GetAnswer()
         {
@@ -87,6 +86,7 @@ namespace MaterMinds
                     CorrectAnswerArray.Add("Orange");
                 }
             }
+            IsHidden = "Visible";
         }
 
         public void PlaySound()
