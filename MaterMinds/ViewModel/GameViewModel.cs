@@ -22,7 +22,7 @@ namespace MaterMinds
         /// PLOJ
         /// </summary>
 
-        public ObservableCollection<int[]> plojArray { get; set; } = new ObservableCollection<int[]>();
+        public ObservableCollection<string[]> plojArray { get; set; } = new ObservableCollection<string[]>();
         
 
         public GameViewModel()
