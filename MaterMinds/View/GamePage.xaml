@@ -7,9 +7,10 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="GamePage"
-      AllowDrop="True">
+      AllowDrop="True"
+      Background="{DynamicResource BackgroundIMG}">
 
-    <Grid Background="DarkGray">
+    <Grid>
         
             <StackPanel>
                 <WrapPanel  Margin="0,5,0,5" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Gray" AllowDrop="{Binding IsActive[6]}">
