@@ -206,43 +206,43 @@
             </Button>
         </StackPanel>
         <StackPanel Grid.Column="2" HorizontalAlignment="Left" Margin="0,50,0,0">
-            <WrapPanel Background="Gray" Margin="0,5,0,5" Height="36" Width="36">
+            <WrapPanel Background="{Binding BackgroundColor[6], FallbackValue=Gray}" Margin="0,5,0,5" Height="36" Width="36">
                 <Ellipse x:Name="Hint11" Width="15" Height="15" Margin="1,1,1,1" Fill="{Binding hintArray[6][0]}"/>
                 <Ellipse x:Name="Hint12" Width="15" Height="15" Margin="2,1,1,1" Fill="{Binding hintArray[6][1]}"/>
                 <Ellipse x:Name="Hint13" Width="15" Height="15" Margin="1,2,1,1" Fill="{Binding hintArray[6][2]}"/>
                 <Ellipse x:Name="Hint14" Width="15" Height="15" Margin="1,1,1,1" Fill="{Binding hintArray[6][3]}"/>
             </WrapPanel>
-            <WrapPanel Background="Gray" Margin="0,5,0,5" Height="36" Width="36">
+            <WrapPanel Background="{Binding BackgroundColor[5], FallbackValue=Gray}" Margin="0,5,0,5" Height="36" Width="36">
                 <Ellipse x:Name="Hint21" Width="15" Height="15" Margin="1,1,1,1" Fill="{Binding hintArray[5][0]}"/>
                 <Ellipse x:Name="Hint22" Width="15" Height="15" Margin="2,1,1,1" Fill="{Binding hintArray[5][1]}"/>
                 <Ellipse x:Name="Hint23" Width="15" Height="15" Margin="1,2,1,1" Fill="{Binding hintArray[5][2]}"/>
                 <Ellipse x:Name="Hint24" Width="15" Height="15" Margin="1,1,1,1" Fill="{Binding hintArray[5][3]}"/>
             </WrapPanel>
-            <WrapPanel Background="Gray" Margin="0,5,0,5" Height="36" Width="36">
+            <WrapPanel Background="{Binding BackgroundColor[4], FallbackValue=Gray}" Margin="0,5,0,5" Height="36" Width="36">
                 <Ellipse x:Name="Hint32" Width="15" Height="15" Margin="1,1,1,1" Fill="{Binding hintArray[4][0]}"/>
                 <Ellipse x:Name="Hint31" Width="15" Height="15" Margin="2,1,1,1" Fill="{Binding hintArray[4][1]}"/>
                 <Ellipse x:Name="Hint33" Width="15" Height="15" Margin="1,2,1,1" Fill="{Binding hintArray[4][2]}"/>
                 <Ellipse x:Name="Hint34" Width="15" Height="15" Margin="1,1,1,1" Fill="{Binding hintArray[4][3]}"/>
             </WrapPanel>
-            <WrapPanel Background="Gray" Margin="0,5,0,5" Height="36" Width="36">
+            <WrapPanel Background="{Binding BackgroundColor[3], FallbackValue=Gray}" Margin="0,5,0,5" Height="36" Width="36">
                 <Ellipse x:Name="Hint41" Width="15" Height="15" Margin="1,1,1,1" Fill="{Binding hintArray[3][0]}"/>
                 <Ellipse x:Name="Hint42" Width="15" Height="15" Margin="2,1,1,1" Fill="{Binding hintArray[3][1]}"/>
                 <Ellipse x:Name="Hint43" Width="15" Height="15" Margin="1,2,1,1" Fill="{Binding hintArray[3][2]}"/>
                 <Ellipse x:Name="Hint44" Width="15" Height="15" Margin="1,1,1,1" Fill="{Binding hintArray[3][3]}"/>
             </WrapPanel>
-            <WrapPanel Background="Gray" Margin="0,5,0,5" Height="36" Width="36">
+            <WrapPanel Background="{Binding BackgroundColor[2], FallbackValue=Gray}" Margin="0,5,0,5" Height="36" Width="36">
                 <Ellipse x:Name="Hint51" Width="15" Height="15" Margin="1,1,1,1" Fill="{Binding hintArray[2][0]}"/>
                 <Ellipse x:Name="Hint52" Width="15" Height="15" Margin="2,1,1,1" Fill="{Binding hintArray[2][1]}"/>
                 <Ellipse x:Name="Hint53" Width="15" Height="15" Margin="1,2,1,1" Fill="{Binding hintArray[2][2]}"/>
                 <Ellipse x:Name="Hint54" Width="15" Height="15" Margin="1,1,1,1" Fill="{Binding hintArray[2][3]}"/>
             </WrapPanel>
-            <WrapPanel Background="Gray" Margin="0,5,0,5" Height="36" Width="36">
+            <WrapPanel Background="{Binding BackgroundColor[1], FallbackValue=Gray}" Margin="0,5,0,5" Height="36" Width="36">
                 <Ellipse x:Name="Hint61" Width="15" Height="15" Margin="1,1,1,1" Fill="{Binding hintArray[1][0]}"/>
                 <Ellipse x:Name="Hint62" Width="15" Height="15" Margin="2,1,1,1" Fill="{Binding hintArray[1][1]}"/>
                 <Ellipse x:Name="Hint63" Width="15" Height="15" Margin="1,2,1,1" Fill="{Binding hintArray[1][2]}"/>
                 <Ellipse x:Name="Hint64" Width="15" Height="15" Margin="1,1,1,1" Fill="{Binding hintArray[1][3]}"/>
             </WrapPanel>
-            <WrapPanel Background="Gray" Margin="0,5,0,5" Height="36" Width="36">
+            <WrapPanel Background="{Binding BackgroundColor[0], FallbackValue=Gray}" Margin="0,5,0,5" Height="36" Width="36">
                 <Ellipse x:Name="Hint71" Width="15" Height="15" Margin="1,1,1,1" Fill="{Binding hintArray[0][0]}"/>
                 <Ellipse x:Name="Hint72" Width="15" Height="15" Margin="2,1,1,1" Fill="{Binding hintArray[0][1]}"/>
                 <Ellipse x:Name="Hint73" Width="15" Height="15" Margin="1,2,1,1" Fill="{Binding hintArray[0][2]}"/>
