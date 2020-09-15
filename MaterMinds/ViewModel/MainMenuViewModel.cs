@@ -18,6 +18,7 @@ namespace MaterMinds.ViewModel
             ChoosePlayer = new RelayCommand(ChoosePlayerPage);
             ViewHighscore = new RelayCommand(HighscorePage);
             NewGame = new RelayCommand(NewGamePage);
+            StartDBConnection();
         }
 
         private void ChoosePlayerPage()
@@ -33,6 +34,11 @@ namespace MaterMinds.ViewModel
         private void NewGamePage()
         {
             Main.Content = new GamePage();
+        }
+
+        private void StartDBConnection()
+        {
+            Repository.StartDb();
         }
 
     }
