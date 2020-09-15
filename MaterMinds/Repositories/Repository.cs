@@ -179,5 +179,14 @@ namespace MaterMinds
             }
         }
 
+        public static void StartDb()
+        {
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                conn.Open();
+            }
+
+        }
+
     }
 }
