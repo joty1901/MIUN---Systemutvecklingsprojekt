@@ -17,11 +17,10 @@ namespace MaterMinds
         public ICommand BoolChecker { get; set; }
         public int Counter { get; set; } = 0;
         private readonly MediaPlayer mediaPlayer = new MediaPlayer();
-        public ObservableCollection<string[]> plojArray { get; set; } = new ObservableCollection<string[]>();
+        public ObservableCollection<string[]> hintArray { get; set; } = new ObservableCollection<string[]>();
         public ObservableCollection<string> CorrectAnswerArray { get; set; } = new ObservableCollection<string>();
         public string IsHidden { get; set; }
         public ObservableCollection<string> BackgroundColor { get; set; } = new ObservableCollection<string> { "LightGray", "Gray", "Gray", "Gray", "Gray", "Gray", "Gray"};
-    //public PegColor
 
 
     public GameViewModel()
@@ -56,7 +55,7 @@ namespace MaterMinds
                     GetAnswer();
                 }
             }
-            plojArray.Add(game.CheckPegPosition(PlacedPegs));
+            hintArray.Add(game.CheckPegPosition(PlacedPegs));
             PlacedPegs.Clear();
         }
         public void GetAnswer()
