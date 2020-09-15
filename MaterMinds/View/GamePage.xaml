@@ -17,8 +17,8 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        
-        
+
+
         <StackPanel Grid.Column="1" Margin="0,4,0,0">
             <WrapPanel  Margin="0,5,0,5" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding IsHidden, FallbackValue=Hidden}" Background="Gray">
                 <Grid x:Uid="1" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" >
@@ -43,160 +43,167 @@
                 </Grid>
             </WrapPanel>
             <WrapPanel  Margin="0,5,0,5" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Gray" AllowDrop="{Binding IsActive[6]}">
-                    <Grid x:Uid="1" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
+                <Grid x:Uid="1" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
 
-                        <Ellipse Height="30" Stroke="Black"/>
+                    <Ellipse Height="30" Stroke="Black"/>
 
-                    </Grid>
-                    <Grid x:Uid="2" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
+                </Grid>
+                <Grid x:Uid="2" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
 
-                        <Ellipse Height="30" Stroke="Black"/>
+                    <Ellipse Height="30" Stroke="Black"/>
 
-                    </Grid>
-                    <Grid x:Uid="3" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
+                </Grid>
+                <Grid x:Uid="3" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
 
-                        <Ellipse Height="30" Stroke="Black"/>
+                    <Ellipse Height="30" Stroke="Black"/>
 
-                    </Grid>
-                    <Grid x:Uid="4" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
+                </Grid>
+                <Grid x:Uid="4" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
 
-                        <Ellipse Height="30" Stroke="Black"/>
+                    <Ellipse Height="30" Stroke="Black"/>
 
-                    </Grid>
-                </WrapPanel>
-                <WrapPanel  Margin="0,5,0,5" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Gray" AllowDrop="{Binding IsActive[5]}">
-                    <Grid x:Uid="1" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
+                </Grid>
+            </WrapPanel>
+            <WrapPanel  Margin="0,5,0,5" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Gray" AllowDrop="{Binding IsActive[5]}">
+                <Grid x:Uid="1" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
 
-                        <Ellipse Height="30" Stroke="Black"/>
+                    <Ellipse Height="30" Stroke="Black"/>
 
-                    </Grid>
-                    <Grid x:Uid="2" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
+                </Grid>
+                <Grid x:Uid="2" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
 
-                        <Ellipse Height="30" Stroke="Black"/>
+                    <Ellipse Height="30" Stroke="Black"/>
 
-                    </Grid>
-                    <Grid x:Uid="3" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
+                </Grid>
+                <Grid x:Uid="3" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
 
-                        <Ellipse Height="30" Stroke="Black"/>
+                    <Ellipse Height="30" Stroke="Black"/>
 
-                    </Grid>
-                    <Grid x:Uid="4" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
+                </Grid>
+                <Grid x:Uid="4" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
 
-                        <Ellipse Height="30" Stroke="Black"/>
+                    <Ellipse Height="30" Stroke="Black"/>
 
-                    </Grid>
-                </WrapPanel>
-                <WrapPanel  Margin="0,5,0,5" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Gray" AllowDrop="{Binding IsActive[4]}">
-                    <Grid x:Uid="1" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
+                </Grid>
+            </WrapPanel>
+            <WrapPanel  Margin="0,5,0,5" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Gray" AllowDrop="{Binding IsActive[4]}">
+                <Grid x:Uid="1" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
 
-                        <Ellipse Height="30" Stroke="Black"/>
+                    <Ellipse Height="30" Stroke="Black"/>
 
-                    </Grid>
-                    <Grid x:Uid="2" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
+                </Grid>
+                <Grid x:Uid="2" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
 
-                        <Ellipse Height="30" Stroke="Black"/>
+                    <Ellipse Height="30" Stroke="Black"/>
 
-                    </Grid>
-                    <Grid x:Uid="3" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
+                </Grid>
+                <Grid x:Uid="3" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
 
-                        <Ellipse Height="30" Stroke="Black"/>
+                    <Ellipse Height="30" Stroke="Black"/>
 
-                    </Grid>
-                    <Grid x:Uid="4" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
+                </Grid>
+                <Grid x:Uid="4" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
 
-                        <Ellipse Height="30" Stroke="Black"/>
+                    <Ellipse Height="30" Stroke="Black"/>
 
-                    </Grid>
-                </WrapPanel>
-                <WrapPanel  Margin="0,5,0,5" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Gray" AllowDrop="{Binding IsActive[3]}">
-                    <Grid x:Uid="1" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
+                </Grid>
+            </WrapPanel>
+            <WrapPanel  Margin="0,5,0,5" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Gray" AllowDrop="{Binding IsActive[3]}">
+                <Grid x:Uid="1" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
 
-                        <Ellipse Height="30" Stroke="Black"/>
+                    <Ellipse Height="30" Stroke="Black"/>
 
-                    </Grid>
-                    <Grid x:Uid="2" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
+                </Grid>
+                <Grid x:Uid="2" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
 
-                        <Ellipse Height="30" Stroke="Black"/>
+                    <Ellipse Height="30" Stroke="Black"/>
 
-                    </Grid>
-                    <Grid x:Uid="3" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
+                </Grid>
+                <Grid x:Uid="3" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
 
-                        <Ellipse Height="30" Stroke="Black"/>
+                    <Ellipse Height="30" Stroke="Black"/>
 
-                    </Grid>
-                    <Grid x:Uid="4" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
+                </Grid>
+                <Grid x:Uid="4" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
 
-                        <Ellipse Height="30" Stroke="Black"/>
+                    <Ellipse Height="30" Stroke="Black"/>
 
-                    </Grid>
-                </WrapPanel>
-                <WrapPanel  Margin="0,5,0,5" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Gray" AllowDrop="{Binding IsActive[2]}">
-                    <Grid x:Uid="1" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
+                </Grid>
+            </WrapPanel>
+            <WrapPanel  Margin="0,5,0,5" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Gray" AllowDrop="{Binding IsActive[2]}">
+                <Grid x:Uid="1" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
 
-                        <Ellipse Height="30" Stroke="Black"/>
+                    <Ellipse Height="30" Stroke="Black"/>
 
-                    </Grid>
-                    <Grid x:Uid="2" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
+                </Grid>
+                <Grid x:Uid="2" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
 
-                        <Ellipse Height="30" Stroke="Black"/>
+                    <Ellipse Height="30" Stroke="Black"/>
 
-                    </Grid>
-                    <Grid x:Uid="3" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
+                </Grid>
+                <Grid x:Uid="3" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
 
-                        <Ellipse Height="30" Stroke="Black"/>
+                    <Ellipse Height="30" Stroke="Black"/>
 
-                    </Grid>
-                    <Grid x:Uid="4" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
+                </Grid>
+                <Grid x:Uid="4" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
 
-                        <Ellipse Height="30" Stroke="Black"/>
+                    <Ellipse Height="30" Stroke="Black"/>
 
-                    </Grid>
-                </WrapPanel>
-                <WrapPanel  Margin="0,5,0,5" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Gray" AllowDrop="{Binding IsActive[1]}">
-                    <Grid x:Uid="1" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
+                </Grid>
+            </WrapPanel>
+            <WrapPanel  Margin="0,5,0,5" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Gray" AllowDrop="{Binding IsActive[1]}">
+                <Grid x:Uid="1" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
 
-                        <Ellipse Height="30" Stroke="Black"/>
+                    <Ellipse Height="30" Stroke="Black"/>
 
-                    </Grid>
-                    <Grid x:Uid="2" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
+                </Grid>
+                <Grid x:Uid="2" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
 
-                        <Ellipse Height="30" Stroke="Black"/>
+                    <Ellipse Height="30" Stroke="Black"/>
 
-                    </Grid>
-                    <Grid x:Uid="3" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
+                </Grid>
+                <Grid x:Uid="3" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
 
-                        <Ellipse Height="30" Stroke="Black"/>
+                    <Ellipse Height="30" Stroke="Black"/>
 
-                    </Grid>
-                    <Grid x:Uid="4" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
+                </Grid>
+                <Grid x:Uid="4" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
 
-                        <Ellipse Height="30" Stroke="Black"/>
+                    <Ellipse Height="30" Stroke="Black"/>
 
-                    </Grid>
-                </WrapPanel>
-                <WrapPanel  Margin="0,5,0,5" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Gray" AllowDrop="{Binding IsActive[0]}">
-                    <Grid x:Uid="1" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
+                </Grid>
+            </WrapPanel>
+            <WrapPanel  Margin="0,5,0,5" HorizontalAlignment="Center" VerticalAlignment="Center" Background="Gray" AllowDrop="{Binding IsActive[0]}">
+                <Grid x:Uid="1" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
 
-                        <Ellipse Height="30" Stroke="Black"/>
+                    <Ellipse Height="30" Stroke="Black"/>
 
-                    </Grid>
-                    <Grid x:Uid="2" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" Drop="panel_Drop" >
+                </Grid>
+                <Grid x:Uid="2" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" Drop="panel_Drop" >
 
-                        <Ellipse Height="30" Stroke="Black"/>
+                    <Ellipse Height="30" Stroke="Black"/>
 
-                    </Grid>
-                    <Grid x:Uid="3" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
+                </Grid>
+                <Grid x:Uid="3" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
 
-                        <Ellipse Height="30" Stroke="Black"/>
+                    <Ellipse Height="30" Stroke="Black"/>
 
-                    </Grid>
-                    <Grid x:Uid="4" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
+                </Grid>
+                <Grid x:Uid="4" Background="Gray" Margin="15,0,7.5,0" Width="30" Height="36" DragOver="panel_DragOver" Drop="panel_Drop" >
 
-                        <Ellipse Height="30" Stroke="Black"/>
+                    <Ellipse Height="30" Stroke="Black"/>
 
-                    </Grid>
-                </WrapPanel>
-                <Button Content="Check Answer" VerticalAlignment="Center"  HorizontalAlignment="Center" Command="{Binding BoolChecker}"/>
+                </Grid>
+            </WrapPanel>
+            <Button Content="Check Answer"  HorizontalAlignment="Center" Style="{DynamicResource RoundButtonTemplate}" Command="{Binding BoolChecker}" FontSize="25" FontWeight="Bold" Width="212" Height="32">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="DodgerBlue"/>
+                        <GradientStop Color="Black" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
         </StackPanel>
         <StackPanel Grid.Column="2" HorizontalAlignment="Left" Margin="0,50,0,0">
             <WrapPanel Background="Gray" Margin="0,5,0,5" Height="36" Width="36">
