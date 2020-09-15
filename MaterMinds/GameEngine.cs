@@ -21,7 +21,6 @@ namespace MaterMinds
         {
             StartGame();
         }
-
         public void StartGame()
         {
             for (int i = 1; i <= 4; i++)
@@ -33,6 +32,28 @@ namespace MaterMinds
         {
             string[] hintToAnswer = new string[4];
             int[] checkForDoubles = new int[4];
+            List<int> hej = new List<int>() {0,0,0,0};
+            for (int i = 0; i < playerGuess.Count; i++)
+            {
+                if (playerGuess.ElementAt(i).Key == 1)
+                {
+                    hej[0] = playerGuess.ElementAt(i).Value;
+                }
+                else if (playerGuess.ElementAt(i).Key == 2)
+                {
+                    hej[1] = playerGuess.ElementAt(i).Value;
+                }
+                else if (playerGuess.ElementAt(i).Key == 3)
+                {
+                    hej[2] = playerGuess.ElementAt(i).Value;
+                }
+                else if (playerGuess.ElementAt(i).Key == 4)
+                {
+                    hej[3] = playerGuess.ElementAt(i).Value;
+                }
+            }
+            
+            
             for (int i = 0; i < 4; i++)
             {
                 checkForDoubles[i] = CorrectAnswer.ElementAt(i).Value;
@@ -42,7 +63,7 @@ namespace MaterMinds
             {
                 for (int j = 0; j < playerGuess.Count; j++)
                 {
-                    if (playerGuess.ElementAt(i).Value == checkForDoubles[j] && counter == 0)
+                    if (hej[i] == checkForDoubles[j] && counter == 0)
                     {
                         hintToAnswer[i] = "White";
                         checkForDoubles[j] = 0;
@@ -51,10 +72,11 @@ namespace MaterMinds
                 }
                 counter = 0;
             }
+            Array.Sort(hintToAnswer);
+            Array.Reverse(hintToAnswer);
             for (int i = 0; i < playerGuess.Count; i++)
             {
-                if (playerGuess.ElementAt(i).Value == CorrectAnswer.ElementAt(i).Value 
-                    && playerGuess.ElementAt(i).Key == CorrectAnswer.ElementAt(i).Key)
+                if (hej[i] == CorrectAnswer.ElementAt(i).Value)
                 {
                     hintToAnswer[counter] = "Black";
                     counter++;

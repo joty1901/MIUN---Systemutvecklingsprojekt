@@ -28,7 +28,7 @@ namespace MaterMinds
             game = new GameEngine();
             PlaySound();
             BoolChecker = new RelayCommand(CheckBool);
-            
+
         }
 
 
