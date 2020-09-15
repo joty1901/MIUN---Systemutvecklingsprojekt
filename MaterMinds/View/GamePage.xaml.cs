@@ -1,5 +1,6 @@
 ﻿using MaterMinds.View;
 using MaterMinds.ViewModel;
+using System.Net.Http.Headers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -16,7 +17,8 @@ namespace MaterMinds
         public GamePage()
         {
             InitializeComponent();
-            DataContext = new GameViewModel();
+            model = new GameViewModel();
+            DataContext = model; 
 
         }
 
@@ -104,10 +106,11 @@ namespace MaterMinds
         protected override void OnGiveFeedback(GiveFeedbackEventArgs e)
         {
             base.OnGiveFeedback(e);
+            
 
             if (e.Effects.HasFlag(DragDropEffects.Move))
             {
-                Mouse.SetCursor(Cursors.Wait);
+                Mouse.SetCursor(Cursors.Hand);
             }
             else
             {
