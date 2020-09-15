@@ -11,10 +11,6 @@
         
     <Grid>
         <Frame x:Name="Main" NavigationUIVisibility="Visible"/>
-        <Grid.Background>
-            <ImageBrush ImageSource="Resources/Picture/Earth.jpg" />
-        </Grid.Background>
     </Grid>
-    
-</Window>
  
+</Window>

@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using MaterMinds.View;
+using MaterMinds.ViewModel;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -14,8 +16,8 @@ namespace MaterMinds
         public GamePage()
         {
             InitializeComponent();
-            model = new GameViewModel();
-            DataContext = model;
+            DataContext = new GameViewModel();
+
         }
 
         private void panel_DragOver(object sender, DragEventArgs e)
