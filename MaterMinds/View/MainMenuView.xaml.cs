@@ -1,10 +1,7 @@
-﻿using MaterMinds.View;
+﻿using MaterMinds.ViewModel;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -14,21 +11,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static MaterMinds.Repository;
 
-namespace MaterMinds
+namespace MaterMinds.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for MainMenyView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainMenuView : UserControl
     {
-
-        public MainWindow()
+        public MainMenuView()
         {
             InitializeComponent();
-            var view = new MainMenuView();
-            Main.Content = view;
+          
+            DataContext = new MainMenuViewModel();
         }
     }
 }
