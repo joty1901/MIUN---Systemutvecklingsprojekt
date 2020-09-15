@@ -14,12 +14,19 @@ namespace MaterMinds
     public partial class GamePage : Page
     {
         private GameViewModel model;
+
         public GamePage()
         {
             InitializeComponent();
             model = new GameViewModel();
             DataContext = model; 
+        }
 
+        public GamePage(Player player)
+        {
+            InitializeComponent();
+            model = new GameViewModel();
+            DataContext = model;
         }
 
         private void panel_DragOver(object sender, DragEventArgs e)
