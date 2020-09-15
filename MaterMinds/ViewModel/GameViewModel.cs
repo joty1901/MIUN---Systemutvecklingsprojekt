@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterMinds.View;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
@@ -11,7 +12,6 @@ namespace MaterMinds
     {
         GameEngine game;
         public Dictionary<int, int> PlacedPegs { get; set; } = new Dictionary<int, int>();
-
         public ObservableCollection<int> HintToAnswer { get; set; } = new ObservableCollection<int>();
         public ObservableCollection<bool> IsActive { get; set; } = new ObservableCollection<bool> { true, false, false, false, false, false, false };
         public ICommand BoolChecker { get; set; }
@@ -28,10 +28,10 @@ namespace MaterMinds
             game = new GameEngine();
             PlaySound();
             BoolChecker = new RelayCommand(CheckBool);
+            Back = new RelayCommand(GetBack);
             
         }
-
-
+        
         public void CheckBool()
         {
             game.CheckWinCon(PlacedPegs);
