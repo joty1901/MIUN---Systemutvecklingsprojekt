@@ -1,5 +1,8 @@
-﻿using System.Windows;
+﻿using MaterMinds.View;
+using MaterMinds.ViewModel;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 
 namespace MaterMinds
@@ -13,8 +16,8 @@ namespace MaterMinds
         public GamePage()
         {
             InitializeComponent();
-            model = new GameViewModel();
-            DataContext = model;
+            DataContext = new GameViewModel();
+
         }
 
         private void panel_DragOver(object sender, DragEventArgs e)
@@ -97,6 +100,20 @@ namespace MaterMinds
                 }
 
             }
+        }
+        protected override void OnGiveFeedback(GiveFeedbackEventArgs e)
+        {
+            base.OnGiveFeedback(e);
+
+            if (e.Effects.HasFlag(DragDropEffects.Move))
+            {
+                Mouse.SetCursor(Cursors.Wait);
+            }
+            else
+            {
+                Mouse.SetCursor(Cursors.No);
+            }
+            e.Handled = true;
         }
     }
 }

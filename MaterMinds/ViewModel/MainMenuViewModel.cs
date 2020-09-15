@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaterMinds.View;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -12,8 +13,6 @@ namespace MaterMinds.ViewModel
         public ICommand ViewHighscore { get; set; }
         public ICommand NewGame { get; set; }
 
-        private MainWindow Main = (MainWindow)Application.Current.MainWindow;
-
         public MainMenuViewModel()
         {
             ChoosePlayer = new RelayCommand(ChoosePlayerPage);
@@ -23,7 +22,7 @@ namespace MaterMinds.ViewModel
 
         private void ChoosePlayerPage()
         {
-           Main.Content = new ChoosePlayerPage();
+            Main.Content = new ChoosePlayerPage();
         }
 
         private void HighscorePage()
@@ -35,5 +34,6 @@ namespace MaterMinds.ViewModel
         {
             Main.Content = new GamePage();
         }
+
     }
 }

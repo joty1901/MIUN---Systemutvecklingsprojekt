@@ -22,7 +22,6 @@ namespace MaterMinds.View
         public MainMenuView()
         {
             InitializeComponent();
-          
             DataContext = new MainMenuViewModel();
         }
     }
