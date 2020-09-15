@@ -8,6 +8,7 @@ namespace MaterMinds
     {
         public int Id { get; set; }
         public string Nickname { get; set; }
+        public List<Score> PlayerScore { get; set; }
 
         public Player()
         {

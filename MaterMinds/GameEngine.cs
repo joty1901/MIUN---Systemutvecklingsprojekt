@@ -103,11 +103,12 @@ namespace MaterMinds
             }
         }
 
-        public string CalcTime(DateTime date, DateTime date2 )
+        public int CalcTime(DateTime date, DateTime date2 )
         {
-            string result = date2.Subtract(date).ToString();
+            TimeSpan t = date2 - date;
+            int seconds = (int)t.TotalSeconds;
 
-            return result;
+            return seconds;
         }
 
         public DateTime GetDateTime()

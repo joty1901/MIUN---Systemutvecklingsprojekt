@@ -54,9 +54,9 @@ namespace MaterMinds
             }
         }
 
-        public static void AddPlayerScore(int playerId, int score)
+        public static void AddPlayerScore(int player_id, int value)
         {
-            string stmt = "INSERT INTO score(player_id, score) values(@playerId, @score)";
+            string stmt = "INSERT INTO score(player_id, value) values(@player_id, @value)";
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
@@ -67,8 +67,8 @@ namespace MaterMinds
                     {                     
                         using (var command = new NpgsqlCommand(stmt, conn))
                         {
-                            command.Parameters.AddWithValue("player_id", playerId);
-                            command.Parameters.AddWithValue("score", score);
+                            command.Parameters.AddWithValue("player_id", player_id);
+                            command.Parameters.AddWithValue("value", value);
                             command.ExecuteScalar();
                         }
                         trans.Commit();
@@ -162,7 +162,7 @@ namespace MaterMinds
             }
         }
 
-        public static void AddPlayer(string  nickname)
+        public static void AddPlayer(string nickname)
         {
             string stmt = "INSERT INTO player(nickname) values(@nickname) returning id";
 

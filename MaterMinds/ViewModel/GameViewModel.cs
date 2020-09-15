@@ -8,9 +8,10 @@ using System.Windows.Media;
 
 namespace MaterMinds
 {
-    class GameViewModel : BaseViewModel
+    public class GameViewModel : BaseViewModel
     {
         GameEngine game;
+
         public Dictionary<int, int> PlacedPegs { get; set; } = new Dictionary<int, int>();
         public ObservableCollection<int> HintToAnswer { get; set; } = new ObservableCollection<int>();
         public ObservableCollection<bool> IsActive { get; set; } = new ObservableCollection<bool> { true, false, false, false, false, false, false };
@@ -21,7 +22,8 @@ namespace MaterMinds
         public ObservableCollection<string> CorrectAnswerArray { get; set; } = new ObservableCollection<string>();
         public string IsHidden { get; set; }
         //public PegColor
-
+        public DateTime StartTime { get; set; } = new DateTime(2020, 09, 15, 15, 10, 57);
+        public DateTime StopTime { get; set; } = new DateTime(2020, 09, 15, 15, 59, 47 );
 
         public GameViewModel()
         {
@@ -29,9 +31,24 @@ namespace MaterMinds
             PlaySound();
             BoolChecker = new RelayCommand(CheckBool);
             Back = new RelayCommand(GetBack);
-            
+            //StartTime = game.GetDateTime();
         }
-        
+        public GameViewModel(Player player)
+        {
+            game = new GameEngine();
+            PlaySound();
+            BoolChecker = new RelayCommand(CheckBool);
+            Back = new RelayCommand(GetBack);
+            //StartTime = game.GetDateTime();
+            SetScore(player);
+        }
+
+        public void SetScore(Player player)
+        {
+            int value = game.CalcTime(StartTime, StopTime);
+            Score score = new Score(player, value);
+        }
+
         public void CheckBool()
         {
             game.CheckWinCon(PlacedPegs);

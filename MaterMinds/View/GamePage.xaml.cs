@@ -25,7 +25,7 @@ namespace MaterMinds
         public GamePage(Player player)
         {
             InitializeComponent();
-            model = new GameViewModel();
+            model = new GameViewModel(player);
             DataContext = model;
         }
 

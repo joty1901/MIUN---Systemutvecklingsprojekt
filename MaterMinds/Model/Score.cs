@@ -15,10 +15,12 @@ namespace MaterMinds
         {
             Value = value;
             PlayerId = player.Id;
+            Repository.AddPlayerScore(PlayerId, Value);
         }
         public Score()
         {
 
         }
+
     }
 }
