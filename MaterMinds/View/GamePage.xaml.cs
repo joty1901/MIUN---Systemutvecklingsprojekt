@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.IO;
 
 namespace MaterMinds
 {
@@ -18,7 +19,7 @@ namespace MaterMinds
         {
             InitializeComponent();
             model = new GameViewModel();
-            DataContext = model; 
+            DataContext = model;
 
         }
 
@@ -106,7 +107,7 @@ namespace MaterMinds
         protected override void OnGiveFeedback(GiveFeedbackEventArgs e)
         {
             base.OnGiveFeedback(e);
-            
+
 
             if (e.Effects.HasFlag(DragDropEffects.Move))
             {
