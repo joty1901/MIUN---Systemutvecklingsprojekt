@@ -1,4 +1,5 @@
-﻿using MaterMinds.View;
+﻿using MaterMinds.Model;
+using MaterMinds.View;
 using MaterMinds.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -12,8 +13,8 @@ namespace MaterMinds
 {
     public class HighscoreViewModel : BaseViewModel
     {
-        
-        public Dictionary<string,int> HighscoreList { get; set; }
+
+        public List<Highscore> Highscorelist { get; set; }
 
         public HighscoreViewModel()
         {
@@ -23,7 +24,7 @@ namespace MaterMinds
 
         public void GetHighscores()
         {
-            HighscoreList = Repository.GetTopTenHigscore();
+            Highscorelist = Repository.GetTopTenHigscore();
         }
 
 
