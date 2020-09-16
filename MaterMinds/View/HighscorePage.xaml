@@ -11,7 +11,7 @@
 
     <Grid>
 
-        
+
         <ListBox Margin="180,66,180,66" 
                  ItemsSource="{Binding Highscorelist}" 
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
@@ -33,7 +33,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button Content="Back"  Command="{Binding Back}" Style="{StaticResource RoundButtonTemplate}" FontWeight="Bold" FontSize="25" Margin="0,66,625,332"  >
+        <Button Content="Back"  Command="{Binding Back}" Style="{StaticResource RoundButtonTemplate}" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" FontSize="25" Width="139" Height="53"  >
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="DodgerBlue"/>
