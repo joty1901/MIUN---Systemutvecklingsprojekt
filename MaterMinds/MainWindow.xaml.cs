@@ -23,12 +23,21 @@ namespace MaterMinds
     /// </summary>
     public partial class MainWindow : Window
     {
+        MediaPlayer mediaPlayer = new MediaPlayer();
 
         public MainWindow()
         {
             InitializeComponent();
             var view = new MainMenuView();
             Main.Content = view;
+            playBackground();
         }
+
+        public void playBackground()
+        {
+            mediaPlayer.Open(new Uri(@"Resources/Sound/Spacemusic.mp3", UriKind.Relative));
+            mediaPlayer.Play();
+        }
+
     }
 }
