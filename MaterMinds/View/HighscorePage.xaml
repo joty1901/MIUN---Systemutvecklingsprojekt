@@ -12,10 +12,13 @@
     <Grid>
 
 
-        <ListBox Margin="180,66,180,66" 
+        <ListBox Margin="180,49,180,49" 
                  ItemsSource="{Binding Highscorelist}" 
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                 Background="Black">
+                 ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                 HorizontalContentAlignment="Stretch"
+                 Background="Black"
+                 >
 
 
             <ListBox.ItemTemplate>
@@ -23,8 +26,8 @@
                     <Border BorderBrush="#AEA8D3" BorderThickness="0,0,0,1">
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="220"/>
-                                <ColumnDefinition Width="190"/>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
                             </Grid.ColumnDefinitions>
                             <TextBlock Grid.Column="0" Text="{Binding Nickname}" FontSize="20" Foreground="#b2cce5"/>
                             <TextBlock Grid.Column="1" HorizontalAlignment="Right" Text="{Binding Value}" FontSize="20" Foreground="#b2cce5"/>

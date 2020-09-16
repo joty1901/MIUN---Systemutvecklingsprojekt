@@ -124,7 +124,7 @@ namespace MaterMinds
             }
         }
 
-        public static List<Highscore> GetTopTenHigscore()
+        public static IEnumerable<Highscore> GetTopTenHigscore()
         {
             string stmt = "SELECT player.nickname, score.value from player INNER JOIN score ON score.player_id = player.id ORDER BY score.value DESC LIMIT 10";
 

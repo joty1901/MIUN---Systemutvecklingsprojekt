@@ -24,7 +24,7 @@ namespace MaterMinds
 
         public void GetHighscores()
         {
-            Highscorelist = Repository.GetTopTenHigscore();
+            Highscorelist = Repository.GetTopTenHigscore().ToList();
         }
 
 
