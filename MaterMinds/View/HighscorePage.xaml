@@ -13,7 +13,7 @@
 
         
         <ListBox Margin="180,66,180,66" 
-                 ItemsSource="{Binding HighscoreList}" 
+                 ItemsSource="{Binding Highscorelist}" 
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                  Background="Black">
 
