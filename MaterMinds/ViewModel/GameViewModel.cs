@@ -53,29 +53,33 @@ namespace MaterMinds
 
         public void CheckBool()
         {
-            game.CheckWinCon(PlacedPegs);
-            if (game.WinCondition)
+            if (PlacedPegs.Count != 0)
             {
-                GetAnswer();
-            }
-            else
-            {
-                if (Counter < 6)
+
+                game.CheckWinCon(PlacedPegs);
+                if (game.WinCondition)
                 {
-                    IsActive[Counter] = false;
-                    BackgroundColor[Counter] = "Gray";
-                    Counter++;
-                    IsActive[Counter] = true;
-                    BackgroundColor[Counter] = "LightGray";
-                }
-                else
-                {
-                    IsActive = new ObservableCollection<bool> { false, false, false, false, false, false, false };
                     GetAnswer();
                 }
+                else 
+                {
+                    if (Counter < 6)
+                    {
+                        IsActive[Counter] = false;
+                        BackgroundColor[Counter] = "Gray";
+                        Counter++;
+                        IsActive[Counter] = true;
+                        BackgroundColor[Counter] = "LightGray";
+                    }
+                    else
+                    {
+                        IsActive = new ObservableCollection<bool> { false, false, false, false, false, false, false };
+                        GetAnswer();
+                    }
+                }
+                hintArray.Add(game.CheckPegPosition(PlacedPegs));
+                PlacedPegs.Clear();
             }
-            hintArray.Add(game.CheckPegPosition(PlacedPegs));
-            PlacedPegs.Clear();
         }
         public void GetAnswer()
         {

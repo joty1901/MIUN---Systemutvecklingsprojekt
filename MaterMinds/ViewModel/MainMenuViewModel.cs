@@ -17,7 +17,7 @@ namespace MaterMinds.ViewModel
         {
             ChoosePlayer = new RelayCommand(ChoosePlayerPage);
             ViewHighscore = new RelayCommand(HighscorePage);
-            NewGame = new RelayCommand(NewGamePage);
+           // NewGame = new RelayCommand(NewGamePage);
             StartDBConnection();
         }
 
@@ -31,10 +31,11 @@ namespace MaterMinds.ViewModel
             Main.Content = new HighscorePage();
         }
 
-        private void NewGamePage()
-        {
-            Main.Content = new GamePage();
-        }
+        // För att starta ett spel utan att välja en PLAYER
+        //private void NewGamePage()
+        //{
+        //    Main.Content = new GamePage();
+        //}
 
         private void StartDBConnection()
         {

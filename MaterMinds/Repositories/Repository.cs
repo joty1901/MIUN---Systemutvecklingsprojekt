@@ -166,7 +166,7 @@ namespace MaterMinds
             }
         }
 
-        public static void AddPlayer(string nickname)
+        public static int AddPlayer(string nickname)
         {
             string stmt = "INSERT INTO player(nickname) values(@nickname) returning id";
 
@@ -176,9 +176,10 @@ namespace MaterMinds
                 using (var command = new NpgsqlCommand(stmt, conn))
                 {
                     conn.Open();
-                    //command.Parameters.AddWithValue("player_id", Id);
                     command.Parameters.AddWithValue("nickname", nickname);
                     int id = (int)command.ExecuteScalar();
+
+                    return id;
                 }
             }
         }

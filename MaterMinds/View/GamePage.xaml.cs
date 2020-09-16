@@ -18,12 +18,15 @@ namespace MaterMinds
         private GameViewModel model;
         private MediaPlayer SoundPlayer = new MediaPlayer();
 
-        public GamePage()
-        {
-            InitializeComponent();
-            model = new GameViewModel();
-            DataContext = model; 
-        }
+
+        //Om man ska kunna spela spelat utan att ha valt en PLAYER
+
+        //public GamePage()
+        //{
+        //    InitializeComponent();
+        //    model = new GameViewModel();
+        //    DataContext = model;
+        //}
 
         public GamePage(Player player)
         {
@@ -36,9 +39,7 @@ namespace MaterMinds
         {
             if (e.Data.GetDataPresent("Object"))
             {
-
                 e.Effects = DragDropEffects.Move;
-
             }
         }
 
