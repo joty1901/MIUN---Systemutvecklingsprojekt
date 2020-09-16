@@ -23,7 +23,8 @@ namespace MaterMinds.ViewModel
 
         private void ChoosePlayerPage()
         {
-            Main.Content = new ChoosePlayerPage();
+            //Main.Content = new ChoosePlayerPage();
+            Main.Content = new ChoosePlayerView();
         }
 
         private void HighscorePage()

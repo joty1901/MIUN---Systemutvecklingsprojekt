@@ -28,15 +28,18 @@ namespace MaterMinds
         }
         public void CreatePlayer()
         {
+            //int id = 0;
             try
             {
                 int id = Repository.AddPlayer(Nickname);
                 Player player = new Player(id, Nickname);
                 Main.Content = new GamePage(player);
             }
-            catch (PostgresException ex)
+            catch (PostgresException exm)
             {
+                var code = exm.SqlState;
                 MessageBox.Show($"Nickname {Nickname} already in use!");
+
             }
         }
 

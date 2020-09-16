@@ -10,7 +10,7 @@
     
         
     <Grid>
-        <Frame x:Name="Main" NavigationUIVisibility="Visible"/>
+        <Frame x:Name="Main" NavigationUIVisibility="Hidden"/>
     </Grid>
  
 </Window>

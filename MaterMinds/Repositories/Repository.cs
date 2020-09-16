@@ -174,20 +174,25 @@ namespace MaterMinds
             {
                 conn.Open();
                 using (var trans = conn.BeginTransaction())
+                {
+                    int id;
                     try
                     {
                         using (var command = new NpgsqlCommand(stmt, conn))
                         {
                             command.Parameters.AddWithValue("nickname", nickname);
-                            int id = (int)command.ExecuteScalar();
-                            return id;
+                            id = (int)command.ExecuteScalar();
                         }
+                        trans.Commit();
+                        return id;
+
                     }
-                    catch (PostgresException ex)
+                    catch (PostgresException exm)
                     {
                         trans.Rollback();
-                        throw ex;
+                        throw exm;
                     }
+                }
             }
         }
 
