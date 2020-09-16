@@ -14,6 +14,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="220"/>
+            <ColumnDefinition Width="40"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Button Grid.Column="0" Content="Main Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Command="{Binding Back}" Style="{StaticResource RoundButtonTemplate}" FontWeight="Bold" FontSize="25" Width="167" Height="46" >
@@ -259,6 +260,10 @@
         </StackPanel>
         <StackPanel Grid.Column="0" HorizontalAlignment="Right" Margin="0,150,0,0">
             <local:GuessControl/>
+        </StackPanel>
+        <StackPanel Grid.Column="3">
+            <Label Foreground="White" FontSize="30" HorizontalAlignment="Center" Content="{Binding GameTimer, FallbackValue=0}"/>
+            <Label Foreground="White" FontSize="30" HorizontalAlignment="Center" Content="{Binding Score}"/>
         </StackPanel>
     </Grid>
 </Page>

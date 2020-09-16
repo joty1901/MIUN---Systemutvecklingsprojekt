@@ -5,12 +5,14 @@ using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Threading;
 
 namespace MaterMinds
 {
     public class GameViewModel : BaseViewModel
     {
         GameEngine game;
+        DispatcherTimer timer;
 
         public Dictionary<int, int> PlacedPegs { get; set; } = new Dictionary<int, int>();
         public ObservableCollection<int> HintToAnswer { get; set; } = new ObservableCollection<int>();
@@ -24,6 +26,8 @@ namespace MaterMinds
         public ObservableCollection<string> BackgroundColor { get; set; } = new ObservableCollection<string> { "LightGray", "Gray", "Gray", "Gray", "Gray", "Gray", "Gray"};
         public DateTime StartTime { get; set; } = new DateTime(2020, 09, 16, 15, 10, 57);
         public DateTime StopTime { get; set; } = new DateTime(2020, 09, 16, 15, 15, 47 );
+        public int GameTimer { get; set; }
+        public int Score { get; set; }
 
     public GameViewModel()
         {
@@ -41,23 +45,25 @@ namespace MaterMinds
             Back = new RelayCommand(GetBack);
             //StartTime = game.GetDateTime();
             SetScore(player);
+            StartTimer();
         }
 
         public void SetScore(Player player)
         {
-            int value = game.CalcTime(StartTime, StopTime);
-            Score score = new Score(player, value);
+            //int value = game.CalcTime(StartTime, StopTime);
+            //Score score = new Score(player, value);
         }
 
         public void CheckBool()
         {
+            
             if (PlacedPegs.Count != 0)
             {
 
                 game.CheckWinCon(PlacedPegs);
                 if (game.WinCondition)
                 {
-                    game.CalcScore(Counter, StartTime, StopTime);
+                    Score = game.CalcScore(Counter, GameTimer);
                     GetAnswer();
                 }
                 else 
@@ -74,6 +80,7 @@ namespace MaterMinds
                     {
                         IsActive = new ObservableCollection<bool> { false, false, false, false, false, false, false };
                         GetAnswer();
+                        StopTimer();
                     }
                 }
                 hintArray.Add(game.CheckPegPosition(PlacedPegs));
@@ -118,6 +125,21 @@ namespace MaterMinds
             //Comented out for sanity purposes during testing
             //mediaPlayer.Open(new Uri(@"Resources/Sound/Rumble.mp3", UriKind.Relative));
             //mediaPlayer.Play();
+        }
+        private void StartTimer()
+        {
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += Timer_Tick;
+            timer.Start();
+        }
+        private void StopTimer()
+        {
+            timer.Stop();
+        }
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            GameTimer++; 
         }
     }
 }

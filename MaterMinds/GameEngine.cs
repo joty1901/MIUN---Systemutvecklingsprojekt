@@ -16,7 +16,7 @@ namespace MaterMinds
         Random random = new Random();
         private Dictionary<int, int> CorrectAnswer { get; set; } = new Dictionary<int, int>();
         public bool WinCondition { get; private set; }
-        public int Score { get; private set; } = 10000;
+        private int Score { get; set; } = 10000;
 
 
 
@@ -35,24 +35,24 @@ namespace MaterMinds
         {
             string[] hintToAnswer = new string[4];
             int[] checkForDoubles = new int[4];
-            List<int> hej = new List<int>() {0,0,0,0};
+            int[] sortedAnswerArray = new int[4];
             for (int i = 0; i < playerGuess.Count; i++)
             {
                 if (playerGuess.ElementAt(i).Key == 1)
                 {
-                    hej[0] = playerGuess.ElementAt(i).Value;
+                    sortedAnswerArray[0] = playerGuess.ElementAt(i).Value;
                 }
                 else if (playerGuess.ElementAt(i).Key == 2)
                 {
-                    hej[1] = playerGuess.ElementAt(i).Value;
+                    sortedAnswerArray[1] = playerGuess.ElementAt(i).Value;
                 }
                 else if (playerGuess.ElementAt(i).Key == 3)
                 {
-                    hej[2] = playerGuess.ElementAt(i).Value;
+                    sortedAnswerArray[2] = playerGuess.ElementAt(i).Value;
                 }
                 else if (playerGuess.ElementAt(i).Key == 4)
                 {
-                    hej[3] = playerGuess.ElementAt(i).Value;
+                    sortedAnswerArray[3] = playerGuess.ElementAt(i).Value;
                 }
             }
             
@@ -62,14 +62,15 @@ namespace MaterMinds
                 checkForDoubles[i] = CorrectAnswer.ElementAt(i).Value;
             }
             int counter = 0;
-            for (int i = 0; i < playerGuess.Count; i++)
+            for (int i = 0; i < sortedAnswerArray.Length; i++)
             {
-                for (int j = 0; j < playerGuess.Count; j++)
+                for (int j = 0; j < CorrectAnswer.Count; j++)
                 {
-                    if (hej[i] == checkForDoubles[j] && counter == 0)
+                    if (sortedAnswerArray[i] == checkForDoubles[j] && counter == 0)
                     {
                         hintToAnswer[i] = "White";
-                        checkForDoubles[j] = 0;
+                        //Set the value to 10 so it never hits again. 
+                        checkForDoubles[j] = 10;
                         counter++;
                     }
                 }
@@ -77,9 +78,9 @@ namespace MaterMinds
             }
             Array.Sort(hintToAnswer);
             Array.Reverse(hintToAnswer);
-            for (int i = 0; i < playerGuess.Count; i++)
+            for (int i = 0; i < CorrectAnswer.Count; i++)
             {
-                if (hej[i] == CorrectAnswer.ElementAt(i).Value)
+                if (sortedAnswerArray[i] == CorrectAnswer.ElementAt(i).Value)
                 {
                     hintToAnswer[counter] = "Black";
                     counter++;
@@ -106,14 +107,6 @@ namespace MaterMinds
             }
         }
 
-        public int CalcTime(DateTime date, DateTime date2 )
-        {
-            TimeSpan t = date2 - date;
-            int seconds = (int)t.TotalSeconds;
-
-            return seconds;
-        }
-
         public DateTime GetDateTime()
         {
             DateTime date = DateTime.Now;
@@ -124,11 +117,10 @@ namespace MaterMinds
         {
             return CorrectAnswer;
         }
-        public int CalcScore(int tries, DateTime start, DateTime stop)
+        public int CalcScore(int tries, int gameTimer)
         {
-            int sec = CalcTime(start, stop);
-            Score -= (tries * 1000) + (sec * 5);
-            if (Score <0)
+            Score -= (tries * 1000) + (gameTimer * 5);
+            if (Score <= 0)
             {
                 Score = 0;
             }

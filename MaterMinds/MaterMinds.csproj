@@ -19,11 +19,15 @@
     <None Remove="Resources\Picture\Earth.jpg" />
     <None Remove="Resources\Picture\HelloMyName.png" />
     <None Remove="Resources\Sound\Rumble.mp3" />
+    <None Remove="Resources\Sound\Spacemusic.mp3" />
     <None Remove="Resources\Sound\WaterDrop.mp3" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="Resources\Sound\Rumble.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Sound\Spacemusic.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
