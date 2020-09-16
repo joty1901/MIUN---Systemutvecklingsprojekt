@@ -22,10 +22,8 @@ namespace MaterMinds
         public ObservableCollection<string> CorrectAnswerArray { get; set; } = new ObservableCollection<string>();
         public string IsHidden { get; set; }
         public ObservableCollection<string> BackgroundColor { get; set; } = new ObservableCollection<string> { "LightGray", "Gray", "Gray", "Gray", "Gray", "Gray", "Gray"};
-
-        //public PegColor
-        public DateTime StartTime { get; set; } = new DateTime(2020, 09, 15, 15, 10, 57);
-        public DateTime StopTime { get; set; } = new DateTime(2020, 09, 15, 15, 59, 47 );
+        public DateTime StartTime { get; set; } = new DateTime(2020, 09, 16, 15, 10, 57);
+        public DateTime StopTime { get; set; } = new DateTime(2020, 09, 16, 15, 15, 47 );
 
     public GameViewModel()
         {
@@ -59,6 +57,7 @@ namespace MaterMinds
                 game.CheckWinCon(PlacedPegs);
                 if (game.WinCondition)
                 {
+                    game.CalcScore(Counter, StartTime, StopTime);
                     GetAnswer();
                 }
                 else 
