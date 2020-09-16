@@ -14,7 +14,7 @@ namespace MaterMinds
     public class HighscoreViewModel : BaseViewModel
     {
 
-        public List<Highscore> Highscorelist { get; set; }
+        public IEnumerable<Highscore> Highscorelist { get; set; }
 
         public HighscoreViewModel()
         {
@@ -24,7 +24,7 @@ namespace MaterMinds
 
         public void GetHighscores()
         {
-            Highscorelist = Repository.GetTopTenHigscore().ToList();
+            Highscorelist = Repository.GetTopTenHigscore();
         }
 
 
