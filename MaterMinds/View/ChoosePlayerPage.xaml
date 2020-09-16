@@ -32,14 +32,14 @@
                 </Button.Background>
             </Button>
 
-            <Button Grid.Column="0" Grid.Row="0" Content="Back"  Command="{Binding Back}" Style="{StaticResource RoundButtonTemplate}" FontWeight="Bold" FontSize="25" Margin="25,10,200,162"  >
+            <Button Grid.Column="0" Grid.Row="0" Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top" Command="{Binding Back}" Style="{StaticResource RoundButtonTemplate}" FontWeight="Bold" FontSize="25" Margin="25,10,0,0" Height="45" Width="102"  >
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="DodgerBlue"/>
                         <GradientStop Color="Black" Offset="1"/>
                     </LinearGradientBrush>
-                 </Button.Background>
-                </Button>
+                </Button.Background>
+            </Button>
             <ListBox Margin="34,37,34,20" SelectedItem="{Binding selectedPlayer}" ItemsSource="{Binding PlayerList}" Grid.Column="1" Grid.Row="0" DisplayMemberPath="Nickname" />
             <Button Content="Select Player"  Command="{Binding ChoosePlayer}" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" Style="{StaticResource RoundButtonTemplate}" 
                         FontWeight="Bold" FontSize="20" Margin="34,0,34,0" Height="44">
@@ -51,7 +51,7 @@
                 </Button.Background>
             </Button>
             <TextBox Text="{Binding Nickname}"  BorderThickness="0" Grid.Row="0" Grid.Column="0"   FontSize="20"  Margin="34,141,34,32"/>
-            <Label x:Name="label" Content="Enter your name" Grid.Row="0" Grid.Column="0" Foreground="White" HorizontalAlignment="Left" Margin="34,110,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="label" Content="Enter your nickname" Grid.Row="0" Grid.Column="0" Foreground="White" FontSize="25" HorizontalAlignment="Left" Margin="30,90,0,0" VerticalAlignment="Top"/>
         </Grid>
     </Grid>
 

@@ -1,4 +1,5 @@
 ﻿using MaterMinds.View;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,9 +28,16 @@ namespace MaterMinds
         }
         public void CreatePlayer()
         {
-            int id = Repository.AddPlayer(Nickname);
-            Player player = new Player(id, Nickname);
-            Main.Content = new GamePage(player);
+            try
+            {
+                int id = Repository.AddPlayer(Nickname);
+                Player player = new Player(id, Nickname);
+                Main.Content = new GamePage(player);
+            }
+            catch (PostgresException ex)
+            {
+                MessageBox.Show($"Nickname {Nickname} already in use!");
+            }
         }
 
         public void GetPlayers()
