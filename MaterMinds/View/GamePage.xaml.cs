@@ -5,6 +5,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.IO;
+using System;
 
 namespace MaterMinds
 {
@@ -14,6 +16,7 @@ namespace MaterMinds
     public partial class GamePage : Page
     {
         private GameViewModel model;
+        private MediaPlayer SoundPlayer = new MediaPlayer();
 
         public GamePage()
         {
@@ -60,6 +63,7 @@ namespace MaterMinds
                     {
                        if (e.AllowedEffects.HasFlag(DragDropEffects.Move))
                         {
+                            DropSound();
                             
                             if (_element is YellowPeg)
                             {
@@ -113,7 +117,7 @@ namespace MaterMinds
         protected override void OnGiveFeedback(GiveFeedbackEventArgs e)
         {
             base.OnGiveFeedback(e);
-            
+
 
             if (e.Effects.HasFlag(DragDropEffects.Move))
             {
@@ -125,5 +129,12 @@ namespace MaterMinds
             }
             e.Handled = true;
         }
+
+        private void DropSound()
+        {
+            SoundPlayer.Open(new Uri(@"Resources/Sound/WaterDrop.mp3", UriKind.Relative));
+            SoundPlayer.Play();
+        }
+
     }
 }

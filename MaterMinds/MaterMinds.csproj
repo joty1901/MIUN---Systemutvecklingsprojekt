@@ -19,12 +19,17 @@
     <None Remove="Resources\Picture\Earth.jpg" />
     <None Remove="Resources\Picture\HelloMyName.png" />
     <None Remove="Resources\Sound\Rumble.mp3" />
+    <None Remove="Resources\Sound\WaterDrop.mp3" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="Resources\Sound\Rumble.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\BlackCircle.cur" />
   </ItemGroup>
 
   <ItemGroup>
@@ -40,6 +45,9 @@
     <Resource Include="Resources\Picture\MaterMindBackground.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Content Include="Resources\Sound\WaterDrop.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

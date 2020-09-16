@@ -16,16 +16,18 @@ namespace MaterMinds
         public ObservableCollection<int> HintToAnswer { get; set; } = new ObservableCollection<int>();
         public ObservableCollection<bool> IsActive { get; set; } = new ObservableCollection<bool> { true, false, false, false, false, false, false };
         public ICommand BoolChecker { get; set; }
-        public int Counter { get; set; } = 1;
+        public int Counter { get; set; } = 0;
         private readonly MediaPlayer mediaPlayer = new MediaPlayer();
-        public ObservableCollection<string[]> plojArray { get; set; } = new ObservableCollection<string[]>();
+        public ObservableCollection<string[]> hintArray { get; set; } = new ObservableCollection<string[]>();
         public ObservableCollection<string> CorrectAnswerArray { get; set; } = new ObservableCollection<string>();
         public string IsHidden { get; set; }
+        public ObservableCollection<string> BackgroundColor { get; set; } = new ObservableCollection<string> { "LightGray", "Gray", "Gray", "Gray", "Gray", "Gray", "Gray"};
+
         //public PegColor
         public DateTime StartTime { get; set; } = new DateTime(2020, 09, 15, 15, 10, 57);
         public DateTime StopTime { get; set; } = new DateTime(2020, 09, 15, 15, 59, 47 );
 
-        public GameViewModel()
+    public GameViewModel()
         {
             game = new GameEngine();
             PlaySound();
@@ -58,11 +60,13 @@ namespace MaterMinds
             }
             else
             {
-                if (Counter <= 6)
+                if (Counter < 6)
                 {
-                    IsActive = new ObservableCollection<bool> { false, false, false, false, false, false, false };
-                    IsActive[Counter] = true;
+                    IsActive[Counter] = false;
+                    BackgroundColor[Counter] = "Gray";
                     Counter++;
+                    IsActive[Counter] = true;
+                    BackgroundColor[Counter] = "LightGray";
                 }
                 else
                 {
@@ -70,7 +74,7 @@ namespace MaterMinds
                     GetAnswer();
                 }
             }
-            plojArray.Add(game.CheckPegPosition(PlacedPegs));
+            hintArray.Add(game.CheckPegPosition(PlacedPegs));
             PlacedPegs.Clear();
         }
         public void GetAnswer()
