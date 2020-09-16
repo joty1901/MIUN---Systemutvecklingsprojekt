@@ -18,8 +18,6 @@ namespace MaterMinds
         public List<Player> PlayerList { get; set; }
         public Player selectedPlayer { get; set; }
 
-
-
         public ChoosePlayerViewModel()
         {
             NewPlayer = new RelayCommand(CreatePlayer);
@@ -29,8 +27,9 @@ namespace MaterMinds
         }
         public void CreatePlayer()
         {
-            Repository.AddPlayer(Nickname);
-            Main.Content = new GamePage();
+            int id = Repository.AddPlayer(Nickname);
+            Player player = new Player(id, Nickname);
+            Main.Content = new GamePage(player);
         }
 
         public void GetPlayers()
