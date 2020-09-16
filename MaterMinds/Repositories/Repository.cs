@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Windows.Media;
+using MaterMinds.Model;
 using Npgsql;
 
 namespace MaterMinds
@@ -123,14 +124,14 @@ namespace MaterMinds
             }
         }
 
-        public static Dictionary<string,int> GetTopTenHigscore()
+        public static List<Highscore> GetTopTenHigscore()
         {
             string stmt = "SELECT player.nickname, score.value from player INNER JOIN score ON score.player_id = player.id ORDER BY score.value DESC LIMIT 10";
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
-               
-                Dictionary<string,int> highscores = new Dictionary<string, int>();
+                Highscore h = null;
+                List<Highscore> highscores = new List<Highscore>();
                 conn.Open();
                 using (var trans = conn.BeginTransaction())
                     try
@@ -141,10 +142,13 @@ namespace MaterMinds
                             {
                                 while (reader.Read())
                                 {
-                                    
+                                    h = new Highscore
+
                                     {
-                                        highscores[reader["nickname"].ToString()] = (int)reader["value"];
+                                        Nickname = reader["nickname"].ToString(),
+                                        Value = (int)reader["value"]
                                     };
+                                    highscores.Add(h);
                                     
 
                                 }
@@ -182,10 +186,10 @@ namespace MaterMinds
 
         public static void StartDb()
         {
-            using (var conn = new NpgsqlConnection(connectionString))
-            {
-                conn.Open();
-            }
+            //using (var conn = new NpgsqlConnection(connectionString))
+            //{
+            //    conn.Open();
+            //}
 
         }
 
