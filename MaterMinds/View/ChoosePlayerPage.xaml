@@ -40,7 +40,7 @@
                     </LinearGradientBrush>
                  </Button.Background>
                 </Button>
-            <ListBox Margin="34,37,34,20" SelectedItem="{Binding selectedPlayer}" ItemsSource="{Binding PlayerList}" Grid.Column="1" Grid.Row="0" DisplayMemberPath="Nickname" />
+            <ListBox Margin="34,37,34,20" SelectedItem="{Binding selectedPlayer}"  ItemsSource="{Binding PlayerList}" Grid.Column="1" Grid.Row="0" DisplayMemberPath="Nickname" />
             <Button Content="Select Player"  Command="{Binding ChoosePlayer}" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" Style="{StaticResource RoundButtonTemplate}" 
                         FontWeight="Bold" FontSize="20" Margin="34,0,34,0" Height="44">
                 <Button.Background>
