@@ -16,6 +16,9 @@ namespace MaterMinds
         Random random = new Random();
         private Dictionary<int, int> CorrectAnswer { get; set; } = new Dictionary<int, int>();
         public bool WinCondition { get; private set; }
+        public int Score { get; private set; } = 10000;
+
+
 
         public GameEngine()
         {
@@ -120,6 +123,16 @@ namespace MaterMinds
         public Dictionary<int, int> GetCorrectAnswer()
         {
             return CorrectAnswer;
+        }
+        public int CalcScore(int tries, DateTime start, DateTime stop)
+        {
+            int sec = CalcTime(start, stop);
+            Score -= (tries * 1000) + (sec * 5);
+            if (Score <0)
+            {
+                Score = 0;
+            }
+            return Score;
         }
     }
 }
