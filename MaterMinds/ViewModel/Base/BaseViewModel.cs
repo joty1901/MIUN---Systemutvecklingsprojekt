@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Navigation;
+using System.Xml.Serialization;
 
 namespace MaterMinds
 {
@@ -17,6 +18,7 @@ namespace MaterMinds
         public MainWindow Main = (MainWindow)Application.Current.MainWindow;
 
         public ICommand Back { get ; set; }
+        
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -29,6 +31,7 @@ namespace MaterMinds
         {
             Main.Content = new MainMenuView();
         }
+        
 
     }
 }

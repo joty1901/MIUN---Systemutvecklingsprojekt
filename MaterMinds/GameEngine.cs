@@ -117,9 +117,10 @@ namespace MaterMinds
         {
             return CorrectAnswer;
         }
-        public int CalcScore(int tries, int gameTimer)
+        public int CalcScore(int tries, int timerInSecounds, int timerInMinutes)
         {
-            Score -= (tries * 1000) + (gameTimer * 5);
+            int timer = timerInSecounds + (timerInMinutes * 60 * 5);
+            Score -= (tries * 1000) + timer;
             if (Score <= 0)
             {
                 Score = 0;

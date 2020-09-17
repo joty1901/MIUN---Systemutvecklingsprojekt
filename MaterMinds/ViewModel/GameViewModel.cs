@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
+using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
@@ -18,6 +20,7 @@ namespace MaterMinds
         public ObservableCollection<int> HintToAnswer { get; set; } = new ObservableCollection<int>();
         public ObservableCollection<bool> IsActive { get; set; } = new ObservableCollection<bool> { true, false, false, false, false, false, false };
         public ICommand BoolChecker { get; set; }
+        public ICommand ResetGame { get; set; }
         public int Counter { get; set; } = 0;
         private readonly MediaPlayer mediaPlayer = new MediaPlayer();
         public ObservableCollection<string[]> hintArray { get; set; } = new ObservableCollection<string[]>();
@@ -26,23 +29,32 @@ namespace MaterMinds
         public ObservableCollection<string> BackgroundColor { get; set; } = new ObservableCollection<string> { "LightGray", "Gray", "Gray", "Gray", "Gray", "Gray", "Gray"};
         public DateTime StartTime { get; set; } = new DateTime(2020, 09, 16, 15, 10, 57);
         public DateTime StopTime { get; set; } = new DateTime(2020, 09, 16, 15, 15, 47 );
-        public int GameTimer { get; set; }
+        public int GameTimerInSecounds { get; set; }
+        public int GameTimerInMinutes { get; set; }
+        public string GameTimer { get; set; }
         public int Score { get; set; }
+        public Player PlayerOne { get; set; }
 
-    public GameViewModel()
+        public GameViewModel()
         {
             game = new GameEngine();
             PlaySound();
             BoolChecker = new RelayCommand(CheckBool);
             Back = new RelayCommand(GetBack);
+            
             //StartTime = game.GetDateTime();
         }
+
+        
+
         public GameViewModel(Player player)
         {
             game = new GameEngine();
+            PlayerOne = player;
             PlaySound();
             BoolChecker = new RelayCommand(CheckBool);
             Back = new RelayCommand(GetBack);
+            ResetGame = new RelayCommand(RestartGame);
             //StartTime = game.GetDateTime();
             SetScore(player);
             StartTimer();
@@ -59,11 +71,13 @@ namespace MaterMinds
             
             if (PlacedPegs.Count != 0)
             {
-
                 game.CheckWinCon(PlacedPegs);
+
+
                 if (game.WinCondition)
                 {
-                    Score = game.CalcScore(Counter, GameTimer);
+                    Score = game.CalcScore(Counter, GameTimerInSecounds, GameTimerInMinutes);
+                    StopTimer();
                     GetAnswer();
                 }
                 else 
@@ -139,7 +153,35 @@ namespace MaterMinds
         }
         private void Timer_Tick(object sender, EventArgs e)
         {
-            GameTimer++; 
+            if (GameTimerInSecounds == 59)
+            {
+                GameTimerInMinutes++;
+                GameTimerInSecounds = 0;
+            }
+            else
+            {
+                GameTimerInSecounds++;
+            }
+            if (GameTimerInSecounds < 10 && GameTimerInMinutes < 10)
+            {
+                GameTimer = $"0{GameTimerInMinutes}:0{GameTimerInSecounds}";
+            }
+            else if(GameTimerInMinutes >= 10 && GameTimerInSecounds >= 10)
+            {
+                GameTimer = $"{GameTimerInMinutes}:{GameTimerInSecounds}";
+            }
+            else if (GameTimerInMinutes >= 10 && GameTimerInSecounds < 10)
+            {
+                GameTimer = $"{GameTimerInMinutes}:0{GameTimerInSecounds}";
+            }
+            else
+            {
+                GameTimer = $"0{GameTimerInMinutes}:{GameTimerInSecounds}";
+            }
+        }
+        public void RestartGame()
+        {
+            Main.Content = new GamePage(PlayerOne);
         }
     }
 }
