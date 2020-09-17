@@ -104,9 +104,9 @@
                 </Button.Background>
             </Button>
 
-            <StackPanel Margin="350,0,0,50" VerticalAlignment="Center"  Width="300">
+            <StackPanel Margin="350,0,0,100" VerticalAlignment="Center"  Width="300">
                 <ScrollViewer>
-                    <ListBox Margin="0,0,0,10" FontSize="25" BorderThickness="0" ScrollViewer.VerticalScrollBarVisibility="Visible"  Background="Transparent" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#b2cce5" SelectedItem="{Binding selectedPlayer}" ItemsSource="{Binding PlayerList}" DisplayMemberPath="Nickname" Height="150" />
+                    <ListBox Margin="0,0,0,10" FontSize="25" BorderThickness="0" ScrollViewer.VerticalScrollBarVisibility="Visible"  Background="Transparent" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#b2cce5" SelectedItem="{Binding selectedPlayer}" ItemsSource="{Binding PlayerList}" DisplayMemberPath="Nickname" Height="200" />
                 </ScrollViewer>
                 <Button Content="Select Player"  Command="{Binding ChoosePlayer}" VerticalAlignment="Top" Style="{StaticResource RoundButtonTemplate}" 
                             FontWeight="Bold" FontSize="20" Height="44">
