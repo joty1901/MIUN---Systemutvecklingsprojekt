@@ -37,7 +37,12 @@ namespace MaterMinds
         {
             mediaPlayer.Open(new Uri(@"Resources/Sound/Spacemusic.mp3", UriKind.Relative));
             mediaPlayer.Play();
+            mediaPlayer.MediaEnded += new EventHandler(Media_Ended);
         }
 
+        private void Media_Ended(object sender, EventArgs e)
+        {
+            playBackground();
+        }
     }
 }
