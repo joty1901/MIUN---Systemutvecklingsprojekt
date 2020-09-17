@@ -7,9 +7,12 @@
       mc:Ignorable="d" 
       d:DesignHeight="150" d:DesignWidth="100">
 
-    <Border BorderThickness="2" BorderBrush="Black" CornerRadius="5" Padding="0"
-        HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Grid Background="Gray" >
+    <Border CornerRadius="5" Padding="0"
+        HorizontalAlignment="Center" VerticalAlignment="Center" >
+        <Grid >
+            <Grid.Background>
+                <SolidColorBrush Color="Transparent"/>
+            </Grid.Background>
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="50"/>
@@ -20,6 +23,7 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
+            
 
             <local:RedPeg       Grid.Column="0" Grid.Row="0"/>
             <local:GreenPeg     Grid.Column="0" Grid.Row="1"/>
@@ -27,7 +31,6 @@
             <local:YellowPeg    Grid.Column="1" Grid.Row="0"/>
             <local:BluePeg      Grid.Column="1" Grid.Row="1"/>
             <local:OrangePeg    Grid.Column="1" Grid.Row="2"/>
-
         </Grid>
     </Border>
 </UserControl>
