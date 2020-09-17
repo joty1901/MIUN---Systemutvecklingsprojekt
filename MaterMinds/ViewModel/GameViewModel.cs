@@ -27,43 +27,27 @@ namespace MaterMinds
         public ObservableCollection<string> CorrectAnswerArray { get; set; } = new ObservableCollection<string>();
         public string IsHidden { get; set; }
         public ObservableCollection<string> BackgroundColor { get; set; } = new ObservableCollection<string> { "LightGray", "Gray", "Gray", "Gray", "Gray", "Gray", "Gray"};
-        public DateTime StartTime { get; set; } = new DateTime(2020, 09, 16, 15, 10, 57);
-        public DateTime StopTime { get; set; } = new DateTime(2020, 09, 16, 15, 15, 47 );
         public int GameTimerInSecounds { get; set; }
         public int GameTimerInMinutes { get; set; }
         public string GameTimer { get; set; }
         public int Score { get; set; }
-        public Player PlayerOne { get; set; }
-
-        public GameViewModel()
-        {
-            game = new GameEngine();
-            PlaySound();
-            BoolChecker = new RelayCommand(CheckBool);
-            Back = new RelayCommand(GetBack);
-            
-            //StartTime = game.GetDateTime();
-        }
-
-        
+        public Player Player { get; set; }
 
         public GameViewModel(Player player)
         {
-            game = new GameEngine();
-            PlayerOne = player;
             PlaySound();
+            game = new GameEngine();
+            Player = player;
             BoolChecker = new RelayCommand(CheckBool);
             Back = new RelayCommand(GetBack);
             ResetGame = new RelayCommand(RestartGame);
-            //StartTime = game.GetDateTime();
-            SetScore(player);
             StartTimer();
         }
 
-        public void SetScore(Player player)
+        public void SetScore(Player player, int points)
         {
-            //int value = game.CalcTime(StartTime, StopTime);
-            //Score score = new Score(player, value);
+            int value = game.CalcScore(Counter, GameTimerInSecounds, GameTimerInMinutes);
+            Score score = new Score(player, value);
         }
 
         public void CheckBool()
@@ -77,6 +61,7 @@ namespace MaterMinds
                 if (game.WinCondition)
                 {
                     Score = game.CalcScore(Counter, GameTimerInSecounds, GameTimerInMinutes);
+                    SetScore(Player, Score);
                     StopTimer();
                     GetAnswer();
                 }
@@ -181,7 +166,7 @@ namespace MaterMinds
         }
         public void RestartGame()
         {
-            Main.Content = new GamePage(PlayerOne);
+            Main.Content = new GamePage(Player);
         }
     }
 }

@@ -12,13 +12,9 @@ namespace MaterMinds
 {
     public class GameEngine
     {
-        //GameViewModel gameViewModel;
         Random random = new Random();
         private Dictionary<int, int> CorrectAnswer { get; set; } = new Dictionary<int, int>();
         public bool WinCondition { get; private set; }
-        private int Score { get; set; } = 10000;
-
-
 
         public GameEngine()
         {
@@ -107,25 +103,21 @@ namespace MaterMinds
             }
         }
 
-        public DateTime GetDateTime()
-        {
-            DateTime date = DateTime.Now;
-            
-            return date;
-        }
         public Dictionary<int, int> GetCorrectAnswer()
         {
             return CorrectAnswer;
         }
+
         public int CalcScore(int tries, int timerInSecounds, int timerInMinutes)
         {
-            int timer = timerInSecounds + (timerInMinutes * 60 * 5);
-            Score -= (tries * 1000) + timer;
-            if (Score <= 0)
+            int score = 10000;
+            int timer = timerInSecounds + (timerInMinutes * 60);
+            score -= (tries * 1489) + timer*3;
+            if (score <= 0)
             {
-                Score = 0;
+                score = 0;
             }
-            return Score;
+            return score;
         }
     }
 }
