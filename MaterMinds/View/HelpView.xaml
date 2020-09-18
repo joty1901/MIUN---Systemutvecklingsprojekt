@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MaterMinds"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="250" d:DesignWidth="400">
     <Grid>
         <Path x:Name="TextContainer"
               HorizontalAlignment="Center"
@@ -26,8 +26,8 @@
                     L10,10
                     z"
               Fill="#3A6110"
-              Height="202"
-              Width="393" 
+              Height="150"
+              Width="200" 
               Stretch="Fill"
               >
         </Path>
@@ -41,13 +41,13 @@
         </TextBlock>
     </Grid>
 
-    <UserControl.Style>
+    <!--<UserControl.Style>
         <Style>
             <Style.Triggers>
                 <EventTrigger RoutedEvent="FrameworkElement.Loaded">
                     <BeginStoryboard>
                         <Storyboard>
-                            <DoubleAnimation Storyboard.TargetProperty="Opacity" Duration="00:00:03" From="0" To="1">
+                            <DoubleAnimation Storyboard.TargetProperty="Opacity" Duration="00:00:02" From="0" To="1">
                                 
                             </DoubleAnimation>
                         </Storyboard>
@@ -60,5 +60,5 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-    </UserControl.Style>
+    </UserControl.Style>-->
 </UserControl>

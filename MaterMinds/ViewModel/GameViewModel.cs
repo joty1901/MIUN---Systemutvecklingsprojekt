@@ -23,11 +23,13 @@ namespace MaterMinds
         public ObservableCollection<bool> IsActive { get; set; } = new ObservableCollection<bool> { true, false, false, false, false, false, false };
         public ICommand BoolChecker { get; set; }
         public ICommand ResetGame { get; set; }
+        public ICommand Help { get; set; }
         public int Counter { get; set; } = 0;
         private readonly MediaPlayer mediaPlayer = new MediaPlayer();
         public ObservableCollection<string[]> hintArray { get; set; } = new ObservableCollection<string[]>();
         public ObservableCollection<string> CorrectAnswerArray { get; set; } = new ObservableCollection<string>();
         public string IsHidden { get; set; }
+        public string IsSuperHidden { get; set; }
         public ObservableCollection<string> BackgroundColor { get; set; } = new ObservableCollection<string> { "White", "Transparent", "Transparent", "Transparent", "Transparent", "Transparent", "Transparent" };
         public int GameTimerInSecounds { get; set; }
         public int GameTimerInMinutes { get; set; }
@@ -43,8 +45,10 @@ namespace MaterMinds
             BoolChecker = new RelayCommand(CheckBool);
             Back = new RelayCommand(GetBack);
             ResetGame = new RelayCommand(RestartGame);
+            Help = new RelayCommand(GetHelp);
             StartTimer();
         }
+
 
         public void SetScore(Player player, int points)
         {
@@ -169,6 +173,16 @@ namespace MaterMinds
         public void RestartGame()
         {
             Main.Content = new GamePage(Player);
+        }
+        private void GetHelp()
+        {
+            if (IsSuperHidden != "Visible")
+            {
+                IsSuperHidden = "Visible";
+            }
+            else
+                IsSuperHidden = "Hidden";
+
         }
     }
 }
