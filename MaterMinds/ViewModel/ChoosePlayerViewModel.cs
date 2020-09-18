@@ -31,34 +31,40 @@ namespace MaterMinds
             GetPlayers();
         }
 
-        public void CreatePlayer()
+        private void CreatePlayer()
         {
             try
             {
                 int id = Repository.AddPlayer(Nickname);
                 Player player = new Player(id, Nickname);
+                //PlayerList.Add(player);
                 GetPlayers();
+                HighlightSelectedPlayer();
             }
             catch (PostgresException exm)
             {
                 var code = exm.SqlState;
                 MessageBox.Show($"Nickname {Nickname} already in use!");
             }
-                for (int i = 0; i < PlayerList.Count; i++)
-                {
-                    if (PlayerList[i].Nickname == Nickname)
-                    {
-                        SelectedPlayer = PlayerList[i];
-                    }
-                }
         }
 
-        public void GetPlayers()
+        private void HighlightSelectedPlayer()
+        {
+            for (int i = 0; i < PlayerList.Count; i++)
+            {
+                if (PlayerList[i].Nickname == Nickname)
+                {
+                    SelectedPlayer = PlayerList[i];
+                }
+            }
+        }
+
+        private void GetPlayers()
         {
             PlayerList = Repository.GetDbPlayers().ToList();
         }
 
-        public void NewGame()
+        private void NewGame()
         {
             if (SelectedPlayer != null)
             {
