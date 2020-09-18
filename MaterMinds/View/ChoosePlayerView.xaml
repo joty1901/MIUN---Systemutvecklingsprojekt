@@ -137,17 +137,17 @@
                     </Button.Background>
                 </Button>
             </StackPanel>
-            <StackPanel Margin="0,0,350,50" 
+            <StackPanel Margin="0,0,350,12" 
                         VerticalAlignment="Center"
                         Width="300">
                 <Label x:Name="label" 
                        Content="Enter your nickname"
-                       FontWeight="Bold" Margin="0,0,0,40" 
+                       FontWeight="Bold" Margin="0,0,0,20" 
                        Foreground="White" FontSize="25" 
                        HorizontalAlignment="Left" 
                        VerticalAlignment="Top"/>
                 <TextBox Text="{Binding Nickname}" 
-                         Margin="0,0,0,40" 
+                         Margin="0,0,0,20" 
                          Background="Black"
                          Foreground="#b2cce5" 
                          VerticalContentAlignment="Center"

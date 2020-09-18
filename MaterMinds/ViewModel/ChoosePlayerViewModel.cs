@@ -23,17 +23,6 @@ namespace MaterMinds
         public List<Player> PlayerList { get; set; }
         public Player SelectedPlayer { get; set; }
 
-        //private Player _selectedPlayer;
-        //public Player SelectedPlayer
-        //{
-        //    get { return _selectedPlayer; }
-        //    set 
-        //    { 
-        //        _selectedPlayer = value;
-        //        RaisePropertyChanged("SelectedPlayer");
-        //    }
-        //}
-
         public ChoosePlayerViewModel()
         {
             NewPlayer = new RelayCommand(CreatePlayer);
@@ -49,14 +38,19 @@ namespace MaterMinds
                 int id = Repository.AddPlayer(Nickname);
                 Player player = new Player(id, Nickname);
                 GetPlayers();
-                SelectedPlayer = player;
-
             }
             catch (PostgresException exm)
             {
                 var code = exm.SqlState;
                 MessageBox.Show($"Nickname {Nickname} already in use!");
             }
+                for (int i = 0; i < PlayerList.Count; i++)
+                {
+                    if (PlayerList[i].Nickname == Nickname)
+                    {
+                        SelectedPlayer = PlayerList[i];
+                    }
+                }
         }
 
         public void GetPlayers()
