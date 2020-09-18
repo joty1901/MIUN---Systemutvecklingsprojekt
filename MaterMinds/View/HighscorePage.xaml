@@ -36,7 +36,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button Content="Main Menu"  Command="{Binding Back}" Style="{StaticResource RoundButtonTemplate}" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" FontSize="25" Width="139" Height="53" Margin="0,12,0,0"  >
+        <Button Content="Main Menu"  Command="{Binding Back}" Style="{StaticResource RoundButtonTemplate}" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" FontSize="25" Width="169" Height="53" Margin="0,12,0,0"  >
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="DodgerBlue"/>
@@ -44,5 +44,22 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
+        <Button Content="Frequent Players"  Command="{Binding ViewTopFrequentPlayers}" Style="{StaticResource RoundButtonTemplate}" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" FontSize="18" Width="169" Height="53" Margin="0,114,0,0"  >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="DodgerBlue"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button Content="Highscore"  Command="{Binding ViewTopHighscore}" Style="{StaticResource RoundButtonTemplate}" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" FontSize="18" Width="169" Height="53" Margin="0,172,0,0"  >
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="DodgerBlue"/>
+                    <GradientStop Color="Black" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Label Content="Filter" Margin="45,70,-45,-70"  FontSize="25" FontWeight="Bold" Foreground="Azure" />
     </Grid>
 </Page>
