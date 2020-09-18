@@ -18,7 +18,7 @@ namespace MaterMinds
        
         public static IEnumerable<Player> GetDbPlayers()
         {
-            string stmt = "SELECT id, nickname FROM player ORDER BY(id) DESC";
+            string stmt = "SELECT id, nickname FROM player ORDER BY(nickname) ASC";
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
