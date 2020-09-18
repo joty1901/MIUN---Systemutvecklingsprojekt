@@ -73,15 +73,16 @@
                 HorizontalAlignment="Left" 
                 Margin="0,172,0,0"  >
             <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0"> 
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="DodgerBlue"/>
                     <GradientStop Color="Black" Offset="1"/>
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
         <Label Content="Filter"
-               Margin="10,65,665,341" 
+               VerticalAlignment="Top" 
+               HorizontalAlignment="Left" 
                FontSize="25" FontWeight="Bold" 
-               Foreground="Azure" />
+               Foreground="Azure" Margin="10,71,0,0" />
     </Grid>
 </Page>
