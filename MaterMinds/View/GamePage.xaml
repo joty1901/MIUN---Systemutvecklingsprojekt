@@ -274,7 +274,7 @@
         <StackPanel Grid.Column="4" MinHeight="450">
             <Button Content="Help" HorizontalAlignment="Right" Style="{DynamicResource RoundButtonTemplate}" 
                     FontSize="15" FontWeight="Bold" Width="118" Height="32" Margin="0,25,15,0"
-                    Command="{Binding ResetGame}">
+                    Command="{Binding Help}">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="DodgerBlue"/>
@@ -286,7 +286,7 @@
 
             <Label Foreground="White" FontSize="30" HorizontalAlignment="Center" Content="{Binding Score}" Visibility="{Binding IsHidden, FallbackValue=Hidden}"/>
 
-            <local:HelpView x:Name="help" HorizontalAlignment="Right" Foreground="Olive" Visibility="{Binding IsSuperHidden, FallbackValue=Hidden}">
+            <local:HelpView x:Name="help" HorizontalAlignment="Right" Foreground="Olive" Visibility="{Binding IsSuperHidden, FallbackValue=Hidden}" Margin="0,0,15,0">
                 <UserControl.Style>
                     <Style>
                         <Style.Triggers>
