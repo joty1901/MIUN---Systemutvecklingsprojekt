@@ -10,10 +10,12 @@ namespace MaterMinds
         public string Nickname { get; set; }
         public List<Score> PlayerScore { get; set; }
 
+        //Konstruktor som används när GetDbPlayers körs i Repository.cs
         public Player()
         {
 
         }
+        
         public Player(int id, string nickname)
         {
             Id = id;

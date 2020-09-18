@@ -17,7 +17,7 @@ namespace MaterMinds
        
         public static IEnumerable<Player> GetDbPlayers()
         {
-            string stmt = "select id, nickname from player";
+            string stmt = "SELECT id, nickname FROM player ORDER BY(id) DESC";
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
@@ -157,6 +157,43 @@ namespace MaterMinds
                         trans.Commit();
                         return highscores;
 
+                    }
+                    catch (PostgresException)
+                    {
+                        trans.Rollback();
+                        throw;
+                    }
+            }
+        }
+        public static IEnumerable<Highscore> GetFrequentPlayers()
+        {
+            string stmt = "SELECT nickname, COUNT(player_id) FROM score INNER JOIN player ON player.id=player_id GROUP BY nickname ORDER BY COUNT DESC LIMIT 10;";
+
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                Highscore h = null;
+                List<Highscore> highscores = new List<Highscore>();
+                conn.Open();
+                using (var trans = conn.BeginTransaction())
+                    try
+                    {
+                        using (var command = new NpgsqlCommand(stmt, conn))
+                        {
+                            using (var reader = command.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    h = new Highscore
+                                    {
+                                        Nickname = reader["nickname"].ToString(),
+                                        Value = (int)reader["value"]
+                                    };
+                                    highscores.Add(h);
+                                }
+                            }
+                        }
+                        trans.Commit();
+                        return highscores;
                     }
                     catch (PostgresException)
                     {

@@ -2,10 +2,14 @@
 using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.ExceptionServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Navigation;
 
@@ -17,7 +21,18 @@ namespace MaterMinds
         public ICommand ChoosePlayer { get; set; }
         public string Nickname { get; set; }
         public List<Player> PlayerList { get; set; }
-        public Player selectedPlayer { get; set; }
+        public Player SelectedPlayer { get; set; }
+
+        //private Player _selectedPlayer;
+        //public Player SelectedPlayer
+        //{
+        //    get { return _selectedPlayer; }
+        //    set 
+        //    { 
+        //        _selectedPlayer = value;
+        //        RaisePropertyChanged("SelectedPlayer");
+        //    }
+        //}
 
         public ChoosePlayerViewModel()
         {
@@ -26,20 +41,21 @@ namespace MaterMinds
             Back = new RelayCommand(GetBack);
             GetPlayers();
         }
+
         public void CreatePlayer()
         {
-            //int id = 0;
             try
             {
                 int id = Repository.AddPlayer(Nickname);
                 Player player = new Player(id, Nickname);
-                Main.Content = new GamePage(player);
+                GetPlayers();
+                SelectedPlayer = player;
+
             }
             catch (PostgresException exm)
             {
                 var code = exm.SqlState;
                 MessageBox.Show($"Nickname {Nickname} already in use!");
-
             }
         }
 
@@ -47,16 +63,17 @@ namespace MaterMinds
         {
             PlayerList = Repository.GetDbPlayers().ToList();
         }
+
         public void NewGame()
         {
-            if (selectedPlayer != null)
+            if (SelectedPlayer != null)
             {
-                Player player = selectedPlayer;
+                Player player = SelectedPlayer;
                 Main.Content = new GamePage(player);
             }
             else
             {
-                MessageBox.Show("Select a player");
+                MessageBox.Show("Select a player before starting the game");
             }
         }
 
