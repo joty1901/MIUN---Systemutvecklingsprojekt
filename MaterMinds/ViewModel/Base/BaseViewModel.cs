@@ -32,6 +32,5 @@ namespace MaterMinds
         {
             Main.Content = new MainMenuView();
         }
-
     }
 }
