@@ -146,7 +146,7 @@
                        Foreground="White" FontSize="25" 
                        HorizontalAlignment="Left" 
                        VerticalAlignment="Top"/>
-                <TextBox Text="{Binding Nickname}" 
+                <TextBox Text="{Binding Nickname}"
                          Margin="0,0,0,20" 
                          Background="Black"
                          Foreground="#b2cce5" 
