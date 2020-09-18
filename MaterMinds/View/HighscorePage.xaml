@@ -10,16 +10,12 @@
       Background="{DynamicResource BackgroundIMG}">
 
     <Grid>
-
-
         <ListBox Margin="180,49,180,49" 
                  ItemsSource="{Binding Highscorelist}" 
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                  ScrollViewer.VerticalScrollBarVisibility="Disabled"
                  HorizontalContentAlignment="Stretch"
-                 Background="Black"
-                 >
-
+                 Background="Black">
 
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -29,14 +25,27 @@
                                 <ColumnDefinition />
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" Text="{Binding Nickname}" FontSize="20" Foreground="#b2cce5"/>
-                            <TextBlock Grid.Column="1" HorizontalAlignment="Right" Text="{Binding Value}" FontSize="20" Foreground="#b2cce5"/>
+                            <TextBlock Grid.Column="0" 
+                                       Text="{Binding Nickname}" 
+                                       FontSize="20" 
+                                       Foreground="#b2cce5"/>
+                            <TextBlock 
+                                Grid.Column="1" 
+                                HorizontalAlignment="Right" 
+                                Text="{Binding Value}"
+                                FontSize="20" 
+                                Foreground="#b2cce5"/>
                         </Grid>
                     </Border>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <Button Content="Main Menu"  Command="{Binding Back}" Style="{StaticResource RoundButtonTemplate}" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" FontSize="25" Width="169" Height="53" Margin="0,12,0,0"  >
+        <Button Content="Main Menu" 
+                Command="{Binding Back}" 
+                Style="{StaticResource RoundButtonTemplate}" 
+                VerticalAlignment="Top" 
+                HorizontalAlignment="Left" 
+                Margin="0,12,0,0">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="DodgerBlue"/>
@@ -44,7 +53,12 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button Content="Frequent Players"  Command="{Binding ViewTopFrequentPlayers}" Style="{StaticResource RoundButtonTemplate}" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" FontSize="18" Width="169" Height="53" Margin="0,114,0,0"  >
+        <Button Content="Frequent Players"
+                Command="{Binding ViewTopFrequentPlayers}" 
+                Style="{StaticResource RoundButtonTemplate}" 
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left" 
+                Margin="0,114,0,0">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="DodgerBlue"/>
@@ -52,7 +66,12 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Button Content="Highscore"  Command="{Binding ViewTopHighscore}" Style="{StaticResource RoundButtonTemplate}" VerticalAlignment="Top" HorizontalAlignment="Left" FontWeight="Bold" FontSize="18" Width="169" Height="53" Margin="0,172,0,0"  >
+        <Button Content="Highscore"
+                Command="{Binding ViewTopHighscore}" 
+                Style="{StaticResource RoundButtonTemplate}"
+                VerticalAlignment="Top" 
+                HorizontalAlignment="Left" 
+                Margin="0,172,0,0"  >
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="DodgerBlue"/>
@@ -60,6 +79,9 @@
                 </LinearGradientBrush>
             </Button.Background>
         </Button>
-        <Label Content="Filter" Margin="45,70,-45,-70"  FontSize="25" FontWeight="Bold" Foreground="Azure" />
+        <Label Content="Filter"
+               Margin="10,65,665,341" 
+               FontSize="25" FontWeight="Bold" 
+               Foreground="Azure" />
     </Grid>
 </Page>
