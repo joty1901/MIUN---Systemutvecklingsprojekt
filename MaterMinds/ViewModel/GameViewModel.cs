@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Drawing;
+using System.Globalization;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Windows.Data;
@@ -26,7 +28,7 @@ namespace MaterMinds
         public ObservableCollection<string[]> hintArray { get; set; } = new ObservableCollection<string[]>();
         public ObservableCollection<string> CorrectAnswerArray { get; set; } = new ObservableCollection<string>();
         public string IsHidden { get; set; }
-        public ObservableCollection<string> BackgroundColor { get; set; } = new ObservableCollection<string> { "LightGray", "Gray", "Gray", "Gray", "Gray", "Gray", "Gray"};
+        public ObservableCollection<string> BackgroundColor { get; set; } = new ObservableCollection<string> { "White", "Transparent", "Transparent", "Transparent", "Transparent", "Transparent", "Transparent" };
         public int GameTimerInSecounds { get; set; }
         public int GameTimerInMinutes { get; set; }
         public string GameTimer { get; set; }
@@ -70,10 +72,10 @@ namespace MaterMinds
                     if (Counter < 6)
                     {
                         IsActive[Counter] = false;
-                        BackgroundColor[Counter] = "Gray";
+                        BackgroundColor[Counter] = "Transparent";
                         Counter++;
                         IsActive[Counter] = true;
-                        BackgroundColor[Counter] = "LightGray";
+                        BackgroundColor[Counter] = "White";
                     }
                     else
                     {

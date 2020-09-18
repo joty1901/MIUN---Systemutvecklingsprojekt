@@ -8,6 +8,7 @@ namespace MaterMinds
     /// </summary>
     public partial class RedPeg : MasterPeg
     {
+        LinearGradientBrush linearBrush = new LinearGradientBrush();
         public RedPeg()
         {
             InitializeComponent();
