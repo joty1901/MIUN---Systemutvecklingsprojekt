@@ -11,19 +11,18 @@ namespace MaterMinds.ViewModel
     {
         public ICommand ChoosePlayer { get; set; }
         public ICommand ViewHighscore { get; set; }
-        public ICommand NewGame { get; set; }
+        public ICommand ExitGame { get; set; }
 
         public MainMenuViewModel()
         {
             ChoosePlayer = new RelayCommand(ChoosePlayerPage);
             ViewHighscore = new RelayCommand(HighscorePage);
-           // NewGame = new RelayCommand(NewGamePage);
+            ExitGame = new RelayCommand(CloseApplication);
             StartDBConnection();
         }
 
         private void ChoosePlayerPage()
         {
-            //Main.Content = new ChoosePlayerPage();
             Main.Content = new ChoosePlayerView();
         }
 
@@ -32,15 +31,14 @@ namespace MaterMinds.ViewModel
             Main.Content = new HighscorePage();
         }
 
-        // För att starta ett spel utan att välja en PLAYER
-        //private void NewGamePage()
-        //{
-        //    Main.Content = new GamePage();
-        //}
-
         private void StartDBConnection()
         {
             Repository.StartDb();
+        }
+
+        private void CloseApplication()
+        {
+            Main.Close();
         }
 
     }
