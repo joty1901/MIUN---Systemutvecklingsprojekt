@@ -18,15 +18,21 @@ namespace MaterMinds
 
         public HighscoreViewModel()
         {
-            GetHighscores();
+            SetTopTenHighscoreToList();
             Back = new RelayCommand(GetBack);
+            ViewTopFrequentPlayers = new RelayCommand(SetTopFrequentPlayerToList);
+            ViewTopHighscore = new RelayCommand(SetTopTenHighscoreToList);
         }
 
-        public void GetHighscores()
+        public void SetTopTenHighscoreToList()
         {
             Highscorelist = Repository.GetTopTenHigscore();
         }
 
+        public void SetTopFrequentPlayerToList()
+        {
+            Highscorelist = Repository.GetTopFrequentPlayers();
+        }
 
     }
 }
