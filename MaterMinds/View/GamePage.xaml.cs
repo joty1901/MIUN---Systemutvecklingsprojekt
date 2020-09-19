@@ -37,22 +37,14 @@ namespace MaterMinds
 
         private void panel_Drop(object sender, DragEventArgs e)
         {
-            // If an element in the panel has already handled the drop,
-            // the panel should not also handle it.
             if (e.Handled == false)
             {
                 Panel _panel = (Panel)sender;
-                
                 UIElement _element = (UIElement)e.Data.GetData("Object");
-
                 if (_panel != null && _element != null)
                 {
-                    // Get the panel that the element currently belongs to,
-                    // then remove it from that panel and add it the Children of
-                    // the panel that its been dropped on.
                     Panel _parent = (Panel)VisualTreeHelper.GetParent(_element);
-
-                    if (_parent != null)
+                    if (_parent.Name == "GuessCont")
                     {
                        if (e.AllowedEffects.HasFlag(DragDropEffects.Move))
                         {
@@ -60,40 +52,70 @@ namespace MaterMinds
                             
                             if (_element is YellowPeg)
                             {
-                                YellowPeg yellowCopy = new YellowPeg();
-                                yellowCopy.IsMoveble = false;
-                                _panel.Children.Add(yellowCopy);
+                                _panel.Children.Add(new YellowPeg());
                             }
                             else if (_element is BluePeg)
                             {
-                                BluePeg blueCopy = new BluePeg();
-                                blueCopy.IsMoveble = false;
-                                _panel.Children.Add(blueCopy);
-                                
+                                _panel.Children.Add(new BluePeg());
                             }
                             else if (_element is RedPeg)
                             {
-                                RedPeg redCopy = new RedPeg();
-                                redCopy.IsMoveble = false;
-                                _panel.Children.Add(redCopy);
+                                _panel.Children.Add(new RedPeg());
                             }
                             else if (_element is GreenPeg)
                             {
-                                GreenPeg greenCopy = new GreenPeg();
-                                greenCopy.IsMoveble = false;
-                                _panel.Children.Add(greenCopy);
+                                _panel.Children.Add(new GreenPeg());
                             }
                             else if (_element is PurplePeg)
                             {
-                                PurplePeg purpleCopy = new PurplePeg();
-                                purpleCopy.IsMoveble = false;
-                                _panel.Children.Add(purpleCopy);
+                                _panel.Children.Add(new PurplePeg());
                             }
                             else if (_element is OrangePeg)
                             {
-                                OrangePeg OrangeCopy = new OrangePeg();
-                                OrangeCopy.IsMoveble = false;
-                                _panel.Children.Add(OrangeCopy);
+                                _panel.Children.Add(new OrangePeg());
+                            }
+                            var colorId = ((MasterPeg)_element).ColorIndex;
+                            int key = int.Parse(_panel.Uid);
+                            model.PlacedPegs.AddOrUpdate(key, colorId);
+
+                            e.Effects = DragDropEffects.Move;
+                        }
+                    }
+                    else if (_parent != null)
+                    {
+                        if (e.AllowedEffects.HasFlag(DragDropEffects.Move))
+                        {
+                            DropSound();
+
+                            if (_element is YellowPeg)
+                            {
+                                _parent.Children.Remove(_element);
+                                _panel.Children.Add(new YellowPeg());
+                            }
+                            else if (_element is BluePeg)
+                            {
+                                _parent.Children.Remove(_element);
+                                _panel.Children.Add(new BluePeg());
+                            }
+                            else if (_element is RedPeg)
+                            {
+                                _parent.Children.Remove(_element);
+                                _panel.Children.Add(new RedPeg());
+                            }
+                            else if (_element is GreenPeg)
+                            {
+                                _parent.Children.Remove(_element);
+                                _panel.Children.Add(new GreenPeg());
+                            }
+                            else if (_element is PurplePeg)
+                            {
+                                _parent.Children.Remove(_element);
+                                _panel.Children.Add(new PurplePeg());
+                            }
+                            else if (_element is OrangePeg)
+                            {
+                                _parent.Children.Remove(_element);
+                                _panel.Children.Add(new OrangePeg());
                             }
                             var colorId = ((MasterPeg)_element).ColorIndex;
                             int key = int.Parse(_panel.Uid);
