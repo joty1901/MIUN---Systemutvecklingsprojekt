@@ -14,6 +14,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Cursor\BlueCircle.cur" />
+    <None Remove="Resources\Cursor\GreenCircle.cur" />
+    <None Remove="Resources\Cursor\OrangeCircle.cur" />
+    <None Remove="Resources\Cursor\PurpleCircle.cur" />
+    <None Remove="Resources\Cursor\RedCircle.cur" />
+    <None Remove="Resources\Cursor\YellowCircle.cur" />
     <None Remove="Resources\giphy.gif" />
     <None Remove="Resources\MaterMindBackground.jpg" />
     <None Remove="Resources\Picture\Earth.jpg" />
@@ -33,16 +39,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\BlackCircle.cur" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Npgsql" Version="4.1.4" />
     <PackageReference Include="PropertyChanged.Fody" Version="3.2.9" />
     <PackageReference Include="XamlAnimatedGif" Version="1.2.3" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\Cursor\RedCircle.cur" />
+    <Resource Include="Resources\Cursor\GreenCircle.cur" />
+    <Resource Include="Resources\Cursor\BlueCircle.cur" />
+    <Resource Include="Resources\Cursor\PurpleCircle.cur" />
+    <Resource Include="Resources\Cursor\OrangeCircle.cur" />
+    <Resource Include="Resources\Cursor\YellowCircle.cur" />
     <Resource Include="Resources\Picture\Earth.jpg" />
     <Resource Include="Resources\Picture\giphy.gif" />
     <Resource Include="Resources\Picture\HelloMyName.png" />

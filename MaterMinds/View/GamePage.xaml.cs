@@ -7,6 +7,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.IO;
 using System;
+using System.Windows.Resources;
 
 namespace MaterMinds
 {
@@ -15,18 +16,9 @@ namespace MaterMinds
     /// </summary>
     public partial class GamePage : Page
     {
+        public int PanelId { get; set; }
         private GameViewModel model;
         private MediaPlayer SoundPlayer = new MediaPlayer();
-
-
-        //Om man ska kunna spela spelat utan att ha valt en PLAYER
-
-        //public GamePage()
-        //{
-        //    InitializeComponent();
-        //    model = new GameViewModel();
-        //    DataContext = model;
-        //}
 
         public GamePage(Player player)
         {
@@ -35,13 +27,13 @@ namespace MaterMinds
             DataContext = model;
         }
 
-        private void panel_DragOver(object sender, DragEventArgs e)
-        {
-            if (e.Data.GetDataPresent("Object"))
-            {
-                e.Effects = DragDropEffects.Move;
-            }
-        }
+        //private void panel_DragOver(object sender, DragEventArgs e)
+        //{
+        //    if (e.Data.GetDataPresent("Object"))
+        //    {
+        //        e.Effects = DragDropEffects.Move;
+        //    }
+        //}
 
         private void panel_Drop(object sender, DragEventArgs e)
         {
@@ -112,17 +104,41 @@ namespace MaterMinds
                         }
                     }
                 }
-
             }
         }
         protected override void OnGiveFeedback(GiveFeedbackEventArgs e)
         {
-            base.OnGiveFeedback(e);
-
-
-            if (e.Effects.HasFlag(DragDropEffects.Move))
+            //Change cursor to peg depending on color
+            //Sorce: https://wpf.2000things.com/tag/cursor/
+            if (e.Effects.HasFlag(DragDropEffects.Move) && e.OriginalSource is RedPeg)
             {
-                Mouse.SetCursor(Cursors.Hand);
+                StreamResourceInfo sriCurs = Application.GetResourceStream(new Uri("Resources/Cursor/RedCircle.cur", UriKind.Relative));               
+                Mouse.SetCursor(new Cursor(sriCurs.Stream));
+            }
+            else if (e.Effects.HasFlag(DragDropEffects.Move) && e.OriginalSource is YellowPeg)
+            {
+                StreamResourceInfo sriCurs = Application.GetResourceStream(new Uri("Resources/Cursor/YellowCircle.cur", UriKind.Relative));
+                Mouse.SetCursor(new Cursor(sriCurs.Stream));
+            }
+            else if (e.Effects.HasFlag(DragDropEffects.Move) && e.OriginalSource is GreenPeg)
+            {
+                StreamResourceInfo sriCurs = Application.GetResourceStream(new Uri("Resources/Cursor/GreenCircle.cur", UriKind.Relative));
+                Mouse.SetCursor(new Cursor(sriCurs.Stream));
+            }
+            else if (e.Effects.HasFlag(DragDropEffects.Move) && e.OriginalSource is BluePeg)
+            {
+                StreamResourceInfo sriCurs = Application.GetResourceStream(new Uri("Resources/Cursor/BlueCircle.cur", UriKind.Relative));
+                Mouse.SetCursor(new Cursor(sriCurs.Stream));
+            }
+            else if (e.Effects.HasFlag(DragDropEffects.Move) && e.OriginalSource is PurplePeg)
+            {
+                StreamResourceInfo sriCurs = Application.GetResourceStream(new Uri("Resources/Cursor/PurpleCircle.cur", UriKind.Relative));
+                Mouse.SetCursor(new Cursor(sriCurs.Stream));
+            }
+            else if (e.Effects.HasFlag(DragDropEffects.Move) && e.OriginalSource is OrangePeg)
+            {
+                StreamResourceInfo sriCurs = Application.GetResourceStream(new Uri("Resources/Cursor/OrangeCircle.cur", UriKind.Relative));
+                Mouse.SetCursor(new Cursor(sriCurs.Stream));
             }
             else
             {
