@@ -44,7 +44,7 @@ namespace MaterMinds
                 if (_panel != null && _element != null)
                 {
                     Panel _parent = (Panel)VisualTreeHelper.GetParent(_element);
-                    if (_parent.Name == "GuessCont")
+                    if (_parent.Name == "GuessController")
                     {
                        if (e.AllowedEffects.HasFlag(DragDropEffects.Move))
                         {
@@ -81,7 +81,7 @@ namespace MaterMinds
                             e.Effects = DragDropEffects.Move;
                         }
                     }
-                    else if (_parent != null)
+                    else if (_parent != null && _element.AllowDrop==true)
                     {
                         if (e.AllowedEffects.HasFlag(DragDropEffects.Move))
                         {
@@ -120,18 +120,20 @@ namespace MaterMinds
                             var colorId = ((MasterPeg)_element).ColorIndex;
                             int key = int.Parse(_panel.Uid);
                             model.PlacedPegs.AddOrUpdate(key, colorId);
-
-                            // set the value to return to the DoDragDrop call
                             e.Effects = DragDropEffects.Move;
                         }
                     }
                 }
             }
         }
+        /// <summary>
+        /// Change cursor to peg depending on color.
+        /// Sorce: https://wpf.2000things.com/tag/cursor/ 
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnGiveFeedback(GiveFeedbackEventArgs e)
         {
-            //Change cursor to peg depending on color
-            //Sorce: https://wpf.2000things.com/tag/cursor/
+            //
             if (e.Effects.HasFlag(DragDropEffects.Move) && e.OriginalSource is RedPeg)
             {
                 StreamResourceInfo sriCurs = Application.GetResourceStream(new Uri("Resources/Cursor/RedCircle.cur", UriKind.Relative));               
