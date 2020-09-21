@@ -22,8 +22,10 @@
     <None Remove="Resources\Cursor\YellowCircle.cur" />
     <None Remove="Resources\giphy.gif" />
     <None Remove="Resources\MaterMindBackground.jpg" />
+    <None Remove="Resources\Picture\6ka.gif" />
     <None Remove="Resources\Picture\Earth.jpg" />
     <None Remove="Resources\Picture\HelloMyName.png" />
+    <None Remove="Resources\Picture\WinCon.gif" />
     <None Remove="Resources\Sound\Rumble.mp3" />
     <None Remove="Resources\Sound\Spacemusic.mp3" />
     <None Remove="Resources\Sound\WaterDrop.mp3" />
@@ -45,7 +47,7 @@
   <ItemGroup>
     <PackageReference Include="Npgsql" Version="4.1.4" />
     <PackageReference Include="PropertyChanged.Fody" Version="3.2.9" />
-    <PackageReference Include="XamlAnimatedGif" Version="1.2.3" />
+    <PackageReference Include="WpfAnimatedGif" Version="2.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -55,12 +57,14 @@
     <Resource Include="Resources\Cursor\GreenCircle.cur" />
     <Resource Include="Resources\Cursor\BlueCircle.cur" />
     <Resource Include="Resources\Cursor\YellowCircle.cur" />
+    <Resource Include="Resources\Picture\6ka.gif" />
     <Resource Include="Resources\Picture\Earth.jpg" />
     <Resource Include="Resources\Picture\giphy.gif" />
     <Resource Include="Resources\Picture\HelloMyName.png" />
     <Resource Include="Resources\Picture\MaterMindBackground.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Resources\Picture\WinCon.gif" />
     <Content Include="Resources\Sound\WaterDrop.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
