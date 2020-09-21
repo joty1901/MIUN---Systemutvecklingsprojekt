@@ -296,7 +296,8 @@
             
             <Label Foreground="White" FontSize="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,50,25,0 " Content="{Binding GameTimer, FallbackValue=00:00}"/>
         </StackPanel>
-        <local:HelpView Grid.Column="1" Grid.ColumnSpan="3" x:Name="help" HorizontalAlignment="Left"  Visibility="{Binding IsSuperHidden, FallbackValue=Hidden}" Margin="0,0,15,0">
+        
+            <local:HelpView Grid.Column="1" Grid.ColumnSpan="3" x:Name="help" HorizontalAlignment="Left"  Visibility="{Binding IsSuperHidden, FallbackValue=Hidden}" Margin="0,0,15,0">
             <UserControl.Style>
                 <Style>
                     <Style.Triggers>
@@ -314,5 +315,15 @@
                 </Style>
             </UserControl.Style>
         </local:HelpView>
+        <Button Grid.Column="1" Grid.ColumnSpan="3" Content="X" Visibility="{Binding IsSuperHidden, FallbackValue=Hidden}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="150,15,0,0" Command="{Binding Help}" 
+                    Style="{StaticResource RoundButtonTemplate}" FontWeight="Bold" FontSize="15" Width="32" Height="32" >
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="DodgerBlue"/>
+                        <GradientStop Color="Black" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        
     </Grid>
 </Page>

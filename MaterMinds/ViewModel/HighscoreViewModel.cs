@@ -1,4 +1,4 @@
-﻿using MaterMinds.Model;
+﻿using MaterMinds;
 using MaterMinds.View;
 using MaterMinds.ViewModel;
 using System;

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Windows.Media;
-using MaterMinds.Model;
+using MaterMinds;
 using Npgsql;
 
 namespace MaterMinds
@@ -163,45 +163,7 @@ namespace MaterMinds
                     }
             }
         }
-        public static IEnumerable<Highscore> GetFrequentPlayers()
-        {
-            string stmt = "SELECT nickname, COUNT(player_id) FROM score INNER JOIN player ON player.id=player_id GROUP BY nickname ORDER BY COUNT DESC LIMIT 10;";
-
-            using (var conn = new NpgsqlConnection(connectionString))
-            {
-                Highscore h = null;
-                List<Highscore> highscores = new List<Highscore>();
-                conn.Open();
-                using (var trans = conn.BeginTransaction())
-                    try
-                    {
-                        using (var command = new NpgsqlCommand(stmt, conn))
-                        {
-                            using (var reader = command.ExecuteReader())
-                            {
-                                while (reader.Read())
-                                {
-                                    h = new Highscore
-                                    {
-                                        Nickname = reader["nickname"].ToString(),
-                                        Value = (int)reader["value"]
-                                    };
-                                    highscores.Add(h);
-                                }
-                            }
-                        }
-                        trans.Commit();
-                        return highscores;
-                    }
-                    catch (PostgresException)
-                    {
-                        trans.Rollback();
-                        throw;
-                    }
-            }
-        }
-
-        public static int AddPlayer(string nickname)
+       public static int AddPlayer(string nickname)
         {
             string stmt = "INSERT INTO player(nickname) values(@nickname) returning id";
 
