@@ -10,7 +10,8 @@
       Background="{DynamicResource BackgroundIMG}">
 
     <Grid>
-        <ListBox Margin="180,49,180,49" 
+        <ListBox
+                 Margin="180,49,180,49" 
                  ItemsSource="{Binding Highscorelist}" 
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                  ScrollViewer.VerticalScrollBarVisibility="Disabled"
@@ -30,11 +31,11 @@
                                        Text="{Binding Nickname}" 
                                        FontSize="20" 
                                        Foreground="#b2cce5"/>
-                            <TextBlock Grid.Column="1" 
+                            <TextBlock Grid.Column="1"
                                        Text="{Binding Date, StringFormat=d, ConverterCulture=sv-sv}" 
                                        FontSize="20" 
                                        Foreground="#b2cce5"
-                                       Visibility="{Binding Visibility, FallbackValue=Visible, Mode=TwoWay}"/>
+                                       Visibility="{Binding Visibility}"/>
                             <TextBlock 
                                         Grid.Column="2" 
                                         HorizontalAlignment="Right" 
@@ -89,6 +90,8 @@
                VerticalAlignment="Top" 
                HorizontalAlignment="Left" 
                FontSize="25" FontWeight="Bold" 
-               Foreground="Azure" Margin="10,71,0,0" />
+               Foreground="Azure" Margin="10,71,0,0"
+               />
+        <TextBlock Visibility="{Binding Visibility}" HorizontalAlignment="Left" Margin="21,281,0,0" Text="Hej" Foreground="Red" FontSize="25" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="109"/>
     </Grid>
 </Page>
