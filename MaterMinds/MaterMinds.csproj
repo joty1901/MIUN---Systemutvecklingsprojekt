@@ -27,6 +27,7 @@
     <None Remove="Resources\Sound\Rumble.mp3" />
     <None Remove="Resources\Sound\Spacemusic.mp3" />
     <None Remove="Resources\Sound\WaterDrop.mp3" />
+    <None Remove="Resources\Text\Rules.txt" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,6 +35,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\Sound\Spacemusic.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Text\Rules.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

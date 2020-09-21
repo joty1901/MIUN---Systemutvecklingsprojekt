@@ -5,40 +5,31 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MaterMinds"
              mc:Ignorable="d" 
-             d:DesignHeight="250" d:DesignWidth="400">
+             d:DesignHeight="450" d:DesignWidth="400">
     <Grid>
-        <Path x:Name="TextContainer"
-              HorizontalAlignment="Center"
-              VerticalAlignment="Center"
-              Data="M0,0
-                    L10,10 10,-27
-                    C10,-27 10,-32 18,-32
-                    
-                    L198,-32
-                    C208,-31 208,-25 208, -15
+        <Rectangle HorizontalAlignment="Left" 
               
-                    L238,0 208,10
-                    C208,30 205,33 195,33
-                    
-                    L40,33
-                    C15,33 10,33 10,25
-              
-                    L10,10
-                    z"
-              Fill="#3A6110"
-              Height="150"
-              Width="200" 
+              Stroke="Transparent"
+              Fill="Black"
+              Opacity="0.8"
+              Height="414"
+              Width="401" 
               Stretch="Fill"
               >
-        </Path>
+        </Rectangle>
 
         <TextBlock x:Name="HelpText"
-                   FontSize="20"
-                   Panel.ZIndex="1"
+                   FontSize="14" 
+                   Background="Transparent" 
+                   Foreground="#b2cce5"
                    HorizontalAlignment="Center"
-                   VerticalAlignment="Center">
-            
-        </TextBlock>
+                   VerticalAlignment="Center"
+                   MaxHeight="200"
+                   MaxWidth="300"
+                   TextWrapping="Wrap"
+                   />
+
+
     </Grid>
 
     <!--<UserControl.Style>
