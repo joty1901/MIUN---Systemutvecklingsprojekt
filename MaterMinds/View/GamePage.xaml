@@ -38,6 +38,16 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
+            <Button Content="Help" HorizontalAlignment="Left" Style="{DynamicResource RoundButtonTemplate}" 
+                    FontSize="15" FontWeight="Bold" Width="118" Height="32" Margin="15,5,0,0"
+                    Command="{Binding Help}">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="DodgerBlue"/>
+                        <GradientStop Color="Black" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
         </StackPanel>
 
         <StackPanel Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,0,0">
@@ -281,36 +291,28 @@
         </StackPanel>
         
         <StackPanel Grid.Column="4" MinHeight="450">
-            <Button Content="Help" HorizontalAlignment="Right" Style="{DynamicResource RoundButtonTemplate}" 
-                    FontSize="15" FontWeight="Bold" Width="118" Height="32" Margin="0,15,15,0"
-                    Command="{Binding Help}">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="DodgerBlue"/>
-                        <GradientStop Color="Black" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-            </Button>
+            
             <Label Foreground="White" FontSize="30" HorizontalAlignment="Center" Content="{Binding Score}" Visibility="{Binding IsHidden, FallbackValue=Hidden}"/>
-            <local:HelpView x:Name="help" HorizontalAlignment="Right" Foreground="Olive" Visibility="{Binding IsSuperHidden, FallbackValue=Hidden}" Margin="0,0,15,0">
-                <UserControl.Style>
-                    <Style>
-                        <Style.Triggers>
-                            <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-                                <BeginStoryboard>
-                                    <Storyboard>
-                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" Duration="00:00:05" From="0" To="1"/>
-                                    </Storyboard>
-                                </BeginStoryboard>
-                            </EventTrigger>
-                            <Trigger Property="FrameworkElement.Visibility" Value="Hidden">
-                                <Setter Property="FrameworkElement.Opacity" Value="0"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </UserControl.Style>
-            </local:HelpView>
+            
             <Label Foreground="White" FontSize="30" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,50,25,0 " Content="{Binding GameTimer, FallbackValue=00:00}"/>
         </StackPanel>
+        <local:HelpView Grid.Column="1" Grid.ColumnSpan="3" x:Name="help" HorizontalAlignment="Left"  Visibility="{Binding IsSuperHidden, FallbackValue=Hidden}" Margin="0,0,15,0">
+            <UserControl.Style>
+                <Style>
+                    <Style.Triggers>
+                        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetProperty="Opacity" Duration="00:00:02" From="0" To="1"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <Trigger Property="FrameworkElement.Visibility" Value="Hidden">
+                            <Setter Property="FrameworkElement.Opacity" Value="0"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </UserControl.Style>
+        </local:HelpView>
     </Grid>
 </Page>
