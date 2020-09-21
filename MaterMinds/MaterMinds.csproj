@@ -46,10 +46,10 @@
 
   <ItemGroup>
     <Resource Include="Resources\Cursor\RedCircle.cur" />
-    <Resource Include="Resources\Cursor\GreenCircle.cur" />
-    <Resource Include="Resources\Cursor\BlueCircle.cur" />
     <Resource Include="Resources\Cursor\PurpleCircle.cur" />
     <Resource Include="Resources\Cursor\OrangeCircle.cur" />
+    <Resource Include="Resources\Cursor\GreenCircle.cur" />
+    <Resource Include="Resources\Cursor\BlueCircle.cur" />
     <Resource Include="Resources\Cursor\YellowCircle.cur" />
     <Resource Include="Resources\Picture\Earth.jpg" />
     <Resource Include="Resources\Picture\giphy.gif" />

@@ -73,8 +73,8 @@
                 </WrapPanel>
             </Border>
 
-            <Border BorderThickness="3" BorderBrush="{Binding BackgroundColor[6]}" CornerRadius="10">
-                <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" AllowDrop="{Binding IsActive[6]}">
+            <Border BorderThickness="3" BorderBrush="{Binding BackgroundColor[6]}" CornerRadius="10" IsEnabled="{Binding IsActive[6]}">
+                <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Grid x:Uid="1" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
                         <Ellipse Height="30" Stroke="Black" StrokeThickness="2" Fill="LightGray" Opacity="0.5"/>
                     </Grid>
@@ -101,8 +101,8 @@
                 </WrapPanel>
             </Border>
 
-            <Border BorderThickness="3" BorderBrush="{Binding BackgroundColor[5]}" CornerRadius="10">
-                <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" AllowDrop="{Binding IsActive[5]}">
+            <Border BorderThickness="3" BorderBrush="{Binding BackgroundColor[5]}" CornerRadius="10" IsEnabled="{Binding IsActive[5]}">
+                <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Grid x:Uid="1" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
                         <Ellipse Height="30" Stroke="Black" StrokeThickness="2" Fill="LightGray" Opacity="0.5"/>
                     </Grid>
@@ -129,8 +129,8 @@
                 </WrapPanel>
             </Border>
 
-            <Border BorderThickness="3" BorderBrush="{Binding BackgroundColor[4]}" CornerRadius="10">
-                <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" AllowDrop="{Binding IsActive[4]}">
+            <Border BorderThickness="3" BorderBrush="{Binding BackgroundColor[4]}" CornerRadius="10" IsEnabled="{Binding IsActive[4]}">
+                <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Grid x:Uid="1" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
                         <Ellipse Height="30" Stroke="Black" StrokeThickness="2" Fill="LightGray" Opacity="0.5"/>
                     </Grid>
@@ -157,8 +157,8 @@
                 </WrapPanel>
             </Border>
 
-            <Border BorderThickness="3" BorderBrush="{Binding BackgroundColor[3]}" CornerRadius="10">
-                <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" AllowDrop="{Binding IsActive[3]}">
+            <Border BorderThickness="3" BorderBrush="{Binding BackgroundColor[3]}" CornerRadius="10" IsEnabled="{Binding IsActive[3]}">
+                <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Grid x:Uid="1" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
                         <Ellipse Height="30" Stroke="Black" StrokeThickness="2" Fill="LightGray" Opacity="0.5"/>
                     </Grid>
@@ -185,8 +185,8 @@
                 </WrapPanel>
             </Border>
 
-            <Border BorderThickness="3" BorderBrush="{Binding BackgroundColor[2]}" CornerRadius="10">
-                <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" AllowDrop="{Binding IsActive[2]}">
+            <Border BorderThickness="3" BorderBrush="{Binding BackgroundColor[2]}" CornerRadius="10" IsEnabled="{Binding IsActive[2]}">
+                <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Grid x:Uid="1" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
                         <Ellipse Height="30" Stroke="Black" StrokeThickness="2" Fill="LightGray" Opacity="0.5"/>
                     </Grid>
@@ -213,8 +213,8 @@
                 </WrapPanel>
             </Border>
 
-            <Border BorderThickness="3" BorderBrush="{Binding BackgroundColor[1]}" CornerRadius="10">
-                <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" AllowDrop="{Binding IsActive[1]}">
+            <Border BorderThickness="3" BorderBrush="{Binding BackgroundColor[1]}" CornerRadius="10" IsEnabled="{Binding IsActive[1]}">
+                <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Grid x:Uid="1" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
                         <Ellipse Height="30" Stroke="Black" StrokeThickness="2" Fill="LightGray" Opacity="0.5"/>
                     </Grid>
@@ -241,8 +241,8 @@
                 </WrapPanel>
             </Border>
 
-            <Border BorderThickness="3" BorderBrush="{Binding BackgroundColor[0]}" CornerRadius="10">
-                <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" AllowDrop="{Binding IsActive[0]}">
+            <Border BorderThickness="3" BorderBrush="{Binding BackgroundColor[0]}" CornerRadius="10" IsEnabled="{Binding IsActive[0]}">
+                <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Grid x:Uid="1" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
                         <Ellipse Height="30" Stroke="Black" StrokeThickness="2" Fill="LightGray" Opacity="0.5"/>
                     </Grid>
@@ -252,7 +252,7 @@
                     <Grid x:Uid="3" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
                         <Ellipse Height="30" Stroke="Black" StrokeThickness="2" Fill="LightGray" Opacity="0.5"/>
                     </Grid>
-                    <Grid x:Uid="4" Background="Transparent" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
+                    <Grid x:Uid="4" Background="Transparent" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop">
                         <Ellipse Height="30" Stroke="Black" StrokeThickness="2" Fill="LightGray" Opacity="0.5"/>
                     </Grid>
                     <Border BorderThickness="3" CornerRadius="10" Margin="7.5,0,7.5,0">
