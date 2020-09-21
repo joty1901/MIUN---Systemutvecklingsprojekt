@@ -7,9 +7,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="400">
     <Grid>
-        <Rectangle HorizontalAlignment="Left" 
+        <Rectangle  HorizontalAlignment="Left" 
               
-              Stroke="Transparent"
+              Stroke="LightGray"
+              StrokeThickness="3"
               Fill="Black"
               Opacity="0.8"
               Height="414"
