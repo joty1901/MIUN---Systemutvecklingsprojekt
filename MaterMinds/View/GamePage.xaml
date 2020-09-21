@@ -84,7 +84,7 @@
                     <Grid x:Uid="3" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
                         <Ellipse Height="30" Stroke="Black" StrokeThickness="2" Fill="LightGray" Opacity="0.5"/>
                     </Grid>
-                    <Grid x:Uid="4" Background="Transparent" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
+                    <Grid x:Uid="4" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
                         <Ellipse Height="30" Stroke="Black" StrokeThickness="2" Fill="LightGray" Opacity="0.5"/>
                     </Grid>
                     <Border BorderThickness="3" CornerRadius="10" Margin="7.5,0,7.5,0">
@@ -112,7 +112,7 @@
                     <Grid x:Uid="3" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
                         <Ellipse Height="30" Stroke="Black" StrokeThickness="2" Fill="LightGray" Opacity="0.5"/>
                     </Grid>
-                    <Grid x:Uid="4" Background="Transparent" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
+                    <Grid x:Uid="4" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
                         <Ellipse Height="30" Stroke="Black" StrokeThickness="2" Fill="LightGray" Opacity="0.5"/>
                     </Grid>
                     <Border BorderThickness="3" CornerRadius="10" Margin="7.5,0,7.5,0">
@@ -140,7 +140,7 @@
                     <Grid x:Uid="3" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
                         <Ellipse Height="30" Stroke="Black" StrokeThickness="2" Fill="LightGray" Opacity="0.5"/>
                     </Grid>
-                    <Grid x:Uid="4" Background="Transparent" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
+                    <Grid x:Uid="4" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
                         <Ellipse Height="30" Stroke="Black" StrokeThickness="2" Fill="LightGray" Opacity="0.5"/>
                     </Grid>
                     <Border BorderThickness="3" CornerRadius="10" Margin="7.5,0,7.5,0">
@@ -168,7 +168,7 @@
                     <Grid x:Uid="3" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
                         <Ellipse Height="30" Stroke="Black" StrokeThickness="2" Fill="LightGray" Opacity="0.5"/>
                     </Grid>
-                    <Grid x:Uid="4" Background="Transparent" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
+                    <Grid x:Uid="4" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
                         <Ellipse Height="30" Stroke="Black" StrokeThickness="2" Fill="LightGray" Opacity="0.5"/>
                     </Grid>
                     <Border BorderThickness="3" CornerRadius="10" Margin="7.5,0,7.5,0">
@@ -196,7 +196,7 @@
                     <Grid x:Uid="3" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
                         <Ellipse Height="30" Stroke="Black" StrokeThickness="2" Fill="LightGray" Opacity="0.5"/>
                     </Grid>
-                    <Grid x:Uid="4" Background="Transparent" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
+                    <Grid x:Uid="4" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
                         <Ellipse Height="30" Stroke="Black" StrokeThickness="2" Fill="LightGray" Opacity="0.5"/>
                     </Grid>
                     <Border BorderThickness="3" CornerRadius="10" Margin="7.5,0,7.5,0">
@@ -224,7 +224,7 @@
                     <Grid x:Uid="3" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
                         <Ellipse Height="30" Stroke="Black" StrokeThickness="2" Fill="LightGray" Opacity="0.5"/>
                     </Grid>
-                    <Grid x:Uid="4" Background="Transparent" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
+                    <Grid x:Uid="4" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
                         <Ellipse Height="30" Stroke="Black" StrokeThickness="2" Fill="LightGray" Opacity="0.5"/>
                     </Grid>
                     <Border BorderThickness="3" CornerRadius="10" Margin="7.5,0,7.5,0">
@@ -252,7 +252,7 @@
                     <Grid x:Uid="3" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
                         <Ellipse Height="30" Stroke="Black" StrokeThickness="2" Fill="LightGray" Opacity="0.5"/>
                     </Grid>
-                    <Grid x:Uid="4" Background="Transparent" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop">
+                    <Grid x:Uid="4" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop">
                         <Ellipse Height="30" Stroke="Black" StrokeThickness="2" Fill="LightGray" Opacity="0.5"/>
                     </Grid>
                     <Border BorderThickness="3" CornerRadius="10" Margin="7.5,0,7.5,0">
