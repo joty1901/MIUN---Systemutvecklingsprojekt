@@ -7,6 +7,7 @@ namespace MaterMinds
     public class Score
     {
         public int Value { get; set; }
+        public string Nickname { get; set; }
         public int ScoreId { get; set; }
         public int PlayerId { get; set; }
         public DateTime Date { get; set; }
@@ -17,10 +18,10 @@ namespace MaterMinds
             PlayerId = player.Id;
             Repository.AddPlayerScore(PlayerId, Value);
         }
+
         public Score()
         {
 
         }
-
     }
 }
