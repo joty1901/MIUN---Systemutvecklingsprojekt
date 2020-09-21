@@ -49,7 +49,8 @@ namespace MaterMinds
                        if (e.AllowedEffects.HasFlag(DragDropEffects.Move))
                         {
                             DropSound();
-                            
+                            _panel.Children.Clear();
+                            _panel.Children.Add(new GameBoardCircle());
                             if (_element is YellowPeg)
                             {
                                 _panel.Children.Add(new YellowPeg());
@@ -81,11 +82,14 @@ namespace MaterMinds
                             e.Effects = DragDropEffects.Move;
                         }
                     }
-                    else if (_parent != null && _element.AllowDrop==true)
+                    else if (_element.AllowDrop)
                     {
+                        model.PlacedPegs.Remove(int.Parse(_parent.Uid));
                         if (e.AllowedEffects.HasFlag(DragDropEffects.Move))
                         {
                             DropSound();
+                            _panel.Children.Clear();
+                            _panel.Children.Add(new GameBoardCircle());
 
                             if (_element is YellowPeg)
                             {
@@ -133,7 +137,12 @@ namespace MaterMinds
         /// <param name="e"></param>
         protected override void OnGiveFeedback(GiveFeedbackEventArgs e)
         {
-            //
+            var thisObject = new MasterPeg();
+            thisObject.IsMoveble = false; 
+            if (e.OriginalSource == thisObject)
+            {
+
+            }
             if (e.Effects.HasFlag(DragDropEffects.Move) && e.OriginalSource is RedPeg)
             {
                 StreamResourceInfo sriCurs = Application.GetResourceStream(new Uri("Resources/Cursor/RedCircle.cur", UriKind.Relative));               
@@ -177,5 +186,6 @@ namespace MaterMinds
             SoundPlayer.Play();
         }
 
+        
     }
 }
