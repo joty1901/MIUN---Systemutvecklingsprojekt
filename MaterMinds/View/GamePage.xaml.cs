@@ -83,6 +83,7 @@ namespace MaterMinds
                     }
                     else if (_parent != null && _element.AllowDrop==true)
                     {
+                        model.PlacedPegs.Remove(int.Parse(_parent.Uid));
                         if (e.AllowedEffects.HasFlag(DragDropEffects.Move))
                         {
                             DropSound();
@@ -90,31 +91,43 @@ namespace MaterMinds
                             if (_element is YellowPeg)
                             {
                                 _parent.Children.Remove(_element);
+                                _panel.Children.Clear();
+                                _panel.Children.Add(new GameBoardCircle());
                                 _panel.Children.Add(new YellowPeg());
                             }
                             else if (_element is BluePeg)
                             {
                                 _parent.Children.Remove(_element);
+                                _panel.Children.Clear();
+                                _panel.Children.Add(new GameBoardCircle());
                                 _panel.Children.Add(new BluePeg());
                             }
                             else if (_element is RedPeg)
                             {
                                 _parent.Children.Remove(_element);
+                                _panel.Children.Clear();
+                                _panel.Children.Add(new GameBoardCircle());
                                 _panel.Children.Add(new RedPeg());
                             }
                             else if (_element is GreenPeg)
                             {
                                 _parent.Children.Remove(_element);
+                                _panel.Children.Clear();
+                                _panel.Children.Add(new GameBoardCircle());
                                 _panel.Children.Add(new GreenPeg());
                             }
                             else if (_element is PurplePeg)
                             {
                                 _parent.Children.Remove(_element);
+                                _panel.Children.Clear();
+                                _panel.Children.Add(new GameBoardCircle());
                                 _panel.Children.Add(new PurplePeg());
                             }
                             else if (_element is OrangePeg)
                             {
                                 _parent.Children.Remove(_element);
+                                _panel.Children.Clear();
+                                _panel.Children.Add(new GameBoardCircle());
                                 _panel.Children.Add(new OrangePeg());
                             }
                             var colorId = ((MasterPeg)_element).ColorIndex;
