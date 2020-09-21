@@ -26,6 +26,8 @@
     <None Remove="Resources\Picture\Earth.jpg" />
     <None Remove="Resources\Picture\HelloMyName.png" />
     <None Remove="Resources\Picture\WinCon.gif" />
+    <None Remove="Resources\Picture\XSNu.gif" />
+    <None Remove="Resources\Picture\y7.gif" />
     <None Remove="Resources\Sound\Rumble.mp3" />
     <None Remove="Resources\Sound\Spacemusic.mp3" />
     <None Remove="Resources\Sound\WaterDrop.mp3" />
@@ -65,6 +67,8 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Picture\WinCon.gif" />
+    <Resource Include="Resources\Picture\XSNu.gif" />
+    <Resource Include="Resources\Picture\y7.gif" />
     <Content Include="Resources\Sound\WaterDrop.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
