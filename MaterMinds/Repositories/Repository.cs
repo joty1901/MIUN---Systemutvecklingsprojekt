@@ -85,73 +85,31 @@ namespace MaterMinds
 
         }
 
-        public static IEnumerable<Score> GetUserHighscore(Player player)
+        public static IEnumerable<Score> GetTopTenHigscore()
         {
-            string stmt = "select value from score where player_id =@id order by value desc limit 10";
+            string stmt = "SELECT player.nickname, score.value, score.date from player INNER JOIN score ON score.player_id = player.id ORDER BY score.value DESC LIMIT 10";
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
                 Score score = null;
-                List<Score> scoreboard = new List<Score>();
+                List<Score> highscores = new List<Score>();
                 conn.Open();
                 using (var trans = conn.BeginTransaction())
                     try
                     {
                         using (var command = new NpgsqlCommand(stmt, conn))
                         {
-                            command.Parameters.AddWithValue("id", player.Id);
-
                             using (var reader = command.ExecuteReader())
                             {
                                 while (reader.Read())
                                 {
                                     score = new Score
                                     {
-                                        Value = (int)reader["value"]
-                                    };
-                                    scoreboard.Add(score);
-                                }
-                            }
-                        }
-                        trans.Commit();
-                        return scoreboard;
-                    }
-                    catch (PostgresException)
-                    {
-                        trans.Rollback();
-                        throw;
-                    }
-
-            }
-        }
-
-        public static IEnumerable<Highscore> GetTopTenHigscore()
-        {
-            string stmt = "SELECT player.nickname, score.value from player INNER JOIN score ON score.player_id = player.id ORDER BY score.value DESC LIMIT 10";
-
-            using (var conn = new NpgsqlConnection(connectionString))
-            {
-                Highscore h = null;
-                List<Highscore> highscores = new List<Highscore>();
-                conn.Open();
-                using (var trans = conn.BeginTransaction())
-                    try
-                    {
-                        using (var command = new NpgsqlCommand(stmt, conn))
-                        {
-                            using (var reader = command.ExecuteReader())
-                            {
-                                while (reader.Read())
-                                {
-                                    h = new Highscore
-
-                                    {
                                         Nickname = reader["nickname"].ToString(),
-                                        Value = (int)reader["value"]
+                                        Value = (int)reader["value"],
+                                        Date = (DateTime)reader["date"],
                                     };
-                                    highscores.Add(h);
-                                    
-
+                                    highscores.Add(score);
                                 }
                             }
                         }
@@ -167,14 +125,14 @@ namespace MaterMinds
             }
         }
 
-        public static IEnumerable<Highscore> GetTopFrequentPlayers()
+        public static IEnumerable<Score> GetTopFrequentPlayers()
         {
             string stmt = "SELECT nickname, COUNT(player_id)::int FROM score INNER JOIN player ON player.id=player_id GROUP BY nickname ORDER BY COUNT DESC LIMIT 10";
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
-                Highscore h = null;
-                List<Highscore> highscores = new List<Highscore>();
+                Score score = null;
+                List<Score> highscores = new List<Score>();
                 conn.Open();
                 using (var trans = conn.BeginTransaction())
                     try
@@ -185,15 +143,12 @@ namespace MaterMinds
                             {
                                 while (reader.Read())
                                 {
-                                    h = new Highscore
-
+                                    score = new Score
                                     {
                                         Nickname = reader["nickname"].ToString(),
                                         Value = (int)reader["count"]
                                     };
-                                    highscores.Add(h);
-
-
+                                    highscores.Add(score);
                                 }
                             }
                         }

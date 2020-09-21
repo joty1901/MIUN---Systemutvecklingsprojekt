@@ -182,7 +182,6 @@ namespace MaterMinds
             }
             else
                 IsSuperHidden = "Hidden";
-
         }
     }
 }

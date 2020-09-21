@@ -14,7 +14,19 @@ namespace MaterMinds
     public class HighscoreViewModel : BaseViewModel
     {
 
-        public IEnumerable<Highscore> Highscorelist { get; set; }
+        public IEnumerable<Score> Highscorelist { get; set; }
+
+        private string Visibility;
+
+        public string _visibility
+        {
+            get { return Visibility; }
+            set { 
+                Visibility = value;
+                OnPropertyChanged(Visibility);
+            }
+        }
+
 
         public HighscoreViewModel()
         {
@@ -26,13 +38,14 @@ namespace MaterMinds
 
         public void SetTopTenHighscoreToList()
         {
+            Visibility = "Visible";
             Highscorelist = Repository.GetTopTenHigscore();
         }
 
         public void SetTopFrequentPlayerToList()
         {
+            Visibility = "Hidden";
             Highscorelist = Repository.GetTopFrequentPlayers();
         }
-
     }
 }

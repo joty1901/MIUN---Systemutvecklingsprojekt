@@ -24,17 +24,23 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
                                 <ColumnDefinition />
+                                <ColumnDefinition />
                             </Grid.ColumnDefinitions>
                             <TextBlock Grid.Column="0" 
                                        Text="{Binding Nickname}" 
                                        FontSize="20" 
                                        Foreground="#b2cce5"/>
+                            <TextBlock Grid.Column="1" 
+                                       Text="{Binding Date, StringFormat=d, ConverterCulture=sv-sv}" 
+                                       FontSize="20" 
+                                       Foreground="#b2cce5"
+                                       Visibility="{Binding Visibility, FallbackValue=Visible, Mode=TwoWay}"/>
                             <TextBlock 
-                                Grid.Column="1" 
-                                HorizontalAlignment="Right" 
-                                Text="{Binding Value}"
-                                FontSize="20" 
-                                Foreground="#b2cce5"/>
+                                        Grid.Column="2" 
+                                        HorizontalAlignment="Right" 
+                                        Text="{Binding Value}"
+                                        FontSize="20" 
+                                        Foreground="#b2cce5"/>
                         </Grid>
                     </Border>
                 </DataTemplate>
