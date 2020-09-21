@@ -15,7 +15,8 @@ namespace MaterMinds
     {
 
         public IEnumerable<Score> Highscorelist { get; set; }
-        public string Visibility { get; set; }
+        public string ChoosenPage { get; set; }
+        public ObservableCollection<string> SelectedButtonColor { get; set; } = new ObservableCollection<string> { "Black", "Black" };
 
         public HighscoreViewModel()
         {
@@ -28,13 +29,17 @@ namespace MaterMinds
         public void SetTopTenHighscoreToList()
         {
             Highscorelist = Repository.GetTopTenHigscore();
-            Visibility = "Visible";
+            ChoosenPage = "Highscore";
+            SelectedButtonColor[0] = "Gray";
+            SelectedButtonColor[1] = "Black";
         }
 
         public void SetTopFrequentPlayerToList()
         {
             Highscorelist = Repository.GetTopFrequentPlayers();
-            Visibility = "Hidden";
+            ChoosenPage = "Frequent Players";
+            SelectedButtonColor[0] = "Black";
+            SelectedButtonColor[1] = "Gray";
         }
     }
 }
