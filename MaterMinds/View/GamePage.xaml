@@ -34,7 +34,8 @@
 
             <StackPanel Grid.Column="0">
 
-                <Button Content="Main Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,15,0,0" Command="{Binding Back}" 
+                <Button Content="Main Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,15,0,0" 
+                        Command="{Binding MainMenuCommand}" 
                     Style="{StaticResource RoundButtonTemplate}" FontWeight="Bold" FontSize="15" Width="118" Height="32" >
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

@@ -21,7 +21,7 @@ namespace MaterMinds
         public HighscoreViewModel()
         {
             SetTopTenHighscoreToList();
-            Back = new RelayCommand(GetBack);
+            MainMenuCommand = new RelayCommand(GetBack);
             ViewTopFrequentPlayers = new RelayCommand(SetTopFrequentPlayerToList);
             ViewTopHighscore = new RelayCommand(SetTopTenHighscoreToList);
         }

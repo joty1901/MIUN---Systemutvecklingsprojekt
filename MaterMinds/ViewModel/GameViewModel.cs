@@ -43,7 +43,7 @@ namespace MaterMinds
             game = new GameEngine();
             Player = player;
             BoolChecker = new RelayCommand(CheckBool);
-            Back = new RelayCommand(GetBack);
+            MainMenuCommand = new RelayCommand(GetBack);
             ResetGame = new RelayCommand(RestartGame);
             Help = new RelayCommand(GetHelp);
             StartTimer();

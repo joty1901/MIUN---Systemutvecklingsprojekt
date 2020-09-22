@@ -52,7 +52,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <Button Content="Main Menu" 
-                Command="{Binding Back}" 
+                Command="{Binding MainMenuCommand}" 
                 Style="{StaticResource RoundButtonTemplate}" 
                 VerticalAlignment="Top" 
                 HorizontalAlignment="Left" 
