@@ -34,7 +34,7 @@
 
             <Button Content="Highscore"
                     Margin="0,10,0,0"
-                    Command="{Binding ViewHighscore}" 
+                    Command="{Binding ViewTopHighscore}" 
                     Style="{StaticResource RoundButtonTemplate}" 
                     FontSize="25"
                     Width="300">

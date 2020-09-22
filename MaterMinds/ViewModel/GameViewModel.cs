@@ -48,6 +48,7 @@ namespace MaterMinds
             NextRoundCommand = new RelayCommand(NextRound);
             Back = new RelayCommand(GetBack);
             ResetGame = new RelayCommand(RestartGame);
+            ViewTopHighscore = new RelayCommand(GetHighscorePage);
             Help = new RelayCommand(GetHelp);
             StartTimer();
         }
@@ -141,7 +142,6 @@ namespace MaterMinds
                 }
             }
         }
-
         public void PlaySound()
         {
             //Comented out for sanity purposes during testing

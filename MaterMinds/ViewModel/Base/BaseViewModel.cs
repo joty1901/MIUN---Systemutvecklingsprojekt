@@ -17,7 +17,7 @@ namespace MaterMinds
 
         public MainWindow Main = (MainWindow)Application.Current.MainWindow;
 
-        public ICommand Back { get ; set; }
+        public ICommand MainMenuCommand { get ; set; }
         public ICommand ViewTopHighscore { get; set; }
         public ICommand ViewTopFrequentPlayers { get; set; }
 
@@ -28,9 +28,13 @@ namespace MaterMinds
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
-        public void GetBack()
+        public void GetMainMenuView()
         {
             Main.Content = new MainMenuView();
+        }
+        public void GetHighscorePage()
+        {
+            Main.Content = new HighscorePage();
         }
     }
 }

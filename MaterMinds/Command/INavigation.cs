@@ -7,9 +7,10 @@ namespace MaterMinds.Command
 {
     public interface INavigation
     {
-        public ICommand Back { get; set; }
+        public ICommand MainMenuCommand { get; set; }
         public ICommand ViewTopHighscore { get; set; }
         public ICommand ViewTopFrequentPlayers { get; set; }
 
+       
     }
 }

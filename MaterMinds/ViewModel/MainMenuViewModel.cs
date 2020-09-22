@@ -10,13 +10,12 @@ namespace MaterMinds.ViewModel
     class MainMenuViewModel : BaseViewModel
     {
         public ICommand ChoosePlayer { get; set; }
-        public ICommand ViewHighscore { get; set; }
         public ICommand ExitGame { get; set; }
 
         public MainMenuViewModel()
         {
             ChoosePlayer = new RelayCommand(ChoosePlayerPage);
-            ViewHighscore = new RelayCommand(HighscorePage);
+            ViewTopHighscore = new RelayCommand(GetHighscorePage);
             ExitGame = new RelayCommand(CloseApplication);
             StartDBConnection();
         }
@@ -24,11 +23,6 @@ namespace MaterMinds.ViewModel
         private void ChoosePlayerPage()
         {
             Main.Content = new ChoosePlayerView();
-        }
-
-        private void HighscorePage()
-        {
-            Main.Content = new HighscorePage();
         }
 
         private void StartDBConnection()

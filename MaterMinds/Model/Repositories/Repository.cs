@@ -82,7 +82,6 @@ namespace MaterMinds
                     }
                 }
             }
-
         }
 
         public static IEnumerable<Score> GetTopTenHigscore()
@@ -163,7 +162,8 @@ namespace MaterMinds
                     }
             }
         }
-       public static int AddPlayer(string nickname)
+
+        public static int AddPlayer(string nickname)
         {
             string stmt = "INSERT INTO player(nickname) values(@nickname) returning id";
 
@@ -195,12 +195,11 @@ namespace MaterMinds
 
         public static void StartDb()
         {
-            //using (var conn = new NpgsqlConnection(connectionString))
-            //{
-            //    conn.Open();
-            //}
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                conn.Open();
+            }
 
         }
-
     }
 }

@@ -39,7 +39,7 @@
                                        Text="{Binding Date, StringFormat=d, ConverterCulture=sv-sv}" 
                                        FontSize="20" 
                                        Foreground="#b2cce5"
-                                       Visibility="{Binding Visibility}"/>
+                                       Visibility="{Binding Visibility, UpdateSourceTrigger=PropertyChanged}"/>
                             <TextBlock 
                                         Grid.Column="2" 
                                         HorizontalAlignment="Right" 
@@ -52,7 +52,7 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <Button Content="Main Menu" 
-                Command="{Binding Back}" 
+                Command="{Binding MainMenuCommand}" 
                 Style="{StaticResource RoundButtonTemplate}" 
                 VerticalAlignment="Top" 
                 HorizontalAlignment="Left" 
@@ -96,7 +96,5 @@
                FontSize="25" FontWeight="Bold" 
                Foreground="Azure" Margin="10,71,0,0"
                />
-        <TextBlock Visibility="{Binding Visibility}" HorizontalAlignment="Left" Margin="21,281,0,0" Text="Hej" Foreground="Red" FontSize="25" TextWrapping="Wrap" VerticalAlignment="Top" Height="53" Width="109"/>
-
     </Grid>
 </Page>
