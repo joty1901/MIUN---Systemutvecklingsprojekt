@@ -6,10 +6,6 @@ namespace MaterMinds.Repositories
 {
     interface IRepository
     {
-        public static void GetDbPlayers()
-        {
-          
-        }
 
         public static void AddPlayerWithScore(int playerId, int score)
         {
