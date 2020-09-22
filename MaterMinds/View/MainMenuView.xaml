@@ -24,12 +24,7 @@
                     Style="{StaticResource RoundButtonTemplate}"
                     FontSize="25" 
                     Width="300" >
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="DodgerBlue"/>
-                        <GradientStop Color="Black" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.Background>
+                
             </Button>
 
             <Button Content="Highscore"
@@ -38,12 +33,6 @@
                     Style="{StaticResource RoundButtonTemplate}" 
                     FontSize="25"
                     Width="300">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="DodgerBlue"/>
-                        <GradientStop Color="Black" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.Background>
             </Button>
 
             <Button Content="Exit"
@@ -52,12 +41,6 @@
                     Style="{StaticResource RoundButtonTemplate}" 
                     FontSize="25"
                     Width="300">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="DodgerBlue"/>
-                        <GradientStop Color="Black" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.Background>
             </Button>
         </StackPanel>
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom">
@@ -69,12 +52,6 @@
                     FontSize="25"
                     Width="50"
                     >
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="DodgerBlue"/>
-                    <GradientStop Color="Black" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.Background>
         </Button>
         </StackPanel>
         <Frame x:Name="MainMeny"/>

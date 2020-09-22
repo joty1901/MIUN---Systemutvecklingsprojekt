@@ -70,6 +70,7 @@
                 VerticalAlignment="Top"
                 HorizontalAlignment="Left" 
                 Margin="0,172,0,0">
+
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="DodgerBlue"/>

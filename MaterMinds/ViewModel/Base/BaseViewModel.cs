@@ -41,8 +41,8 @@ namespace MaterMinds
         {
             Main.Content = new HighscorePage();
         }
-        
 
+        #region MediaMethods
         public void Start(MediaPlayer m, Uri u)
         {
             m.Open(u);
@@ -60,5 +60,6 @@ namespace MaterMinds
         {
 
         }
+        #endregion
     }
 }

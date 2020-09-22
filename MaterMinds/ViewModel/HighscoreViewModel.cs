@@ -20,7 +20,6 @@ namespace MaterMinds
         public IEnumerable<Score> Highscorelist { get; set; }
         public string ChoosenPage { get; set; }
         public ObservableCollection<string> SelectedButtonColor { get; set; } = new ObservableCollection<string> { "Black", "Black" };
-        public virtual System.Drawing.Color BackColor { get; set; }
 
         public HighscoreViewModel()
         {
