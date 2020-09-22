@@ -64,7 +64,7 @@
     <Resource Include="Resources\Picture\giphy.gif" />
     <Resource Include="Resources\Picture\HelloMyName.png" />
     <Resource Include="Resources\Picture\MaterMindBackground.jpg">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Picture\WinCon.gif" />
     <Resource Include="Resources\Picture\XSNu.gif" />

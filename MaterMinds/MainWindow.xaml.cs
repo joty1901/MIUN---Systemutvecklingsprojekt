@@ -1,4 +1,5 @@
 ﻿using MaterMinds.View;
+using MaterMinds.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -24,25 +25,15 @@ namespace MaterMinds
     public partial class MainWindow : Window
     {
         MediaPlayer mediaPlayer = new MediaPlayer();
+        
 
         public MainWindow()
         {
             InitializeComponent();
             var view = new MainMenuView();
             Main.Content = view;
-            playBackground();
         }
 
-        public void playBackground()
-        {
-            mediaPlayer.Open(new Uri(@"Resources/Sound/Spacemusic.mp3", UriKind.Relative));
-            mediaPlayer.Play();
-            mediaPlayer.MediaEnded += new EventHandler(Media_Ended);
-        }
-
-        private void Media_Ended(object sender, EventArgs e)
-        {
-            playBackground();
-        }
+      
     }
 }

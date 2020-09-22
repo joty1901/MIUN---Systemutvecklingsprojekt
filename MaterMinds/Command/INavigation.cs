@@ -10,7 +10,8 @@ namespace MaterMinds.Command
         public ICommand MainMenuCommand { get; set; }
         public ICommand ViewTopHighscore { get; set; }
         public ICommand ViewTopFrequentPlayers { get; set; }
+        public ICommand MuteCommand { get; set; }
 
-       
+
     }
 }

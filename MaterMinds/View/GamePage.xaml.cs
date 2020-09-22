@@ -48,7 +48,7 @@ namespace MaterMinds
                     {
                        if (e.AllowedEffects.HasFlag(DragDropEffects.Move))
                         {
-                            DropSound();
+                            model.PlaySound();
                             _panel.Children.Clear();
                             _panel.Children.Add(new GameBoardCircle());
                             if (_element is YellowPeg)
@@ -179,6 +179,9 @@ namespace MaterMinds
         {
             SoundPlayer.Open(new Uri(@"Resources/Sound/WaterDrop.mp3", UriKind.Relative));
             SoundPlayer.Play();
+
+            
+
         }
 
         

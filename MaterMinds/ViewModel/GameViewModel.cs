@@ -36,10 +36,10 @@ namespace MaterMinds
         public string GameTimer { get; set; }
         public int Score { get; set; }
         public Player Player { get; set; }
+        
 
         public GameViewModel(Player player)
         {
-            PlaySound();
             game = new GameEngine();
             Player = player;
             BoolChecker = new RelayCommand(CheckBool);
@@ -127,9 +127,7 @@ namespace MaterMinds
         }
         public void PlaySound()
         {
-            //Comented out for sanity purposes during testing
-            //mediaPlayer.Open(new Uri(@"Resources/Sound/Rumble.mp3", UriKind.Relative));
-            //mediaPlayer.Play();
+            Start(SoundEffectPlayer, new Uri(@"Resources/Sound/WaterDrop.mp3", UriKind.Relative));
         }
         private void StartTimer()
         {
