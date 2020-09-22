@@ -36,10 +36,10 @@
                                        FontSize="20" 
                                        Foreground="#b2cce5"/>
                             <TextBlock Grid.Column="1"
-                                       Text="{Binding Date, StringFormat=d, ConverterCulture=sv-sv}" 
+                                       Width="108"
+                                       Text="{Binding Date}"
                                        FontSize="20" 
-                                       Foreground="#b2cce5"
-                                       Visibility="{Binding Visibility, UpdateSourceTrigger=PropertyChanged}"/>
+                                       Foreground="#b2cce5"/>
                             <TextBlock 
                                         Grid.Column="2" 
                                         HorizontalAlignment="Right" 

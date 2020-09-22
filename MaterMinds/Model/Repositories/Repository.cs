@@ -106,7 +106,8 @@ namespace MaterMinds
                                     {
                                         Nickname = reader["nickname"].ToString(),
                                         Value = (int)reader["value"],
-                                        Date = (DateTime)reader["date"],
+                                        Date = Convert.ToString((DateTime)reader["date"])
+
                                     };
                                     highscores.Add(score);
                                 }

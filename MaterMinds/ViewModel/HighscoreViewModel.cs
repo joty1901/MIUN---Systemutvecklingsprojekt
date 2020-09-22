@@ -4,9 +4,12 @@ using MaterMinds.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Navigation;
 
@@ -17,7 +20,7 @@ namespace MaterMinds
         public IEnumerable<Score> Highscorelist { get; set; }
         public string ChoosenPage { get; set; }
         public ObservableCollection<string> SelectedButtonColor { get; set; } = new ObservableCollection<string> { "Black", "Black" };
-        public Visibility Visibility { get; set; }
+        public virtual System.Drawing.Color BackColor { get; set; }
 
         public HighscoreViewModel()
         {
@@ -33,7 +36,6 @@ namespace MaterMinds
             ChoosenPage = "Highscore";
             SelectedButtonColor[0] = "Gray";
             SelectedButtonColor[1] = "Black";
-            Visibility = Visibility.Visible;
         }
 
         public void SetTopFrequentPlayerToList()
@@ -42,7 +44,7 @@ namespace MaterMinds
             ChoosenPage = "Frequent Players";
             SelectedButtonColor[0] = "Black";
             SelectedButtonColor[1] = "Gray";
-            Visibility = Visibility.Hidden;
+
         }
     }
 }
