@@ -43,8 +43,9 @@ namespace MaterMinds
             game = new GameEngine();
             Player = player;
             BoolChecker = new RelayCommand(CheckBool);
-            MainMenuCommand = new RelayCommand(GetBack);
+            MainMenuCommand = new RelayCommand(GetMainMenuView);
             ResetGame = new RelayCommand(RestartGame);
+            ViewTopHighscore = new RelayCommand(GetHighscorePage);
             Help = new RelayCommand(GetHelp);
             StartTimer();
         }
@@ -124,7 +125,6 @@ namespace MaterMinds
             }
             IsHidden = "Visible";
         }
-
         public void PlaySound()
         {
             //Comented out for sanity purposes during testing

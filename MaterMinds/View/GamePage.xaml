@@ -34,9 +34,16 @@
 
             <StackPanel Grid.Column="0">
 
-                <Button Content="Main Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,15,0,0" 
+                <Button Content="Main Menu" 
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Margin="15,15,0,0" 
                         Command="{Binding MainMenuCommand}" 
-                    Style="{StaticResource RoundButtonTemplate}" FontWeight="Bold" FontSize="15" Width="118" Height="32" >
+                        Style="{StaticResource RoundButtonTemplate}"
+                        FontWeight="Bold" 
+                        FontSize="15" 
+                        Width="118" 
+                        Height="32" >
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="DodgerBlue"/>
@@ -44,9 +51,11 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button Content="Restart Game" HorizontalAlignment="Left" Style="{DynamicResource RoundButtonTemplate}" 
-                    FontSize="15" FontWeight="Bold" Width="118" Height="32" Margin="15,5,0,0"
-                    Command="{Binding ResetGame}">
+                <Button Content="Restart Game" 
+                        HorizontalAlignment="Left"
+                        Style="{DynamicResource RoundButtonTemplate}" 
+                        FontSize="15" FontWeight="Bold" Width="118" Height="32" Margin="15,5,0,0"
+                        Command="{Binding ResetGame}">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="DodgerBlue"/>
@@ -54,9 +63,31 @@
                         </LinearGradientBrush>
                     </Button.Background>
                 </Button>
-                <Button Content="Help" HorizontalAlignment="Left" Style="{DynamicResource RoundButtonTemplate}" 
-                    FontSize="15" FontWeight="Bold" Width="118" Height="32" Margin="15,5,0,0"
-                    Command="{Binding Help}">
+                <Button Content="Highscores"
+                        HorizontalAlignment="Left"
+                        Command="{Binding ViewTopHighscore}"
+                        Style="{DynamicResource RoundButtonTemplate}" 
+                        FontSize="15" 
+                        FontWeight="Bold"
+                        Width="118" 
+                        Height="32"
+                        Margin="15,5,0,0">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="DodgerBlue"/>
+                            <GradientStop Color="Black" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+                <Button Content="Help" 
+                        HorizontalAlignment="Left" 
+                        Style="{DynamicResource RoundButtonTemplate}" 
+                        FontSize="15" 
+                        FontWeight="Bold"
+                        Width="118" 
+                        Height="32"
+                        Margin="15,5,0,0"
+                        Command="{Binding Help}">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="DodgerBlue"/>
@@ -299,7 +330,7 @@
                 </Border>
 
                 <Button Content="Check Answer"  HorizontalAlignment="Center" Style="{DynamicResource RoundButtonTemplate}" 
-                    Command="{Binding BoolChecker}" FontSize="20" FontWeight="Bold" Width="200" Height="32">
+                    Command="{Binding BoolChecker}" FontSize="20" FontWeight="Bold" Width="216" Height="32">
                     <Button.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="DodgerBlue"/>
@@ -334,8 +365,15 @@
                     </Style>
                 </UserControl.Style>
             </local:HelpView>
-            <Button Grid.Column="1" Grid.ColumnSpan="3" Content="X" Visibility="{Binding IsSuperHidden, FallbackValue=Hidden}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="150,15,0,0" Command="{Binding Help}" 
-                    Style="{StaticResource RoundButtonTemplate}" FontWeight="Bold" FontSize="15" Width="32" Height="32" >
+            <Button Grid.Column="1" 
+                    Grid.ColumnSpan="3" 
+                    Content="X" 
+                    Style="{StaticResource RoundButtonTemplate}" FontWeight="Bold" FontSize="15" Width="32" Height="32" 
+                    Visibility="{Binding IsSuperHidden, FallbackValue=Hidden}" 
+                    Command="{Binding Help}" 
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Top" 
+                    Margin="150,15,0,0" >
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="DodgerBlue"/>

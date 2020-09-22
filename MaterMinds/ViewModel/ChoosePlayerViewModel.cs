@@ -27,7 +27,7 @@ namespace MaterMinds
         {
             NewPlayer = new RelayCommand(CreatePlayer);
             ChoosePlayer = new RelayCommand(NewGame);
-            MainMenuCommand = new RelayCommand(GetBack);
+            MainMenuCommand = new RelayCommand(GetMainMenuView);
             GetPlayers();
         }
 

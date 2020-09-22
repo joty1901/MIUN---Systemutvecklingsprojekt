@@ -28,9 +28,13 @@ namespace MaterMinds
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
-        public void GetBack()
+        public void GetMainMenuView()
         {
             Main.Content = new MainMenuView();
+        }
+        public void GetHighscorePage()
+        {
+            Main.Content = new HighscorePage();
         }
     }
 }
