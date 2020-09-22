@@ -5,7 +5,7 @@ using System.Text;
 
 namespace MaterMinds
 {
-    public class Player : IRepository
+    public class Player
     {
         public int Id { get; set; }
         public string Nickname { get; set; }

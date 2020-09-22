@@ -11,5 +11,6 @@ namespace MaterMinds.Command
         public ICommand ViewTopHighscore { get; set; }
         public ICommand ViewTopFrequentPlayers { get; set; }
 
+       
     }
 }

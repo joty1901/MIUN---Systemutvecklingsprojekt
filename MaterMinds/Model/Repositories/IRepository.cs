@@ -7,25 +7,13 @@ namespace MaterMinds.Repositories
     interface IRepository
     {
 
-        public static void AddPlayerWithScore(int playerId, int score)
-        {
+        public  void AddPlayerWithScore(int playerId, int score);
 
-        }
+        public  void GetUserHighscore(Player player);
 
-        public static void GetUserHighscore(Player player)
-        {
+        public  void GetTopTenHigscore();
 
-        }
-
-        public static void GetTopTenHigscore()
-        {
-            
-        }
-
-        public static void AddPlayer(string nickname)
-        {
-           
-        }
+        public  void AddPlayer(string nickname);
 
     }
 }
