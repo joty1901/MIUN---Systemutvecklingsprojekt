@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
+using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -21,10 +22,10 @@ namespace MaterMinds
         public Dictionary<int, int> PlacedPegs { get; set; } = new Dictionary<int, int>();
         public ObservableCollection<int> HintToAnswer { get; set; } = new ObservableCollection<int>();
         public ObservableCollection<bool> IsActive { get; set; } = new ObservableCollection<bool> { true, false, false, false, false, false, false };
-        public ICommand BoolChecker { get; set; }
+        public ICommand NextRoundCommand { get; set; }
         public ICommand ResetGame { get; set; }
         public ICommand Help { get; set; }
-        public int Counter { get; set; } = 0;
+        public int Rounds { get; set; } = 0;
         private readonly MediaPlayer mediaPlayer = new MediaPlayer();
         public ObservableCollection<string[]> hintArray { get; set; } = new ObservableCollection<string[]>();
         public ObservableCollection<string> CorrectAnswerArray { get; set; } = new ObservableCollection<string>();
@@ -36,13 +37,15 @@ namespace MaterMinds
         public string GameTimer { get; set; }
         public int Score { get; set; }
         public Player Player { get; set; }
+        public ObservableCollection<string> WinOrLoss { get; set; } = new ObservableCollection<string> { " ", " " };
+
 
         public GameViewModel(Player player)
         {
             PlaySound();
             game = new GameEngine();
             Player = player;
-            BoolChecker = new RelayCommand(CheckBool);
+            NextRoundCommand = new RelayCommand(NextRound);
             Back = new RelayCommand(GetBack);
             ResetGame = new RelayCommand(RestartGame);
             Help = new RelayCommand(GetHelp);
@@ -50,79 +53,93 @@ namespace MaterMinds
         }
 
 
-        public void SetScore(Player player, int points)
+        public void AddScoreToDB()
         {
-            int value = game.CalcScore(Counter, GameTimerInSecounds, GameTimerInMinutes);
-            Score score = new Score(player, value);
+            Repository.AddPlayerScore(Player.Id, Score);
         }
 
-        public void CheckBool()
+        public void NextRound()
         {
             
             if (PlacedPegs.Count != 0)
             {
-                game.CheckWinCon(PlacedPegs);
-
-
-                if (game.WinCondition)
+                if (game.CheckWinCon(PlacedPegs))
                 {
-                    Score = game.CalcScore(Counter, GameTimerInSecounds, GameTimerInMinutes);
-                    SetScore(Player, Score);
-                    StopTimer();
-                    GetAnswer();
+                    EndGame(true);
                 }
                 else 
                 {
-                    if (Counter < 6)
+                    if (Rounds < 6)
                     {
-                        IsActive[Counter] = false;
-                        BackgroundColor[Counter] = "Transparent";
-                        Counter++;
-                        IsActive[Counter] = true;
-                        BackgroundColor[Counter] = "White";
+                        UpdateGameBoard();
                     }
+                    /*
+                     * This is the loose condition
+                     */
                     else
                     {
-                        IsActive = new ObservableCollection<bool> { false, false, false, false, false, false, false };
-                        GetAnswer();
-                        StopTimer();
+                        EndGame(false);
                     }
                 }
                 hintArray.Add(game.CheckPegPosition(PlacedPegs));
                 PlacedPegs.Clear();
             }
+            else
+            {
+                MessageBox.Show($"{Player.Nickname} du måste lägga minst en peg på spelplanen");
+            }
+        }
+        public void UpdateGameBoard()
+        {
+            IsActive[Rounds] = false;
+            BackgroundColor[Rounds] = "Transparent";
+            Rounds++;
+            IsActive[Rounds] = true;
+            BackgroundColor[Rounds] = "White";
+        }
+        public void EndGame(bool Win)
+        {
+            StopTimer();
+            GetAnswer();
+            IsHidden = "Visible";
+            if (Win)
+            {
+                Score = game.CalcScore(Rounds, GameTimerInSecounds, GameTimerInMinutes);
+                AddScoreToDB();
+                WinOrLoss[0] = "Visible";
+            }
+            else
+            {
+                IsActive = new ObservableCollection<bool> { false, false, false, false, false, false, false };
+                WinOrLoss[1] = "Visible";
+            }
         }
         public void GetAnswer()
         {
-            Dictionary<int, int> answer = game.GetCorrectAnswer();
-            foreach (var c in answer)
+            foreach (var c in game.GetCorrectAnswer())
             {
-                if (c.Value == 1)
+                switch (c.Value)
                 {
-                    CorrectAnswerArray.Add("Red");
-                }
-                else if(c.Value == 2)
-                {
-                    CorrectAnswerArray.Add("Yellow");
-                }
-                else if (c.Value == 3)
-                {
-                    CorrectAnswerArray.Add("Green");
-                }
-                else if (c.Value == 4)
-                {
-                    CorrectAnswerArray.Add("Blue");
-                }
-                else if (c.Value == 5)
-                {
-                    CorrectAnswerArray.Add("Purple");
-                }
-                else if (c.Value == 6)
-                {
-                    CorrectAnswerArray.Add("Orange");
+                    case 1:
+                        CorrectAnswerArray.Add("Red");
+                        break;
+                    case 2:
+                        CorrectAnswerArray.Add("Yellow");
+                        break;
+                    case 3:
+                        CorrectAnswerArray.Add("Green");
+                        break;
+                    case 4:
+                        CorrectAnswerArray.Add("Blue");
+                        break;
+                    case 5:
+                        CorrectAnswerArray.Add("Purple");
+                        break;
+                    case 6:
+                        CorrectAnswerArray.Add("Orange");
+                        break;
                 }
             }
-            IsHidden = "Visible";
         }
 
         public void PlaySound()

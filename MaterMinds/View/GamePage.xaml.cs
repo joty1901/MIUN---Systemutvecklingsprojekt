@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.IO;
 using System;
 using System.Windows.Resources;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace MaterMinds
 {
@@ -16,7 +17,6 @@ namespace MaterMinds
     /// </summary>
     public partial class GamePage : Page
     {
-        public int PanelId { get; set; }
         private GameViewModel model;
         private MediaPlayer SoundPlayer = new MediaPlayer();
 
@@ -26,15 +26,6 @@ namespace MaterMinds
             model = new GameViewModel(player);
             DataContext = model;
         }
-
-        //private void panel_DragOver(object sender, DragEventArgs e)
-        //{
-        //    if (e.Data.GetDataPresent("Object"))
-        //    {
-        //        e.Effects = DragDropEffects.Move;
-        //    }
-        //}
-
         private void panel_Drop(object sender, DragEventArgs e)
         {
             if (e.Handled == false)
@@ -47,7 +38,7 @@ namespace MaterMinds
                     if (_parent.Name == "GuessController")
                     {
                        if (e.AllowedEffects.HasFlag(DragDropEffects.Move))
-                        {
+                       {
                             DropSound();
                             _panel.Children.Clear();
                             _panel.Children.Add(new GameBoardCircle());
@@ -80,7 +71,7 @@ namespace MaterMinds
                             model.PlacedPegs.AddOrUpdate(key, colorId);
 
                             e.Effects = DragDropEffects.Move;
-                        }
+                       }
                     }
                     else if (_element.AllowDrop)
                     {
@@ -90,7 +81,6 @@ namespace MaterMinds
                             DropSound();
                             _panel.Children.Clear();
                             _panel.Children.Add(new GameBoardCircle());
-
                             if (_element is YellowPeg)
                             {
                                 _parent.Children.Remove(_element);
@@ -137,12 +127,6 @@ namespace MaterMinds
         /// <param name="e"></param>
         protected override void OnGiveFeedback(GiveFeedbackEventArgs e)
         {
-            var thisObject = new MasterPeg();
-            thisObject.IsMoveble = false; 
-            if (e.OriginalSource == thisObject)
-            {
-
-            }
             if (e.Effects.HasFlag(DragDropEffects.Move) && e.OriginalSource is RedPeg)
             {
                 StreamResourceInfo sriCurs = Application.GetResourceStream(new Uri("Resources/Cursor/RedCircle.cur", UriKind.Relative));               

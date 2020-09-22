@@ -12,13 +12,6 @@ namespace MaterMinds
         public int PlayerId { get; set; }
         public DateTime Date { get; set; }
 
-        public Score(Player player, int value)
-        {
-            Value = value;
-            PlayerId = player.Id;
-            Repository.AddPlayerScore(PlayerId, Value);
-        }
-
         public Score()
         {
 

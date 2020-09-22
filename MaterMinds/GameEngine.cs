@@ -7,6 +7,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Xml.Serialization;
 
 namespace MaterMinds
 {
@@ -14,7 +15,11 @@ namespace MaterMinds
     {
         Random random = new Random();
         private Dictionary<int, int> CorrectAnswer { get; set; } = new Dictionary<int, int>();
-        public bool WinCondition { get; private set; }
+        
+        private string[] HintToAnswer { get; set; }
+        private int[] CheckForDoubles { get; set; }
+        private int[] SortedAnswerArray { get; set; }
+        private int Counter { get; set; }
 
         public GameEngine()
         {
@@ -27,64 +32,87 @@ namespace MaterMinds
                 CorrectAnswer.Add(i, random.Next(1, 7));
             }
         }
-        public string[] CheckPegPosition(Dictionary<int, int> playerGuess)
+        private void SortAnswerArray(Dictionary<int, int> playerGuess)
         {
-            string[] hintToAnswer = new string[4];
-            int[] checkForDoubles = new int[4];
-            int[] sortedAnswerArray = new int[4];
             for (int i = 0; i < playerGuess.Count; i++)
             {
-                if (playerGuess.ElementAt(i).Key == 1)
+                switch (playerGuess.ElementAt(i).Key)
                 {
-                    sortedAnswerArray[0] = playerGuess.ElementAt(i).Value;
-                }
-                else if (playerGuess.ElementAt(i).Key == 2)
-                {
-                    sortedAnswerArray[1] = playerGuess.ElementAt(i).Value;
-                }
-                else if (playerGuess.ElementAt(i).Key == 3)
-                {
-                    sortedAnswerArray[2] = playerGuess.ElementAt(i).Value;
-                }
-                else if (playerGuess.ElementAt(i).Key == 4)
-                {
-                    sortedAnswerArray[3] = playerGuess.ElementAt(i).Value;
+                    case 1:
+                        SortedAnswerArray[0] = playerGuess.ElementAt(i).Value;
+                        break;
+                    case 2:
+                        SortedAnswerArray[1] = playerGuess.ElementAt(i).Value;
+                        break;
+                    case 3:
+                        SortedAnswerArray[2] = playerGuess.ElementAt(i).Value;
+                        break;
+                    case 4:
+                        SortedAnswerArray[3] = playerGuess.ElementAt(i).Value;
+                        break;
                 }
             }
-            
-            
+        }
+        private void SortHintArray()
+        {
+            Array.Sort(HintToAnswer);
+            Array.Reverse(HintToAnswer);
+        }
+        private void GetAnswerArray()
+        {
             for (int i = 0; i < 4; i++)
             {
-                checkForDoubles[i] = CorrectAnswer.ElementAt(i).Value;
+                CheckForDoubles[i] = CorrectAnswer.ElementAt(i).Value;
             }
-            int counter = 0;
-            for (int i = 0; i < sortedAnswerArray.Length; i++)
+        }
+        private void SetWhitePegs()
+        {
+            for (int i = 0; i < SortedAnswerArray.Length; i++)
             {
                 for (int j = 0; j < CorrectAnswer.Count; j++)
                 {
-                    if (sortedAnswerArray[i] == checkForDoubles[j] && counter == 0)
+                    if (SortedAnswerArray[i] == CheckForDoubles[j] && Counter == 0)
                     {
-                        hintToAnswer[i] = "White";
+                        HintToAnswer[i] = "White";
                         //Set the value to 10 so it never hits again. 
-                        checkForDoubles[j] = 10;
-                        counter++;
+                        CheckForDoubles[j] = 10;
+                        Counter++;
                     }
                 }
-                counter = 0;
+                Counter = 0;
             }
-            Array.Sort(hintToAnswer);
-            Array.Reverse(hintToAnswer);
+        }
+        private void SetBlackPegs()
+        {
+            Counter = 0;
             for (int i = 0; i < CorrectAnswer.Count; i++)
             {
-                if (sortedAnswerArray[i] == CorrectAnswer.ElementAt(i).Value)
+                if (SortedAnswerArray[i] == CorrectAnswer.ElementAt(i).Value)
                 {
-                    hintToAnswer[counter] = "Black";
-                    counter++;
+                    HintToAnswer[Counter] = "Black";
+                    Counter++;
                 }
             }
-            return hintToAnswer;
         }
-        public void CheckWinCon(Dictionary<int, int> playerGuess)
+        private void ClearAllProps()
+        {
+            Counter = 0;
+            HintToAnswer = new string[4];
+            CheckForDoubles = new int[4];
+            SortedAnswerArray = new int[4];
+
+        }
+        public string[] CheckPegPosition(Dictionary<int, int> playerGuess)
+        {
+            ClearAllProps();
+            GetAnswerArray();
+            SortAnswerArray(playerGuess);
+            SetWhitePegs();
+            SortHintArray();
+            SetBlackPegs();
+            return HintToAnswer;
+        }
+        public bool CheckWinCon(Dictionary<int, int> playerGuess)
         {
             int counter = 0; 
             foreach (var c in playerGuess)
@@ -99,8 +127,9 @@ namespace MaterMinds
             }
             if (counter == CorrectAnswer.Count)
             {
-                WinCondition = true; 
+                return true; 
             }
+            return false;
         }
 
         public Dictionary<int, int> GetCorrectAnswer()
