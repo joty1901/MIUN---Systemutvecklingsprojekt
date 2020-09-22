@@ -19,10 +19,19 @@ namespace MaterMinds.View
     /// </summary>
     public partial class MainMenuView : UserControl
     {
+        private MainMenuViewModel model;
         public MainMenuView()
         {
             InitializeComponent();
-            DataContext = new MainMenuViewModel();
+            model = new MainMenuViewModel();
+            DataContext = model;
+            PlayBackground();
         }
+
+        private void PlayBackground()
+        {
+            model.Start(model.BackgroundPlayer, new Uri(@"Resources/Sound/Spacemusic.mp3", UriKind.Relative));
+        }
+
     }
 }

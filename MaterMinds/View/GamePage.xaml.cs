@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.IO;
 using System;
 using System.Windows.Resources;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace MaterMinds
 {
@@ -16,7 +17,6 @@ namespace MaterMinds
     /// </summary>
     public partial class GamePage : Page
     {
-        public int PanelId { get; set; }
         private GameViewModel model;
         private MediaPlayer SoundPlayer = new MediaPlayer();
 
@@ -26,15 +26,6 @@ namespace MaterMinds
             model = new GameViewModel(player);
             DataContext = model;
         }
-
-        //private void panel_DragOver(object sender, DragEventArgs e)
-        //{
-        //    if (e.Data.GetDataPresent("Object"))
-        //    {
-        //        e.Effects = DragDropEffects.Move;
-        //    }
-        //}
-
         private void panel_Drop(object sender, DragEventArgs e)
         {
             if (e.Handled == false)
@@ -48,7 +39,7 @@ namespace MaterMinds
                     {
                        if (e.AllowedEffects.HasFlag(DragDropEffects.Move))
                         {
-                            DropSound();
+                            model.PlaySound();
                             _panel.Children.Clear();
                             _panel.Children.Add(new GameBoardCircle());
                             if (_element is YellowPeg)
@@ -80,7 +71,7 @@ namespace MaterMinds
                             model.PlacedPegs.AddOrUpdate(key, colorId);
 
                             e.Effects = DragDropEffects.Move;
-                        }
+                       }
                     }
                     else if (_element.AllowDrop)
                     {
@@ -90,7 +81,6 @@ namespace MaterMinds
                             DropSound();
                             _panel.Children.Clear();
                             _panel.Children.Add(new GameBoardCircle());
-
                             if (_element is YellowPeg)
                             {
                                 _parent.Children.Remove(_element);
@@ -135,6 +125,9 @@ namespace MaterMinds
         {
             SoundPlayer.Open(new Uri(@"Resources/Sound/WaterDrop.mp3", UriKind.Relative));
             SoundPlayer.Play();
+
+            
+
         }
 
         

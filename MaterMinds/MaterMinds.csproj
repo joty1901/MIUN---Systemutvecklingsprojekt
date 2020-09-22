@@ -26,6 +26,7 @@
     <None Remove="Resources\Picture\Earth.jpg" />
     <None Remove="Resources\Picture\HelloMyName.png" />
     <None Remove="Resources\Picture\WinCon.gif" />
+    <None Remove="Resources\Picture\Winner.gif" />
     <None Remove="Resources\Picture\XSNu.gif" />
     <None Remove="Resources\Picture\y7.gif" />
     <None Remove="Resources\Sound\Rumble.mp3" />
@@ -64,9 +65,10 @@
     <Resource Include="Resources\Picture\giphy.gif" />
     <Resource Include="Resources\Picture\HelloMyName.png" />
     <Resource Include="Resources\Picture\MaterMindBackground.jpg">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>
     <Resource Include="Resources\Picture\WinCon.gif" />
+    <Resource Include="Resources\Picture\Winner.gif" />
     <Resource Include="Resources\Picture\XSNu.gif" />
     <Resource Include="Resources\Picture\y7.gif" />
     <Content Include="Resources\Sound\WaterDrop.mp3">

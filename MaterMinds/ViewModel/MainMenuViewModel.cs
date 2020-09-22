@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace MaterMinds.ViewModel
 {
@@ -12,11 +13,15 @@ namespace MaterMinds.ViewModel
         public ICommand ChoosePlayer { get; set; }
         public ICommand ExitGame { get; set; }
 
+
+        
+
         public MainMenuViewModel()
         {
             ChoosePlayer = new RelayCommand(ChoosePlayerPage);
             ViewTopHighscore = new RelayCommand(GetHighscorePage);
             ExitGame = new RelayCommand(CloseApplication);
+            MuteCommand = new RelayCommand(Mute);
             StartDBConnection();
         }
 
@@ -34,6 +39,8 @@ namespace MaterMinds.ViewModel
         {
             Main.Close();
         }
+
+       
 
     }
 }
