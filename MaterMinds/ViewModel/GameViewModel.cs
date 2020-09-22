@@ -45,7 +45,7 @@ namespace MaterMinds
             game = new GameEngine();
             Player = player;
             NextRoundCommand = new RelayCommand(NextRound);
-            Back = new RelayCommand(GetBack);
+            MainMenuCommand = new RelayCommand(GetMainMenuView);
             ResetGame = new RelayCommand(RestartGame);
             ViewTopHighscore = new RelayCommand(GetHighscorePage);
             Help = new RelayCommand(GetHelp);

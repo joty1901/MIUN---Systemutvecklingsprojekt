@@ -24,6 +24,7 @@ namespace MaterMinds
         public MediaPlayer BackgroundPlayer { get; set; } = new MediaPlayer();
         public MediaPlayer SoundEffectPlayer { get; set; } = new MediaPlayer();
         public ICommand MuteCommand { get; set; }
+        public double Volume { get; set; } = 1;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -45,12 +46,14 @@ namespace MaterMinds
         public void Start(MediaPlayer m, Uri u)
         {
             m.Open(u);
+            m.Volume = Volume;
             m.Play(); 
         }
 
         public void Mute()
         {
            BackgroundPlayer.IsMuted = true;
+            
         }
 
         public void Mute(MediaPlayer m, MediaPlayer n)
