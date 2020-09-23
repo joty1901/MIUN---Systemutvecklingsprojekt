@@ -24,7 +24,7 @@ namespace MaterMinds
         public MediaPlayer BackgroundPlayer { get; set; } = new MediaPlayer();
         public MediaPlayer SoundEffectPlayer { get; set; } = new MediaPlayer();
         public ICommand MuteCommand { get; set; }
-        public double Volume { get; set; } = 1;
+        public double Volume { get; set; }
 
         #region NavigationMethods
         public void GetMainMenuView()
@@ -48,12 +48,18 @@ namespace MaterMinds
 
         public void Mute()
         {
-           if (!BackgroundPlayer.IsMuted)
-              {
+            if (!BackgroundPlayer.IsMuted || !SoundEffectPlayer.IsMuted)
+            {
                 BackgroundPlayer.IsMuted = true;
-              }
-           else
-              BackgroundPlayer.IsMuted = false;
+                SoundEffectPlayer.IsMuted = true;
+                Volume = 0;
+            }
+            else
+            {
+                BackgroundPlayer.IsMuted = false;
+                SoundEffectPlayer.IsMuted = false;
+                Volume = 1;
+            }
         }
 
         #endregion

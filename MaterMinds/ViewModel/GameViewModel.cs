@@ -41,7 +41,6 @@ namespace MaterMinds
         public Player Player { get; set; }
         public ObservableCollection<Visibility> WinOrLoss { get; set; } = new ObservableCollection<Visibility> { Visibility.Hidden, Visibility.Hidden};
         
-        private readonly MediaPlayer mediaPlayer = new MediaPlayer();
 
 
         public GameViewModel(Player player)

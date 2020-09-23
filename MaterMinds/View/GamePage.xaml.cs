@@ -18,7 +18,6 @@ namespace MaterMinds
     public partial class GamePage : Page
     {
         private GameViewModel model;
-        private MediaPlayer SoundPlayer = new MediaPlayer();
 
         public GamePage(Player player)
         {
@@ -122,8 +121,7 @@ namespace MaterMinds
         }
         private void DropSound()
         {
-            SoundPlayer.Open(new Uri(@"Resources/Sound/WaterDrop.mp3", UriKind.Relative));
-            SoundPlayer.Play();
+            model.Start(model.SoundEffectPlayer, new Uri(@"Resources/Sound/WaterDrop.mp3", UriKind.Relative));
         }
     }
 }

@@ -30,6 +30,7 @@ namespace MaterMinds.View
 
         private void PlayBackground()
         {
+            model.Volume = 1;
             model.Start(model.BackgroundPlayer, new Uri(@"Resources/Sound/Spacemusic.mp3", UriKind.Relative));
         }
 
