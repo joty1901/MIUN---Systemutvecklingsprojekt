@@ -21,6 +21,20 @@ namespace MaterMinds
         public EmtyPeg()
         {
             InitializeComponent();
+            CreatePeg();
+        }
+
+        private void CreatePeg()
+        {
+            Ellipse ellipse = new Ellipse
+            {
+                Fill = Brushes.LightGray,
+                Stroke = Brushes.Black,
+                StrokeThickness = 2,
+                Opacity = 0.5
+            };
+            this.Color = Brushes.LightGray;
+            master.Children.Add(ellipse);
         }
     }
 }

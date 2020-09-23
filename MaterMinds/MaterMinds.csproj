@@ -26,6 +26,7 @@
     <None Remove="Resources\Picture\Earth.jpg" />
     <None Remove="Resources\Picture\HelloMyName.png" />
     <None Remove="Resources\Picture\MagnifyingGlass.png" />
+    <None Remove="Resources\Picture\QuestionMark.gif" />
     <None Remove="Resources\Picture\WinCon.gif" />
     <None Remove="Resources\Picture\Winner.gif" />
     <None Remove="Resources\Picture\XSNu.gif" />
@@ -69,6 +70,7 @@
     <Resource Include="Resources\Picture\MaterMindBackground.jpg">
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Resources\Picture\QuestionMark.gif" />
     <Resource Include="Resources\Picture\WinCon.gif" />
     <Resource Include="Resources\Picture\Winner.gif" />
     <Resource Include="Resources\Picture\XSNu.gif" />

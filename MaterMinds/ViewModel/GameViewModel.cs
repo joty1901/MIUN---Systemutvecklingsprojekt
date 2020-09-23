@@ -26,18 +26,25 @@ namespace MaterMinds
         public Dictionary<int, int> PlacedPegs { get; set; } = new Dictionary<int, int>();
         public ObservableCollection<int> HintToAnswer { get; set; } = new ObservableCollection<int>();
         public ObservableCollection<bool> IsActive { get; set; } = new ObservableCollection<bool> { true, false, false, false, false, false, false };
+        public ICommand NextRoundCommand { get; set; }
+        public ICommand ResetGame { get; set; }
+        public ICommand Help { get; set; }
         public int Rounds { get; set; } = 0;
+        private readonly MediaPlayer mediaPlayer = new MediaPlayer();
         public ObservableCollection<string[]> hintArray { get; set; } = new ObservableCollection<string[]>();
-        public ObservableCollection<string> CorrectAnswerArray { get; set; } = new ObservableCollection<string>();
-        public string IsHidden { get; set; }
-        public Visibility VisibilityForHelpWindow { get; set; }
+        public ObservableCollection<MasterPeg> CorrectAnswerArray { get; set; } = new ObservableCollection<MasterPeg>();
+        public Visibility IsHidden { get; set; } = Visibility.Hidden;
+        public Visibility IsSuperHidden { get; set; } = Visibility.Hidden;
         public ObservableCollection<string> BackgroundColor { get; set; } = new ObservableCollection<string> { "White", "Transparent", "Transparent", "Transparent", "Transparent", "Transparent", "Transparent" };
         public int GameTimerInSecounds { get; set; }
         public int GameTimerInMinutes { get; set; }
         public string GameTimer { get; set; }
         public int Score { get; set; }
         public Player Player { get; set; }
-        public ObservableCollection<string> WinOrLoss { get; set; } = new ObservableCollection<string> { " ", " " };
+        public ObservableCollection<Visibility> WinOrLoss { get; set; } = new ObservableCollection<Visibility> { Visibility.Hidden, Visibility.Hidden};
+        
+        private readonly MediaPlayer mediaPlayer = new MediaPlayer();
+
 
         public GameViewModel(Player player)
         {
@@ -101,17 +108,17 @@ namespace MaterMinds
         {
             StopTimer();
             GetAnswer();
-            IsHidden = "Visible";
+            IsHidden = Visibility.Visible;
             if (Win)
             {
                 Score = game.CalcScore(Rounds, GameTimerInSecounds, GameTimerInMinutes);
                 AddScoreToDB();
-                WinOrLoss[0] = "Visible";
+                WinOrLoss[0] = Visibility.Visible;
             }
             else
             {
                 IsActive = new ObservableCollection<bool> { false, false, false, false, false, false, false };
-                WinOrLoss[1] = "Visible";
+                WinOrLoss[1] = Visibility.Visible;
             }
         }
 
@@ -122,22 +129,22 @@ namespace MaterMinds
                 switch (c.Value)
                 {
                     case 1:
-                        CorrectAnswerArray.Add("Red");
+                        CorrectAnswerArray.Add(new RedPeg());
                         break;
                     case 2:
-                        CorrectAnswerArray.Add("Yellow");
+                        CorrectAnswerArray.Add(new YellowPeg());
                         break;
                     case 3:
-                        CorrectAnswerArray.Add("Green");
+                        CorrectAnswerArray.Add(new GreenPeg());
                         break;
                     case 4:
-                        CorrectAnswerArray.Add("Blue");
+                        CorrectAnswerArray.Add(new BluePeg());
                         break;
                     case 5:
-                        CorrectAnswerArray.Add("Purple");
+                        CorrectAnswerArray.Add(new PurplePeg());
                         break;
                     case 6:
-                        CorrectAnswerArray.Add("Orange");
+                        CorrectAnswerArray.Add(new OrangePeg());
                         break;
                 }
             }
@@ -206,12 +213,12 @@ namespace MaterMinds
 
         private void GetHelp()
         {
-            if (VisibilityForHelpWindow != Visibility.Visible)
+            if (IsSuperHidden == Visibility.Hidden)
             {
-                VisibilityForHelpWindow = Visibility.Visible;
+                IsSuperHidden = Visibility.Visible;
             }
             else
-                VisibilityForHelpWindow = Visibility.Hidden;
+                IsSuperHidden = Visibility.Hidden;
         }
     }
 }

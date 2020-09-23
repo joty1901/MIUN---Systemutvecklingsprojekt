@@ -11,7 +11,6 @@ namespace MaterMinds
     public class MasterPeg : UserControl
     {
         public int ColorIndex { get; set; }
-        public bool IsMoveble { get; set; }
         public Brush Color { get; set; }
 
         public MasterPeg()
@@ -19,21 +18,15 @@ namespace MaterMinds
             Height = 30;
             Name = "Peg";
             Width = 30;
-            IsMoveble = true;
 
         }
         protected override void OnMouseMove(MouseEventArgs e)
         {
-            base.OnMouseMove(e);
-            if (IsMoveble)
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
-
-                if (e.LeftButton == MouseButtonState.Pressed)
-                {
-                    DataObject data = new DataObject();
-                    data.SetData("Object", this);
-                    DragDrop.DoDragDrop(this, data, DragDropEffects.Move);
-                }
+                DataObject data = new DataObject();
+                data.SetData("Object", this);
+                DragDrop.DoDragDrop(this, data, DragDropEffects.Move);
             }
         }
         /// <summary>
@@ -73,12 +66,8 @@ namespace MaterMinds
                 StreamResourceInfo sriCurs = Application.GetResourceStream(new Uri("Resources/Cursor/OrangeCircle.cur", UriKind.Relative));
                 Mouse.SetCursor(new Cursor(sriCurs.Stream));
             }
-            else
-            {
-                Mouse.SetCursor(Cursors.No);
-            }
+            
             e.Handled = true;
         }
-
     }
 }

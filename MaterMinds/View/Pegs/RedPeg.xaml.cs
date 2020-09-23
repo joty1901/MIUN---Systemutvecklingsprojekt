@@ -24,6 +24,8 @@ namespace MaterMinds
                 StrokeThickness = 1
             };
             ColorIndex = 1;
+            this.Color = Brushes.Red;
+
             master.Children.Add(ellipse);
         }
     }
