@@ -38,8 +38,6 @@ namespace MaterMinds
         public int Score { get; set; }
         public Player Player { get; set; }
         public ObservableCollection<Visibility> WinOrLoss { get; set; } = new ObservableCollection<Visibility> { Visibility.Hidden, Visibility.Hidden};
-        
-
 
         public GameViewModel(Player player)
         {

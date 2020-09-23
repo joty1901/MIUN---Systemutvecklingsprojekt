@@ -20,9 +20,9 @@
         <Image gif:ImageBehavior.AnimatedSource="/Resources/Picture/WinCon.gif"  
             gif:ImageBehavior.AnimationSpeedRatio="0.8" 
                Visibility="{Binding WinOrLoss[0], FallbackValue=Hidden}" Margin="10,187,530,3"/>
-        <Image gif:ImageBehavior.AnimatedSource="/Resources/Picture/6ka.gif"  
+        <!--<Image gif:ImageBehavior.AnimatedSource="/Resources/Picture/6ka.gif"  
             gif:ImageBehavior.AnimationSpeedRatio="0.8" 
-               Visibility="{Binding WinOrLoss[0], FallbackValue=Hidden}" Margin="530,187,10,3"/>
+               Visibility="{Binding WinOrLoss[0], FallbackValue=Hidden}" Margin="530,187,10,3"/>-->
         <Grid Name="myCanvas" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
