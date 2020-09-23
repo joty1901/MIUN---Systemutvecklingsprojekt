@@ -16,6 +16,7 @@ namespace MaterMinds
 
         private void CreatePeg()
         {
+             
             Ellipse ellipse = new Ellipse
             {
                 Fill = Brushes.Blue,

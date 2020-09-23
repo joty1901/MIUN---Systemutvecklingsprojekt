@@ -92,15 +92,41 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid>
-        <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="1"
+                    Height="Auto" Width="Auto"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+             <Label Content="{Binding SelectedPlayer.Nickname, FallbackValue=Chose}" 
+                    Background="Transparent" 
+                    FontSize="40" 
+                    FontFamily="Arial Black"
+                    Foreground="White"
+                    VerticalContentAlignment="Center"
+                    HorizontalContentAlignment="Center" 
+                    Margin="0,0,0,150">
+             
+             </Label>
+             <Button Content="Start Game" 
+                     Command="{Binding ChoosePlayer}" 
+                     Style="{StaticResource RoundButtonTemplate}"
+                     Width="250" >
+             </Button>
+        </StackPanel>
+        <StackPanel Height="Auto" Width="Auto"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
             <Button Content="Main Menu"
-                    Margin="0,300,0,0"
-                    HorizontalAlignment="Center" 
-                    VerticalAlignment="Center" 
+                    Margin="10"
+                    HorizontalAlignment="Left" 
                     Command="{Binding MainMenuCommand}"
                     Style="{StaticResource RoundButtonTemplate}"
-                    FontSize="25" 
-                    Width="320"  >
+                    FontSize="15" 
+                    Width="150"
+                    Height="30">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="DodgerBlue"/>
@@ -108,87 +134,80 @@
                     </LinearGradientBrush>
                 </Button.Background>
             </Button>
-
-            <StackPanel Margin="350,0,0,100" VerticalAlignment="Center" Width="300">
-                
-                <ScrollViewer>
-                    <ListBox Margin="0,0,0,10"
-                             FontSize="25" 
-                             BorderThickness="0" 
-                             ScrollViewer.VerticalScrollBarVisibility="Visible"  
-                             Background="Transparent" 
-                             HorizontalContentAlignment="Center" 
-                             VerticalContentAlignment="Center" 
-                             Foreground="#b2cce5"
-                             ItemsSource="{Binding PlayerList}" 
-                             DisplayMemberPath="Nickname" 
-                             Height="200" 
-                             SelectedItem="{Binding SelectedPlayer}"/>
-                </ScrollViewer>
-                <WrapPanel HorizontalAlignment="Right" Width="267">
-                    <TextBox Visibility="Visible"
-                             FontSize="20"
-                             Background="Black" 
-                             BorderBrush="Transparent" Width="200" 
-                             Text="{Binding SearchNickname}"
-                             Foreground="White" 
-                             VerticalContentAlignment="Center"
-                             TextWrapping="Wrap" 
-                             TextAlignment="Center"/>
-                    <Button Style="{StaticResource RoundButtonTemplate}"
-                            Command="{Binding Search}"
-                            Height="40" Width="40" HorizontalAlignment="Right">
-                        <Image Source="/Resources/Picture/MagnifyingGlass.png" Width="30" Height="30"/>
-                    </Button>
-                </WrapPanel>
-                <Button Content="Start Game" 
-                        Command="{Binding ChoosePlayer}" 
-                        Style="{StaticResource RoundButtonTemplate}"
-                        Width="250">
-                    <Button.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="DodgerBlue"/>
-                            <GradientStop Color="Black" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Button.Background>
-                </Button>
-            </StackPanel>
-            <StackPanel Margin="0,0,350,12" 
-                        VerticalAlignment="Center"
-                        Width="300">
-                <Label x:Name="label" 
-                       Content="Enter your nickname"
-                       FontWeight="Bold" Margin="0,0,0,20" 
-                       Foreground="White" FontSize="25" 
-                       HorizontalAlignment="Left" 
-                       VerticalAlignment="Top"/>
-                <TextBox Text="{Binding Nickname}"
-                         Margin="0,0,0,20" 
-                         Background="Black"
-                         Foreground="#b2cce5" 
-                         VerticalContentAlignment="Center"
-                         TextWrapping="Wrap" 
-                         TextAlignment="Center"
-                         BorderThickness="1" 
-                         BorderBrush="White"
-                         FontSize="20" 
-                         Height="41"/>
-                <Button Content="Create Player" 
-                        VerticalAlignment="Center" 
+            <Label x:Name="label" 
+                   Content="New player"
+                   FontWeight="Bold"  
+                   Foreground="White" 
+                   FontSize="15" 
+                   HorizontalAlignment="Left"
+                   Height="30"
+                   Margin="10,0,0,0"/>
+            <WrapPanel Margin="10,0,0,10">
+                <TextBox Text="{Binding Nickname}" 
+                     Background="Black"
+                     Foreground="#b2cce5" 
+                     VerticalContentAlignment="Center"
+                     HorizontalAlignment="Left"
+                     TextWrapping="Wrap" 
+                     TextAlignment="Center"
+                     BorderThickness="1" 
+                     BorderBrush="White"
+                     FontSize="15" 
+                     Height="30"
+                     Width="150"/>
+                <Button Content="+"
+                        HorizontalAlignment="Center"
+                        VerticalContentAlignment="Top"
                         Command="{Binding NewPlayer}" 
                         Style="{StaticResource RoundButtonTemplate}" 
-                        Width="250">
-                    <Button.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="DodgerBlue"/>
-                            <GradientStop Color="Black" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Button.Background>
+                        Width="40"
+                        Height="40"
+                        Margin="10,0,0,0"/>
+            </WrapPanel>
+            <Label Content="Chose player"
+                   FontWeight="Bold"
+                   Foreground="White" FontSize="15" 
+                   HorizontalAlignment="Left"
+                   Height="30"
+                   Margin="10,0,0,0"/>
+            <ScrollViewer>
+                <ListBox Margin="10,0,0,10"
+                         FontSize="25" 
+                         BorderThickness="0" 
+                         ScrollViewer.VerticalScrollBarVisibility="Visible" 
+                         ScrollViewer.HorizontalScrollBarVisibility="Hidden"
+                         Background="Transparent" 
+                         HorizontalContentAlignment="Left"
+                         VerticalContentAlignment="Center" 
+                         Foreground="#b2cce5"
+                         ItemsSource="{Binding PlayerList}" 
+                         DisplayMemberPath="Nickname" 
+                         MinHeight="50" Height="Auto" MaxHeight="200" 
+                          
+                         SelectedItem="{Binding SelectedPlayer}"/>
+            </ScrollViewer>
+            <WrapPanel Width="205" HorizontalAlignment="Left" Margin="10,0,0,0">
+                <TextBox Visibility="Visible"
+                         FontSize="20"
+                         Background="Black" 
+                         BorderBrush="White" 
+                         Foreground="#b2cce5" 
+                         Height="30"
+                         Width="150" 
+                         Text="{Binding SearchNickname}"
+                         VerticalContentAlignment="Center"
+                         TextWrapping="Wrap" 
+                         TextAlignment="Center"/>
+                <Button Style="{StaticResource RoundButtonTemplate}"
+                        Command="{Binding Search}"
+                        Margin="10,0,0,0"
+                        Height="40" Width="40" HorizontalAlignment="Right">
+                    <Image Source="/Resources/Picture/MagnifyingGlass.png" Width="30" Height="30"/>
                 </Button>
-            </StackPanel>
-        </Grid>
+            </WrapPanel>
+        </StackPanel>
     </Grid>
-    
+
 </UserControl>
 
 

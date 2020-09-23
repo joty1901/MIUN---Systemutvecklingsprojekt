@@ -53,7 +53,7 @@ namespace MaterMinds
 
         private void HighlightSelectedPlayer()
         {
-            if (Nickname == null)
+            if (Nickname == null && PlayerList.Count != 0)
             {
                 SelectedPlayer = PlayerList[0];
             }
@@ -97,7 +97,7 @@ namespace MaterMinds
             {
                 foreach (Player c in Repository.GetDbPlayers().ToList())
                 {
-                    if (c.Nickname.ToLower() == SearchNickname.ToLower())
+                    if (c.Nickname.ToLower().Contains(SearchNickname.ToLower()))
                     {
                         PlayerList.Add(c);
                     }

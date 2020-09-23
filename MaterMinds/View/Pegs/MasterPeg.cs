@@ -12,7 +12,7 @@ namespace MaterMinds
     {
         public int ColorIndex { get; set; }
         public bool IsMoveble { get; set; }
-        public string Color { get; set; }
+        public Brush Color { get; set; }
 
         public MasterPeg()
         {
