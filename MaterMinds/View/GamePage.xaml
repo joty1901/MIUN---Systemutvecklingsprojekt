@@ -95,8 +95,8 @@
                             <Image gif:ImageBehavior.AnimatedSource="/Resources/Picture/QuestionMark.gif" gif:ImageBehavior.RepeatBehavior="4x" gif:ImageBehavior.AnimationSpeedRatio="10"/>
                         </Grid>
                     </WrapPanel>
-                
-                    
+
+                <Border BorderThickness="3">
                         <WrapPanel  HorizontalAlignment="Left" VerticalAlignment="Center" Visibility="{Binding IsHidden, FallbackValue=Visible}">
                             <Grid x:Uid="1" Margin="7.5,0,7.5,0" Width="30" Height="30" >
                                 <Ellipse Height="30" Stroke="Black" Fill="{Binding CorrectAnswerArray[0].Color}"/>
@@ -112,10 +112,10 @@
                             </Grid>
                             
                         </WrapPanel>
-                    
+                </Border>
 
 
-                    <Border BorderThickness="3" BorderBrush="{Binding BackgroundColor[6]}" CornerRadius="10" IsEnabled="{Binding IsActive[6]}">
+                <Border BorderThickness="3" BorderBrush="{Binding BackgroundColor[6]}" CornerRadius="10" IsEnabled="{Binding IsActive[6]}">
                     <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Center">
                         <Grid x:Uid="1" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
                             <local:GameBoardCircle/>

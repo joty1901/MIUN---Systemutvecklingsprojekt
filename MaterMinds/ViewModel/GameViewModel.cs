@@ -26,11 +26,9 @@ namespace MaterMinds
         public Dictionary<int, int> PlacedPegs { get; set; } = new Dictionary<int, int>();
         public ObservableCollection<int> HintToAnswer { get; set; } = new ObservableCollection<int>();
         public ObservableCollection<bool> IsActive { get; set; } = new ObservableCollection<bool> { true, false, false, false, false, false, false };
-        public ICommand NextRoundCommand { get; set; }
         public ICommand ResetGame { get; set; }
         public ICommand Help { get; set; }
         public int Rounds { get; set; } = 0;
-        private readonly MediaPlayer mediaPlayer = new MediaPlayer();
         public ObservableCollection<string[]> hintArray { get; set; } = new ObservableCollection<string[]>();
         public ObservableCollection<MasterPeg> CorrectAnswerArray { get; set; } = new ObservableCollection<MasterPeg>();
         public Visibility IsHidden { get; set; } = Visibility.Hidden;
