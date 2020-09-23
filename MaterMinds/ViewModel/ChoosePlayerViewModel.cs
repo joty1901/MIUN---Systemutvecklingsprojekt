@@ -19,12 +19,15 @@ namespace MaterMinds
     {
         public ICommand NewPlayer { get; set; }
         public ICommand ChoosePlayer { get; set; }
+        public ICommand Search { get; set; }
         public string Nickname { get; set; }
-        public List<Player> PlayerList { get; set; }
+        public string SearchNickname { get; set; }
+        public ObservableCollection<Player> PlayerList { get; set; }
         public Player SelectedPlayer { get; set; }
 
         public ChoosePlayerViewModel()
         {
+            Search = new RelayCommand(SearchPlayer);
             NewPlayer = new RelayCommand(CreatePlayer);
             ChoosePlayer = new RelayCommand(NewGame);
             MainMenuCommand = new RelayCommand(GetMainMenuView);
@@ -50,18 +53,25 @@ namespace MaterMinds
 
         private void HighlightSelectedPlayer()
         {
-            for (int i = 0; i < PlayerList.Count; i++)
+            if (Nickname == null)
             {
-                if (PlayerList[i].Nickname == Nickname)
+                SelectedPlayer = PlayerList[0];
+            }
+            else
+            {
+                for (int i = 0; i < PlayerList.Count; i++)
                 {
-                    SelectedPlayer = PlayerList[i];
+                    if (PlayerList[i].Nickname.ToLower() == Nickname.ToLower())
+                    {
+                        SelectedPlayer = PlayerList[i];
+                    }
                 }
             }
         }
 
         private void GetPlayers()
         {
-            PlayerList = Repository.GetDbPlayers().ToList();
+            PlayerList = (ObservableCollection<Player>)Repository.GetDbPlayers();
         }
 
         private void NewGame()
@@ -75,6 +85,26 @@ namespace MaterMinds
             {
                 MessageBox.Show("Select a player before starting the game");
             }
+        }
+        private void SearchPlayer()
+        {
+            PlayerList.Clear();
+            if (SearchNickname == "")
+            {
+                GetPlayers();
+            }
+            else
+            {
+                foreach (Player c in Repository.GetDbPlayers().ToList())
+                {
+                    if (c.Nickname.ToLower() == SearchNickname.ToLower())
+                    {
+                        PlayerList.Add(c);
+                    }
+                }
+            }
+            HighlightSelectedPlayer();
+            
         }
 
     }

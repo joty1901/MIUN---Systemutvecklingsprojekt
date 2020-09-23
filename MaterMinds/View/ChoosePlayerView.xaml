@@ -110,6 +110,7 @@
             </Button>
 
             <StackPanel Margin="350,0,0,100" VerticalAlignment="Center" Width="300">
+                
                 <ScrollViewer>
                     <ListBox Margin="0,0,0,10"
                              FontSize="25" 
@@ -124,6 +125,22 @@
                              Height="200" 
                              SelectedItem="{Binding SelectedPlayer}"/>
                 </ScrollViewer>
+                <WrapPanel HorizontalAlignment="Right" Width="267">
+                    <TextBox Visibility="Visible"
+                             FontSize="20"
+                             Background="Black" 
+                             BorderBrush="Transparent" Width="200" 
+                             Text="{Binding SearchNickname}"
+                             Foreground="White" 
+                             VerticalContentAlignment="Center"
+                             TextWrapping="Wrap" 
+                             TextAlignment="Center"/>
+                    <Button Style="{StaticResource RoundButtonTemplate}"
+                            Command="{Binding Search}"
+                            Height="40" Width="40" HorizontalAlignment="Right">
+                        <Image Source="/Resources/Picture/MagnifyingGlass.png" Width="30" Height="30"/>
+                    </Button>
+                </WrapPanel>
                 <Button Content="Start Game" 
                         Command="{Binding ChoosePlayer}" 
                         Style="{StaticResource RoundButtonTemplate}"
