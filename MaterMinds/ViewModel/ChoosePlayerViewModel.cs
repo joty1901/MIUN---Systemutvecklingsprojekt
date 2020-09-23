@@ -40,7 +40,6 @@ namespace MaterMinds
             {
                 int id = Repository.AddPlayer(Nickname);
                 Player player = new Player(id, Nickname);
-                //PlayerList.Add(player);
                 GetPlayers();
                 HighlightSelectedPlayer();
             }
@@ -104,8 +103,6 @@ namespace MaterMinds
                 }
             }
             HighlightSelectedPlayer();
-            
         }
-
     }
 }
