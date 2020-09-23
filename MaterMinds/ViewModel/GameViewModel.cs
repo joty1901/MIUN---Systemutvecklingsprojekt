@@ -30,7 +30,7 @@ namespace MaterMinds
         public ObservableCollection<string[]> hintArray { get; set; } = new ObservableCollection<string[]>();
         public ObservableCollection<MasterPeg> CorrectAnswerArray { get; set; } = new ObservableCollection<MasterPeg>();
         public Visibility IsHidden { get; set; } = Visibility.Hidden;
-        public Visibility IsSuperHidden { get; set; } = Visibility.Hidden;
+        public Visibility HelpViewVisibility { get; set; } = Visibility.Hidden;
         public ObservableCollection<string> BackgroundColor { get; set; } = new ObservableCollection<string> { "White", "Transparent", "Transparent", "Transparent", "Transparent", "Transparent", "Transparent" };
         public int GameTimerInSecounds { get; set; }
         public int GameTimerInMinutes { get; set; }
@@ -50,7 +50,7 @@ namespace MaterMinds
             MainMenuCommand = new RelayCommand(GetMainMenuView);
             ResetGameCommand = new RelayCommand(RestartGame);
             ViewTopHighscoreCommand = new RelayCommand(GetHighscorePage);
-            HelpCommand = new RelayCommand(GetHelp);
+            HelpCommand = new RelayCommand(SetVisibilityForHelpView);
             StartTimer();
         }
 
@@ -100,12 +100,12 @@ namespace MaterMinds
             BackgroundColor[Rounds] = "White";
         }
 
-        public void EndGame(bool Win)
+        public void EndGame(bool win)
         {
             StopTimer();
             GetAnswer();
             IsHidden = Visibility.Visible;
-            if (Win)
+            if (win)
             {
                 Score = game.CalcScore(Rounds, GameTimerInSecounds, GameTimerInMinutes);
                 AddScoreToDB();
@@ -207,14 +207,14 @@ namespace MaterMinds
             }
         }
 
-        private void GetHelp()
+        private void SetVisibilityForHelpView()
         {
-            if (IsSuperHidden == Visibility.Hidden)
+            if (HelpViewVisibility == Visibility.Hidden)
             {
-                IsSuperHidden = Visibility.Visible;
+                HelpViewVisibility = Visibility.Visible;
             }
             else
-                IsSuperHidden = Visibility.Hidden;
+                HelpViewVisibility = Visibility.Hidden;
         }
     }
 }

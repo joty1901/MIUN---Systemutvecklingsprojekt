@@ -43,9 +43,9 @@ namespace MaterMinds
                 GetPlayers();
                 HighlightSelectedPlayer();
             }
-            catch (PostgresException exm)
+            catch (PostgresException ex)
             {
-                var code = exm.SqlState;
+                var code = ex.SqlState;
                 MessageBox.Show($"Nickname {Nickname} already in use!");
             }
         }
@@ -58,12 +58,17 @@ namespace MaterMinds
             }
             else
             {
-                for (int i = 0; i < PlayerList.Count; i++)
+                GetSelectedPlayerToHiglight();
+            }
+        }
+
+        private void GetSelectedPlayerToHiglight()
+        {
+            for (int i = 0; i < PlayerList.Count; i++)
+            {
+                if (PlayerList[i].Nickname.ToLower() == Nickname.ToLower())
                 {
-                    if (PlayerList[i].Nickname.ToLower() == Nickname.ToLower())
-                    {
-                        SelectedPlayer = PlayerList[i];
-                    }
+                    SelectedPlayer = PlayerList[i];
                 }
             }
         }
@@ -87,22 +92,32 @@ namespace MaterMinds
         }
         private void SearchPlayer()
         {
-            PlayerList.Clear();
+            ClearPlayerList();
             if (SearchNickname == "")
             {
                 GetPlayers();
             }
             else
             {
-                foreach (Player c in Repository.GetDbPlayers().ToList())
-                {
-                    if (c.Nickname.ToLower().Contains(SearchNickname.ToLower()))
-                    {
-                        PlayerList.Add(c);
-                    }
-                }
+                ComparePlayerNickname();
             }
             HighlightSelectedPlayer();
+        }
+
+        private void ComparePlayerNickname()
+        {
+            foreach (Player c in Repository.GetDbPlayers().ToList())
+            {
+                if (c.Nickname.ToLower().Contains(SearchNickname.ToLower()))
+                {
+                    PlayerList.Add(c);
+                }
+            }
+        }
+
+        private void ClearPlayerList()
+        {
+            PlayerList.Clear();
         }
     }
 }

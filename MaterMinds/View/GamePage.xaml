@@ -327,7 +327,7 @@
                             Grid.ColumnSpan="3" 
                             x:Name="help" 
                             HorizontalAlignment="Left" 
-                            Visibility="{Binding IsSuperHidden, FallbackValue=Hidden}" 
+                            Visibility="{Binding HelpViewVisibility, FallbackValue=Hidden}" 
                             Margin="0,0,15,0">
                 <UserControl.Style>
                     <Style>
