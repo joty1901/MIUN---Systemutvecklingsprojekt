@@ -12,6 +12,8 @@ namespace MaterMinds.Command
         public ICommand ViewTopFrequentPlayers { get; set; }
         public ICommand MuteCommand { get; set; }
 
+        void GetMainMenuView();
 
+        void GetHighscorePage();
     }
 }

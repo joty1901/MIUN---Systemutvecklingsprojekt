@@ -26,21 +26,17 @@ namespace MaterMinds
         public ICommand MuteCommand { get; set; }
         public double Volume { get; set; } = 1;
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void OnPropertyChanged([CallerMemberName] string name = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
-
+        #region NavigationMethods
         public void GetMainMenuView()
         {
             Main.Content = new MainMenuView();
         }
+
         public void GetHighscorePage()
         {
             Main.Content = new HighscorePage();
         }
+        #endregion
 
         #region MediaMethods
         public void Start(MediaPlayer m, Uri u)
@@ -56,10 +52,14 @@ namespace MaterMinds
             
         }
 
-        public void Mute(MediaPlayer m, MediaPlayer n)
-        {
-
-        }
         #endregion
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged([CallerMemberName] string name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+
     }
 }

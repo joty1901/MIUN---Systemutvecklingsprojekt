@@ -192,15 +192,16 @@ namespace MaterMinds
 
         public void RestartGame()
         {
-            MessageBoxResult result = MessageBox.Show($"Do you want to restart current game?", "Warning", MessageBoxButton.YesNo);
-            switch (result)
-            {
-                case MessageBoxResult.Yes:
-                    Main.Content = new GamePage(Player);
-                    break;
-                case MessageBoxResult.No:
-                    break;
-            }
+            Main.Content = new MessageBoxView();
+            //MessageBoxResult result = MessageBox.Show($"Do you want to restart current game?", "Warning", MessageBoxButton.YesNo);
+            //switch (result)
+            //{
+            //    case MessageBoxResult.Yes:
+            //        Main.Content = new GamePage(Player);
+            //        break;
+            //    case MessageBoxResult.No:
+            //        break;
+            //}
         }
 
         private void GetHelp()
