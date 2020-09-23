@@ -82,36 +82,42 @@
             </StackPanel>
 
             <StackPanel Grid.Column="2" VerticalAlignment="Center">
-                <Border BorderThickness="3" BorderBrush="Green" CornerRadius="10" Visibility="{Binding IsHidden, FallbackValue=Hidden}">
-                    <WrapPanel  HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding IsHidden, FallbackValue=Hidden}">
-                        <Grid x:Uid="1" Margin="7.5,0,7.5,0" Width="30" Height="30" >
-                            <Ellipse Height="30" Stroke="Black" Fill="{Binding CorrectAnswerArray[0]}"/>
+                    <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                        <Grid x:Uid="1" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
+                            <Image gif:ImageBehavior.AnimatedSource="/Resources/Picture/QuestionMark.gif" gif:ImageBehavior.RepeatBehavior="1x" gif:ImageBehavior.AnimationSpeedRatio="10" IsEnabled="False"/>
                         </Grid>
-                        <Grid x:Uid="2" Margin="7.5,0,7.5,0" Width="30" Height="30" >
-                            <Ellipse Height="30" Stroke="Black" Fill="{Binding CorrectAnswerArray[1]}"/>
+                        <Grid x:Uid="2" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
+                            <Image gif:ImageBehavior.AnimatedSource="/Resources/Picture/QuestionMark.gif" gif:ImageBehavior.RepeatBehavior="2x" gif:ImageBehavior.AnimationSpeedRatio="10"/>
                         </Grid>
-                        <Grid x:Uid="3" Margin="7.5,0,7.5,0" Width="30" Height="30">
-                            <Ellipse Height="30" Stroke="Black" Fill="{Binding CorrectAnswerArray[2]}"/>
+                        <Grid x:Uid="3" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
+                            <Image gif:ImageBehavior.AnimatedSource="/Resources/Picture/QuestionMark.gif" gif:ImageBehavior.RepeatBehavior="3x" gif:ImageBehavior.AnimationSpeedRatio="10"/>
                         </Grid>
-                        <Grid x:Uid="4" Margin="7.5,0,7.5,0" Width="30" Height="30">
-                            <Ellipse Height="30" Stroke="Black" Fill="{Binding CorrectAnswerArray[3]}"/>
+                        <Grid x:Uid="4" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
+                            <Image gif:ImageBehavior.AnimatedSource="/Resources/Picture/QuestionMark.gif" gif:ImageBehavior.RepeatBehavior="4x" gif:ImageBehavior.AnimationSpeedRatio="10"/>
                         </Grid>
-                        <Border BorderThickness="3" CornerRadius="10" Margin="7.5,0,7.5,0">
-                            <Border.Background>
-                                <SolidColorBrush Color="White" Opacity="0.5"/>
-                            </Border.Background>
-                            <WrapPanel Height="30" Width="30">
-                                <Ellipse Width="13" Height="13" Margin="1,1,1,1" Fill="Black"/>
-                                <Ellipse Width="13" Height="13" Margin="1,1,1,1" Fill="Black"/>
-                                <Ellipse Width="13" Height="13" Margin="1,1,1,1" Fill="Black"/>
-                                <Ellipse Width="13" Height="13" Margin="1,1,1,1" Fill="Black"/>
-                            </WrapPanel>
-                        </Border>
                     </WrapPanel>
-                </Border>
+                
+                    
+                        <WrapPanel  HorizontalAlignment="Left" VerticalAlignment="Center" Visibility="{Binding IsHidden, FallbackValue=Visible}">
+                            <Grid x:Uid="1" Margin="7.5,0,7.5,0" Width="30" Height="30" >
+                                <Ellipse Height="30" Stroke="Black" Fill="{Binding CorrectAnswerArray[0].Color}"/>
+                            </Grid>
+                            <Grid x:Uid="2" Margin="7.5,0,7.5,0" Width="30" Height="30" >
+                                <Ellipse Height="30" Stroke="Black" Fill="{Binding CorrectAnswerArray[1].Color}"/>
+                            </Grid>
+                            <Grid x:Uid="3" Margin="7.5,0,7.5,0" Width="30" Height="30">
+                                <Ellipse Height="30" Stroke="Black" Fill="{Binding CorrectAnswerArray[2].Color}"/>
+                            </Grid>
+                            <Grid x:Uid="4" Margin="7.5,0,7.5,0" Width="30" Height="30">
+                                <Ellipse Height="30" Stroke="Black" Fill="{Binding CorrectAnswerArray[3].Color}"/>
+                            </Grid>
+                            
+                        </WrapPanel>
+                    
 
-                <Border BorderThickness="3" BorderBrush="{Binding BackgroundColor[6]}" CornerRadius="10" IsEnabled="{Binding IsActive[6]}">
-                    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                    <Border BorderThickness="3" BorderBrush="{Binding BackgroundColor[6]}" CornerRadius="10" IsEnabled="{Binding IsActive[6]}">
+                    <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Center">
                         <Grid x:Uid="1" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
                             <local:GameBoardCircle/>
                         </Grid>
@@ -139,7 +145,7 @@
                 </Border>
 
                 <Border BorderThickness="3" BorderBrush="{Binding BackgroundColor[5]}" CornerRadius="10" IsEnabled="{Binding IsActive[5]}">
-                    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Center">
                         <Grid x:Uid="1" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
                             <local:GameBoardCircle/>
                         </Grid>
@@ -167,7 +173,7 @@
                 </Border>
 
                 <Border BorderThickness="3" BorderBrush="{Binding BackgroundColor[4]}" CornerRadius="10" IsEnabled="{Binding IsActive[4]}">
-                    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Center">
                         <Grid x:Uid="1" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
                             <local:GameBoardCircle/>
                         </Grid>
@@ -195,7 +201,7 @@
                 </Border>
 
                 <Border BorderThickness="3" BorderBrush="{Binding BackgroundColor[3]}" CornerRadius="10" IsEnabled="{Binding IsActive[3]}">
-                    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Center">
                         <Grid x:Uid="1" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
                             <local:GameBoardCircle/>
                         </Grid>
@@ -223,7 +229,7 @@
                 </Border>
 
                 <Border BorderThickness="3" BorderBrush="{Binding BackgroundColor[2]}" CornerRadius="10" IsEnabled="{Binding IsActive[2]}">
-                    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Center">
                         <Grid x:Uid="1" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
                             <local:GameBoardCircle/>
                         </Grid>
@@ -251,7 +257,7 @@
                 </Border>
 
                 <Border BorderThickness="3" BorderBrush="{Binding BackgroundColor[1]}" CornerRadius="10" IsEnabled="{Binding IsActive[1]}">
-                    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Center">
                         <Grid x:Uid="1" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
                             <local:GameBoardCircle/>
                         </Grid>
@@ -279,7 +285,7 @@
                 </Border>
 
                 <Border BorderThickness="3" BorderBrush="{Binding BackgroundColor[0]}" CornerRadius="10" IsEnabled="{Binding IsActive[0]}">
-                    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Center">
                         <Grid x:Uid="1" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="panel_Drop" >
                             <local:GameBoardCircle/>
                         </Grid>
@@ -306,7 +312,7 @@
                     </WrapPanel>
                 </Border>
 
-                <Button Content="Check Answer" Margin="10" HorizontalAlignment="Center" Style="{DynamicResource RoundButtonTemplate}" 
+                <Button Content="Check Answer" Margin="10" HorizontalAlignment="Left" Style="{DynamicResource RoundButtonTemplate}" 
                     Command="{Binding NextRoundCommand}" FontSize="20" FontWeight="Bold" Width="200" Height="32">
                 </Button>
             </StackPanel>

@@ -6,15 +6,12 @@
              xmlns:local="clr-namespace:MaterMinds"
              mc:Ignorable="d" 
              d:DesignHeight="30" d:DesignWidth="30">
-    <Grid Uid="30" Width="30" Height="30" AllowDrop="True">
 
-
+    <Grid Width="30" Height="30">
         <Ellipse Height="30" Stroke="Black" StrokeThickness="2" Opacity="0.5">
             <Ellipse.Fill>
-                <SolidColorBrush Color="LightGray"  />
+                <SolidColorBrush Color="LightGray" />
             </Ellipse.Fill>
-            
         </Ellipse> 
-            
     </Grid>
 </UserControl>

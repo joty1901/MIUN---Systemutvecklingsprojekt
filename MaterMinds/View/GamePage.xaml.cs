@@ -120,16 +120,10 @@ namespace MaterMinds
                 }
             }
         }
-
         private void DropSound()
         {
             SoundPlayer.Open(new Uri(@"Resources/Sound/WaterDrop.mp3", UriKind.Relative));
             SoundPlayer.Play();
-
-            
-
         }
-
-        
     }
 }

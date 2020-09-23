@@ -23,6 +23,7 @@ namespace MaterMinds
                 StrokeThickness = 1
             };
             ColorIndex = 4;
+            this.Color = Brushes.Blue; 
             master.Children.Add(ellipse);
         }
     }
