@@ -20,17 +20,17 @@ namespace MaterMinds
         GameEngine game;
         DispatcherTimer timer;
 
-        public Dictionary<int, int> PlacedPegs { get; set; } = new Dictionary<int, int>();
-        public ObservableCollection<int> HintToAnswer { get; set; } = new ObservableCollection<int>();
-        public ObservableCollection<bool> IsActive { get; set; } = new ObservableCollection<bool> { true, false, false, false, false, false, false };
         public ICommand NextRoundCommand { get; set; }
         public ICommand ResetGameCommand { get; set; }
         public ICommand HelpCommand { get; set; }
+        public Dictionary<int, int> PlacedPegs { get; set; } = new Dictionary<int, int>();
+        public ObservableCollection<int> HintToAnswer { get; set; } = new ObservableCollection<int>();
+        public ObservableCollection<bool> IsActive { get; set; } = new ObservableCollection<bool> { true, false, false, false, false, false, false };
         public int Rounds { get; set; } = 0;
         public ObservableCollection<string[]> hintArray { get; set; } = new ObservableCollection<string[]>();
         public ObservableCollection<string> CorrectAnswerArray { get; set; } = new ObservableCollection<string>();
         public string IsHidden { get; set; }
-        public string IsSuperHidden { get; set; }
+        public Visibility VisibilityForHelpWindow { get; set; }
         public ObservableCollection<string> BackgroundColor { get; set; } = new ObservableCollection<string> { "White", "Transparent", "Transparent", "Transparent", "Transparent", "Transparent", "Transparent" };
         public int GameTimerInSecounds { get; set; }
         public int GameTimerInMinutes { get; set; }
@@ -206,12 +206,12 @@ namespace MaterMinds
 
         private void GetHelp()
         {
-            if (IsSuperHidden != "Visible")
+            if (VisibilityForHelpWindow != Visibility.Visible)
             {
-                IsSuperHidden = "Visible";
+                VisibilityForHelpWindow = Visibility.Visible;
             }
             else
-                IsSuperHidden = "Hidden";
+                VisibilityForHelpWindow = Visibility.Hidden;
         }
     }
 }
