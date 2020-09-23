@@ -10,7 +10,7 @@
       Background="{DynamicResource BackgroundIMG}">
 
     <Grid>
-        <Label Content="{Binding ChoosenPage, FallbackValue=High Score}" HorizontalContentAlignment="Center"
+        <Label Content="{Binding ViewLabelProperty, FallbackValue=Highscore}" HorizontalContentAlignment="Center"
                Foreground="White" FontSize="20" Width="Auto" Height="Auto"
                HorizontalAlignment="Center" VerticalAlignment="Top"
                Margin="0,10,0,0" FontFamily="Arial Black"/>
