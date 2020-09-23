@@ -136,7 +136,7 @@
                     </Button>
                 </WrapPanel>
                 <Button Content="Start Game" 
-                        Command="{Binding ChoosePlayer}" 
+                        Command="{Binding ChoosePlayerCommand}" 
                         Style="{StaticResource RoundButtonTemplate}"
                         Width="250">
                 </Button>
@@ -163,7 +163,7 @@
                          Height="41"/>
                 <Button Content="Create Player" 
                         VerticalAlignment="Center" 
-                        Command="{Binding NewPlayer}" 
+                        Command="{Binding NewPlayerCommand}" 
                         Style="{StaticResource RoundButtonTemplate}" 
                         Width="250">
                 </Button>
