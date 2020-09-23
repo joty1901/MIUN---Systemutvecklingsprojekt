@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Configuration;
 using System.Linq;
 using System.Numerics;
@@ -23,7 +24,7 @@ namespace MaterMinds
             using (var conn = new NpgsqlConnection(connectionString))
             {
                 Player player = null;
-                List<Player> players = new List<Player>();
+                ObservableCollection<Player> players = new ObservableCollection<Player>();
                 conn.Open();
                 using (var trans = conn.BeginTransaction())
                     try
