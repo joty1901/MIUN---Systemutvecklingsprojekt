@@ -101,12 +101,6 @@
                     Style="{StaticResource RoundButtonTemplate}"
                     FontSize="25" 
                     Width="320"  >
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="DodgerBlue"/>
-                        <GradientStop Color="Black" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.Background>
             </Button>
 
             <StackPanel Margin="350,0,0,100" VerticalAlignment="Center" Width="300">
@@ -128,12 +122,6 @@
                         Command="{Binding ChoosePlayer}" 
                         Style="{StaticResource RoundButtonTemplate}"
                         Width="250">
-                    <Button.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="DodgerBlue"/>
-                            <GradientStop Color="Black" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Button.Background>
                 </Button>
             </StackPanel>
             <StackPanel Margin="0,0,350,12" 
@@ -161,12 +149,6 @@
                         Command="{Binding NewPlayer}" 
                         Style="{StaticResource RoundButtonTemplate}" 
                         Width="250">
-                    <Button.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="DodgerBlue"/>
-                            <GradientStop Color="Black" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Button.Background>
                 </Button>
             </StackPanel>
         </Grid>

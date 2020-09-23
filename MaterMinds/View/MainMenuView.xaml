@@ -24,7 +24,6 @@
                     Style="{StaticResource RoundButtonTemplate}"
                     FontSize="25" 
                     Width="300" >
-                
             </Button>
 
             <Button Content="Highscore"
