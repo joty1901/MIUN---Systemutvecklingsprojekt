@@ -10,7 +10,6 @@ namespace MaterMinds
         public string Nickname { get; set; }
         public int ScoreId { get; set; }
         public int PlayerId { get; set; }
-        //public DateTime Date { get; set; }
         public string Date { get; set; }
 
         public Score()

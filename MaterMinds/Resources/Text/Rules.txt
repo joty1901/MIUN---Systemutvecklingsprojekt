@@ -1,5 +1,6 @@
-The goal of the game is to guess the secret colour code that has been randomly generated. 
-To guess a code, drag and drop pegs onto the current row (Highlighted) and press check 
-answer The Game will then give you hints in the form of Black pegs (Correct colour and position) 
-or White pegs(Correct colour, wrong position)
+- The goal of the game is to guess the secret colour code that has been randomly generated. 
+- To guess a code, drag and drop pegs onto the current row (Highlighted) and press check 
+  answer.
+- The Game will give you hints in the form of Black pegs (Correct colour and position) 
+  or White pegs(Correct colour, wrong position)
                    

@@ -10,17 +10,14 @@ namespace MaterMinds.ViewModel
 {
     class MainMenuViewModel : BaseViewModel
     {
-        public ICommand ChoosePlayer { get; set; }
-        public ICommand ExitGame { get; set; }
-
-
-        
+        public ICommand ChoosePlayerCommand { get; set; }
+        public ICommand ExitGameCommand { get; set; }
 
         public MainMenuViewModel()
         {
-            ChoosePlayer = new RelayCommand(ChoosePlayerPage);
-            ViewTopHighscore = new RelayCommand(GetHighscorePage);
-            ExitGame = new RelayCommand(CloseApplication);
+            ChoosePlayerCommand = new RelayCommand(ChoosePlayerPage);
+            ViewTopHighscoreCommand = new RelayCommand(GetHighscorePage);
+            ExitGameCommand = new RelayCommand(CloseApplication);
             MuteCommand = new RelayCommand(Mute);
             StartDBConnection();
         }

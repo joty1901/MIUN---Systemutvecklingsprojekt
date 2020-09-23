@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Drawing;
 using System.Globalization;
+using System.Net.Http.Headers;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Windows;
@@ -23,10 +24,9 @@ namespace MaterMinds
         public ObservableCollection<int> HintToAnswer { get; set; } = new ObservableCollection<int>();
         public ObservableCollection<bool> IsActive { get; set; } = new ObservableCollection<bool> { true, false, false, false, false, false, false };
         public ICommand NextRoundCommand { get; set; }
-        public ICommand ResetGame { get; set; }
-        public ICommand Help { get; set; }
+        public ICommand ResetGameCommand { get; set; }
+        public ICommand HelpCommand { get; set; }
         public int Rounds { get; set; } = 0;
-        private readonly MediaPlayer mediaPlayer = new MediaPlayer();
         public ObservableCollection<string[]> hintArray { get; set; } = new ObservableCollection<string[]>();
         public ObservableCollection<string> CorrectAnswerArray { get; set; } = new ObservableCollection<string>();
         public string IsHidden { get; set; }
@@ -39,19 +39,17 @@ namespace MaterMinds
         public Player Player { get; set; }
         public ObservableCollection<string> WinOrLoss { get; set; } = new ObservableCollection<string> { " ", " " };
 
-
         public GameViewModel(Player player)
         {
             game = new GameEngine();
             Player = player;
             NextRoundCommand = new RelayCommand(NextRound);
             MainMenuCommand = new RelayCommand(GetMainMenuView);
-            ResetGame = new RelayCommand(RestartGame);
-            ViewTopHighscore = new RelayCommand(GetHighscorePage);
-            Help = new RelayCommand(GetHelp);
+            ResetGameCommand = new RelayCommand(RestartGame);
+            ViewTopHighscoreCommand = new RelayCommand(GetHighscorePage);
+            HelpCommand = new RelayCommand(GetHelp);
             StartTimer();
         }
-
 
         public void AddScoreToDB()
         {
@@ -89,6 +87,7 @@ namespace MaterMinds
                 MessageBox.Show($"{Player.Nickname} du måste lägga minst en peg på spelplanen");
             }
         }
+
         public void UpdateGameBoard()
         {
             IsActive[Rounds] = false;
@@ -97,6 +96,7 @@ namespace MaterMinds
             IsActive[Rounds] = true;
             BackgroundColor[Rounds] = "White";
         }
+
         public void EndGame(bool Win)
         {
             StopTimer();
@@ -114,6 +114,7 @@ namespace MaterMinds
                 WinOrLoss[1] = "Visible";
             }
         }
+
         public void GetAnswer()
         {
             foreach (var c in game.GetCorrectAnswer())
@@ -141,10 +142,12 @@ namespace MaterMinds
                 }
             }
         }
+
         public void PlaySound()
         {
             Start(SoundEffectPlayer, new Uri(@"Resources/Sound/WaterDrop.mp3", UriKind.Relative));
         }
+
         private void StartTimer()
         {
             timer = new DispatcherTimer();
@@ -152,10 +155,12 @@ namespace MaterMinds
             timer.Tick += Timer_Tick;
             timer.Start();
         }
+
         private void StopTimer()
         {
             timer.Stop();
         }
+
         private void Timer_Tick(object sender, EventArgs e)
         {
             if (GameTimerInSecounds == 59)
@@ -184,10 +189,21 @@ namespace MaterMinds
                 GameTimer = $"0{GameTimerInMinutes}:{GameTimerInSecounds}";
             }
         }
+
         public void RestartGame()
         {
-            Main.Content = new GamePage(Player);
+            //Main.Content = new MessageBoxView();
+            MessageBoxResult result = MessageBox.Show($"Do you want to restart current game?", "Warning", MessageBoxButton.YesNo);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    Main.Content = new GamePage(Player);
+                    break;
+                case MessageBoxResult.No:
+                    break;
+            }
         }
+
         private void GetHelp()
         {
             if (IsSuperHidden != "Visible")

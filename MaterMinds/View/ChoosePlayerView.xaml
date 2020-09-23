@@ -133,6 +133,8 @@
                         <GradientStop Color="Black" Offset="1"/>
                     </LinearGradientBrush>
                 </Button.Background>
+                    FontSize="25" 
+                    Width="320"  >
             </Button>
             <Label x:Name="label" 
                    Content="New player"

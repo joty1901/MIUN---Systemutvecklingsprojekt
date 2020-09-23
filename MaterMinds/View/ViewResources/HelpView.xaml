@@ -28,29 +28,7 @@
                    MaxHeight="200"
                    MaxWidth="300"
                    TextWrapping="Wrap"
+                   
                    />
-
-
     </Grid>
-
-    <!--<UserControl.Style>
-        <Style>
-            <Style.Triggers>
-                <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <DoubleAnimation Storyboard.TargetProperty="Opacity" Duration="00:00:02" From="0" To="1">
-                                
-                            </DoubleAnimation>
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger>
-                <Trigger Property="FrameworkElement.Visibility" Value="Collapsed">
-                    <Setter Property="FrameworkElement.Opacity" Value="0">
-                        
-                    </Setter>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
-    </UserControl.Style>-->
 </UserControl>
