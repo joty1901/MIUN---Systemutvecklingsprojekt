@@ -48,8 +48,12 @@ namespace MaterMinds
 
         public void Mute()
         {
-           BackgroundPlayer.IsMuted = true;
-            
+           if (!BackgroundPlayer.IsMuted)
+              {
+                BackgroundPlayer.IsMuted = true;
+              }
+           else
+              BackgroundPlayer.IsMuted = false;
         }
 
         #endregion
