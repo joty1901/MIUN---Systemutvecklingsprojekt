@@ -19,8 +19,8 @@ namespace MaterMinds
         public MainWindow Main = (MainWindow)Application.Current.MainWindow;
 
         public ICommand MainMenuCommand { get ; set; }
-        public ICommand ViewTopHighscore { get; set; }
-        public ICommand ViewTopFrequentPlayers { get; set; }
+        public ICommand ViewTopHighscoreCommand { get; set; }
+        public ICommand ViewTopFrequentPlayersCommand { get; set; }
         public MediaPlayer BackgroundPlayer { get; set; } = new MediaPlayer();
         public MediaPlayer SoundEffectPlayer { get; set; } = new MediaPlayer();
         public ICommand MuteCommand { get; set; }

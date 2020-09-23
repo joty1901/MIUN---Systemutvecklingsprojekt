@@ -8,8 +8,8 @@ namespace MaterMinds.Command
     public interface INavigation
     {
         public ICommand MainMenuCommand { get; set; }
-        public ICommand ViewTopHighscore { get; set; }
-        public ICommand ViewTopFrequentPlayers { get; set; }
+        public ICommand ViewTopHighscoreCommand { get; set; }
+        public ICommand ViewTopFrequentPlayersCommand { get; set; }
         public ICommand MuteCommand { get; set; }
 
         void GetMainMenuView();

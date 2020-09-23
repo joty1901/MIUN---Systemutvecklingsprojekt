@@ -53,11 +53,11 @@
                         Width="118" 
                         Height="32"
                         Margin="15,5,0,0"
-                        Command="{Binding ResetGame}">
+                        Command="{Binding ResetGameCommand}">
                 </Button>
                 <Button Content="Highscores"
                         HorizontalAlignment="Left"
-                        Command="{Binding ViewTopHighscore}"
+                        Command="{Binding ViewTopHighscoreCommand}"
                         Style="{DynamicResource RoundButtonTemplate}" 
                         FontSize="15" 
                         FontWeight="Bold"
@@ -73,7 +73,7 @@
                         Width="118" 
                         Height="32"
                         Margin="15,5,0,0"
-                        Command="{Binding Help}">
+                        Command="{Binding HelpCommand}">
                 </Button>
             </StackPanel>
 
@@ -349,7 +349,7 @@
                     Width="32" 
                     Height="32" 
                     Visibility="{Binding IsSuperHidden, FallbackValue=Hidden}" 
-                    Command="{Binding Help}" 
+                    Command="{Binding HelpCommand}" 
                     HorizontalAlignment="Center"
                     VerticalAlignment="Top" 
                     Margin="150,15,0,0" >

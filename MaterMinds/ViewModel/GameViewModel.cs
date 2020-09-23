@@ -24,8 +24,8 @@ namespace MaterMinds
         public ObservableCollection<int> HintToAnswer { get; set; } = new ObservableCollection<int>();
         public ObservableCollection<bool> IsActive { get; set; } = new ObservableCollection<bool> { true, false, false, false, false, false, false };
         public ICommand NextRoundCommand { get; set; }
-        public ICommand ResetGame { get; set; }
-        public ICommand Help { get; set; }
+        public ICommand ResetGameCommand { get; set; }
+        public ICommand HelpCommand { get; set; }
         public int Rounds { get; set; } = 0;
         public ObservableCollection<string[]> hintArray { get; set; } = new ObservableCollection<string[]>();
         public ObservableCollection<string> CorrectAnswerArray { get; set; } = new ObservableCollection<string>();
@@ -45,9 +45,9 @@ namespace MaterMinds
             Player = player;
             NextRoundCommand = new RelayCommand(NextRound);
             MainMenuCommand = new RelayCommand(GetMainMenuView);
-            ResetGame = new RelayCommand(RestartGame);
-            ViewTopHighscore = new RelayCommand(GetHighscorePage);
-            Help = new RelayCommand(GetHelp);
+            ResetGameCommand = new RelayCommand(RestartGame);
+            ViewTopHighscoreCommand = new RelayCommand(GetHighscorePage);
+            HelpCommand = new RelayCommand(GetHelp);
             StartTimer();
         }
 
@@ -192,16 +192,16 @@ namespace MaterMinds
 
         public void RestartGame()
         {
-            Main.Content = new MessageBoxView();
-            //MessageBoxResult result = MessageBox.Show($"Do you want to restart current game?", "Warning", MessageBoxButton.YesNo);
-            //switch (result)
-            //{
-            //    case MessageBoxResult.Yes:
-            //        Main.Content = new GamePage(Player);
-            //        break;
-            //    case MessageBoxResult.No:
-            //        break;
-            //}
+            //Main.Content = new MessageBoxView();
+            MessageBoxResult result = MessageBox.Show($"Do you want to restart current game?", "Warning", MessageBoxButton.YesNo);
+            switch (result)
+            {
+                case MessageBoxResult.Yes:
+                    Main.Content = new GamePage(Player);
+                    break;
+                case MessageBoxResult.No:
+                    break;
+            }
         }
 
         private void GetHelp()

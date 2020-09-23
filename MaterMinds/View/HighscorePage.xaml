@@ -65,7 +65,7 @@
             </Button.Background>
         </Button>
         <Button Content="Frequent Players"
-                Command="{Binding ViewTopFrequentPlayers}" 
+                Command="{Binding ViewTopFrequentPlayersCommand}" 
                 Style="{StaticResource RoundButtonTemplate}" 
                 VerticalAlignment="Top"
                 HorizontalAlignment="Left" 
@@ -79,7 +79,7 @@
             </Button.Background>
         </Button>
         <Button Content="Highscore"
-                Command="{Binding ViewTopHighscore}" 
+                Command="{Binding ViewTopHighscoreCommand}" 
                 Style="{StaticResource RoundButtonTemplate}"
                 VerticalAlignment="Top" 
                 HorizontalAlignment="Left" 

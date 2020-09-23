@@ -17,9 +17,9 @@ namespace MaterMinds
 {
     public class ChoosePlayerViewModel : BaseViewModel
     {
-        public ICommand NewPlayer { get; set; }
-        public ICommand ChoosePlayer { get; set; }
-        public ICommand Search { get; set; }
+        public ICommand NewPlayerCommand { get; set; }
+        public ICommand ChoosePlayerCommand { get; set; }
+        public ICommand SearchCommand { get; set; }
         public string Nickname { get; set; }
         public string SearchNickname { get; set; }
         public ObservableCollection<Player> PlayerList { get; set; }
@@ -27,9 +27,9 @@ namespace MaterMinds
 
         public ChoosePlayerViewModel()
         {
-            Search = new RelayCommand(SearchPlayer);
-            NewPlayer = new RelayCommand(CreatePlayer);
-            ChoosePlayer = new RelayCommand(NewGame);
+            SearchCommand = new RelayCommand(SearchPlayer);
+            NewPlayerCommand = new RelayCommand(CreatePlayer);
+            ChoosePlayerCommand = new RelayCommand(NewGame);
             MainMenuCommand = new RelayCommand(GetMainMenuView);
             GetPlayers();
         }
