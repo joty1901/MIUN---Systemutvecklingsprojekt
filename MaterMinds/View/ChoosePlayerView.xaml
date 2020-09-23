@@ -177,7 +177,7 @@
                          Foreground="#b2cce5"
                          ItemsSource="{Binding PlayerList}" 
                          DisplayMemberPath="Nickname" 
-                         MinHeight="50" Height="Auto" MaxHeight="200" MaxWidth="200"
+                         MinHeight="50" Height="Auto" MaxHeight="200" MaxWidth="185"
                           
                          SelectedItem="{Binding SelectedPlayer}"/>
             </ScrollViewer>
