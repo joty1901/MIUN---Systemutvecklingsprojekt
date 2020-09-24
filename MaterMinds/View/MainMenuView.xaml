@@ -45,10 +45,11 @@
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom">
 
                 <Button 
+                    Content="Mute"
                     Margin="10,-100,0,0"
                     Command="{Binding MuteCommand}" 
                     Style="{StaticResource RoundButtonTemplate}" 
-                    FontSize="25"
+                    FontSize="14"
                     Width="45">
             </Button>
         </StackPanel>
