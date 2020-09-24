@@ -34,6 +34,8 @@ namespace MaterMinds
         public ObservableCollection<string> BackgroundColor { get; set; } = new ObservableCollection<string> { "White", "Transparent", "Transparent", "Transparent", "Transparent", "Transparent", "Transparent" };
         public int GameTimerInSecounds { get; set; }
         public int GameTimerInMinutes { get; set; }
+        public int CountdownTimer { get; set; } = 3;
+        public Visibility CountdownVisiblility { get; set; }
         public string GameTimer { get; set; }
         public int Score { get; set; }
         public Player Player { get; set; }
@@ -163,30 +165,39 @@ namespace MaterMinds
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            if (GameTimerInSecounds == 59)
+            
+            if (CountdownTimer == 0)
             {
-                GameTimerInMinutes++;
-                GameTimerInSecounds = 0;
+                CountdownVisiblility = Visibility.Hidden;
+                if (GameTimerInSecounds == 59)
+                {
+                    GameTimerInMinutes++;
+                    GameTimerInSecounds = 0;
+                }
+                else
+                {
+                    GameTimerInSecounds++;
+                }
+                if (GameTimerInSecounds < 10 && GameTimerInMinutes < 10)
+                {
+                    GameTimer = $"0{GameTimerInMinutes}:0{GameTimerInSecounds}";
+                }
+                else if(GameTimerInMinutes >= 10 && GameTimerInSecounds >= 10)
+                {
+                    GameTimer = $"{GameTimerInMinutes}:{GameTimerInSecounds}";
+                }
+                else if (GameTimerInMinutes >= 10 && GameTimerInSecounds < 10)
+                {
+                    GameTimer = $"{GameTimerInMinutes}:0{GameTimerInSecounds}";
+                }
+                else
+                {
+                    GameTimer = $"0{GameTimerInMinutes}:{GameTimerInSecounds}";
+                }
             }
             else
             {
-                GameTimerInSecounds++;
-            }
-            if (GameTimerInSecounds < 10 && GameTimerInMinutes < 10)
-            {
-                GameTimer = $"0{GameTimerInMinutes}:0{GameTimerInSecounds}";
-            }
-            else if(GameTimerInMinutes >= 10 && GameTimerInSecounds >= 10)
-            {
-                GameTimer = $"{GameTimerInMinutes}:{GameTimerInSecounds}";
-            }
-            else if (GameTimerInMinutes >= 10 && GameTimerInSecounds < 10)
-            {
-                GameTimer = $"{GameTimerInMinutes}:0{GameTimerInSecounds}";
-            }
-            else
-            {
-                GameTimer = $"0{GameTimerInMinutes}:{GameTimerInSecounds}";
+                CountdownTimer--;
             }
         }
 
