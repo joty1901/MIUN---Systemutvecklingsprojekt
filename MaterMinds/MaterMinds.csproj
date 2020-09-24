@@ -24,7 +24,6 @@
     <None Remove="Resources\MaterMindBackground.jpg" />
     <None Remove="Resources\Picture\6ka.gif" />
     <None Remove="Resources\Picture\Earth.jpg" />
-    <None Remove="Resources\Picture\HelloMyName.png" />
     <None Remove="Resources\Picture\MagnifyingGlass.png" />
     <None Remove="Resources\Picture\QuestionMark.gif" />
     <None Remove="Resources\Picture\WinCon.gif" />
@@ -64,12 +63,7 @@
     <Resource Include="Resources\Cursor\YellowCircle.cur" />
     <Resource Include="Resources\Picture\6ka.gif" />
     <Resource Include="Resources\Picture\Earth.jpg" />
-    <Resource Include="Resources\Picture\giphy.gif" />
-    <Resource Include="Resources\Picture\HelloMyName.png" />
     <Resource Include="Resources\Picture\MagnifyingGlass.png" />
-    <Resource Include="Resources\Picture\MaterMindBackground.jpg">
-      <CopyToOutputDirectory></CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Resources\Picture\QuestionMark.gif" />
     <Resource Include="Resources\Picture\WinCon.gif" />
     <Resource Include="Resources\Picture\Winner.gif" />
