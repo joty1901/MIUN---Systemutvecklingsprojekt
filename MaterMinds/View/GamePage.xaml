@@ -360,9 +360,9 @@
                     Margin="150,15,0,0" >
             </Button>
         </Grid>
-        <Image gif:ImageBehavior.AnimatedSource="/Resources/Picture/y7.gif"  
+        <!--<Image gif:ImageBehavior.AnimatedSource="/Resources/Picture/y7.gif"  
             gif:ImageBehavior.AnimationSpeedRatio="0.8" 
-               Visibility="{Binding WinOrLoss[1], FallbackValue=Hidden}" Margin="300,105,240,85"/>
+               Visibility="{Binding WinOrLoss[1], FallbackValue=Hidden}" Margin="300,105,240,85"/>-->
         <Image gif:ImageBehavior.AnimatedSource="/Resources/Picture/Winner.gif"  
             gif:ImageBehavior.AnimationSpeedRatio="0.8" 
                Visibility="{Binding WinOrLoss[0], FallbackValue=Hidden}" Margin="300,80,240,110"/>
