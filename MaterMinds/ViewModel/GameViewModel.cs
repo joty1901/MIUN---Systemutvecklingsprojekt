@@ -104,7 +104,6 @@ namespace MaterMinds
         {
             StopTimer();
             GetAnswer();
-            IsHidden = Visibility.Visible;
             GifVisibility = Visibility.Hidden;
             EndGameVisibility = Visibility.Visible;
             if (win)
