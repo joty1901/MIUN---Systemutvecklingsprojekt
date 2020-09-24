@@ -15,7 +15,6 @@ namespace MaterMinds
     {
         Random random = new Random();
         private Dictionary<int, int> CorrectAnswer { get; set; } = new Dictionary<int, int>();
-        
         private string[] HintToAnswer { get; set; }
         private int[] CheckForDoubles { get; set; }
         private int[] SortedAnswerArray { get; set; }
