@@ -20,12 +20,12 @@
         </Rectangle>
 
         <TextBlock x:Name="HelpText"
-                   FontSize="14" 
+                   FontSize="16" 
                    Background="Transparent" 
                    Foreground="#b2cce5"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
-                   MaxHeight="200"
+                   MaxHeight="300"
                    MaxWidth="300"
                    TextWrapping="Wrap"
                    

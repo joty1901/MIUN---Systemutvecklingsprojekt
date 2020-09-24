@@ -15,7 +15,7 @@ namespace MaterMinds
     {
         Random random = new Random();
         private Dictionary<int, int> CorrectAnswer { get; set; } = new Dictionary<int, int>();
-        private string[] HintToAnswer { get; set; }
+        private Brush[] HintToAnswer { get; set; }
         private int[] CheckForDoubles { get; set; }
         private int[] SortedAnswerArray { get; set; }
 
@@ -71,7 +71,7 @@ namespace MaterMinds
                 {
                     if (SortedAnswerArray[i] == CheckForDoubles[j] )
                     {
-                        HintToAnswer[i] = "White";
+                        HintToAnswer[i] = Brushes.White;
                         //Set the value to 10 so it never hits again. 
                         CheckForDoubles[j] = 10;
                         break;
@@ -86,19 +86,19 @@ namespace MaterMinds
             {
                 if (SortedAnswerArray[i] == CorrectAnswer.ElementAt(i).Value)
                 {
-                    HintToAnswer[counter] = "Black";
+                    HintToAnswer[counter] = Brushes.Black;
                     counter++;
                 }
             }
         }
         private void ClearAllProps()
         {
-            HintToAnswer = new string[4];
+            HintToAnswer = new Brush[4];
             CheckForDoubles = new int[4];
             SortedAnswerArray = new int[4];
 
         }
-        public string[] CheckPegPosition(Dictionary<int, int> playerGuess)
+        public Brush[] CheckPegPosition(Dictionary<int, int> playerGuess)
         {
             ClearAllProps();
             GetAnswerArray();

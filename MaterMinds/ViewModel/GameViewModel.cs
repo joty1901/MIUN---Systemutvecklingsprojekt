@@ -24,14 +24,13 @@ namespace MaterMinds
         public ICommand ResetGameCommand { get; set; }
         public ICommand HelpCommand { get; set; }
         public Dictionary<int, int> PlacedPegs { get; set; } = new Dictionary<int, int>();
-        public ObservableCollection<int> HintToAnswer { get; set; } = new ObservableCollection<int>();
         public ObservableCollection<bool> IsActive { get; set; } = new ObservableCollection<bool> { true, false, false, false, false, false, false };
         public int Rounds { get; set; } = 0;
-        public ObservableCollection<string[]> hintArray { get; set; } = new ObservableCollection<string[]>();
+        public ObservableCollection<Brush[]> HintArray { get; set; } = new ObservableCollection<Brush[]>();
         public ObservableCollection<MasterPeg> CorrectAnswerArray { get; set; } = new ObservableCollection<MasterPeg>();
         public Visibility EndGameVisibility { get; set; } = Visibility.Hidden;
         public Visibility HelpViewVisibility { get; set; } = Visibility.Hidden;
-        public ObservableCollection<string> BackgroundColor { get; set; } = new ObservableCollection<string> { "White", "Transparent", "Transparent", "Transparent", "Transparent", "Transparent", "Transparent" };
+        public ObservableCollection<Brush> BackgroundColor { get; set; } = new ObservableCollection<Brush> { Brushes.White, Brushes.Transparent, Brushes.Transparent, Brushes.Transparent, Brushes.Transparent, Brushes.Transparent, Brushes.Transparent };
         public int GameTimerInSecounds { get; set; }
         public int GameTimerInMinutes { get; set; }
         public int CountdownTimer { get; set; } = 3;
@@ -82,7 +81,7 @@ namespace MaterMinds
                         EndGame(false);
                     }
                 }
-                hintArray.Add(game.CheckPegPosition(PlacedPegs));
+                HintArray.Add(game.CheckPegPosition(PlacedPegs));
                 PlacedPegs.Clear();
             }
             else
@@ -94,10 +93,10 @@ namespace MaterMinds
         public void UpdateGameBoard()
         {
             IsActive[Rounds] = false;
-            BackgroundColor[Rounds] = "Transparent";
+            BackgroundColor[Rounds] = Brushes.Transparent;
             Rounds++;
             IsActive[Rounds] = true;
-            BackgroundColor[Rounds] = "White";
+            BackgroundColor[Rounds] = Brushes.White;
         }
 
         public void EndGame(bool win)
