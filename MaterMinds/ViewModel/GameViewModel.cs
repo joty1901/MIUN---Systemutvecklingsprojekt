@@ -29,7 +29,7 @@ namespace MaterMinds
         public int Rounds { get; set; } = 0;
         public ObservableCollection<string[]> hintArray { get; set; } = new ObservableCollection<string[]>();
         public ObservableCollection<MasterPeg> CorrectAnswerArray { get; set; } = new ObservableCollection<MasterPeg>();
-        public Visibility IsHidden { get; set; } = Visibility.Hidden;
+        public Visibility EndGameVisibility { get; set; } = Visibility.Hidden;
         public Visibility HelpViewVisibility { get; set; } = Visibility.Hidden;
         public ObservableCollection<string> BackgroundColor { get; set; } = new ObservableCollection<string> { "White", "Transparent", "Transparent", "Transparent", "Transparent", "Transparent", "Transparent" };
         public int GameTimerInSecounds { get; set; }
@@ -103,7 +103,7 @@ namespace MaterMinds
         {
             StopTimer();
             GetAnswer();
-            IsHidden = Visibility.Visible;
+            EndGameVisibility = Visibility.Visible;
             if (win)
             {
                 Score = game.CalcScore(Rounds, GameTimerInSecounds, GameTimerInMinutes);
