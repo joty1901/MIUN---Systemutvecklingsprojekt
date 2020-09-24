@@ -91,84 +91,59 @@
             </Style>
         </ResourceDictionary>
     </UserControl.Resources>
+
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300"/>
             <ColumnDefinition/>
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="1"
-                    Height="Auto" Width="Auto"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Center">
-             <Label Content="{Binding SelectedPlayer.Nickname, FallbackValue=Chose}" 
-                    Background="Transparent" 
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="140" />
+        </Grid.RowDefinitions>
+        <Border BorderBrush="White" BorderThickness="0,0,2,2"/>
+        <Border BorderBrush="White" BorderThickness="0,0,0,2" Grid.Column="1" />
+
+
+        <StackPanel
+                    Height="120" Width="621"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Center" 
+                    Grid.ColumnSpan="2"
+                    Grid.Row="1" >
+            <Label Content="{Binding SelectedPlayer.Nickname, FallbackValue=Create or select a player}" 
+                    Background="Transparent"
                     FontSize="40" 
                     FontFamily="Arial Black"
                     Foreground="White"
                     VerticalContentAlignment="Center"
-                    HorizontalContentAlignment="Center" 
-                    Margin="0,0,0,150">
-             
-             </Label>
-             <Button Content="Start Game" 
+                    HorizontalContentAlignment="Center" Height="61" 
+                    />
+            <Button Content="Start Game" 
                      Command="{Binding ChoosePlayerCommand}" 
                      Style="{StaticResource RoundButtonTemplate}"
-                     Width="250" >
-             </Button>
+                     Width="398" />
         </StackPanel>
-        <StackPanel Height="Auto" Width="Auto"
-                    VerticalAlignment="Top"
-                    HorizontalAlignment="Left">
-            <Button Content="Main Menu"
-                    Margin="10"
-                    HorizontalAlignment="Left" 
-                    Command="{Binding MainMenuCommand}"
-                    Style="{StaticResource RoundButtonTemplate}"
-                    FontSize="15" 
-                    Width="150"
-                    Height="30">
-               
-            </Button>
-            <Label x:Name="label" 
-                   Content="New player"
-                   FontWeight="Bold"  
-                   Foreground="White" 
-                   FontSize="15" 
-                   HorizontalAlignment="Left"
-                   Height="30"
-                   Margin="10,0,0,0"/>
-            <WrapPanel Margin="10,0,0,10">
-                <TextBox Text="{Binding Nickname}" 
-                     Background="Black"
-                     Foreground="#b2cce5" 
-                     VerticalContentAlignment="Center"
-                     HorizontalAlignment="Left"
-                     TextWrapping="Wrap" 
-                     TextAlignment="Center"
-                     BorderThickness="1" 
-                     BorderBrush="White"
-                     FontSize="15" 
-                     Height="30"
-                     Width="150"/>
-                <Button Content="+"
-                        HorizontalAlignment="Center"
-                        VerticalContentAlignment="Top"
-                        Command="{Binding NewPlayerCommand}" 
-                        Style="{StaticResource RoundButtonTemplate}" 
-                        Width="40"
-                        Height="40"
-                        Margin="10,0,0,0"/>
-            </WrapPanel>
-            <Label Content="Chose player"
+
+            <Label Content="Select player"
+                   Grid.Column="1" 
                    FontWeight="Bold"
-                   Foreground="White" FontSize="15" 
-                   HorizontalAlignment="Left"
-                   Height="30"
+                   Foreground="White" FontSize="25" 
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   Height="44"
                    Margin="10,0,0,0"/>
-            <ScrollViewer>
+        <StackPanel
+            Grid.Column="1"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left"
+            Margin="0,20,0,0"
+            Width="350"
+            >
+            
+            <ScrollViewer Width="246">
                 <ListBox Margin="10,0,0,10"
                          FontSize="25" 
-                         BorderThickness="0" 
                          ScrollViewer.VerticalScrollBarVisibility="Visible" 
                          ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                          Background="Transparent" 
@@ -177,13 +152,14 @@
                          Foreground="#b2cce5"
                          ItemsSource="{Binding PlayerList}" 
                          DisplayMemberPath="Nickname" 
-                         MinHeight="50" Height="Auto" MaxHeight="200" MaxWidth="185"
-                          
-                         SelectedItem="{Binding SelectedPlayer}"/>
+                         Height="180" 
+                         MaxHeight="200" 
+                         SelectedItem="{Binding SelectedPlayer}" />
             </ScrollViewer>
-            <WrapPanel Width="205" HorizontalAlignment="Left" Margin="10,0,0,0">
+            
+            <WrapPanel Width="205" HorizontalAlignment="Center" Margin="10,0,0,0">
                 <TextBox Visibility="Visible"
-                         FontSize="20"
+                         FontSize="15"
                          Background="Black" 
                          BorderBrush="White" 
                          Foreground="#b2cce5" 
@@ -200,9 +176,57 @@
                     <Image Source="/Resources/Picture/MagnifyingGlass.png" Width="30" Height="30"/>
                 </Button>
             </WrapPanel>
+
+        </StackPanel>
+
+        <Button Content="Main Menu"
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Top"
+                    Margin="0,10,0,0"
+                    Command="{Binding MainMenuCommand}"
+                    Style="{StaticResource RoundButtonTemplate}"
+                    FontSize="15" 
+                    Width="94"
+                    Height="30">
+        </Button>
+
+        <Label x:Name="label" 
+                   Content="New player"
+                   FontWeight="Bold"  
+                   Foreground="White" 
+                   FontSize="25" 
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   Height="51"
+                   />
+        <StackPanel Height="96" Width="300"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Right"
+                    Margin="0,0,15,0">
+
+            <TextBox Text="{Binding Nickname}" 
+                     Background="Black"
+                     Foreground="#b2cce5" 
+                     VerticalContentAlignment="Center"
+                     HorizontalAlignment="Center"
+                     TextWrapping="Wrap" 
+                     TextAlignment="Center"
+                     BorderThickness="1" 
+                     BorderBrush="White"
+                     FontSize="15" 
+                     Height="39"
+                     Width="270"/>
+            <Button Content="Create player"
+                        HorizontalAlignment="Center"
+                        VerticalContentAlignment="Top"
+                        Command="{Binding NewPlayerCommand}" 
+                        Style="{StaticResource RoundButtonTemplate}" 
+                        Margin="0,10,0,0" Width="270"/>
+
+
+
         </StackPanel>
     </Grid>
-
 </UserControl>
 
 
