@@ -117,8 +117,8 @@
              </Button>
         </StackPanel>
         <StackPanel Height="Auto" Width="Auto"
-                    VerticalAlignment="Center"
-                    HorizontalAlignment="Center">
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left">
             <Button Content="Main Menu"
                     Margin="10"
                     HorizontalAlignment="Left" 

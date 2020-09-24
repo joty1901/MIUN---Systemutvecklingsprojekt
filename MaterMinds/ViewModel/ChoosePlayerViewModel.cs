@@ -93,7 +93,7 @@ namespace MaterMinds
         private void SearchPlayer()
         {
             ClearPlayerList();
-            if (SearchNickname == "")
+            if (SearchNickname == "" || SearchNickname == null)
             {
                 GetPlayers();
             }

@@ -19,7 +19,6 @@ namespace MaterMinds
         private string[] HintToAnswer { get; set; }
         private int[] CheckForDoubles { get; set; }
         private int[] SortedAnswerArray { get; set; }
-        private int Counter { get; set; }
 
         public GameEngine()
         {
@@ -71,32 +70,30 @@ namespace MaterMinds
             {
                 for (int j = 0; j < CorrectAnswer.Count; j++)
                 {
-                    if (SortedAnswerArray[i] == CheckForDoubles[j] && Counter == 0)
+                    if (SortedAnswerArray[i] == CheckForDoubles[j] )
                     {
                         HintToAnswer[i] = "White";
                         //Set the value to 10 so it never hits again. 
                         CheckForDoubles[j] = 10;
-                        Counter++;
+                        break;
                     }
                 }
-                Counter = 0;
             }
         }
         private void SetBlackPegs()
         {
-            Counter = 0;
+            int counter = 0;
             for (int i = 0; i < CorrectAnswer.Count; i++)
             {
                 if (SortedAnswerArray[i] == CorrectAnswer.ElementAt(i).Value)
                 {
-                    HintToAnswer[Counter] = "Black";
-                    Counter++;
+                    HintToAnswer[counter] = "Black";
+                    counter++;
                 }
             }
         }
         private void ClearAllProps()
         {
-            Counter = 0;
             HintToAnswer = new string[4];
             CheckForDoubles = new int[4];
             SortedAnswerArray = new int[4];
