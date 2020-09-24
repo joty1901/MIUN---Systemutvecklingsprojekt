@@ -11,7 +11,7 @@ using Npgsql;
 
 namespace MaterMinds
 {
-    class Repository
+    static class Repository
     {
         
         private static string connectionString = ConfigurationManager.ConnectionStrings["universitetet"].ConnectionString;
