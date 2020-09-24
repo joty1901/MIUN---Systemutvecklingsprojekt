@@ -35,7 +35,8 @@ namespace MaterMinds
         public int GameTimerInSecounds { get; set; }
         public int GameTimerInMinutes { get; set; }
         public int CountdownTimer { get; set; } = 3;
-        public Visibility CountdownVisiblility { get; set; }
+        public ObservableCollection<Visibility> TimerVisibility { get; set; } = new ObservableCollection<Visibility> { Visibility.Visible, Visibility.Hidden };
+        public Visibility GifVisibility { get; set; }
         public string GameTimer { get; set; }
         public int Score { get; set; }
         public Player Player { get; set; }
@@ -104,6 +105,7 @@ namespace MaterMinds
             StopTimer();
             GetAnswer();
             IsHidden = Visibility.Visible;
+            GifVisibility = Visibility.Hidden;
             if (win)
             {
                 Score = game.CalcScore(Rounds, GameTimerInSecounds, GameTimerInMinutes);
@@ -168,7 +170,8 @@ namespace MaterMinds
             
             if (CountdownTimer == 0)
             {
-                CountdownVisiblility = Visibility.Hidden;
+                TimerVisibility[0] = Visibility.Hidden;
+                TimerVisibility[1] = Visibility.Visible;
                 if (GameTimerInSecounds == 59)
                 {
                     GameTimerInMinutes++;
