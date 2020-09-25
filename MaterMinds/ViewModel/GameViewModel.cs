@@ -31,7 +31,7 @@ namespace MaterMinds
         public Visibility EndGameVisibility { get; set; } = Visibility.Hidden;
         public Visibility HelpViewVisibility { get; set; } = Visibility.Hidden;
         public ObservableCollection<Brush> BackgroundColor { get; set; } = new ObservableCollection<Brush> { Brushes.White, Brushes.Transparent, Brushes.Transparent, Brushes.Transparent, Brushes.Transparent, Brushes.Transparent, Brushes.Transparent };
-        public int GameTimerInSecounds { get; set; }
+        public int GameTimerInSecounds { get; set; } = -1;
         public int GameTimerInMinutes { get; set; }
         public int CountdownTimer { get; set; } = 3;
         public ObservableCollection<Visibility> TimerVisibility { get; set; } = new ObservableCollection<Visibility> { Visibility.Visible, Visibility.Hidden };
