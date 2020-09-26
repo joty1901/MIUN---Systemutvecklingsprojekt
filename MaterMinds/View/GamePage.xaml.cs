@@ -78,8 +78,7 @@ namespace MaterMinds
                         {
                             _parent.Children.Clear();
                             _parent.Children.Add(new GameBoardCircle());
-                            int key = int.Parse(_parent.Uid);
-                            model.PlacedPegs.Remove(key);
+                            model.PlacedPegs.Remove(int.Parse(_parent.Uid));
                         }
                         else if (e.AllowedEffects.HasFlag(DragDropEffects.Move))
                         {
