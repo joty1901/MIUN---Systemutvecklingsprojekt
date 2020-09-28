@@ -25,12 +25,36 @@
             </Grid.RowDefinitions>
             
 
-            <local:RedPeg       Grid.Column="0" Grid.Row="0"/>
-            <local:GreenPeg     Grid.Column="0" Grid.Row="1"/>
-            <local:PurplePeg    Grid.Column="0" Grid.Row="2"/>
-            <local:YellowPeg    Grid.Column="1" Grid.Row="0"/>
-            <local:BluePeg      Grid.Column="1" Grid.Row="1"/>
-            <local:OrangePeg    Grid.Column="1" Grid.Row="2"/>
+            <local:RedPeg       Grid.Column="0" Grid.Row="0">
+                <local:RedPeg.Effect>
+                    <DropShadowEffect/>
+                </local:RedPeg.Effect>
+            </local:RedPeg>
+            <local:GreenPeg     Grid.Column="0" Grid.Row="1">
+                <local:GreenPeg.Effect>
+                    <DropShadowEffect/>
+                </local:GreenPeg.Effect>
+            </local:GreenPeg>
+            <local:PurplePeg    Grid.Column="0" Grid.Row="2">
+                <local:PurplePeg.Effect>
+                    <DropShadowEffect/>
+                </local:PurplePeg.Effect>
+            </local:PurplePeg>
+            <local:YellowPeg    Grid.Column="1" Grid.Row="0">
+                <local:YellowPeg.Effect>
+                    <DropShadowEffect/>
+                </local:YellowPeg.Effect>
+            </local:YellowPeg>
+            <local:BluePeg      Grid.Column="1" Grid.Row="1">
+                <local:BluePeg.Effect>
+                    <DropShadowEffect/>
+                </local:BluePeg.Effect>
+            </local:BluePeg>
+            <local:OrangePeg    Grid.Column="1" Grid.Row="2">
+                <local:OrangePeg.Effect>
+                    <DropShadowEffect/>
+                </local:OrangePeg.Effect>
+            </local:OrangePeg>
         </Grid>
     </Border>
 </UserControl>
