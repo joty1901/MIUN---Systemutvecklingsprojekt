@@ -41,20 +41,28 @@ namespace MaterMinds
         public int Score { get; set; }
         public Player Player { get; set; }
         public ObservableCollection<Visibility> WinOrLoss { get; set; } = new ObservableCollection<Visibility> { Visibility.Hidden, Visibility.Hidden};
-        public bool ActiveGame { get; set; } = true;
+        
 
         public GameViewModel(Player player)
         {
             game = new GameEngine();
             Player = player;
             NextRoundCommand = new RelayCommand(NextRound, CanUse);
-            MainMenuCommand = new RelayCommand(GetMainMenuView, CanUse);
-            ResetGameCommand = new RelayCommand(RestartGame, CanUse);
-            ViewTopHighscoreCommand = new RelayCommand(GetHighscorePage, CanUse);
-            HelpCommand = new RelayCommand(SetVisibilityForHelpView, CanUse);
+            MainMenuCommand = new RelayCommand(GetMainMenuView, AlwaysTrue);
+            ResetGameCommand = new RelayCommand(RestartGame, AlwaysTrue);
+            ViewTopHighscoreCommand = new RelayCommand(GetHighscorePage, AlwaysTrue);
+            HelpCommand = new RelayCommand(SetVisibilityForHelpView, AlwaysTrue);
             StartTimer();
         }
-
+        public override bool CanUse(object parameter)
+        {
+            if (PlacedPegs.Count !=  0)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
         public void AddScoreToDB()
         {
             Repository.AddPlayerScore(Player.Id, Score);
@@ -62,34 +70,28 @@ namespace MaterMinds
 
         public void NextRound(object parameter)
         {
-            
-            if (PlacedPegs.Count != 0)
+
+            if (game.CheckWinCon(PlacedPegs))
             {
-                if (game.CheckWinCon(PlacedPegs))
-                {
-                    EndGame(true);
-                }
-                else 
-                {
-                    if (Rounds < 6)
-                    {
-                        UpdateGameBoard();
-                    }
-                    /*
-                     * This is the loose condition
-                     */
-                    else
-                    {
-                        EndGame(false);
-                    }
-                }
-                HintArray.Add(game.CheckPegPosition(PlacedPegs));
-                PlacedPegs.Clear();
+                EndGame(true);
             }
             else
             {
-                MessageBox.Show($"{Player.Nickname} du måste lägga minst en peg på spelplanen");
+                if (Rounds < 6)
+                {
+                    UpdateGameBoard();
+                }
+                /*
+                 * This is the loose condition
+                 */
+                else
+                {
+                    EndGame(false);
+                }
             }
+            HintArray.Add(game.CheckPegPosition(PlacedPegs));
+            PlacedPegs.Clear();
+
         }
 
         public void UpdateGameBoard()
@@ -107,7 +109,7 @@ namespace MaterMinds
             GetAnswer();
             GifVisibility = Visibility.Hidden;
             EndGameVisibility = Visibility.Visible;
-            ActiveGame = false;
+            
             if (win)
             {
                 Score = game.CalculateScore(Rounds, GameTimerInSecounds, GameTimerInMinutes);
