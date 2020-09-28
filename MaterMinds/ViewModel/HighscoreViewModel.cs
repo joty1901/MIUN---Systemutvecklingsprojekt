@@ -18,14 +18,14 @@ namespace MaterMinds
     public class HighscoreViewModel : BaseViewModel
     {
         public IEnumerable<Score> Highscorelist { get; set; }
-        public string ViewLabelProperty { get; set; }
+        public string ViewLabelProperty { get; set; } = "Highscore";
 
         public HighscoreViewModel()
         {
             SetTopTenHighscoreToList(true);
             MainMenuCommand = new RelayCommand(GetMainMenuView, CanExecute);
-            ViewTopFrequentPlayersCommand = new RelayCommand(SetTopFrequentPlayerToList, CanExecute);
-            ViewTopHighscoreCommand = new RelayCommand(SetTopTenHighscoreToList, CanExecute);
+            ViewTopFrequentPlayersCommand = new RelayCommand(SetTopFrequentPlayerToList, CeckIfCanExecute);
+            ViewTopHighscoreCommand = new RelayCommand(SetTopTenHighscoreToList, CeckIfCanExecuteTwo);
         }
 
         public void SetTopTenHighscoreToList(object parameter)
@@ -38,6 +38,23 @@ namespace MaterMinds
         {
             Highscorelist = Repository.GetTopFrequentPlayers();
             ViewLabelProperty = "Frequent Players";
+        }
+
+        public override bool CeckIfCanExecute(object parameter)
+        {
+            if (ViewLabelProperty == "Frequent Players")
+            {
+                return false;
+            }
+            return true;
+        }
+        public bool CeckIfCanExecuteTwo(object parameter)
+        {
+            if (ViewLabelProperty == "Highscore")
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

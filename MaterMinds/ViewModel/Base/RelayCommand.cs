@@ -29,7 +29,7 @@ namespace MaterMinds
 
         public void Execute(object parameter)
         {
-            this.action.Invoke((parameter));
+            this.action(parameter);
         }
     }
 }
