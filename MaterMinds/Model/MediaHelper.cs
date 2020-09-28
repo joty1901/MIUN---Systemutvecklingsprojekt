@@ -45,15 +45,6 @@ namespace MaterMinds.Model
                 _soundEffectPlayer.IsMuted = IsMuted;
                 _soundEffectPlayer.Play();
             }
-
-            
-            //else
-            //{
-            //    SoundEffectPlayer = m;
-            //    m.Open(u);
-            //    m.Play();
-            //}
-            
         }
     }
 }
