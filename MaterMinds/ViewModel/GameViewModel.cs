@@ -40,6 +40,7 @@ namespace MaterMinds
         public int Score { get; set; }
         public Player Player { get; set; }
         public ObservableCollection<Visibility> WinOrLoss { get; set; } = new ObservableCollection<Visibility> { Visibility.Hidden, Visibility.Hidden};
+        public bool ActiveGame { get; set; } = true;
 
         public GameViewModel(Player player)
         {
@@ -105,6 +106,7 @@ namespace MaterMinds
             GetAnswer();
             GifVisibility = Visibility.Hidden;
             EndGameVisibility = Visibility.Visible;
+            ActiveGame = false;
             if (win)
             {
                 Score = game.CalcScore(Rounds, GameTimerInSecounds, GameTimerInMinutes);
