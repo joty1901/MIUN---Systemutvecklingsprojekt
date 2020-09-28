@@ -33,17 +33,12 @@ namespace MaterMinds
         {
             Highscorelist = Repository.GetTopTenHigscore();
             ViewLabelProperty = "Highscore";
-            SelectedButtonColor[0] = "Gray";
-            SelectedButtonColor[1] = "Black";
         }
 
         public void SetTopFrequentPlayerToList()
         {
             Highscorelist = Repository.GetTopFrequentPlayers();
             ViewLabelProperty = "Frequent Players";
-            SelectedButtonColor[0] = "Black";
-            SelectedButtonColor[1] = "Gray";
-
         }
     }
 }

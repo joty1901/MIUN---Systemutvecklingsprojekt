@@ -133,7 +133,7 @@ namespace MaterMinds
             return CorrectAnswer;
         }
 
-        public int CalcScore(int tries, int timerInSecounds, int timerInMinutes)
+        public int CalculateScore(int tries, int timerInSecounds, int timerInMinutes)
         {
             int score = 10000;
             int timer = timerInSecounds + (timerInMinutes * 60);

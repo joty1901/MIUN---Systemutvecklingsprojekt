@@ -107,7 +107,7 @@ namespace MaterMinds
             EndGameVisibility = Visibility.Visible;
             if (win)
             {
-                Score = game.CalcScore(Rounds, GameTimerInSecounds, GameTimerInMinutes);
+                Score = game.CalculateScore(Rounds, GameTimerInSecounds, GameTimerInMinutes);
                 AddScoreToDB();
                 WinOrLoss[0] = Visibility.Visible;
             }
