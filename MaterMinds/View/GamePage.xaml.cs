@@ -9,6 +9,7 @@ using System.IO;
 using System;
 using System.Windows.Resources;
 using System.Runtime.InteropServices.WindowsRuntime;
+using MaterMinds.Model;
 
 namespace MaterMinds
 {
@@ -97,7 +98,7 @@ namespace MaterMinds
 
         private void DropSound()
         {
-            model.Start(model.SoundEffectPlayer, new Uri(@"Resources/Sound/WaterDrop.mp3", UriKind.Relative));
+            MediaHelper.Start(MediaHelper._soundEffectPlayer, new Uri(@"Resources/Sound/WaterDrop.mp3", UriKind.Relative));
         }
     }
 }
