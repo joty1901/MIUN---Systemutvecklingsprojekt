@@ -5,7 +5,7 @@ using System.Windows.Media;
 
 namespace MaterMinds.Model
 {
-    static class MediaHelper
+    static class MediaHelper 
     {
         public static readonly MediaPlayer _backgroundPlayer = new MediaPlayer();
         public static readonly MediaPlayer _soundEffectPlayer = new MediaPlayer();
@@ -14,12 +14,14 @@ namespace MaterMinds.Model
 
         public static void Mute()
         {
-            _backgroundPlayer.Stop();
-            _soundEffectPlayer.Stop();
-            _soundEffectPlayer.Volume = volume;
+            //_soundEffectPlayer.Volume = volume;
             if(IsMuted == false)
             {
                 IsMuted = true;
+                _backgroundPlayer.IsMuted = IsMuted;
+                _soundEffectPlayer.IsMuted = IsMuted;
+                //_backgroundPlayer.Stop();
+                //_soundEffectPlayer.Stop();
             }
             else
             {
