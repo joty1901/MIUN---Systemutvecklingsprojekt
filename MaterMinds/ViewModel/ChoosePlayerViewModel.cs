@@ -27,14 +27,14 @@ namespace MaterMinds
 
         public ChoosePlayerViewModel()
         {
-            SearchCommand = new RelayCommand(SearchPlayer, AlwaysTrue);
-            NewPlayerCommand = new RelayCommand(CreatePlayer, AlwaysTrue);
-            ChoosePlayerCommand = new RelayCommand(NewGame, CanUse);
-            MainMenuCommand = new RelayCommand(GetMainMenuView, AlwaysTrue);
+            SearchCommand = new RelayCommand(SearchPlayer, CanExecute);
+            NewPlayerCommand = new RelayCommand(CreatePlayer, CanExecute);
+            ChoosePlayerCommand = new RelayCommand(NewGame, CeckIfCanExecute);
+            MainMenuCommand = new RelayCommand(GetMainMenuView, CanExecute);
             GetPlayers();
         }
 
-        public override bool CanUse(object parameter)
+        public override bool CeckIfCanExecute(object parameter)
         {
             if (SelectedPlayer != null)
             {

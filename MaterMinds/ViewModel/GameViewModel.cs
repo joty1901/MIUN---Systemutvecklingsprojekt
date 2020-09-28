@@ -47,14 +47,14 @@ namespace MaterMinds
         {
             game = new GameEngine();
             Player = player;
-            NextRoundCommand = new RelayCommand(NextRound, CanUse);
-            MainMenuCommand = new RelayCommand(GetMainMenuView, AlwaysTrue);
-            ResetGameCommand = new RelayCommand(RestartGame, AlwaysTrue);
-            ViewTopHighscoreCommand = new RelayCommand(GetHighscorePage, AlwaysTrue);
-            HelpCommand = new RelayCommand(SetVisibilityForHelpView, AlwaysTrue);
+            NextRoundCommand = new RelayCommand(NextRound, CeckIfCanExecute);
+            MainMenuCommand = new RelayCommand(GetMainMenuView, CanExecute);
+            ResetGameCommand = new RelayCommand(RestartGame, CanExecute);
+            ViewTopHighscoreCommand = new RelayCommand(GetHighscorePage, CanExecute);
+            HelpCommand = new RelayCommand(SetVisibilityForHelpView, CanExecute);
             StartTimer();
         }
-        public override bool CanUse(object parameter)
+        public override bool CeckIfCanExecute(object parameter)
         {
             if (PlacedPegs.Count !=  0)
             {
@@ -63,6 +63,7 @@ namespace MaterMinds
             else
                 return false;
         }
+
         public void AddScoreToDB()
         {
             Repository.AddPlayerScore(Player.Id, Score);
@@ -91,7 +92,6 @@ namespace MaterMinds
             }
             HintArray.Add(game.CheckPegPosition(PlacedPegs));
             PlacedPegs.Clear();
-
         }
 
         public void UpdateGameBoard()
@@ -119,6 +119,7 @@ namespace MaterMinds
             else
             {
                 ActiveRow = new ObservableCollection<bool> { false, false, false, false, false, false, false };
+                AddScoreToDB();
                 WinOrLoss[1] = Visibility.Visible;
             }
         }

@@ -59,12 +59,12 @@ namespace MaterMinds
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
-        public virtual bool CanUse(object parameter)
+        public virtual bool CeckIfCanExecute(object parameter)
         {
-            return true;
+            return false;
         }
 
-        public bool AlwaysTrue(object parameter)
+        public bool CanExecute(object parameter)
         {
             return true;
         }
