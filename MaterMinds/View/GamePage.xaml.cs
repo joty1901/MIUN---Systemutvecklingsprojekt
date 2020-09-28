@@ -34,7 +34,7 @@ namespace MaterMinds
                 if (_panel != null && _element != null)
                 {
                     Panel _parent = (Panel)VisualTreeHelper.GetParent(_element);
-                    if (_parent.Name == "GuessController")
+                    if (_parent.Name == "GuessController" && _panel.Name != "blackHole")
                     {
                        if (e.AllowedEffects.HasFlag(DragDropEffects.Move))
                         {
@@ -72,11 +72,17 @@ namespace MaterMinds
                             e.Effects = DragDropEffects.Move;
                        }
                     }
-                    else if (_element.AllowDrop)
+                    else if (_panel.AllowDrop && _parent.Name != "GuessController")
                     {
-                        model.PlacedPegs.Remove(int.Parse(_parent.Uid));
-                        if (e.AllowedEffects.HasFlag(DragDropEffects.Move))
+                        if (_panel.Name == "blackHole")
                         {
+                            _parent.Children.Clear();
+                            _parent.Children.Add(new GameBoardCircle());
+                            model.PlacedPegs.Remove(int.Parse(_parent.Uid));
+                        }
+                        else if (e.AllowedEffects.HasFlag(DragDropEffects.Move))
+                        {
+                            model.PlacedPegs.Remove(int.Parse(_parent.Uid));
                             DropSound();
                             _panel.Children.Clear();
                             _panel.Children.Add(new GameBoardCircle());
@@ -119,6 +125,7 @@ namespace MaterMinds
                 }
             }
         }
+        
         private void DropSound()
         {
             model.Start(model.SoundEffectPlayer, new Uri(@"Resources/Sound/WaterDrop.mp3", UriKind.Relative));
