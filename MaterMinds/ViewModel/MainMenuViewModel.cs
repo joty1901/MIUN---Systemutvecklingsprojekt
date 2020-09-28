@@ -13,6 +13,7 @@ namespace MaterMinds.ViewModel
     {
         public ICommand ChoosePlayerCommand { get; set; }
         public ICommand ExitGameCommand { get; set; }
+        public ICommand AlterMuteButton { get; set; }
 
         public MainMenuViewModel()
         {

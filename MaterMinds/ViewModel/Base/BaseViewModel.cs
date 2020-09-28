@@ -14,7 +14,7 @@ using System.Xml.Serialization;
 
 namespace MaterMinds
 {
-    public class BaseViewModel : INotifyPropertyChanged, INavigation, IMedia
+    public class BaseViewModel : INotifyPropertyChanged, INavigation
     {
 
         public MainWindow Main = (MainWindow)Application.Current.MainWindow;
@@ -30,7 +30,6 @@ namespace MaterMinds
         #region NavigationMethods
         public void GetMainMenuView(object parameter)
         {
-            //MediaHelper.Mute();
             Main.Content = new MainMenuView();
         }
 
@@ -43,25 +42,12 @@ namespace MaterMinds
         #region MediaMethods
         public void Start(MediaPlayer m, Uri u)
         {
-            m.Open(u);
-            m.Volume = Volume;
-            m.Play(); 
+            MediaHelper.Start(m, u);
         }
 
         public void Mute(object parameter)
         {
-            if (!BackgroundPlayer.IsMuted || !SoundEffectPlayer.IsMuted)
-            {
-                BackgroundPlayer.IsMuted = true;
-                SoundEffectPlayer.IsMuted = true;
-                Volume = 0;
-            }
-            else
-            {
-                BackgroundPlayer.IsMuted = false;
-                SoundEffectPlayer.IsMuted = false;
-                Volume = 1;
-            }
+            MediaHelper.Mute();
         }
 
         #endregion
