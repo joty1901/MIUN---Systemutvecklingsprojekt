@@ -15,14 +15,14 @@ namespace MaterMinds.ViewModel
 
         public MainMenuViewModel()
         {
-            ChoosePlayerCommand = new RelayCommand(ChoosePlayerPage);
-            ViewTopHighscoreCommand = new RelayCommand(GetHighscorePage);
-            ExitGameCommand = new RelayCommand(CloseApplication);
-            MuteCommand = new RelayCommand(Mute);
+            ChoosePlayerCommand = new RelayCommand(ChoosePlayerPage, AlwaysTrue);
+            ViewTopHighscoreCommand = new RelayCommand(GetHighscorePage, AlwaysTrue);
+            ExitGameCommand = new RelayCommand(CloseApplication, AlwaysTrue);
+            MuteCommand = new RelayCommand(Mute, AlwaysTrue);
             StartDBConnection();
         }
 
-        private void ChoosePlayerPage()
+        private void ChoosePlayerPage(object parameter)
         {
             Main.Content = new ChoosePlayerView();
         }
@@ -32,7 +32,7 @@ namespace MaterMinds.ViewModel
             Repository.StartDb();
         }
 
-        private void CloseApplication()
+        private void CloseApplication(object parameter)
         {
             Main.Close();
         }

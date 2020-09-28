@@ -19,23 +19,22 @@ namespace MaterMinds
     {
         public IEnumerable<Score> Highscorelist { get; set; }
         public string ViewLabelProperty { get; set; }
-        public ObservableCollection<string> SelectedButtonColor { get; set; } = new ObservableCollection<string> { "Black", "Black" };
 
         public HighscoreViewModel()
         {
-            SetTopTenHighscoreToList();
-            MainMenuCommand = new RelayCommand(GetMainMenuView);
-            ViewTopFrequentPlayersCommand = new RelayCommand(SetTopFrequentPlayerToList);
-            ViewTopHighscoreCommand = new RelayCommand(SetTopTenHighscoreToList);
+            SetTopTenHighscoreToList(true);
+            MainMenuCommand = new RelayCommand(GetMainMenuView, AlwaysTrue);
+            ViewTopFrequentPlayersCommand = new RelayCommand(SetTopFrequentPlayerToList, AlwaysTrue);
+            ViewTopHighscoreCommand = new RelayCommand(SetTopTenHighscoreToList, AlwaysTrue);
         }
 
-        public void SetTopTenHighscoreToList()
+        public void SetTopTenHighscoreToList(object parameter)
         {
             Highscorelist = Repository.GetTopTenHigscore();
             ViewLabelProperty = "Highscore";
         }
 
-        public void SetTopFrequentPlayerToList()
+        public void SetTopFrequentPlayerToList(object parameter)
         {
             Highscorelist = Repository.GetTopFrequentPlayers();
             ViewLabelProperty = "Frequent Players";

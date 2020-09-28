@@ -27,12 +27,12 @@ namespace MaterMinds
         public double Volume { get; set; }
 
         #region NavigationMethods
-        public void GetMainMenuView()
+        public void GetMainMenuView(object parameter)
         {
             Main.Content = new MainMenuView();
         }
 
-        public void GetHighscorePage()
+        public void GetHighscorePage(object parameter)
         {
             Main.Content = new HighscorePage();
         }
@@ -46,7 +46,7 @@ namespace MaterMinds
             m.Play(); 
         }
 
-        public void Mute()
+        public void Mute(object parameter)
         {
             if (!BackgroundPlayer.IsMuted || !SoundEffectPlayer.IsMuted)
             {
@@ -71,5 +71,14 @@ namespace MaterMinds
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
+        public virtual bool CanUse(object parameter)
+        {
+            return true;
+        }
+
+        public bool AlwaysTrue(object parameter)
+        {
+            return true;
+        }
     }
 }

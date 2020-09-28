@@ -45,11 +45,11 @@ namespace MaterMinds
         {
             game = new GameEngine();
             Player = player;
-            NextRoundCommand = new RelayCommand(NextRound);
-            MainMenuCommand = new RelayCommand(GetMainMenuView);
-            ResetGameCommand = new RelayCommand(RestartGame);
-            ViewTopHighscoreCommand = new RelayCommand(GetHighscorePage);
-            HelpCommand = new RelayCommand(SetVisibilityForHelpView);
+            NextRoundCommand = new RelayCommand(NextRound, CanUse);
+            MainMenuCommand = new RelayCommand(GetMainMenuView, CanUse);
+            ResetGameCommand = new RelayCommand(RestartGame, CanUse);
+            ViewTopHighscoreCommand = new RelayCommand(GetHighscorePage, CanUse);
+            HelpCommand = new RelayCommand(SetVisibilityForHelpView, CanUse);
             StartTimer();
         }
 
@@ -58,7 +58,7 @@ namespace MaterMinds
             Repository.AddPlayerScore(Player.Id, Score);
         }
 
-        public void NextRound()
+        public void NextRound(object parameter)
         {
             
             if (PlacedPegs.Count != 0)
@@ -203,7 +203,7 @@ namespace MaterMinds
             }
         }
 
-        public void RestartGame()
+        public void RestartGame(object parameter)
         {
             MessageBoxResult result = MessageBox.Show($"Do you want to restart current game?", "Warning", MessageBoxButton.YesNo);
             switch (result)
@@ -216,7 +216,7 @@ namespace MaterMinds
             }
         }
 
-        private void SetVisibilityForHelpView()
+        private void SetVisibilityForHelpView(object parameter)
         {
             if (HelpViewVisibility == Visibility.Hidden)
             {

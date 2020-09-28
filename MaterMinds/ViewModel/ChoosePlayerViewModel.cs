@@ -27,14 +27,24 @@ namespace MaterMinds
 
         public ChoosePlayerViewModel()
         {
-            SearchCommand = new RelayCommand(SearchPlayer);
-            NewPlayerCommand = new RelayCommand(CreatePlayer);
-            ChoosePlayerCommand = new RelayCommand(NewGame);
-            MainMenuCommand = new RelayCommand(GetMainMenuView);
+            SearchCommand = new RelayCommand(SearchPlayer, AlwaysTrue);
+            NewPlayerCommand = new RelayCommand(CreatePlayer, AlwaysTrue);
+            ChoosePlayerCommand = new RelayCommand(NewGame, CanUse);
+            MainMenuCommand = new RelayCommand(GetMainMenuView, AlwaysTrue);
             GetPlayers();
         }
 
-        private void CreatePlayer()
+        public override bool CanUse(object parameter)
+        {
+            if (SelectedPlayer != null)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
+        private void CreatePlayer(object parameter)
         {
             try
             {
@@ -78,7 +88,7 @@ namespace MaterMinds
             PlayerList = (ObservableCollection<Player>)Repository.GetDbPlayers();
         }
 
-        private void NewGame()
+        private void NewGame(object parameter)
         {
             if (SelectedPlayer != null)
             {
@@ -90,7 +100,7 @@ namespace MaterMinds
                 MessageBox.Show("Select a player before starting the game");
             }
         }
-        private void SearchPlayer()
+        private void SearchPlayer(object parameter)
         {
             ClearPlayerList();
             if (SearchNickname == "" || SearchNickname == null)

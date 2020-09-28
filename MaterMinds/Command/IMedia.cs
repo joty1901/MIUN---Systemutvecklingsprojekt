@@ -9,6 +9,6 @@ namespace MaterMinds
         public MediaPlayer SoundEffectPlayer { get; set; }
 
         void Start(MediaPlayer m, Uri u);
-        void Mute();
+        void Mute(object parameter);
     }
 }
