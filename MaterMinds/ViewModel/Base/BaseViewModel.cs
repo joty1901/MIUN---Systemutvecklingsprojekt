@@ -1,4 +1,5 @@
 ﻿using MaterMinds.Command;
+using MaterMinds.Model;
 using MaterMinds.View;
 using System;
 using System.Collections.Generic;
@@ -29,6 +30,7 @@ namespace MaterMinds
         #region NavigationMethods
         public void GetMainMenuView(object parameter)
         {
+            //MediaHelper.Mute();
             Main.Content = new MainMenuView();
         }
 

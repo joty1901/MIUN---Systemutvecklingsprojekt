@@ -1,4 +1,5 @@
-﻿using MaterMinds.View;
+﻿using MaterMinds.Model;
+using MaterMinds.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -24,7 +25,7 @@ namespace MaterMinds
         public ICommand ResetGameCommand { get; set; }
         public ICommand HelpCommand { get; set; }
         public Dictionary<int, int> PlacedPegs { get; set; } = new Dictionary<int, int>();
-        public ObservableCollection<bool> IsActive { get; set; } = new ObservableCollection<bool> { true, false, false, false, false, false, false };
+        public ObservableCollection<bool> ActiveRow { get; set; } = new ObservableCollection<bool> { true, false, false, false, false, false, false };
         public int Rounds { get; set; } = 0;
         public ObservableCollection<Brush[]> HintArray { get; set; } = new ObservableCollection<Brush[]>();
         public ObservableCollection<MasterPeg> CorrectAnswerArray { get; set; } = new ObservableCollection<MasterPeg>();
@@ -40,6 +41,7 @@ namespace MaterMinds
         public int Score { get; set; }
         public Player Player { get; set; }
         public ObservableCollection<Visibility> WinOrLoss { get; set; } = new ObservableCollection<Visibility> { Visibility.Hidden, Visibility.Hidden};
+        public bool ActiveGame { get; set; } = true;
 
         public GameViewModel(Player player)
         {
@@ -92,10 +94,10 @@ namespace MaterMinds
 
         public void UpdateGameBoard()
         {
-            IsActive[Rounds] = false;
+            ActiveRow[Rounds] = false;
             BackgroundColor[Rounds] = Brushes.Transparent;
             Rounds++;
-            IsActive[Rounds] = true;
+            ActiveRow[Rounds] = true;
             BackgroundColor[Rounds] = Brushes.White;
         }
 
@@ -105,6 +107,7 @@ namespace MaterMinds
             GetAnswer();
             GifVisibility = Visibility.Hidden;
             EndGameVisibility = Visibility.Visible;
+            ActiveGame = false;
             if (win)
             {
                 Score = game.CalculateScore(Rounds, GameTimerInSecounds, GameTimerInMinutes);
@@ -113,7 +116,7 @@ namespace MaterMinds
             }
             else
             {
-                IsActive = new ObservableCollection<bool> { false, false, false, false, false, false, false };
+                ActiveRow = new ObservableCollection<bool> { false, false, false, false, false, false, false };
                 WinOrLoss[1] = Visibility.Visible;
             }
         }
@@ -148,7 +151,7 @@ namespace MaterMinds
 
         public void PlaySound()
         {
-            Start(SoundEffectPlayer, new Uri(@"Resources/Sound/WaterDrop.mp3", UriKind.Relative));
+            MediaHelper.Start(MediaHelper._backgroundPlayer, new Uri(@"Resources/Sound/WaterDrop.mp3", UriKind.Relative));
         }
 
         private void StartTimer()

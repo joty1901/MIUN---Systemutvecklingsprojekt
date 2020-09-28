@@ -1,4 +1,5 @@
-﻿using MaterMinds.View;
+﻿using MaterMinds.Model;
+using MaterMinds.View;
 using System;
 using System.Collections.Generic;
 using System.Text;
