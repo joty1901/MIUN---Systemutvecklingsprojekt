@@ -1,4 +1,5 @@
-﻿using MaterMinds.View;
+﻿using MaterMinds.Model;
+using MaterMinds.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -148,7 +149,7 @@ namespace MaterMinds
 
         public void PlaySound()
         {
-            Start(SoundEffectPlayer, new Uri(@"Resources/Sound/WaterDrop.mp3", UriKind.Relative));
+            MediaHelper.Start(MediaHelper._backgroundPlayer, new Uri(@"Resources/Sound/WaterDrop.mp3", UriKind.Relative));
         }
 
         private void StartTimer()

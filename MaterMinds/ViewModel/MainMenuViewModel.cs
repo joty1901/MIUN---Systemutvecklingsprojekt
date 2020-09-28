@@ -1,4 +1,5 @@
-﻿using MaterMinds.View;
+﻿using MaterMinds.Model;
+using MaterMinds.View;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,7 +19,7 @@ namespace MaterMinds.ViewModel
             ChoosePlayerCommand = new RelayCommand(ChoosePlayerPage);
             ViewTopHighscoreCommand = new RelayCommand(GetHighscorePage);
             ExitGameCommand = new RelayCommand(CloseApplication);
-            MuteCommand = new RelayCommand(Mute);
+            MuteCommand = new RelayCommand(MediaHelper.Mute);
             StartDBConnection();
         }
 

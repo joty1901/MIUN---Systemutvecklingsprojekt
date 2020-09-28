@@ -1,4 +1,5 @@
-﻿using MaterMinds.ViewModel;
+﻿using MaterMinds.Model;
+using MaterMinds.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -30,8 +31,7 @@ namespace MaterMinds.View
 
         private void PlayBackground()
         {
-            model.Volume = 1;
-            model.Start(model.BackgroundPlayer, new Uri(@"Resources/Sound/Spacemusic.mp3", UriKind.Relative));
+            MediaHelper.Start(MediaHelper._backgroundPlayer, new Uri(@"Resources/Sound/Spacemusic.mp3", UriKind.Relative));
         }
 
     }
