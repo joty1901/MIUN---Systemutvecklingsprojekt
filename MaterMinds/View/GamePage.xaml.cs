@@ -28,105 +28,74 @@ namespace MaterMinds
         }
         private void panel_Drop(object sender, DragEventArgs e)
         {
-            if (e.Handled == false)
+            Panel panel = (Panel)sender;
+            UIElement element = (UIElement)e.Data.GetData("Object");
+            Panel parent = (Panel)VisualTreeHelper.GetParent(element);
+            var newPeg = GetTypeOfPeg(element);
+            if (parent.Name == "GuessController" && panel.Name != "blackHole")
             {
-                Panel _panel = (Panel)sender;
-                UIElement _element = (UIElement)e.Data.GetData("Object");
-                if (_panel != null && _element != null)
+                DropSound();
+                UpdateUI(panel);
+                panel.Children.Add(newPeg);
+                model.PlacedPegs.AddOrUpdate(int.Parse(panel.Uid), newPeg.ColorIndex);
+                e.Effects = DragDropEffects.Move;
+            }
+            else if (panel.AllowDrop && parent.Name != "GuessController")
+            {
+                if (panel.Name == "blackHole")
                 {
-                    Panel _parent = (Panel)VisualTreeHelper.GetParent(_element);
-                    if (_parent.Name == "GuessController" && _panel.Name != "blackHole")
-                    {
-                       if (e.AllowedEffects.HasFlag(DragDropEffects.Move))
-                        {
-                            model.PlaySound();
-                            _panel.Children.Clear();
-                            _panel.Children.Add(new GameBoardCircle());
-                            if (_element is YellowPeg)
-                            {
-                                _panel.Children.Add(new YellowPeg());
-                            }
-                            else if (_element is BluePeg)
-                            {
-                                _panel.Children.Add(new BluePeg());
-                            }
-                            else if (_element is RedPeg)
-                            {
-                                _panel.Children.Add(new RedPeg());
-                            }
-                            else if (_element is GreenPeg)
-                            {
-                                _panel.Children.Add(new GreenPeg());
-                            }
-                            else if (_element is PurplePeg)
-                            {
-                                _panel.Children.Add(new PurplePeg());
-                            }
-                            else if (_element is OrangePeg)
-                            {
-                                _panel.Children.Add(new OrangePeg());
-                            }
-                            var colorId = ((MasterPeg)_element).ColorIndex;
-                            int key = int.Parse(_panel.Uid);
-                            model.PlacedPegs.AddOrUpdate(key, colorId);
+                    DropSound();
+                    parent.Children.Remove(element);
+                    model.PlacedPegs.Remove(int.Parse(parent.Uid));
+                }
+                else
+                {
+                    DropSound();
+                    UpdateUI(panel);
+                    model.PlacedPegs.Remove(int.Parse(parent.Uid));
 
-                            e.Effects = DragDropEffects.Move;
-                       }
-                    }
-                    else if (_panel.AllowDrop && _parent.Name != "GuessController")
-                    {
-                        if (_panel.Name == "blackHole")
-                        {
-                            _parent.Children.Clear();
-                            _parent.Children.Add(new GameBoardCircle());
-                            model.PlacedPegs.Remove(int.Parse(_parent.Uid));
-                        }
-                        else if (e.AllowedEffects.HasFlag(DragDropEffects.Move))
-                        {
-                            model.PlacedPegs.Remove(int.Parse(_parent.Uid));
-                            DropSound();
-                            _panel.Children.Clear();
-                            _panel.Children.Add(new GameBoardCircle());
-                            if (_element is YellowPeg)
-                            {
-                                _parent.Children.Remove(_element);
-                                _panel.Children.Add(new YellowPeg());
-                            }
-                            else if (_element is BluePeg)
-                            {
-                                _parent.Children.Remove(_element);
-                                _panel.Children.Add(new BluePeg());
-                            }
-                            else if (_element is RedPeg)
-                            {
-                                _parent.Children.Remove(_element);
-                                _panel.Children.Add(new RedPeg());
-                            }
-                            else if (_element is GreenPeg)
-                            {
-                                _parent.Children.Remove(_element);
-                                _panel.Children.Add(new GreenPeg());
-                            }
-                            else if (_element is PurplePeg)
-                            {
-                                _parent.Children.Remove(_element);
-                                _panel.Children.Add(new PurplePeg());
-                            }
-                            else if (_element is OrangePeg)
-                            {
-                                _parent.Children.Remove(_element);
-                                _panel.Children.Add(new OrangePeg());
-                            }
-                            var colorId = ((MasterPeg)_element).ColorIndex;
-                            int key = int.Parse(_panel.Uid);
-                            model.PlacedPegs.AddOrUpdate(key, colorId);
-                            e.Effects = DragDropEffects.Move;
-                        }
-                    }
+                    parent.Children.Remove(element);
+                    panel.Children.Add(newPeg);
+                    model.PlacedPegs.AddOrUpdate(int.Parse(panel.Uid), newPeg.ColorIndex);
+                    e.Effects = DragDropEffects.Move;
                 }
             }
         }
-        
+
+        private void UpdateUI(Panel panel)
+        {
+            panel.Children.Clear();
+            panel.Children.Add(new GameBoardCircle());
+        }
+
+        private MasterPeg GetTypeOfPeg(UIElement element)
+        {
+            if (element is YellowPeg)
+            {
+                return new YellowPeg();
+            }
+            else if (element is BluePeg)
+            {
+                return new BluePeg();
+            }
+            else if (element is RedPeg)
+            {
+                return new RedPeg();
+            }
+            else if (element is GreenPeg)
+            {
+                return new GreenPeg();
+            }
+            else if (element is PurplePeg)
+            { 
+                return new PurplePeg();
+            }
+            else 
+            {
+                return new OrangePeg();
+            }
+        }
+
         private void DropSound()
         {
             MediaHelper.Start(MediaHelper._soundEffectPlayer, new Uri(@"Resources/Sound/WaterDrop.mp3", UriKind.Relative)); ;

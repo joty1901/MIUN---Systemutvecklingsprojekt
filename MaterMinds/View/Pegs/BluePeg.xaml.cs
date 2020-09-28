@@ -23,7 +23,7 @@ namespace MaterMinds
                 Stroke = Brushes.Black,
                 StrokeThickness = 1
             };
-            ColorIndex = 4;
+            ColorIndex = (int)PegColor.Blue;
             this.Color = Brushes.Blue; 
             master.Children.Add(ellipse);
         }
