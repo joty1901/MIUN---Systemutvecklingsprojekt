@@ -38,7 +38,6 @@ namespace MaterMinds
                 UpdateUI(panel);
                 panel.Children.Add(newPeg);
                 model.PlacedPegs.AddOrUpdate(int.Parse(panel.Uid), newPeg.ColorIndex);
-                e.Effects = DragDropEffects.Move;
             }
             else if (panel.AllowDrop && parent.Name != "GuessController")
             {
@@ -57,7 +56,6 @@ namespace MaterMinds
                     parent.Children.Remove(element);
                     panel.Children.Add(newPeg);
                     model.PlacedPegs.AddOrUpdate(int.Parse(panel.Uid), newPeg.ColorIndex);
-                    e.Effects = DragDropEffects.Move;
                 }
             }
         }
