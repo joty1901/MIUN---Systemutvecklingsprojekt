@@ -119,6 +119,7 @@ namespace MaterMinds
             else
             {
                 ActiveRow = new ObservableCollection<bool> { false, false, false, false, false, false, false };
+                AddScoreToDB();
                 WinOrLoss[1] = Visibility.Visible;
             }
         }
