@@ -9,7 +9,6 @@ namespace MaterMinds.Model
     {
         public static readonly MediaPlayer _backgroundPlayer = new MediaPlayer();
         public static readonly MediaPlayer _soundEffectPlayer = new MediaPlayer();
-        public static bool first;
         public static double volume = 1;
         public static bool IsMuted;
 
@@ -44,7 +43,7 @@ namespace MaterMinds.Model
             {
                 _soundEffectPlayer.Open(u);
                 _soundEffectPlayer.IsMuted = IsMuted;
-                _backgroundPlayer.Play();
+                _soundEffectPlayer.Play();
             }
 
             

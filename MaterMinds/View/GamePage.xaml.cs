@@ -98,7 +98,7 @@ namespace MaterMinds
 
         private void DropSound()
         {
-            MediaHelper.Start(MediaHelper._soundEffectPlayer, new Uri(@"Resources/Sound/WaterDrop.mp3", UriKind.Relative)); ;
+            MediaHelper.Start(MediaHelper._soundEffectPlayer, new Uri(@"Resources/Sound/WaterDrop.mp3", UriKind.Relative));
         }
     }
 }
