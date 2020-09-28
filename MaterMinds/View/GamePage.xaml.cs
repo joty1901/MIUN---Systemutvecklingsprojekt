@@ -58,6 +58,8 @@ namespace MaterMinds
                     model.PlacedPegs.AddOrUpdate(int.Parse(panel.Uid), newPeg.ColorIndex);
                 }
             }
+            CommandManager.InvalidateRequerySuggested();
+
         }
 
         private void UpdateUI(Panel panel)
