@@ -25,7 +25,7 @@ namespace MaterMinds
             SetTopTenHighscoreToList(true);
             MainMenuCommand = new RelayCommand(GetMainMenuView, CanExecute);
             ViewTopFrequentPlayersCommand = new RelayCommand(SetTopFrequentPlayerToList, CeckIfCanExecute);
-            ViewTopHighscoreCommand = new RelayCommand(SetTopTenHighscoreToList, CeckIfCanExecuteTwo);
+            ViewTopHighscoreCommand = new RelayCommand(SetTopTenHighscoreToList, CheckIfCanUse);
         }
 
         public void SetTopTenHighscoreToList(object parameter)
@@ -48,7 +48,7 @@ namespace MaterMinds
             }
             return true;
         }
-        public bool CeckIfCanExecuteTwo(object parameter)
+        public bool CheckIfCanUse(object parameter)
         {
             if (ViewLabelProperty == "Highscore")
             {

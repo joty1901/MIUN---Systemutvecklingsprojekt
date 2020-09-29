@@ -17,6 +17,7 @@ namespace MaterMinds
 
         }
         
+        //Konstruktor som används när en ny player skapas av en användare. 
         public Player(int id, string nickname)
         {
             Id = id;
