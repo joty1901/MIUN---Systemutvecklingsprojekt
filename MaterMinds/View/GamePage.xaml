@@ -10,7 +10,7 @@
       AllowDrop="True"
       xmlns:gif="http://wpfanimatedgif.codeplex.com"
       Background="{DynamicResource BackgroundIMG}">
-
+    <!--#region Pictures-->
     <Grid>
         <Image gif:ImageBehavior.AnimatedSource="/Resources/Picture/WinCon.gif"  
            Visibility="{Binding WinOrLoss[0], FallbackValue=Hidden}"/>
@@ -24,6 +24,7 @@
                gif:ImageBehavior.AnimationSpeedRatio="0.8" 
                Visibility="{Binding WinOrLoss[0], FallbackValue=Hidden}" 
                Margin="10,187,530,3"/>
+    <!--#endregion-->
         
         <Grid Name="myCanvas" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Grid.ColumnDefinitions>
@@ -32,7 +33,7 @@
                 <ColumnDefinition Width="250"/>
                 <ColumnDefinition Width="250"/>
             </Grid.ColumnDefinitions>
-
+            <!--#region Buttons-->
             <StackPanel Grid.Column="0">
 
                 <Button Content="Main Menu" 
@@ -79,14 +80,16 @@
                         Command="{Binding HelpCommand}">
                 </Button>
             </StackPanel>
-
+            <!--#endregion-->
+            <!--#region Guesscontroll and BlackHole-->
             <StackPanel Margin="0,50,0,0" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
                 <local:GuessControl/>
                 <Grid x:Name="blackHole" Uid="10" Height="100" Width="100" Drop="panel_Drop">
                     <Image Source="/Resources/Picture/black-hole-png-218.png"/>
                 </Grid>
             </StackPanel>
-
+            <!--#endregion-->
+            <!--#region GameBoard-->
             <StackPanel Grid.Column="2" VerticalAlignment="Center">
                 <Border BorderThickness="3">
                     <WrapPanel  HorizontalAlignment="Left" VerticalAlignment="Center">
@@ -321,7 +324,8 @@
                         Command="{Binding NextRoundCommand}"
                         FontSize="20" FontWeight="Bold" Width="200" Height="32"/>
             </StackPanel>
-
+            <!--#endregion-->
+            <!--#region Score and Time-->
             <StackPanel Grid.Column="4" MinHeight="450" HorizontalAlignment="Right" >
 
                 <Label Foreground="White" 
@@ -356,6 +360,8 @@
                        Visibility="{Binding EndGameVisibility, FallbackValue=Hidden}"/>
                 
             </StackPanel>
+            <!--#endregion-->
+            <!--#region HelpView-->
             <local:HelpView Grid.Column="1" 
                             Grid.ColumnSpan="3" 
                             x:Name="help" 
@@ -392,7 +398,9 @@
                     VerticalAlignment="Top" 
                     Margin="150,15,0,0" >
             </Button>
+            <!--#endregion-->
         </Grid>
+        <!--#region Pictures wincondition-->
      
         <Image gif:ImageBehavior.AnimatedSource="/Resources/Picture/Winner.gif"  
             gif:ImageBehavior.AnimationSpeedRatio="0.8" 
@@ -413,6 +421,7 @@
                 <DropShadowEffect/>
             </Label.Effect>
         </Label>
+        <!--#endregion-->
     </Grid>
 </Page>
  
