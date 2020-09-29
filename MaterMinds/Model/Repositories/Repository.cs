@@ -13,7 +13,6 @@ namespace MaterMinds
 {
     static class Repository
     {
-        
         private static string connectionString = ConfigurationManager.ConnectionStrings["universitetet"].ConnectionString;
 
         /// <summary>
@@ -226,3 +225,4 @@ namespace MaterMinds
         }
     }
 }
+ 
