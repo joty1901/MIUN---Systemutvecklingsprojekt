@@ -28,6 +28,8 @@ namespace MaterMinds
             ViewTopHighscoreCommand = new RelayCommand(SetTopTenHighscoreToList, CheckIfCanUse);
         }
 
+        #region GetDifferentScoreLists
+
         public void SetTopTenHighscoreToList(object parameter)
         {
             Highscorelist = Repository.GetTopTenHigscore();
@@ -39,6 +41,9 @@ namespace MaterMinds
             Highscorelist = Repository.GetTopFrequentPlayers();
             ViewLabelProperty = "Frequent Players";
         }
+        #endregion
+
+        #region CheckIfMethodsCanExecute
 
         public override bool CeckIfCanExecute(object parameter)
         {
@@ -56,5 +61,6 @@ namespace MaterMinds
             }
             return true;
         }
+        #endregion
     }
 }

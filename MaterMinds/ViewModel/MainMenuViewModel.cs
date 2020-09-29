@@ -17,14 +17,14 @@ namespace MaterMinds.ViewModel
 
         public MainMenuViewModel()
         {
-            ChoosePlayerCommand = new RelayCommand(ChoosePlayerPage, CanExecute);
+            ChoosePlayerCommand = new RelayCommand(GetChoosePlayerPage, CanExecute);
             ViewTopHighscoreCommand = new RelayCommand(GetHighscorePage, CanExecute);
             ExitGameCommand = new RelayCommand(CloseApplication, CanExecute);
             MuteCommand = new RelayCommand(Mute, CanExecute);
             StartDBConnection();
         }
 
-        private void ChoosePlayerPage(object parameter)
+        private void GetChoosePlayerPage(object parameter)
         {
             Main.Content = new ChoosePlayerView();
         }

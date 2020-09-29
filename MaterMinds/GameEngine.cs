@@ -23,13 +23,9 @@ namespace MaterMinds
         {
             StartGame();
         }
-        public void StartGame()
-        {
-            for (int i = 1; i <= 4; i++)
-            {
-                CorrectAnswer.Add(i, random.Next(1, 7));
-            }
-        }
+
+        #region GameLogic
+
         private void SortAnswerArray(Dictionary<int, int> playerGuess)
         {
             for (int i = 0; i < playerGuess.Count; i++)
@@ -51,11 +47,13 @@ namespace MaterMinds
                 }
             }
         }
+
         private void SortHintArray()
         {
             Array.Sort(HintToAnswer);
             Array.Reverse(HintToAnswer);
         }
+
         private void GetAnswerArray()
         {
             for (int i = 0; i < 4; i++)
@@ -63,6 +61,7 @@ namespace MaterMinds
                 CheckForDoubles[i] = CorrectAnswer.ElementAt(i).Value;
             }
         }
+
         private void SetWhitePegs()
         {
             for (int i = 0; i < SortedAnswerArray.Length; i++)
@@ -79,6 +78,7 @@ namespace MaterMinds
                 }
             }
         }
+
         private void SetBlackPegs()
         {
             int counter = 0;
@@ -91,6 +91,7 @@ namespace MaterMinds
                 }
             }
         }
+
         private void ClearAllProps()
         {
             HintToAnswer = new Brush[4];
@@ -98,6 +99,7 @@ namespace MaterMinds
             SortedAnswerArray = new int[4];
 
         }
+
         public Brush[] CheckPegPosition(Dictionary<int, int> playerGuess)
         {
             ClearAllProps();
@@ -108,6 +110,7 @@ namespace MaterMinds
             SetBlackPegs();
             return HintToAnswer;
         }
+
         public bool CheckWinCon(Dictionary<int, int> playerGuess)
         {
             int counter = 0; 
@@ -143,6 +146,15 @@ namespace MaterMinds
                 score = 0;
             }
             return score;
+        }
+        #endregion
+
+        public void StartGame()
+        {
+            for (int i = 1; i <= 4; i++)
+            {
+                CorrectAnswer.Add(i, random.Next(1, 7));
+            }
         }
     }
 }

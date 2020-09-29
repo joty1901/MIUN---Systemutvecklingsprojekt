@@ -17,9 +17,12 @@ namespace MaterMinds
 {
     public class ChoosePlayerViewModel : BaseViewModel
     {
+        #region Commands
         public ICommand NewPlayerCommand { get; set; }
         public ICommand ChoosePlayerCommand { get; set; }
         public ICommand SearchCommand { get; set; }
+        #endregion
+
         public string Nickname { get; set; }
         public string SearchNickname { get; set; }
         public ObservableCollection<Player> PlayerList { get; set; }
@@ -32,16 +35,6 @@ namespace MaterMinds
             ChoosePlayerCommand = new RelayCommand(NewGame, CeckIfCanExecute);
             MainMenuCommand = new RelayCommand(GetMainMenuView, CanExecute);
             GetPlayers();
-        }
-
-        public override bool CeckIfCanExecute(object parameter)
-        {
-            if (SelectedPlayer != null)
-            {
-                return true;
-            }
-            else
-                return false;
         }
 
         private void CreatePlayer(object parameter)
@@ -100,6 +93,7 @@ namespace MaterMinds
                 MessageBox.Show("Select a player before starting the game");
             }
         }
+
         private void SearchPlayer(object parameter)
         {
             ClearPlayerList();
@@ -129,5 +123,16 @@ namespace MaterMinds
         {
             PlayerList.Clear();
         }
+
+        public override bool CeckIfCanExecute(object parameter)
+        {
+            if (SelectedPlayer != null)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
     }
 }
