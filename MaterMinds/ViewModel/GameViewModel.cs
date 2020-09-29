@@ -58,6 +58,7 @@ namespace MaterMinds
             ResetGameCommand = new RelayCommand(RestartGame, CanExecute);
             ViewTopHighscoreCommand = new RelayCommand(GetHighscorePage, CanExecute);
             HelpCommand = new RelayCommand(SetVisibilityForHelpView, CanExecute);
+            MuteCommand = new RelayCommand(Mute, CanExecute);
             StartTimer();
         }
 

@@ -10,24 +10,24 @@ namespace MaterMinds.Model
         public static readonly MediaPlayer _backgroundPlayer = new MediaPlayer();
         public static readonly MediaPlayer _soundEffectPlayer = new MediaPlayer();
         public static double volume = 1;
-        public static bool IsMuted;
+        public static bool Muted;
 
         public static void Mute()
         {
             //_soundEffectPlayer.Volume = volume;
-            if(IsMuted == false)
+            if(Muted == false)
             {
-                IsMuted = true;
-                _backgroundPlayer.IsMuted = IsMuted;
-                _soundEffectPlayer.IsMuted = IsMuted;
+                Muted = true;
+                _backgroundPlayer.IsMuted = Muted;
+                _soundEffectPlayer.IsMuted = Muted;
                 //_backgroundPlayer.Stop();
                 //_soundEffectPlayer.Stop();
             }
             else
             {
-                IsMuted = false;
-                _backgroundPlayer.IsMuted = IsMuted;
-                _soundEffectPlayer.IsMuted = IsMuted;
+                Muted = false;
+                _backgroundPlayer.IsMuted = Muted;
+                _soundEffectPlayer.IsMuted = Muted;
             }
         }
 
@@ -36,13 +36,13 @@ namespace MaterMinds.Model
             if(m == _backgroundPlayer)
             {
                 _backgroundPlayer.Open(u);
-                _backgroundPlayer.IsMuted = IsMuted;
+                _backgroundPlayer.IsMuted = Muted;
                 _backgroundPlayer.Play();
             }
             else
             {
                 _soundEffectPlayer.Open(u);
-                _soundEffectPlayer.IsMuted = IsMuted;
+                _soundEffectPlayer.IsMuted = Muted;
                 _soundEffectPlayer.Play();
             }
         }

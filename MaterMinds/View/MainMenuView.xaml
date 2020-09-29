@@ -44,14 +44,12 @@
         </StackPanel>
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom">
 
-                <Button 
+            <ToggleButton 
                     Content="Mute"
                     Margin="10,-100,0,0"
                     Command="{Binding MuteCommand}" 
-                    Style="{StaticResource RoundButtonTemplate}" 
-                    FontSize="14"
-                    Width="45">
-            </Button>
+                    Style="{StaticResource MuteButtonTemplate}">
+            </ToggleButton>
         </StackPanel>
         <Frame x:Name="MainMeny"/>
     </Grid>
