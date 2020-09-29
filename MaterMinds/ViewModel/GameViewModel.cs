@@ -225,10 +225,6 @@ namespace MaterMinds
                 HelpViewVisibility = Visibility.Hidden;
         }
 
-        public void PlaySound()
-        {
-            MediaHelper.Start(MediaHelper._backgroundPlayer, new Uri(@"Resources/Sound/WaterDrop.mp3", UriKind.Relative));
-        }
 
         public override bool CeckIfCanExecute(object parameter)
         {
