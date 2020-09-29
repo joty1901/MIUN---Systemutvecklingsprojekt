@@ -47,7 +47,6 @@ namespace MaterMinds
         public Player Player { get; set; }
         public ObservableCollection<Visibility> WinOrLoss { get; set; } = new ObservableCollection<Visibility> { Visibility.Hidden, Visibility.Hidden};
         
-
         public GameViewModel(Player player)
         {
             game = new GameEngine();
@@ -59,7 +58,6 @@ namespace MaterMinds
             HelpCommand = new RelayCommand(SetVisibilityForHelpView, CanExecute);
             StartTimer();
         }
-
 
         public void NextRound(object parameter)
         {
@@ -126,7 +124,7 @@ namespace MaterMinds
         #region TimerAndScore
         public void AddScoreToDB()
         {
-            Repository.AddPlayerScore(Player.Id, Score);
+            Repository.AddScoreWithPlayerId(Player.Id, Score);
         }
 
         private void StartTimer()

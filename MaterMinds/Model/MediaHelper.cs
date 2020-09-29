@@ -31,8 +31,6 @@ namespace MaterMinds.Model
             }
         }
 
-        
-
         public static void Start(MediaPlayer m, Uri u)
         {
             if(m == _backgroundPlayer)

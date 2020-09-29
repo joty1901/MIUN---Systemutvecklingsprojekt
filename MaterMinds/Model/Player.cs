@@ -11,18 +11,21 @@ namespace MaterMinds
         public string Nickname { get; set; }
         public List<Score> PlayerScore { get; set; }
 
-        //Konstruktor som används när GetDbPlayers körs i Repository.cs
-        public Player()
+        /// <summary>
+        /// Constructor that's used when the method GetDbPlayers i executed in Repository.cs
+        /// </summary>
+        public Player() 
         {
 
         }
-        
-        //Konstruktor som används när en ny player skapas av en användare. 
+
+        /// <summary>
+        /// Constructor that's used when a user creates a new player
+        /// </summary>
         public Player(int id, string nickname)
         {
             Id = id;
             Nickname = nickname;
         }
     }
-       
 }
