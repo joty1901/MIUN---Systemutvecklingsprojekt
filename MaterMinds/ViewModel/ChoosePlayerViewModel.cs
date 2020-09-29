@@ -116,11 +116,32 @@ namespace MaterMinds
 
         private void ComparePlayerNickname()
         {
-            foreach (Player c in Repository.GetDbPlayers().ToList())
+            List<Player> listOfPlayers = Repository.GetDbPlayers().ToList();
+            for (int i = 0; i < listOfPlayers.Count; i++)
             {
-                if (c.Nickname.ToLower().Contains(SearchNickname.ToLower()))
+                for (int j = 0; j < SearchNickname.Count(); j++)
                 {
-                    PlayerList.Add(c);
+                    if (listOfPlayers[i].Nickname.ToLower()[j] == SearchNickname.ToLower()[j])
+                    {
+                        if (j == SearchNickname.Count()-1)
+                        {
+                            PlayerList.Add(listOfPlayers[i]);   
+                        }
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+            }
+            if (PlayerList.Count == 0)
+            {
+                foreach (Player c in listOfPlayers)
+                {
+                    if (c.Nickname.ToLower().Contains(SearchNickname.ToLower()))
+                    {
+                        PlayerList.Add(c);
+                    }
                 }
             }
         }

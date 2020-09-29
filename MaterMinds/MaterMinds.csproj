@@ -23,6 +23,7 @@
     <None Remove="Resources\giphy.gif" />
     <None Remove="Resources\MaterMindBackground.jpg" />
     <None Remove="Resources\Picture\6ka.gif" />
+    <None Remove="Resources\Picture\black-hole-png-218.png" />
     <None Remove="Resources\Picture\blackHole.png" />
     <None Remove="Resources\Picture\Earth.jpg" />
     <None Remove="Resources\Picture\MagnifyingGlass.png" />
@@ -64,6 +65,7 @@
     <Resource Include="Resources\Cursor\BlueCircle.cur" />
     <Resource Include="Resources\Cursor\YellowCircle.cur" />
     <Resource Include="Resources\Picture\6ka.gif" />
+    <Resource Include="Resources\Picture\black-hole-png-218.png" />
     <Resource Include="Resources\Picture\blackHole.png" />
     <Resource Include="Resources\Picture\Earth.jpg" />
     <Resource Include="Resources\Picture\MagnifyingGlass.png" />

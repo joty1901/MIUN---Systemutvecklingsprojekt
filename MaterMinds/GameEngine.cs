@@ -132,7 +132,6 @@ namespace MaterMinds
         {
             return CorrectAnswer;
         }
-
         public int CalculateScore(int tries, int timerInSecounds, int timerInMinutes)
         {
             int score = 10000;
