@@ -16,7 +16,10 @@ namespace MaterMinds
         
         private static string connectionString = ConfigurationManager.ConnectionStrings["universitetet"].ConnectionString;
 
-       
+        /// <summary>
+        /// Get's all the players that are in the database in table player and returnes a ObservableCollection of players
+        /// </summary>
+        /// <returns></returns>
         public static IEnumerable<Player> GetDbPlayers()
         {
             string stmt = "SELECT id, nickname FROM player ORDER BY(nickname) ASC";
@@ -57,7 +60,10 @@ namespace MaterMinds
             }
         }
 
-        public static void AddPlayerScore(int player_id, int value)
+        /// <summary>
+        /// Adds a score to the table score in the database with associated player_id
+        /// </summary>
+        public static void AddScoreWithPlayerId(int player_id, int value)
         {
             string stmt = "INSERT INTO score(player_id, value) values(@player_id, @value)";
 
@@ -85,6 +91,10 @@ namespace MaterMinds
             }
         }
 
+        /// <summary>
+        /// Get's the ten best scores from table score and returns them in order by the highest score
+        /// </summary>
+        /// <returns></returns>
         public static IEnumerable<Score> GetTopTenHigscore()
         {
             string stmt = "SELECT player.nickname, score.value, score.date from player INNER JOIN score ON score.player_id = player.id ORDER BY score.value DESC LIMIT 10";
@@ -126,6 +136,10 @@ namespace MaterMinds
             }
         }
 
+        /// <summary>
+        /// Get's the most frequent players by counting the player_id and returns a list of Score
+        /// </summary>
+        /// <returns></returns>
         public static IEnumerable<Score> GetTopFrequentPlayers()
         {
             string stmt = "SELECT nickname, COUNT(player_id)::int FROM score INNER JOIN player ON player.id=player_id GROUP BY nickname ORDER BY COUNT DESC LIMIT 10";
@@ -165,6 +179,10 @@ namespace MaterMinds
             }
         }
 
+        /// <summary>
+        /// Addsd a created player to the database
+        /// </summary>
+        /// <returns></returns>
         public static int AddPlayer(string nickname)
         {
             string stmt = "INSERT INTO player(nickname) values(@nickname) returning id";
@@ -195,6 +213,9 @@ namespace MaterMinds
             }
         }
 
+        /// <summary>
+        /// Method that's being used in the start of the application to minimize delay in buttonclicks when the game is up and running
+        /// </summary>
         public static void StartDb()
         {
             using (var conn = new NpgsqlConnection(connectionString))
