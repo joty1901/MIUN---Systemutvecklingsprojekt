@@ -103,7 +103,7 @@ namespace MaterMinds
         }
         private void BlackHoleSound()
         {
-            MediaHelper.Start(MediaHelper._soundEffectPlayer, new Uri(@"Resources/Sound/Blackholesound.mp3", UriKind.Relative));
+            MediaHelper.Start(MediaHelper._soundEffectPlayer, new Uri(@"Resources/Sound/BlackholeSound.mp3", UriKind.Relative));
         }
     }
 }

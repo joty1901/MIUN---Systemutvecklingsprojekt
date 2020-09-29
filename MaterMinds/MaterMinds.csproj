@@ -32,14 +32,14 @@
     <None Remove="Resources\Picture\Winner.gif" />
     <None Remove="Resources\Picture\XSNu.gif" />
     <None Remove="Resources\Picture\y7.gif" />
-    <None Remove="Resources\Sound\Blackholesound.mp3" />
+    <None Remove="Resources\Sound\BlackholeSound.mp3" />
     <None Remove="Resources\Sound\Spacemusic.mp3" />
     <None Remove="Resources\Sound\WaterDrop.mp3" />
     <None Remove="Resources\Text\Rules.txt" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Resources\Sound\Blackholesound.mp3">
+    <Content Include="Resources\Sound\BlackholeSound.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\Sound\Spacemusic.mp3">
