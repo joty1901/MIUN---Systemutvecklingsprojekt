@@ -183,6 +183,7 @@ namespace MaterMinds
             }
         }
         #endregion
+
         public void EndGame(bool win)
         {
             StopTimer();

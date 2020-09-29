@@ -10,19 +10,22 @@
       AllowDrop="True"
       xmlns:gif="http://wpfanimatedgif.codeplex.com"
       Background="{DynamicResource BackgroundIMG}">
-
+    <!--#region Pictures-->
     <Grid>
         <Image gif:ImageBehavior.AnimatedSource="/Resources/Picture/WinCon.gif"  
            Visibility="{Binding WinOrLoss[0], FallbackValue=Hidden}"/>
+        
         <Image gif:ImageBehavior.AnimatedSource="/Resources/Picture/WinCon.gif" 
                gif:ImageBehavior.AnimationSpeedRatio="1.2"
-            Visibility="{Binding WinOrLoss[0], FallbackValue=Hidden}" Margin="514,28,26,162"/>
+               Visibility="{Binding WinOrLoss[0], FallbackValue=Hidden}"
+               Margin="514,28,26,162"/>
+        
         <Image gif:ImageBehavior.AnimatedSource="/Resources/Picture/WinCon.gif"  
-            gif:ImageBehavior.AnimationSpeedRatio="0.8" 
-               Visibility="{Binding WinOrLoss[0], FallbackValue=Hidden}" Margin="10,187,530,3"/>
-        <!--<Image gif:ImageBehavior.AnimatedSource="/Resources/Picture/6ka.gif"  
-            gif:ImageBehavior.AnimationSpeedRatio="0.8" 
-               Visibility="{Binding WinOrLoss[0], FallbackValue=Hidden}" Margin="530,187,10,3"/>-->
+               gif:ImageBehavior.AnimationSpeedRatio="0.8" 
+               Visibility="{Binding WinOrLoss[0], FallbackValue=Hidden}" 
+               Margin="10,187,530,3"/>
+    <!--#endregion-->
+        
         <Grid Name="myCanvas" VerticalAlignment="Center" HorizontalAlignment="Center">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
@@ -30,7 +33,7 @@
                 <ColumnDefinition Width="250"/>
                 <ColumnDefinition Width="250"/>
             </Grid.ColumnDefinitions>
-
+            <!--#region Buttons-->
             <StackPanel Grid.Column="0">
 
                 <Button Content="Main Menu" 
@@ -54,6 +57,7 @@
                         Margin="15,5,0,0"
                         Command="{Binding ResetGameCommand}">
                 </Button>
+                
                 <Button Content="Highscores"
                         HorizontalAlignment="Left"
                         Command="{Binding ViewTopHighscoreCommand}"
@@ -64,6 +68,7 @@
                         Height="32"
                         Margin="15,5,0,0">
                 </Button>
+                
                 <Button Content="Help" 
                         HorizontalAlignment="Left" 
                         Style="{DynamicResource RoundButtonTemplate}" 
@@ -76,14 +81,16 @@
                 </Button>
                 
             </StackPanel>
-
+            <!--#endregion-->
+            <!--#region Guesscontroll and BlackHole-->
             <StackPanel Margin="0,50,0,0" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
                 <local:GuessControl/>
                 <Grid x:Name="blackHole" Uid="10" Height="100" Width="100" Drop="panel_Drop">
                     <Image Source="/Resources/Picture/black-hole-png-218.png"/>
                 </Grid>
             </StackPanel>
-
+            <!--#endregion-->
+            <!--#region GameBoard-->
             <StackPanel Grid.Column="2" VerticalAlignment="Center">
                 <Border BorderThickness="3">
                     <WrapPanel  HorizontalAlignment="Left" VerticalAlignment="Center">
@@ -318,7 +325,8 @@
                         Command="{Binding NextRoundCommand}"
                         FontSize="20" FontWeight="Bold" Width="200" Height="32"/>
             </StackPanel>
-
+            <!--#endregion-->
+            <!--#region Score and Time-->
             <StackPanel Grid.Column="4" MinHeight="450" HorizontalAlignment="Right" >
 
                 <Label Foreground="White" 
@@ -351,7 +359,10 @@
                        Margin="0,-10,0,0"  
                        Content="{Binding Score, FallbackValue=1000}" 
                        Visibility="{Binding EndGameVisibility, FallbackValue=Hidden}"/>
+                
             </StackPanel>
+            <!--#endregion-->
+            <!--#region HelpView-->
             <local:HelpView Grid.Column="1" 
                             Grid.ColumnSpan="3" 
                             x:Name="help" 
@@ -395,13 +406,16 @@
                     Command="{Binding MuteCommand}" 
                     Style="{StaticResource MuteButtonTemplate}">
             </ToggleButton>
+            <!--#endregion-->
         </Grid>
-        <!--<Image gif:ImageBehavior.AnimatedSource="/Resources/Picture/y7.gif"  
-            gif:ImageBehavior.AnimationSpeedRatio="0.8" 
-               Visibility="{Binding WinOrLoss[1], FallbackValue=Hidden}" Margin="300,105,240,85"/>-->
+        <!--#region Pictures wincondition-->
+     
         <Image gif:ImageBehavior.AnimatedSource="/Resources/Picture/Winner.gif"  
             gif:ImageBehavior.AnimationSpeedRatio="0.8" 
-               Visibility="{Binding WinOrLoss[0], FallbackValue=Hidden}" Margin="540,104,0,86"/>
+               Visibility="{Binding WinOrLoss[0], FallbackValue=Hidden}" 
+               Margin="540,104,0,86"
+               MaxWidth="200"/>
+        
         <Label Content="{Binding CountdownTimer, FallbackValue=3}" 
                Visibility="{Binding TimerVisibility[0], FallbackValue=Visible}"
                FontSize="300"
@@ -415,6 +429,7 @@
                 <DropShadowEffect/>
             </Label.Effect>
         </Label>
+        <!--#endregion-->
     </Grid>
 </Page>
  
