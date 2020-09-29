@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Drawing;
 using System.Globalization;
+using System.Linq;
 using System.Net.Http.Headers;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
@@ -13,6 +14,7 @@ using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
+using System.Xml.Serialization;
 
 namespace MaterMinds
 {
@@ -95,6 +97,7 @@ namespace MaterMinds
 
         public void GetAnswer()
         {
+            CorrectAnswerArray.Clear();
             foreach (var c in game.GetCorrectAnswer())
             {
                 switch (c.Value)

@@ -32,19 +32,26 @@ namespace MaterMinds
             UIElement element = (UIElement)e.Data.GetData("Object");
             Panel parent = (Panel)VisualTreeHelper.GetParent(element);
             var newPeg = GetTypeOfPeg(element);
-            if (parent.Name == "GuessController" && panel.Name != "blackHole")
+            if (parent.Name == "GuessController")
             {
-                DropSound();
-                UpdateUI(panel);
-                panel.Children.Add(newPeg);
-                model.PlacedPegs.AddOrUpdate(int.Parse(panel.Uid), newPeg.ColorIndex);
+                if (panel.Name == "blackHole")
+                {
+                    BlackHoleSound();
+                }
+                else
+                {
+                    DropSound();
+                    UpdateUI(panel);
+                    panel.Children.Add(newPeg);
+                    model.PlacedPegs.AddOrUpdate(int.Parse(panel.Uid), newPeg.ColorIndex);
+                }
             }
             else if (panel.AllowDrop && parent.Name != "GuessController")
             {
                 if (panel.Name == "blackHole")
                 {
-                    parent.Children.Remove(element);
                     BlackHoleSound();
+                    parent.Children.Remove(element);
                     model.PlacedPegs.Remove(int.Parse(parent.Uid));
                 }
                 else
@@ -91,10 +98,11 @@ namespace MaterMinds
             { 
                 return new PurplePeg();
             }
-            else 
+            else if(element is OrangePeg)
             {
                 return new OrangePeg();
             }
+            return null;
         }
 
         private void DropSound()
