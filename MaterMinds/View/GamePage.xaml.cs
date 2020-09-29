@@ -43,8 +43,8 @@ namespace MaterMinds
             {
                 if (panel.Name == "blackHole")
                 {
-                    DropSound();
                     parent.Children.Remove(element);
+                    BlackHoleSound();
                     model.PlacedPegs.Remove(int.Parse(parent.Uid));
                 }
                 else
@@ -61,6 +61,7 @@ namespace MaterMinds
             CommandManager.InvalidateRequerySuggested();
 
         }
+
 
         private void UpdateUI(Panel panel)
         {
@@ -99,6 +100,10 @@ namespace MaterMinds
         private void DropSound()
         {
             MediaHelper.Start(MediaHelper._soundEffectPlayer, new Uri(@"Resources/Sound/WaterDrop.mp3", UriKind.Relative));
+        }
+        private void BlackHoleSound()
+        {
+            MediaHelper.Start(MediaHelper._soundEffectPlayer, new Uri(@"Resources/Sound/Blackholesound.mp3", UriKind.Relative));
         }
     }
 }

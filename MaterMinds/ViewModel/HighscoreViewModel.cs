@@ -25,8 +25,10 @@ namespace MaterMinds
             SetTopTenHighscoreToList(true);
             MainMenuCommand = new RelayCommand(GetMainMenuView, CanExecute);
             ViewTopFrequentPlayersCommand = new RelayCommand(SetTopFrequentPlayerToList, CeckIfCanExecute);
-            ViewTopHighscoreCommand = new RelayCommand(SetTopTenHighscoreToList, CeckIfCanExecuteTwo);
+            ViewTopHighscoreCommand = new RelayCommand(SetTopTenHighscoreToList, CheckIfCanUse);
         }
+
+        #region GetDifferentScoreLists
 
         public void SetTopTenHighscoreToList(object parameter)
         {
@@ -39,6 +41,9 @@ namespace MaterMinds
             Highscorelist = Repository.GetTopFrequentPlayers();
             ViewLabelProperty = "Frequent Players";
         }
+        #endregion
+
+        #region CheckIfMethodsCanExecute
 
         public override bool CeckIfCanExecute(object parameter)
         {
@@ -48,7 +53,7 @@ namespace MaterMinds
             }
             return true;
         }
-        public bool CeckIfCanExecuteTwo(object parameter)
+        public bool CheckIfCanUse(object parameter)
         {
             if (ViewLabelProperty == "Highscore")
             {
@@ -56,5 +61,6 @@ namespace MaterMinds
             }
             return true;
         }
+        #endregion
     }
 }

@@ -23,28 +23,32 @@ namespace MaterMinds
         GameEngine game;
         DispatcherTimer timer;
 
+        #region Commands
         public ICommand NextRoundCommand { get; set; }
         public ICommand ResetGameCommand { get; set; }
         public ICommand HelpCommand { get; set; }
+        #endregion
         public Dictionary<int, int> PlacedPegs { get; set; } = new Dictionary<int, int>();
         public ObservableCollection<bool> ActiveRow { get; set; } = new ObservableCollection<bool> { true, false, false, false, false, false, false };
         public int Rounds { get; set; } = 0;
         public ObservableCollection<Brush[]> HintArray { get; set; } = new ObservableCollection<Brush[]>();
         public ObservableCollection<MasterPeg> CorrectAnswerArray { get; set; } = new ObservableCollection<MasterPeg>();
+        #region VisibilityProperties
+
         public Visibility EndGameVisibility { get; set; } = Visibility.Hidden;
         public Visibility HelpViewVisibility { get; set; } = Visibility.Hidden;
+        public Visibility GifVisibility { get; set; }
+        #endregion
         public ObservableCollection<Brush> BackgroundColor { get; set; } = new ObservableCollection<Brush> { Brushes.White, Brushes.Transparent, Brushes.Transparent, Brushes.Transparent, Brushes.Transparent, Brushes.Transparent, Brushes.Transparent };
         public int GameTimerInSecounds { get; set; } = -1;
         public int GameTimerInMinutes { get; set; }
         public int CountdownTimer { get; set; } = 3;
         public ObservableCollection<Visibility> TimerVisibility { get; set; } = new ObservableCollection<Visibility> { Visibility.Visible, Visibility.Hidden };
-        public Visibility GifVisibility { get; set; }
         public string GameTimer { get; set; }
         public int Score { get; set; }
         public Player Player { get; set; }
         public ObservableCollection<Visibility> WinOrLoss { get; set; } = new ObservableCollection<Visibility> { Visibility.Hidden, Visibility.Hidden};
         
-
         public GameViewModel(Player player)
         {
             game = new GameEngine();
@@ -55,20 +59,6 @@ namespace MaterMinds
             ViewTopHighscoreCommand = new RelayCommand(GetHighscorePage, CanExecute);
             HelpCommand = new RelayCommand(SetVisibilityForHelpView, CanExecute);
             StartTimer();
-        }
-        public override bool CeckIfCanExecute(object parameter)
-        {
-            if (PlacedPegs.Count !=  0)
-            {
-                return true;
-            }
-            else
-                return false;
-        }
-
-        public void AddScoreToDB()
-        {
-            Repository.AddPlayerScore(Player.Id, Score);
         }
 
         public void NextRound(object parameter)
@@ -105,27 +95,6 @@ namespace MaterMinds
             BackgroundColor[Rounds] = Brushes.White;
         }
 
-        public void EndGame(bool win)
-        {
-            StopTimer();
-            GetAnswer();
-            GifVisibility = Visibility.Hidden;
-            EndGameVisibility = Visibility.Visible;
-            
-            if (win)
-            {
-                Score = game.CalculateScore(Rounds, GameTimerInSecounds, GameTimerInMinutes);
-                AddScoreToDB();
-                WinOrLoss[0] = Visibility.Visible;
-            }
-            else
-            {
-                ActiveRow = new ObservableCollection<bool> { false, false, false, false, false, false, false };
-                AddScoreToDB();
-                WinOrLoss[1] = Visibility.Visible;
-            }
-        }
-
         public void GetAnswer()
         {
             CorrectAnswerArray.Clear();
@@ -154,10 +123,11 @@ namespace MaterMinds
                 }
             }
         }
-       
-        public void PlaySound()
+
+        #region TimerAndScore
+        public void AddScoreToDB()
         {
-            MediaHelper.Start(MediaHelper._backgroundPlayer, new Uri(@"Resources/Sound/WaterDrop.mp3", UriKind.Relative));
+            Repository.AddScoreWithPlayerId(Player.Id, Score);
         }
 
         private void StartTimer()
@@ -211,6 +181,27 @@ namespace MaterMinds
                 CountdownTimer--;
             }
         }
+        #endregion
+        public void EndGame(bool win)
+        {
+            StopTimer();
+            GetAnswer();
+            GifVisibility = Visibility.Hidden;
+            EndGameVisibility = Visibility.Visible;
+            
+            if (win)
+            {
+                Score = game.CalculateScore(Rounds, GameTimerInSecounds, GameTimerInMinutes);
+                AddScoreToDB();
+                WinOrLoss[0] = Visibility.Visible;
+            }
+            else
+            {
+                ActiveRow = new ObservableCollection<bool> { false, false, false, false, false, false, false };
+                AddScoreToDB();
+                WinOrLoss[1] = Visibility.Visible;
+            }
+        }
 
         public void RestartGame(object parameter)
         {
@@ -233,6 +224,17 @@ namespace MaterMinds
             }
             else
                 HelpViewVisibility = Visibility.Hidden;
+        }
+
+
+        public override bool CeckIfCanExecute(object parameter)
+        {
+            if (PlacedPegs.Count !=  0)
+            {
+                return true;
+            }
+            else
+                return false;
         }
     }
 }
