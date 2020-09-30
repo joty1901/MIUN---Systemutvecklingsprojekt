@@ -27,7 +27,7 @@ namespace MaterMinds
             DataContext = model;
             System.Diagnostics.PresentationTraceSources.DataBindingSource.Switch.Level = System.Diagnostics.SourceLevels.Critical;
         }
-        private void panel_Drop(object sender, DragEventArgs e)
+        private void Panel_Drop(object sender, DragEventArgs e)
         {
             Panel panel = (Panel)sender;
             UIElement element = (UIElement)e.Data.GetData("Object");
@@ -60,16 +60,13 @@ namespace MaterMinds
                     DropSound();
                     UpdateUI(panel);
                     model.PlacedPegs.Remove(int.Parse(parent.Uid));
-
                     parent.Children.Remove(element);
                     panel.Children.Add(newPeg);
                     model.PlacedPegs.AddOrUpdate(int.Parse(panel.Uid), newPeg.ColorIndex);
                 }
             }
             CommandManager.InvalidateRequerySuggested();
-
         }
-
 
         private void UpdateUI(Panel panel)
         {

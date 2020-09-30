@@ -53,6 +53,7 @@ namespace MaterMinds
             }
             return true;
         }
+
         public bool CheckIfCanUse(object parameter)
         {
             if (ViewLabelProperty == "Highscore")
