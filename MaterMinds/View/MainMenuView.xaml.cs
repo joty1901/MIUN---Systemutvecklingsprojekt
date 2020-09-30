@@ -31,7 +31,7 @@ namespace MaterMinds.View
 
         private void PlayBackground()
         {
-            MediaHelper.Start(MediaHelper._backgroundPlayer, new Uri(@"Resources/Sound/Spacemusic.mp3", UriKind.Relative));
+            MediaHelper.PlayMedia(MediaHelper._backgroundPlayer, new Uri(@"Resources/Sound/Spacemusic.mp3", UriKind.Relative));
         }
 
     }
