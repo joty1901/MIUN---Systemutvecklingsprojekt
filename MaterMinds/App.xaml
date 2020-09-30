@@ -57,7 +57,7 @@
             </Setter>
         </Style>
         <Style x:Key="MuteButtonTemplate" TargetType="{x:Type ToggleButton}">
-            <Setter Property="Background" Value="Red" />
+            <Setter Property="Background" Value="DimGray" />
             <Setter Property="Foreground" Value="WhiteSmoke"/>
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="FontWeight" Value="Bold"/>
@@ -107,7 +107,7 @@
                                             <LinearGradientBrush.GradientStops>
                                                 <GradientStopCollection>
                                                     <GradientStop Color="Black"/>
-                                                    <GradientStop Color="Red" Offset="1"/>
+                                                    <GradientStop Color="DimGray" Offset="1"/>
                                                 </GradientStopCollection>
                                             </LinearGradientBrush.GradientStops>
                                         </LinearGradientBrush>

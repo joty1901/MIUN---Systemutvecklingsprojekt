@@ -25,6 +25,7 @@ namespace MaterMinds
             InitializeComponent();
             model = new GameViewModel(player);
             DataContext = model;
+            System.Diagnostics.PresentationTraceSources.DataBindingSource.Switch.Level = System.Diagnostics.SourceLevels.Critical;
         }
         private void panel_Drop(object sender, DragEventArgs e)
         {
