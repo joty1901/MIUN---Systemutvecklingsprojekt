@@ -3,14 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MaterMinds.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              Background="{DynamicResource BackgroundIMG}">
-
-
     <Grid>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="300">
+        <StackPanel VerticalAlignment="Center" 
+                    HorizontalAlignment="Center" 
+                    Width="300">
+            
             <Label Content="MaterMinds"
                    Margin="0,0,0,0"
                    FontSize="50"
@@ -18,39 +18,37 @@
                    Foreground="Azure" 
                    HorizontalAlignment="Center" 
                    VerticalAlignment="Stretch" />
+            
             <Button Content="New Game"
                     Margin="0,10,0,0"
                     Command="{Binding ChoosePlayerCommand}"
                     Style="{StaticResource RoundButtonTemplate}"
                     FontSize="25" 
-                    Width="300" >
-            </Button>
-
+                    Width="300" />
+            
             <Button Content="Highscore"
                     Margin="0,10,0,0"
                     Command="{Binding ViewTopHighscoreCommand}" 
                     Style="{StaticResource RoundButtonTemplate}" 
                     FontSize="25"
-                    Width="300">
-            </Button>
+                    Width="300"/>
 
             <Button Content="Exit"
                     Margin="0,10,0,0"
                     Command="{Binding ExitGameCommand}" 
                     Style="{StaticResource RoundButtonTemplate}" 
                     FontSize="25"
-                    Width="300">
-            </Button>
+                    Width="300"/>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Bottom">
+        
+        <StackPanel HorizontalAlignment="Left" 
+                    VerticalAlignment="Bottom">
 
             <ToggleButton 
                     Content="Mute"
                     Margin="10,-100,0,0"
                     Command="{Binding MuteCommand}" 
-                    Style="{StaticResource MuteButtonTemplate}">
-            </ToggleButton>
+                    Style="{StaticResource MuteButtonTemplate}"/>
         </StackPanel>
-        <Frame x:Name="MainMeny"/>
     </Grid>
 </UserControl>
