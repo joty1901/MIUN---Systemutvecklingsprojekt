@@ -85,7 +85,7 @@
             <!--#region Guesscontroll and BlackHole-->
             <StackPanel Margin="0,50,0,0" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
                 <local:GuessControl/>
-                <Grid x:Name="blackHole" Uid="10" Height="100" Width="100" Drop="Panel_Drop">
+                <Grid x:Name="blackHole" Uid="10" Height="100" Width="100" Drop="PanelDrop">
                     <Image Source="/Resources/Picture/black-hole-png-218.png"/>
                 </Grid>
             </StackPanel>
@@ -126,16 +126,16 @@
                 </Border>
                 <Border BorderThickness="3" BorderBrush="{Binding BackgroundColor[6]}" CornerRadius="10" IsEnabled="{Binding ActiveRow[6]}">
                     <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Center">
-                        <Grid x:Uid="1" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="Panel_Drop" >
+                        <Grid x:Uid="1" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="PanelDrop" >
                             <local:GameBoardCircle/>
                         </Grid>
-                        <Grid x:Uid="2" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="Panel_Drop" >
+                        <Grid x:Uid="2" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="PanelDrop" >
                             <local:GameBoardCircle/>
                         </Grid>
-                        <Grid x:Uid="3" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="Panel_Drop" >
+                        <Grid x:Uid="3" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="PanelDrop" >
                             <local:GameBoardCircle/>
                         </Grid>
-                        <Grid x:Uid="4" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="Panel_Drop" >
+                        <Grid x:Uid="4" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="PanelDrop" >
                             <local:GameBoardCircle/>
                         </Grid>
                         <Border BorderThickness="3" CornerRadius="10" Margin="7.5,0,7.5,0">
@@ -154,16 +154,16 @@
 
                 <Border BorderThickness="3" BorderBrush="{Binding BackgroundColor[5]}" CornerRadius="10" IsEnabled="{Binding ActiveRow[5]}">
                     <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Center">
-                        <Grid x:Uid="1" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="Panel_Drop" >
+                        <Grid x:Uid="1" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="PanelDrop" >
                             <local:GameBoardCircle/>
                         </Grid>
-                        <Grid x:Uid="2" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="Panel_Drop" >
+                        <Grid x:Uid="2" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="PanelDrop" >
                             <local:GameBoardCircle/>
                         </Grid>
-                        <Grid x:Uid="3" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="Panel_Drop" >
+                        <Grid x:Uid="3" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="PanelDrop" >
                             <local:GameBoardCircle/>
                         </Grid>
-                        <Grid x:Uid="4" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="Panel_Drop" >
+                        <Grid x:Uid="4" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="PanelDrop" >
                             <local:GameBoardCircle/>
                         </Grid>
                         <Border BorderThickness="3" CornerRadius="10" Margin="7.5,0,7.5,0">
@@ -182,16 +182,16 @@
 
                 <Border BorderThickness="3" BorderBrush="{Binding BackgroundColor[4]}" CornerRadius="10" IsEnabled="{Binding ActiveRow[4]}">
                     <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Center">
-                        <Grid x:Uid="1" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="Panel_Drop" >
+                        <Grid x:Uid="1" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="PanelDrop" >
                             <local:GameBoardCircle/>
                         </Grid>
-                        <Grid x:Uid="2" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="Panel_Drop" >
+                        <Grid x:Uid="2" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="PanelDrop" >
                             <local:GameBoardCircle/>
                         </Grid>
-                        <Grid x:Uid="3" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="Panel_Drop" >
+                        <Grid x:Uid="3" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="PanelDrop" >
                             <local:GameBoardCircle/>
                         </Grid>
-                        <Grid x:Uid="4" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="Panel_Drop" >
+                        <Grid x:Uid="4" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="PanelDrop" >
                             <local:GameBoardCircle/>
                         </Grid>
                         <Border BorderThickness="3" CornerRadius="10" Margin="7.5,0,7.5,0">
@@ -210,16 +210,16 @@
 
                 <Border BorderThickness="3" BorderBrush="{Binding BackgroundColor[3]}" CornerRadius="10" IsEnabled="{Binding ActiveRow[3]}">
                     <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Center">
-                        <Grid x:Uid="1" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="Panel_Drop" >
+                        <Grid x:Uid="1" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="PanelDrop" >
                             <local:GameBoardCircle/>
                         </Grid>
-                        <Grid x:Uid="2" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="Panel_Drop" >
+                        <Grid x:Uid="2" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="PanelDrop" >
                             <local:GameBoardCircle/>
                         </Grid>
-                        <Grid x:Uid="3" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="Panel_Drop" >
+                        <Grid x:Uid="3" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="PanelDrop" >
                             <local:GameBoardCircle/>
                         </Grid>
-                        <Grid x:Uid="4" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="Panel_Drop" >
+                        <Grid x:Uid="4" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="PanelDrop" >
                             <local:GameBoardCircle/>
                         </Grid>
                         <Border BorderThickness="3" CornerRadius="10" Margin="7.5,0,7.5,0">
@@ -238,16 +238,16 @@
 
                 <Border BorderThickness="3" BorderBrush="{Binding BackgroundColor[2]}" CornerRadius="10" IsEnabled="{Binding ActiveRow[2]}">
                     <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Center">
-                        <Grid x:Uid="1" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="Panel_Drop" >
+                        <Grid x:Uid="1" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="PanelDrop" >
                             <local:GameBoardCircle/>
                         </Grid>
-                        <Grid x:Uid="2" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="Panel_Drop" >
+                        <Grid x:Uid="2" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="PanelDrop" >
                             <local:GameBoardCircle/>
                         </Grid>
-                        <Grid x:Uid="3" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="Panel_Drop" >
+                        <Grid x:Uid="3" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="PanelDrop" >
                             <local:GameBoardCircle/>
                         </Grid>
-                        <Grid x:Uid="4" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="Panel_Drop" >
+                        <Grid x:Uid="4" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="PanelDrop" >
                             <local:GameBoardCircle/>
                         </Grid>
                         <Border BorderThickness="3" CornerRadius="10" Margin="7.5,0,7.5,0">
@@ -266,16 +266,16 @@
 
                 <Border BorderThickness="3" BorderBrush="{Binding BackgroundColor[1]}" CornerRadius="10" IsEnabled="{Binding ActiveRow[1]}">
                     <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Center">
-                        <Grid x:Uid="1" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="Panel_Drop" >
+                        <Grid x:Uid="1" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="PanelDrop" >
                             <local:GameBoardCircle/>
                         </Grid>
-                        <Grid x:Uid="2" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="Panel_Drop" >
+                        <Grid x:Uid="2" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="PanelDrop" >
                             <local:GameBoardCircle/>
                         </Grid>
-                        <Grid x:Uid="3" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="Panel_Drop" >
+                        <Grid x:Uid="3" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="PanelDrop" >
                             <local:GameBoardCircle/>
                         </Grid>
-                        <Grid x:Uid="4" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="Panel_Drop" >
+                        <Grid x:Uid="4" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="PanelDrop" >
                             <local:GameBoardCircle/>
                         </Grid>
                         <Border BorderThickness="3" CornerRadius="10" Margin="7.5,0,7.5,0">
@@ -294,16 +294,16 @@
 
                 <Border BorderThickness="3" BorderBrush="{Binding BackgroundColor[0]}" CornerRadius="10" IsEnabled="{Binding ActiveRow[0]}">
                     <WrapPanel HorizontalAlignment="Left" VerticalAlignment="Center">
-                        <Grid x:Uid="1" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="Panel_Drop" >
+                        <Grid x:Uid="1" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="PanelDrop" >
                             <local:GameBoardCircle/>
                         </Grid>
-                        <Grid x:Uid="2" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="Panel_Drop" >
+                        <Grid x:Uid="2" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="PanelDrop" >
                             <local:GameBoardCircle/>
                         </Grid>
-                        <Grid x:Uid="3" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="Panel_Drop" >
+                        <Grid x:Uid="3" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="PanelDrop" >
                             <local:GameBoardCircle/>
                         </Grid>
-                        <Grid x:Uid="4" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="Panel_Drop">
+                        <Grid x:Uid="4" Margin="7.5,0,7.5,0" Width="30" Height="30" Drop="PanelDrop">
                             <local:GameBoardCircle/>
                         </Grid>
                         <Border BorderThickness="3" CornerRadius="10" Margin="7.5,0,7.5,0">

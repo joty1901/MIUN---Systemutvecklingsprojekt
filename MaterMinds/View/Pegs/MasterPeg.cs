@@ -31,14 +31,14 @@ namespace MaterMinds
         }
         protected override void OnGiveFeedback(GiveFeedbackEventArgs e)
         {
-            StreamResourceInfo sriCurs = GetPegToStream(e);
+            StreamResourceInfo sriCurs = ConvertPegToStream(e);
             if (e.Effects.HasFlag(DragDropEffects.Move))
             {
                 Mouse.SetCursor(new Cursor(sriCurs.Stream));
             }
             e.Handled = true;
         }
-        private StreamResourceInfo GetPegToStream(GiveFeedbackEventArgs e)
+        private StreamResourceInfo ConvertPegToStream(GiveFeedbackEventArgs e)
         {
             if (e.OriginalSource is RedPeg)
             {
