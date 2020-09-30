@@ -34,7 +34,7 @@ namespace MaterMinds
             var newPeg = GetTypeOfPeg(element);
             if (parent.Name == "GuessController")
             {
-                if (panel.Name == "blackHole")
+                if (panel.Name == "Trashcan")
                 {
                     BlackHoleSound();
                 }
@@ -48,7 +48,7 @@ namespace MaterMinds
             }
             else if (panel.AllowDrop && parent.Name != "GuessController")
             {
-                if (panel.Name == "blackHole")
+                if (panel.Name == "Trashcan")
                 {
                     BlackHoleSound();
                     parent.Children.Remove(element);
