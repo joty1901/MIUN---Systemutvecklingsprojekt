@@ -18,11 +18,12 @@ namespace MaterMinds
     {
 
         public MainWindow Main = (MainWindow)Application.Current.MainWindow;
-
+        #region Commands
         public ICommand MainMenuCommand { get ; set; }
         public ICommand ViewTopHighscoreCommand { get; set; }
         public ICommand ViewTopFrequentPlayersCommand { get; set; }
         public ICommand MuteCommand { get; set; }
+        #endregion
 
         #region NavigationMethods
         public void GetMainMenuView(object parameter)

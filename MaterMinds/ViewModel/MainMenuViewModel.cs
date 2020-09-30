@@ -11,9 +11,10 @@ namespace MaterMinds.ViewModel
 {
     class MainMenuViewModel : BaseViewModel
     {
+        #region Commands
         public ICommand ChoosePlayerCommand { get; set; }
         public ICommand ExitGameCommand { get; set; }
-
+        #endregion
         public MainMenuViewModel()
         {
             ChoosePlayerCommand = new RelayCommand(GetChoosePlayerPage, CanExecute);

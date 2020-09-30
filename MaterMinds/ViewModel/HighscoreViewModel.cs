@@ -30,13 +30,13 @@ namespace MaterMinds
 
         #region GetDifferentScoreLists
 
-        public void SetTopTenHighscoreToList(object parameter)
+        private void SetTopTenHighscoreToList(object parameter)
         {
             Highscorelist = Repository.GetTopTenHigscore();
             ViewLabelProperty = "Highscore";
         }
 
-        public void SetTopFrequentPlayerToList(object parameter)
+        private void SetTopFrequentPlayerToList(object parameter)
         {
             Highscorelist = Repository.GetTopFrequentPlayers();
             ViewLabelProperty = "Frequent Players";
@@ -54,13 +54,13 @@ namespace MaterMinds
             return true;
         }
 
-        public bool CheckIfCanUse(object parameter)
+        private bool CheckIfCanUse(object parameter)
         {
             if (ViewLabelProperty == "Highscore")
             {
                 return false;
             }
-            return true;
+            return true; 
         }
         #endregion
     }
