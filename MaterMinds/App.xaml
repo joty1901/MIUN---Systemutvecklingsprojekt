@@ -4,65 +4,109 @@
              xmlns:local="clr-namespace:MaterMinds"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <ImageBrush x:Key="BackgroundIMG" ImageSource="Resources/Picture/Earth.jpg"/>
-        <Style x:Key="RoundButtonTemplate" TargetType="Button">
-            <Setter Property="Background" Value="DodgerBlue" />
-            <Setter Property="Foreground" Value="WhiteSmoke"/>
-            <Setter Property="FontSize" Value="20"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Width" Value="170"/>
-            <Setter Property="Height" Value="45"/>
+        <ImageBrush x:Key="BackgroundIMG" 
+                    ImageSource="Resources/Picture/Earth.jpg"/>
+        <Style x:Key="RoundButtonTemplate" 
+               TargetType="Button">
+            
+            <Setter Property="Background" 
+                    Value="DodgerBlue" />
+            
+            <Setter Property="Foreground" 
+                    Value="WhiteSmoke"/>
+            
+            <Setter Property="FontSize" 
+                    Value="20"/>
+            
+            <Setter Property="FontWeight" 
+                    Value="Bold"/>
+            
+            <Setter Property="Width" 
+                    Value="170"/>
+            
+            <Setter Property="Height" 
+                    Value="45"/>
 
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border CornerRadius="20" BorderThickness="1">
+                        <Border CornerRadius="20" 
+                                BorderThickness="1">
+                            
                             <Border.Background>
-                                <LinearGradientBrush StartPoint="0.5,1" EndPoint="0.5,0">
+                                <LinearGradientBrush StartPoint="0.5,1" 
+                                                     EndPoint="0.5,0">
+                                    
                                     <LinearGradientBrush.GradientStops>
                                         <GradientStopCollection>
                                             <GradientStop Color="Black"/>
-                                            <GradientStop Color="DodgerBlue" Offset="1"/>
+                                            <GradientStop Color="DodgerBlue" 
+                                                          Offset="1"/>
                                         </GradientStopCollection>
                                     </LinearGradientBrush.GradientStops>
+                                    
                                 </LinearGradientBrush>
                             </Border.Background>
+                            
                             <Border.BorderBrush>
-                                <LinearGradientBrush StartPoint="0.5,1" EndPoint="0.5,0">
+                                <LinearGradientBrush StartPoint="0.5,1" 
+                                                     EndPoint="0.5,0">
+                                    
                                     <LinearGradientBrush.GradientStops>
                                         <GradientStopCollection>
                                             <GradientStop Color="DodgerBlue"/>
                                         </GradientStopCollection>
                                     </LinearGradientBrush.GradientStops>
+                                    
                                 </LinearGradientBrush>
                             </Border.BorderBrush>
+                            
                             <Grid>
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <ContentPresenter HorizontalAlignment="Center" 
+                                                  VerticalAlignment="Center"/>
                             </Grid>
                         </Border>
 
                         <ControlTemplate.Triggers>
+                            
                             <Trigger Property="IsMouseOver" Value="true">
                                 <Setter Property="Opacity" Value="0.85"/>
                             </Trigger>
+                            
                             <Trigger Property="IsPressed" Value="true">
                                 <Setter Property="Opacity" Value="0.65"/>
                             </Trigger>
+                            
                             <Trigger Property="IsEnabled" Value="False">
                                 <Setter Property="Opacity" Value="0.5"/>
                             </Trigger>
+                            
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
-        <Style x:Key="MuteButtonTemplate" TargetType="{x:Type ToggleButton}">
-            <Setter Property="Background" Value="DimGray" />
-            <Setter Property="Foreground" Value="WhiteSmoke"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="Width" Value="45"/>
-            <Setter Property="Height" Value="45"/>
+        
+        <Style x:Key="MuteButtonTemplate" 
+               TargetType="{x:Type ToggleButton}">
+            
+            <Setter Property="Background" 
+                    Value="DimGray" />
+            
+            <Setter Property="Foreground" 
+                    Value="WhiteSmoke"/>
+            
+            <Setter Property="FontSize" 
+                    Value="14"/>
+            
+            <Setter Property="FontWeight" 
+                    Value="Bold"/>
+            
+            <Setter Property="Width" 
+                    Value="45"/>
+            
+            <Setter Property="Height" 
+                    Value="45"/>
             
             <Setter Property="Template">
                 <Setter.Value>
@@ -70,60 +114,87 @@
                         
                     <Border CornerRadius="20" BorderThickness="1">
                         <Border.Background>
-                            <LinearGradientBrush StartPoint="0.5,1" EndPoint="0.5,0">
+                            
+                            <LinearGradientBrush StartPoint="0.5,1" 
+                                                 EndPoint="0.5,0">
+                                
                                 <LinearGradientBrush.GradientStops>
                                     <GradientStopCollection>
                                         <GradientStop Color="Black"/>
-                                        <GradientStop Color="DodgerBlue" Offset="1"/>
+                                        <GradientStop Color="DodgerBlue"
+                                                      Offset="1"/>
                                     </GradientStopCollection>
+                                    
                                 </LinearGradientBrush.GradientStops>
+                                
                             </LinearGradientBrush>
                         </Border.Background>
                         <Border.BorderBrush>
-                            <LinearGradientBrush StartPoint="0.5,1" EndPoint="0.5,0">
+                            <LinearGradientBrush StartPoint="0.5,1" 
+                                                 EndPoint="0.5,0">
+                                
                                 <LinearGradientBrush.GradientStops>
                                     <GradientStopCollection>
                                         <GradientStop Color="DodgerBlue"/>
                                     </GradientStopCollection>
                                 </LinearGradientBrush.GradientStops>
+                                
                             </LinearGradientBrush>
                         </Border.BorderBrush>
+                        
                         <Grid>
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            <ContentPresenter HorizontalAlignment="Center" 
+                                              VerticalAlignment="Center"/>
                         </Grid>
 
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+            
             <Style.Triggers>
-                <Trigger Property="IsChecked" Value="True">
+                <Trigger Property="IsChecked" 
+                         Value="True">
+                    
                     <Setter Property="Template">
+                        
                         <Setter.Value>
                             <ControlTemplate TargetType="ToggleButton">
-                                <Border CornerRadius="20" BorderThickness="1">
+                                <Border CornerRadius="20" 
+                                        BorderThickness="1">
                                     <Border.Background>
-                                        <LinearGradientBrush StartPoint="0.5,1" EndPoint="0.5,0">
+                                        <LinearGradientBrush StartPoint="0.5,1" 
+                                                             EndPoint="0.5,0">
+                                            
                                             <LinearGradientBrush.GradientStops>
                                                 <GradientStopCollection>
                                                     <GradientStop Color="Black"/>
-                                                    <GradientStop Color="DimGray" Offset="1"/>
+                                                    <GradientStop Color="DimGray" 
+                                                                  Offset="1"/>
                                                 </GradientStopCollection>
                                             </LinearGradientBrush.GradientStops>
+                                            
                                         </LinearGradientBrush>
                                     </Border.Background>
+                                    
                                     <Border.BorderBrush>
-                                        <LinearGradientBrush StartPoint="0.5,1" EndPoint="0.5,0">
+                                        <LinearGradientBrush StartPoint="0.5,1" 
+                                                             EndPoint="0.5,0">
+                                            
                                             <LinearGradientBrush.GradientStops>
                                                 <GradientStopCollection>
                                                     <GradientStop Color="DodgerBlue"/>
                                                 </GradientStopCollection>
                                             </LinearGradientBrush.GradientStops>
+                                            
                                         </LinearGradientBrush>
                                     </Border.BorderBrush>
+                                    
                                     <Grid>
-                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        <ContentPresenter HorizontalAlignment="Center"
+                                                          VerticalAlignment="Center"/>
                                     </Grid>
+                                    
                                 </Border>
                             </ControlTemplate>
                         </Setter.Value>
