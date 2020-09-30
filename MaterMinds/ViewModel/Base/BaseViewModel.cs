@@ -22,10 +22,7 @@ namespace MaterMinds
         public ICommand MainMenuCommand { get ; set; }
         public ICommand ViewTopHighscoreCommand { get; set; }
         public ICommand ViewTopFrequentPlayersCommand { get; set; }
-        public MediaPlayer BackgroundPlayer { get; set; } = new MediaPlayer();
-        public MediaPlayer SoundEffectPlayer { get; set; } = new MediaPlayer();
         public ICommand MuteCommand { get; set; }
-        public double Volume { get; set; }
 
         #region NavigationMethods
         public void GetMainMenuView(object parameter)
@@ -40,11 +37,6 @@ namespace MaterMinds
         #endregion
 
         #region MediaMethods
-        public void Start(MediaPlayer m, Uri u)
-        {
-            MediaHelper.Start(m, u);
-        }
-
         public void Mute(object parameter)
         {
             MediaHelper.Mute();

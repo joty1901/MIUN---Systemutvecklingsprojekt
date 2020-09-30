@@ -25,8 +25,9 @@ namespace MaterMinds
             InitializeComponent();
             model = new GameViewModel(player);
             DataContext = model;
+            System.Diagnostics.PresentationTraceSources.DataBindingSource.Switch.Level = System.Diagnostics.SourceLevels.Critical;
         }
-        private void panel_Drop(object sender, DragEventArgs e)
+        private void Panel_Drop(object sender, DragEventArgs e)
         {
             Panel panel = (Panel)sender;
             UIElement element = (UIElement)e.Data.GetData("Object");
@@ -59,16 +60,13 @@ namespace MaterMinds
                     DropSound();
                     UpdateUI(panel);
                     model.PlacedPegs.Remove(int.Parse(parent.Uid));
-
                     parent.Children.Remove(element);
                     panel.Children.Add(newPeg);
                     model.PlacedPegs.AddOrUpdate(int.Parse(panel.Uid), newPeg.ColorIndex);
                 }
             }
             CommandManager.InvalidateRequerySuggested();
-
         }
-
 
         private void UpdateUI(Panel panel)
         {
@@ -107,11 +105,11 @@ namespace MaterMinds
 
         private void DropSound()
         {
-            MediaHelper.Start(MediaHelper._soundEffectPlayer, new Uri(@"Resources/Sound/WaterDrop.mp3", UriKind.Relative));
+            MediaHelper.PlayMedia(MediaHelper._soundEffectPlayer, new Uri(@"Resources/Sound/WaterDrop.mp3", UriKind.Relative));
         }
         private void BlackHoleSound()
         {
-            MediaHelper.Start(MediaHelper._soundEffectPlayer, new Uri(@"Resources/Sound/BlackholeSound.mp3", UriKind.Relative));
+            MediaHelper.PlayMedia(MediaHelper._soundEffectPlayer, new Uri(@"Resources/Sound/BlackholeSound.mp3", UriKind.Relative));
         }
     }
 }
