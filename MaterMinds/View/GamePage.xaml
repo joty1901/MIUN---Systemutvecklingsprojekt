@@ -100,7 +100,8 @@
                       Width="100" 
                       Drop="PanelDrop">
                     
-                    <Image Source="/Resources/Picture/black-hole-png-218.png"/>
+                    <Image Source="/Resources/Picture/BlackHole.png"/>
+                    
                 </Grid>
             </StackPanel>
             <!--#endregion-->
