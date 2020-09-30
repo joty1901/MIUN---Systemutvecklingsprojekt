@@ -25,59 +25,56 @@ namespace MaterMinds
 
         #region Commands
         public ICommand NextRoundCommand { get; set; }
-        public ICommand ResetGameCommand { get; set; }
+        public ICommand RestartGameCommand { get; set; }
         public ICommand HelpCommand { get; set; }
         #endregion
-        public Dictionary<int, int> PlacedPegs { get; set; } = new Dictionary<int, int>();
-        public ObservableCollection<bool> ActiveRow { get; set; } = new ObservableCollection<bool> { true, false, false, false, false, false, false };
-        public int Rounds { get; set; } = 0;
-        public ObservableCollection<Brush[]> HintArray { get; set; } = new ObservableCollection<Brush[]>();
-        public ObservableCollection<MasterPeg> CorrectAnswerArray { get; set; } = new ObservableCollection<MasterPeg>();
         #region VisibilityProperties
-
+        public ObservableCollection<Visibility> TimerVisibility { get; set; } = new ObservableCollection<Visibility> { Visibility.Visible, Visibility.Hidden };
+        public ObservableCollection<Visibility> WinOrLoss { get; set; } = new ObservableCollection<Visibility> { Visibility.Hidden, Visibility.Hidden};
         public Visibility EndGameVisibility { get; set; } = Visibility.Hidden;
         public Visibility HelpViewVisibility { get; set; } = Visibility.Hidden;
         public Visibility GifVisibility { get; set; }
         #endregion
-        public ObservableCollection<Brush> BackgroundColor { get; set; } = new ObservableCollection<Brush> { Brushes.White, Brushes.Transparent, Brushes.Transparent, Brushes.Transparent, Brushes.Transparent, Brushes.Transparent, Brushes.Transparent };
-        public int GameTimerInSecounds { get; set; } = -1;
-        public int GameTimerInMinutes { get; set; }
+        #region GameTimerProps
+        private int GameTimerInSecounds { get; set; } = -1;
+        private int GameTimerInMinutes { get; set; }
         public int CountdownTimer { get; set; } = 3;
-        public ObservableCollection<Visibility> TimerVisibility { get; set; } = new ObservableCollection<Visibility> { Visibility.Visible, Visibility.Hidden };
         public string GameTimer { get; set; }
+        #endregion
+        public Dictionary<int, int> PlacedPegs { get; set; } = new Dictionary<int, int>();
+        public ObservableCollection<bool> ActiveRow { get; set; } = new ObservableCollection<bool> { true, false, false, false, false, false, false };
+        public ObservableCollection<Brush[]> HintArray { get; set; } = new ObservableCollection<Brush[]>();
+        public ObservableCollection<MasterPeg> CorrectAnswerArray { get; set; } = new ObservableCollection<MasterPeg>();
+        public ObservableCollection<Brush> BackgroundColor { get; set; } = new ObservableCollection<Brush> { Brushes.White, Brushes.Transparent, Brushes.Transparent, Brushes.Transparent, Brushes.Transparent, Brushes.Transparent, Brushes.Transparent };
         public int Score { get; set; }
-        public Player Player { get; set; }
-        public ObservableCollection<Visibility> WinOrLoss { get; set; } = new ObservableCollection<Visibility> { Visibility.Hidden, Visibility.Hidden};
-        
+        private int PlayedRounds { get; set; } = 0;
+        private Player Player { get; set; }
+
         public GameViewModel(Player player)
         {
             game = new GameEngine();
             Player = player;
             NextRoundCommand = new RelayCommand(NextRound, CeckIfCanExecute);
             MainMenuCommand = new RelayCommand(GetMainMenuView, CanExecute);
-            ResetGameCommand = new RelayCommand(RestartGame, CanExecute);
+            RestartGameCommand = new RelayCommand(RestartGame, CanExecute);
             ViewTopHighscoreCommand = new RelayCommand(GetHighscorePage, CanExecute);
             HelpCommand = new RelayCommand(SetVisibilityForHelpView, CanExecute);
             MuteCommand = new RelayCommand(Mute, CanExecute);
             StartTimer();
         }
 
-        public void NextRound(object parameter)
+        private void NextRound(object parameter)
         {
-
             if (game.CheckWinCon(PlacedPegs))
             {
                 EndGame(true);
             }
             else
             {
-                if (Rounds < 6)
+                if (PlayedRounds < 6)
                 {
                     UpdateGameBoard();
                 }
-                /*
-                 * This is the loose condition
-                 */
                 else
                 {
                     EndGame(false);
@@ -87,16 +84,16 @@ namespace MaterMinds
             PlacedPegs.Clear();
         }
 
-        public void UpdateGameBoard()
+        private void UpdateGameBoard()
         {
-            ActiveRow[Rounds] = false;
-            BackgroundColor[Rounds] = Brushes.Transparent;
-            Rounds++;
-            ActiveRow[Rounds] = true;
-            BackgroundColor[Rounds] = Brushes.White;
+            ActiveRow[PlayedRounds] = false;
+            BackgroundColor[PlayedRounds] = Brushes.Transparent;
+            PlayedRounds++;
+            ActiveRow[PlayedRounds] = true;
+            BackgroundColor[PlayedRounds] = Brushes.White;
         }
 
-        public void GetAnswer()
+        private void PresentAnswer()
         {
             CorrectAnswerArray.Clear();
             foreach (var c in game.GetCorrectAnswer())
@@ -126,7 +123,7 @@ namespace MaterMinds
         }
 
         #region TimerAndScore
-        public void AddScoreToDB()
+        private void AddScoreToDB()
         {
             Repository.AddScoreWithPlayerId(Player.Id, Score);
         }
@@ -184,16 +181,16 @@ namespace MaterMinds
         }
         #endregion
 
-        public void EndGame(bool win)
+        private void EndGame(bool win)
         {
             StopTimer();
-            GetAnswer();
+            PresentAnswer();
             GifVisibility = Visibility.Hidden;
             EndGameVisibility = Visibility.Visible;
             
             if (win)
             {
-                Score = game.CalculateScore(Rounds, GameTimerInSecounds, GameTimerInMinutes);
+                Score = game.CalculateScore(PlayedRounds, GameTimerInSecounds, GameTimerInMinutes);
                 AddScoreToDB();
                 WinOrLoss[0] = Visibility.Visible;
             }
@@ -205,7 +202,7 @@ namespace MaterMinds
             }
         }
 
-        public void RestartGame(object parameter)
+        private void RestartGame(object parameter)
         {
             MessageBoxResult result = MessageBox.Show($"Do you want to restart current game?", "Warning", MessageBoxButton.YesNo);
             switch (result)
