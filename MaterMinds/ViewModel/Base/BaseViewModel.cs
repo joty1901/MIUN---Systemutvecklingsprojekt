@@ -1,16 +1,10 @@
 ﻿using MaterMinds.Command;
 using MaterMinds.Model;
 using MaterMinds.View;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using System.Text;
 using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Navigation;
-using System.Xml.Serialization;
 
 namespace MaterMinds
 {
