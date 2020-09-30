@@ -2,11 +2,6 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Configuration;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Windows.Media;
-using MaterMinds;
 using Npgsql;
 
 namespace MaterMinds
@@ -219,7 +214,14 @@ namespace MaterMinds
         {
             using (var conn = new NpgsqlConnection(connectionString))
             {
-                conn.Open();
+                try
+                {
+                    conn.Open();
+                }
+                catch
+                {
+                    throw;
+                }
             }
 
         }

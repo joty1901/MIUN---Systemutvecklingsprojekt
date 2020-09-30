@@ -1,11 +1,7 @@
-﻿using MaterMinds.Model;
-using MaterMinds.View;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using MaterMinds.View;
+using Npgsql;
 using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
 
 namespace MaterMinds.ViewModel
 {
@@ -31,7 +27,17 @@ namespace MaterMinds.ViewModel
 
         private void StartDBConnection()
         {
-            Repository.StartDb();
+            try
+            {
+                Repository.StartDb();
+            }
+            catch
+            {
+                MessageBox.Show($"Couldn´t connect to the database. " +
+                    $"Check your internet connection. If the problem remains " +
+                    $"call our customer service on 1-87-ESPN-IS-KING. Our opening hours are 05:00 AM to 05:01 AM");
+                CloseApplication(true);
+            }
         }
 
         private void CloseApplication(object parameter)
