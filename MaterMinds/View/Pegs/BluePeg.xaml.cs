@@ -3,9 +3,6 @@ using System.Windows.Shapes;
 
 namespace MaterMinds
 {
-    /// <summary>
-    /// Interaction logic for BluePeg.xaml
-    /// </summary>
     public partial class BluePeg : MasterPeg
     {
         public BluePeg()

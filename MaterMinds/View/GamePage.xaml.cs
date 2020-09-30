@@ -1,21 +1,12 @@
-﻿using MaterMinds.View;
-using MaterMinds.ViewModel;
-using System.Net.Http.Headers;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.IO;
 using System;
-using System.Windows.Resources;
-using System.Runtime.InteropServices.WindowsRuntime;
 using MaterMinds.Model;
 
 namespace MaterMinds
 {
-    /// <summary>
-    /// Interaction logic for GamePage.xaml
-    /// </summary>
     public partial class GamePage : Page
     {
         private GameViewModel model;
@@ -27,7 +18,7 @@ namespace MaterMinds
             DataContext = model;
             System.Diagnostics.PresentationTraceSources.DataBindingSource.Switch.Level = System.Diagnostics.SourceLevels.Critical;
         }
-        private void Panel_Drop(object sender, DragEventArgs e)
+        private void PanelDrop(object sender, DragEventArgs e)
         {
             Panel panel = (Panel)sender;
             UIElement element = (UIElement)e.Data.GetData("Object");

@@ -3,9 +3,6 @@ using System.Windows.Shapes;
 
 namespace MaterMinds
 {
-    /// <summary>
-    /// Interaction logic for RedPeg.xaml
-    /// </summary>
     public partial class RedPeg : MasterPeg
     {
         LinearGradientBrush linearBrush = new LinearGradientBrush();
