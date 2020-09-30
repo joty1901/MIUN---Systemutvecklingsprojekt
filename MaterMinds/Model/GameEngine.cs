@@ -1,23 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
 using System.Linq;
-using System.Windows;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Xml.Serialization;
 
 namespace MaterMinds
 {
     public class GameEngine
     {
         Random random = new Random();
+
+        #region Properties
         private Dictionary<int, int> CorrectAnswer { get; set; } = new Dictionary<int, int>();
         private Brush[] HintToAnswer { get; set; }
         private int[] CheckForDoubles { get; set; }
         private int[] SortedAnswerArray { get; set; }
+        #endregion
 
         public GameEngine()
         {
@@ -54,7 +51,7 @@ namespace MaterMinds
             Array.Reverse(HintToAnswer);
         }
 
-        private void GetAnswerArray()
+        private void CopyAnswerArray()
         {
             for (int i = 0; i < 4; i++)
             {
@@ -97,13 +94,12 @@ namespace MaterMinds
             HintToAnswer = new Brush[4];
             CheckForDoubles = new int[4];
             SortedAnswerArray = new int[4];
-
         }
 
         public Brush[] CheckPegPosition(Dictionary<int, int> playerGuess)
         {
             ClearAllProps();
-            GetAnswerArray();
+            CopyAnswerArray();
             SortAnswerArray(playerGuess);
             SetWhitePegs();
             SortHintArray();
@@ -111,7 +107,7 @@ namespace MaterMinds
             return HintToAnswer;
         }
 
-        public bool CheckWinCon(Dictionary<int, int> playerGuess)
+        public bool CheckIfWin(Dictionary<int, int> playerGuess)
         {
             int counter = 0; 
             foreach (var c in playerGuess)

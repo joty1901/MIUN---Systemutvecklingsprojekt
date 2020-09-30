@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MaterMinds
+﻿namespace MaterMinds
 {
     public class Score
     {
@@ -12,9 +8,6 @@ namespace MaterMinds
         public int PlayerId { get; set; }
         public string Date { get; set; }
 
-        public Score()
-        {
-
-        }
+        public Score() { }
     }
 }

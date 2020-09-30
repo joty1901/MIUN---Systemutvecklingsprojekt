@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows.Media;
 
 namespace MaterMinds.Model
@@ -14,14 +12,11 @@ namespace MaterMinds.Model
 
         public static void Mute()
         {
-            //_soundEffectPlayer.Volume = volume;
             if(Muted == false)
             {
                 Muted = true;
                 _backgroundPlayer.IsMuted = Muted;
                 _soundEffectPlayer.IsMuted = Muted;
-                //_backgroundPlayer.Stop();
-                //_soundEffectPlayer.Stop();
             }
             else
             {
