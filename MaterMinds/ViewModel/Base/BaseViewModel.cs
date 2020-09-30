@@ -40,11 +40,6 @@ namespace MaterMinds
         #endregion
 
         #region MediaMethods
-        public void Start(MediaPlayer m, Uri u)
-        {
-            MediaHelper.Start(m, u);
-        }
-
         public void Mute(object parameter)
         {
             MediaHelper.Mute();

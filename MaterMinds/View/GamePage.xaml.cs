@@ -107,11 +107,11 @@ namespace MaterMinds
 
         private void DropSound()
         {
-            MediaHelper.Start(MediaHelper._soundEffectPlayer, new Uri(@"Resources/Sound/WaterDrop.mp3", UriKind.Relative));
+            MediaHelper.PlayMedia(MediaHelper._soundEffectPlayer, new Uri(@"Resources/Sound/WaterDrop.mp3", UriKind.Relative));
         }
         private void BlackHoleSound()
         {
-            MediaHelper.Start(MediaHelper._soundEffectPlayer, new Uri(@"Resources/Sound/BlackholeSound.mp3", UriKind.Relative));
+            MediaHelper.PlayMedia(MediaHelper._soundEffectPlayer, new Uri(@"Resources/Sound/BlackholeSound.mp3", UriKind.Relative));
         }
     }
 }
