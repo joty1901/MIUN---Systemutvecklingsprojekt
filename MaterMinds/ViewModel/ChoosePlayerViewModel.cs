@@ -54,15 +54,8 @@ namespace MaterMinds
 
         private void NewGame(object parameter)
         {
-            if (SelectedPlayer != null)
-            {
-                Player player = SelectedPlayer;
-                Main.Content = new GamePage(player);
-            }
-            else
-            {
-                MessageBox.Show("Select a player before starting the game");
-            }
+            Player player = SelectedPlayer;
+            Main.Content = new GamePage(player);
         }
 
         private void HighlightSelectedPlayer()
