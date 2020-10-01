@@ -1,17 +1,10 @@
 ﻿using MaterMinds.View;
 using Npgsql;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
-using System.Runtime.ExceptionServices;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Navigation;
 
 namespace MaterMinds
 {
@@ -22,27 +15,33 @@ namespace MaterMinds
         public ICommand ChoosePlayerCommand { get; set; }
         public ICommand SearchCommand { get; set; }
         #endregion
-
+        #region Properties
         public string Nickname { get; set; }
         public string SearchNickname { get; set; }
         public ObservableCollection<Player> PlayerList { get; set; }
         public Player SelectedPlayer { get; set; }
+        #endregion
 
         public ChoosePlayerViewModel()
         {
-            SearchCommand = new RelayCommand(SearchPlayer, CanExecute);
+            SearchCommand = new RelayCommand(SelectSearchedPlayer, CanExecute);
             NewPlayerCommand = new RelayCommand(CreatePlayer, CanExecute);
             ChoosePlayerCommand = new RelayCommand(NewGame, CeckIfCanExecute);
             MainMenuCommand = new RelayCommand(GetMainMenuView, CanExecute);
             GetPlayers();
         }
 
+        private void GetPlayers()
+        {
+            PlayerList = (ObservableCollection<Player>)Repository.GetDbPlayers();
+        }
+
         private void CreatePlayer(object parameter)
         {
             try
             {
-                int id = Repository.AddPlayer(Nickname);
-                Player player = new Player(id, Nickname);
+                int playerID = Repository.AddPlayer(Nickname);
+                Player player = new Player(playerID, Nickname);
                 GetPlayers();
                 HighlightSelectedPlayer();
             }
@@ -50,6 +49,19 @@ namespace MaterMinds
             {
                 var code = ex.SqlState;
                 MessageBox.Show($"Nickname {Nickname} already in use!");
+            }
+        }
+
+        private void NewGame(object parameter)
+        {
+            if (SelectedPlayer != null)
+            {
+                Player player = SelectedPlayer;
+                Main.Content = new GamePage(player);
+            }
+            else
+            {
+                MessageBox.Show("Select a player before starting the game");
             }
         }
 
@@ -76,18 +88,8 @@ namespace MaterMinds
             }
         }
 
-        private void GetPlayers()
-        {
-            PlayerList = (ObservableCollection<Player>)Repository.GetDbPlayers();
-        }
-
-        private void NewGame(object parameter)
-        {
-            Player player = SelectedPlayer;
-            Main.Content = new GamePage(player);
-        }
-
-        private void SearchPlayer(object parameter)
+        #region SearchPlayers
+        private void SelectSearchedPlayer(object parameter)
         {
             ClearPlayerList();
             if (SearchNickname == "" || SearchNickname == null)
@@ -123,15 +125,21 @@ namespace MaterMinds
             }
             if (PlayerList.Count == 0)
             {
-                foreach (Player c in listOfPlayers)
+                SearchIfContainsNickname(listOfPlayers);
+            }
+        }
+
+        private void SearchIfContainsNickname(List<Player> listOfPlayers)
+        {
+            foreach (Player c in listOfPlayers)
+            {
+                if (c.Nickname.ToLower().Contains(SearchNickname.ToLower()))
                 {
-                    if (c.Nickname.ToLower().Contains(SearchNickname.ToLower()))
-                    {
-                        PlayerList.Add(c);
-                    }
+                    PlayerList.Add(c);
                 }
             }
         }
+        #endregion
 
         private void ClearPlayerList()
         {
@@ -147,6 +155,5 @@ namespace MaterMinds
             else
                 return false;
         }
-
     }
 }

@@ -3,27 +3,40 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MaterMinds.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              Background="{DynamicResource BackgroundIMG}">
+    <!--#region Scrollbar-->
     <UserControl.Resources>
         <ResourceDictionary>
-            <Style x:Key="ScrollThumbs" TargetType="{x:Type Thumb}">
+            <Style x:Key="ScrollThumbs" 
+                   TargetType="{x:Type Thumb}">
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate>
                             <Grid x:Name="Grid">
-                                <Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto"
-                                           Height="Auto" Fill="Transparent"/>
-                                <Border x:Name="Rectangle1" CornerRadius="5" HorizontalAlignment="Stretch" 
-                                        VerticalAlignment="Stretch" Width="Auto" Height="Auto"
+                                <Rectangle HorizontalAlignment="Stretch" 
+                                           VerticalAlignment="Stretch" 
+                                           Width="Auto"
+                                           Height="Auto" 
+                                           Fill="Transparent"/>
+                                <Border x:Name="Rectangle1" 
+                                        CornerRadius="5" 
+                                        HorizontalAlignment="Stretch" 
+                                        VerticalAlignment="Stretch" 
+                                        Width="Auto" 
+                                        Height="Auto"
                                         Background="{TemplateBinding Background}"/>
                             </Grid>
                             <ControlTemplate.Triggers>
-                                <Trigger Property="Tag" Value="Horizontal">
-                                    <Setter TargetName="Rectangle1" Property="Width" Value="Auto"/>
-                                    <Setter TargetName="Rectangle1" Property="Height" Value="7"/>
+                                <Trigger Property="Tag" 
+                                         Value="Horizontal">
+                                    <Setter TargetName="Rectangle1" 
+                                            Property="Width" 
+                                            Value="Auto"/>
+                                    <Setter TargetName="Rectangle1" 
+                                            Property="Height" 
+                                            Value="7"/>
                                 </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
@@ -31,58 +44,97 @@
                 </Setter>
             </Style>
             <!--SCROLLBARS-->
-            <Style x:Key="{x:Type ScrollBar}" TargetType="{x:Type ScrollBar}">
-                <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
-                <Setter Property="Foreground" Value="LightBlue"/>
-                <Setter Property="Background" Value="DarkGray"/>
-                <Setter Property="Width" Value="10"/>
+            <Style x:Key="{x:Type ScrollBar}" 
+                   TargetType="{x:Type ScrollBar}">
+                <Setter Property="Stylus.IsFlicksEnabled" 
+                        Value="False"/>
+                <Setter Property="Foreground" 
+                        Value="LightBlue"/>
+                <Setter Property="Background" 
+                        Value="DarkGray"/>
+                <Setter Property="Width" 
+                        Value="10"/>
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type ScrollBar}">
-                            <Grid x:Name="GridRoot" Width="12" Background="{x:Null}">
-                                <Track x:Name="PART_Track" Grid.Row="0" IsDirectionReversed="True" Focusable="False">
+                            <Grid x:Name="GridRoot" 
+                                  Width="12" 
+                                  Background="{x:Null}">
+                                <Track x:Name="PART_Track" 
+                                       Grid.Row="0" 
+                                       IsDirectionReversed="True" 
+                                       Focusable="False">
                                     <Track.Thumb>
-                                        <Thumb x:Name="Thumb" Background="{TemplateBinding Foreground}" Style="{DynamicResource ScrollThumbs}"/>
+                                        <Thumb x:Name="Thumb" 
+                                               Background="{TemplateBinding Foreground}" 
+                                               Style="{DynamicResource ScrollThumbs}"/>
                                     </Track.Thumb>
                                     <Track.IncreaseRepeatButton>
-                                        <RepeatButton x:Name="PageUp" Command="ScrollBar.PageDownCommand" Opacity="0" Focusable="False"/>
+                                        <RepeatButton x:Name="PageUp" 
+                                                      Command="ScrollBar.PageDownCommand" 
+                                                      Opacity="0" 
+                                                      Focusable="False"/>
                                     </Track.IncreaseRepeatButton>
                                     <Track.DecreaseRepeatButton>
-                                        <RepeatButton x:Name="PageDown" Command="ScrollBar.PageUpCommand" Opacity="0" Focusable="False"/>
+                                        <RepeatButton x:Name="PageDown" 
+                                                      Command="ScrollBar.PageUpCommand" 
+                                                      Opacity="0" 
+                                                      Focusable="False"/>
                                     </Track.DecreaseRepeatButton>
                                 </Track>
                             </Grid>
 
                             <ControlTemplate.Triggers>
-                                <Trigger SourceName="Thumb" Property="IsMouseOver" Value="True">
-                                    <Setter Value="{DynamicResource ButtonSelectBrush}" TargetName="Thumb" Property="Background"/>
+                                <Trigger SourceName="Thumb" 
+                                         Property="IsMouseOver" 
+                                         Value="True">
+                                    <Setter Value="{DynamicResource ButtonSelectBrush}" 
+                                            TargetName="Thumb" 
+                                            Property="Background"/>
                                 </Trigger>
 
-                                <Trigger SourceName="Thumb" Property="IsDragging" Value="True">
-                                    <Setter Value="{DynamicResource DarkBrush}" TargetName="Thumb" Property="Background"/>
+                                <Trigger SourceName="Thumb" 
+                                         Property="IsDragging" 
+                                         Value="True">
+                                    <Setter Value="{DynamicResource DarkBrush}" 
+                                            TargetName="Thumb" 
+                                            Property="Background"/>
                                 </Trigger>
 
-                                <Trigger Property="IsEnabled" Value="False">
-                                    <Setter TargetName="Thumb" Property="Visibility" Value="Collapsed"/>
+                                <Trigger Property="IsEnabled" 
+                                         Value="False">
+                                    <Setter TargetName="Thumb" 
+                                            Property="Visibility" 
+                                            Value="Collapsed"/>
                                 </Trigger>
 
-                                <Trigger Property="Orientation" Value="Horizontal">
-                                    <Setter TargetName="GridRoot" Property="LayoutTransform">
+                                <Trigger Property="Orientation" 
+                                         Value="Horizontal">
+                                    <Setter TargetName="GridRoot" 
+                                            Property="LayoutTransform">
                                         <Setter.Value>
                                             <RotateTransform Angle="-90"/>
                                         </Setter.Value>
                                     </Setter>
-                                    <Setter TargetName="PART_Track" Property="LayoutTransform">
+                                    <Setter TargetName="PART_Track" 
+                                            Property="LayoutTransform">
                                         <Setter.Value>
                                             <RotateTransform Angle="-90"/>
                                         </Setter.Value>
                                     </Setter>
-                                    <Setter Property="Width" Value="Auto"/>
-                                    <Setter Property="Height" Value="12"/>
-                                    <Setter TargetName="Thumb" Property="Tag" Value="Horizontal"/>
-                                    <Setter TargetName="PageDown" Property="Command" Value="ScrollBar.PageLeftCommand"/>
-                                    <Setter TargetName="PageUp" Property="Command" Value="ScrollBar.PageRightCommand"/>
-
+                                    <Setter Property="Width" 
+                                            Value="Auto"/>
+                                    <Setter Property="Height" 
+                                            Value="12"/>
+                                    <Setter TargetName="Thumb" 
+                                            Property="Tag" 
+                                            Value="Horizontal"/>
+                                    <Setter TargetName="PageDown" 
+                                            Property="Command" 
+                                            Value="ScrollBar.PageLeftCommand"/>
+                                    <Setter TargetName="PageUp" 
+                                            Property="Command" 
+                                            Value="ScrollBar.PageRightCommand"/>
                                 </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
@@ -91,7 +143,7 @@
             </Style>
         </ResourceDictionary>
     </UserControl.Resources>
-
+    <!--#endregion-->
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -101,28 +153,36 @@
             <RowDefinition Height="140"/>
             <RowDefinition />
         </Grid.RowDefinitions>
-        <Border BorderBrush="White" BorderThickness="0,2,2,0" Grid.Row="1" Grid.Column="0"/>
-        <Border BorderBrush="White" BorderThickness="0,2,0,0" Grid.Row="1" Grid.Column="1"/>
+        
+        <Border BorderBrush="White" 
+                BorderThickness="0,2,2,0" 
+                Grid.Row="1" 
+                Grid.Column="0"/>
+        
+        <Border BorderBrush="White" 
+                BorderThickness="0,2,0,0" 
+                Grid.Row="1" 
+                Grid.Column="1"/>
 
-
-        <StackPanel 
-                    Height="120" Width="621"
+        <StackPanel Height="120" 
+                    Width="621"
                     VerticalAlignment="Top"
                     HorizontalAlignment="Center" 
                     Grid.ColumnSpan="2"
-                    Grid.Row="0" >
-            <Label Content="{Binding SelectedPlayer.Nickname, FallbackValue=Create or select a player}" 
+                    Grid.Row="0">
+            
+            <Label  Content="{Binding SelectedPlayer.Nickname, FallbackValue=Create or select a player}" 
                     Background="Transparent"
                     FontSize="30" 
                     FontWeight="Bold"
                     Foreground="Azure"
                     VerticalContentAlignment="Center"
-                    HorizontalContentAlignment="Center" Height="60"
-                    />
+                    HorizontalContentAlignment="Center" Height="60"/>
+            
             <Button Content="Start Game" 
-                     Command="{Binding ChoosePlayerCommand}" 
-                     Style="{StaticResource RoundButtonTemplate}"
-                     Width="398" />
+                    Command="{Binding ChoosePlayerCommand}" 
+                    Style="{StaticResource RoundButtonTemplate}"
+                    Width="398"/>
         </StackPanel>
 
         <StackPanel
@@ -131,19 +191,17 @@
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
             Margin="-10,0,0,1"
-            Height="270"
-            >
+            Height="270">
+            
             <Label Content="Select player"
                    FontWeight="Bold"
                    Foreground="White" 
                    FontSize="25" 
                    HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   />
+                   VerticalAlignment="Center"/>
 
             <ScrollViewer Width="246">
-                <ListBox 
-                         FontSize="15" 
+                <ListBox FontSize="15" 
                          ScrollViewer.VerticalScrollBarVisibility="Visible" 
                          ScrollViewer.HorizontalScrollBarVisibility="Hidden"
                          Background="Transparent" 
@@ -177,39 +235,37 @@
                 <Button Style="{StaticResource RoundButtonTemplate}"
                         Command="{Binding SearchCommand}"
                         Margin="10,0,0,0"
-                        Height="40" Width="40" HorizontalAlignment="Right">
+                        Height="40" 
+                        Width="40" 
+                        HorizontalAlignment="Right">
                     <Image Source="/Resources/Picture/MagnifyingGlass.png" Width="30" Height="30"/>
                 </Button>
             </WrapPanel>
-
         </StackPanel>
 
         <Button Content="Main Menu"
-                    HorizontalAlignment="Left" 
-                    VerticalAlignment="Top"
-                    Margin="0,10,0,0"
-                    Command="{Binding MainMenuCommand}"
-                    Style="{StaticResource RoundButtonTemplate}"
-                    FontSize="15" 
-                    Width="94"
-                    Height="30">
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top"
+                Margin="0,10,0,0"
+                Command="{Binding MainMenuCommand}"
+                Style="{StaticResource RoundButtonTemplate}"
+                FontSize="15" 
+                Width="94"
+                Height="30">
         </Button>
 
-        <StackPanel
-                VerticalAlignment="Center"
-                HorizontalAlignment="Center"
-                Height="250" 
-                Margin="0,0,10,20"
-                Grid.Row="1"
-                >
+        <StackPanel VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Height="250" 
+                    Margin="0,0,10,20"
+                    Grid.Row="1">
 
             <Label Content="New player"
                    FontWeight="Bold"  
                    Foreground="White" 
                    FontSize="25" 
                    HorizontalAlignment="Center"
-                   VerticalAlignment="Top"
-                   />
+                   VerticalAlignment="Top"/>
 
             <Label Content="Choose your nickname"
                    FontWeight="Bold"  
@@ -230,12 +286,14 @@
                      FontSize="15" 
                      Height="40"
                      Width="270"/>
+            
             <Button Content="Create player"
-                        HorizontalAlignment="Center"
-                        VerticalContentAlignment="Top"
-                        Command="{Binding NewPlayerCommand}" 
-                        Style="{StaticResource RoundButtonTemplate}" 
-                        Margin="0,10,0,0" Width="270"/>
+                    HorizontalAlignment="Center"
+                    VerticalContentAlignment="Top"
+                    Command="{Binding NewPlayerCommand}" 
+                    Style="{StaticResource RoundButtonTemplate}" 
+                    Margin="0,10,0,0" 
+                    Width="270"/>
         </StackPanel>
     </Grid>
 </UserControl>

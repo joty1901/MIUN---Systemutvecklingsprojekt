@@ -1,7 +1,4 @@
-﻿using MaterMinds.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace MaterMinds
 {
@@ -11,10 +8,7 @@ namespace MaterMinds
         public string Nickname { get; set; }
         public List<Score> PlayerScore { get; set; }
 
-        public Player() 
-        {
-
-        }
+        public Player() { }
 
         public Player(int id, string nickname)
         {

@@ -22,7 +22,7 @@
     <None Remove="Resources\Cursor\YellowCircle.cur" />
     <None Remove="Resources\giphy.gif" />
     <None Remove="Resources\MaterMindBackground.jpg" />
-    <None Remove="Resources\Picture\black-hole-png-218.png" />
+    <None Remove="Resources\Picture\BlackHole.png" />
     <None Remove="Resources\Picture\Earth.jpg" />
     <None Remove="Resources\Picture\MagnifyingGlass.png" />
     <None Remove="Resources\Picture\QuestionMark.gif" />
@@ -48,7 +48,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Npgsql" Version="4.1.4" />
+    <PackageReference Include="Npgsql" Version="4.1.5" />
     <PackageReference Include="PropertyChanged.Fody" Version="3.2.9" />
     <PackageReference Include="WpfAnimatedGif" Version="2.0.0" />
   </ItemGroup>
@@ -60,7 +60,7 @@
     <Resource Include="Resources\Cursor\GreenCircle.cur" />
     <Resource Include="Resources\Cursor\BlueCircle.cur" />
     <Resource Include="Resources\Cursor\YellowCircle.cur" />
-    <Resource Include="Resources\Picture\black-hole-png-218.png" />
+    <Resource Include="Resources\Picture\BlackHole.png" />
     <Resource Include="Resources\Picture\Earth.jpg" />
     <Resource Include="Resources\Picture\MagnifyingGlass.png" />
     <Resource Include="Resources\Picture\QuestionMark.gif" />
@@ -72,18 +72,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Properties\Resources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
+    <Folder Include="Properties\" />
   </ItemGroup>
 
 </Project>

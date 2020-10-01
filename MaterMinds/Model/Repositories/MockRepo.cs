@@ -1,8 +1,5 @@
-﻿using MaterMinds.Repositories;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Security.Cryptography.Xml;
-using System.Text;
 
 namespace MaterMinds.Model.Repositories
 {
