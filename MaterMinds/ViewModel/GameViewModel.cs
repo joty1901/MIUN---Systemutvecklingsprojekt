@@ -35,7 +35,7 @@ namespace MaterMinds
         public ObservableCollection<bool> ActiveRow { get; set; } = new ObservableCollection<bool> { true, false, false, false, false, false, false };
         public ObservableCollection<Brush[]> HintArray { get; set; } = new ObservableCollection<Brush[]>();
         public ObservableCollection<MasterPeg> CorrectAnswerArray { get; set; } = new ObservableCollection<MasterPeg>();
-        public ObservableCollection<Brush> BackgroundColor { get; set; } = new ObservableCollection<Brush> { Brushes.White, Brushes.Transparent, Brushes.Transparent, Brushes.Transparent, Brushes.Transparent, Brushes.Transparent, Brushes.Transparent };
+        public ObservableCollection<Brush> BorderBrushColor { get; set; } = new ObservableCollection<Brush> { Brushes.White, Brushes.Transparent, Brushes.Transparent, Brushes.Transparent, Brushes.Transparent, Brushes.Transparent, Brushes.Transparent };
         public int Score { get; set; }
         private int PlayedRounds { get; set; } = 0;
         private Player Player { get; set; }
@@ -77,10 +77,10 @@ namespace MaterMinds
         private void UpdateGameBoard()
         {
             ActiveRow[PlayedRounds] = false;
-            BackgroundColor[PlayedRounds] = Brushes.Transparent;
+            BorderBrushColor[PlayedRounds] = Brushes.Transparent;
             PlayedRounds++;
             ActiveRow[PlayedRounds] = true;
-            BackgroundColor[PlayedRounds] = Brushes.White;
+            BorderBrushColor[PlayedRounds] = Brushes.White;
         }
 
         private void PresentAnswer()
