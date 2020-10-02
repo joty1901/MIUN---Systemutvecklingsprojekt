@@ -172,7 +172,7 @@
                 </Border>
                 
                 <Border BorderThickness="3" 
-                        BorderBrush="{Binding BackgroundColor[6]}" 
+                        BorderBrush="{Binding BorderBrushColor[6]}" 
                         CornerRadius="10" 
                         IsEnabled="{Binding ActiveRow[6]}">
                     
@@ -248,7 +248,7 @@
                 </Border>
 
                 <Border BorderThickness="3" 
-                        BorderBrush="{Binding BackgroundColor[5]}" 
+                        BorderBrush="{Binding BorderBrushColor[5]}" 
                         CornerRadius="10" 
                         IsEnabled="{Binding ActiveRow[5]}">
                     
@@ -327,7 +327,7 @@
                 </Border>
 
                 <Border BorderThickness="3" 
-                        BorderBrush="{Binding BackgroundColor[4]}" 
+                        BorderBrush="{Binding BorderBrushColor[4]}" 
                         CornerRadius="10" 
                         IsEnabled="{Binding ActiveRow[4]}">
                     
@@ -403,7 +403,7 @@
                 </Border>
 
                 <Border BorderThickness="3" 
-                        BorderBrush="{Binding BackgroundColor[3]}" 
+                        BorderBrush="{Binding BorderBrushColor[3]}" 
                         CornerRadius="10" 
                         IsEnabled="{Binding ActiveRow[3]}">
                     
@@ -482,7 +482,7 @@
                 </Border>
 
                 <Border BorderThickness="3" 
-                        BorderBrush="{Binding BackgroundColor[2]}" 
+                        BorderBrush="{Binding BorderBrushColor[2]}" 
                         CornerRadius="10" 
                         IsEnabled="{Binding ActiveRow[2]}">
                     
@@ -555,7 +555,7 @@
                 </Border>
 
                 <Border BorderThickness="3" 
-                        BorderBrush="{Binding BackgroundColor[1]}" 
+                        BorderBrush="{Binding BorderBrushColor[1]}" 
                         CornerRadius="10" 
                         IsEnabled="{Binding ActiveRow[1]}">
                     
@@ -632,7 +632,7 @@
                 </Border>
 
                 <Border BorderThickness="3" 
-                        BorderBrush="{Binding BackgroundColor[0]}" 
+                        BorderBrush="{Binding BorderBrushColor[0]}" 
                         CornerRadius="10" 
                         IsEnabled="{Binding ActiveRow[0]}">
                     
