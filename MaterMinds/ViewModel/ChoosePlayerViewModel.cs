@@ -1,5 +1,4 @@
-﻿using MaterMinds.View;
-using Npgsql;
+﻿using Npgsql;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -67,9 +66,16 @@ namespace MaterMinds
 
         private void HighlightSelectedPlayer()
         {
-            if (Nickname == null && PlayerList.Count != 0)
+            if (Nickname == null)
             {
-                SelectedPlayer = PlayerList[0];
+                if (PlayerList.Count == 1)
+                {
+                    SelectedPlayer = PlayerList[0];
+                }
+                else
+                {
+                    SelectedPlayer = null;
+                }
             }
             else
             {
@@ -86,6 +92,7 @@ namespace MaterMinds
                     SelectedPlayer = PlayerList[i];
                 }
             }
+            Nickname = null;
         }
 
         #region SearchPlayers
